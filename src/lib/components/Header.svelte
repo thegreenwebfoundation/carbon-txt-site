@@ -6,14 +6,16 @@
 					<img
 						width="200px"
 						height="48px"
-						src="/static/img/TGWF-logo.5fd20dfd2c0c.svg"
+						src="/tgwf-logo.svg"
 						alt="The Green Web Foundation logo"
 					/>
 				</a>
 			</div>
 
-			<div class="pl-10 display-block">
-				<a href="/accounts/login/">Log in</a>
+			<div class="pl-10 flex gap-3">
+				<a href="">What is carbon.txt?</a>
+				<a href="">Validator</a>
+				<a href="">Builder</a>
 			</div>
 		</nav>
 	</div>
