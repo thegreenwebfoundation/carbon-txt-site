@@ -1,4 +1,4 @@
-<div class="relative flex-auto">
+<div class="relative grid place-content-center min-h-[100%]">
 	<div
 		class="block fixed -z-50 left-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-r from-green-500"
 		style="height: calc(100% + 100px);"
@@ -14,6 +14,10 @@
 					A proposed convention for website owners and digital service providers to demonstrate that
 					their digital infrastructure runs on green electricity.
 				</p>
+				<div class="mt-8 flex flex-auto gap-3">
+					<a class="btn block m-auto w-2/3 rounded-full text-center">Learn more</a>
+					<a class="btn btn-white block m-auto w-2/3 rounded-full text-center">Github</a>
+				</div>
 			</div>
 		</section>
 	</div>
