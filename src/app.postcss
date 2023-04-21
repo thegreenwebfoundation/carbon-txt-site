@@ -2,3 +2,143 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: TWKEverett;
+		font-weight: 400;
+		src: url(../../fonts/twkeverett-regular.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: TWKEverett;
+		font-weight: 400;
+		font-style: italic;
+		src: url(../../fonts/twkeverett-regularitalic.woff2) format('woff2');
+	}
+	html {
+		@apply text-neutral-900;
+		@apply font-normal;
+	}
+	*,
+	::before,
+	::after {
+		@apply border-black;
+	}
+	a {
+		@apply underline;
+	}
+	a:hover {
+		@apply no-underline;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold;
+	}
+}
+
+@layer components {
+	.btn {
+		@apply inline-block;
+		@apply bg-green;
+		@apply text-black;
+		@apply rounded-3xl;
+		@apply my-2.5;
+		@apply py-2.5;
+		@apply px-4;
+		@apply no-underline;
+		@apply border-2;
+		@apply uppercase;
+	}
+	.btn:hover {
+		@apply bg-green-200;
+	}
+	.btn-white {
+		@apply bg-white;
+	}
+	.btn-white:hover {
+		@apply bg-green-200;
+	}
+	.btn-black {
+		@apply bg-black;
+		@apply text-green;
+	}
+	.btn-black:hover {
+		@apply bg-green-200;
+		@apply text-black;
+	}
+	.btn-sm {
+		@apply text-sm;
+	}
+	.full-width {
+		left: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		max-width: 100vw;
+		position: relative;
+		right: 50%;
+		width: 100vw;
+	}
+	/* SUCCESS NOTIFICATION */
+	div[class^='alert__'] {
+		@apply p-6;
+		@apply border-2;
+		@apply rounded-xl;
+		@apply mb-8;
+	}
+	div[class^='alert__'] > *:first-child {
+		@apply mt-0;
+	}
+	div[class^='alert__'] > *:last-child {
+		@apply mb-0;
+	}
+	.alert__success {
+		@apply bg-green-50;
+		@apply text-green-800;
+		@apply border-green-800;
+	}
+	.alert__warning {
+		@apply bg-orange-50;
+		@apply text-orange-700;
+		@apply border-orange-700;
+	}
+	.alert__error {
+		@apply bg-purple-50;
+		@apply text-purple-600;
+		@apply border-purple-600;
+	}
+	.service-label {
+		@apply bg-green-100;
+		@apply rounded-3xl;
+		@apply mb-4;
+		@apply mr-6;
+		@apply last:mr-0;
+		@apply px-4;
+		@apply py-2;
+		@apply text-sm;
+	}
+	.service-label:before {
+		@apply inline-block;
+		@apply rounded-xl;
+		content: '';
+		@apply bg-green;
+		@apply w-4;
+		@apply h-4;
+		@apply mt-1;
+		@apply mr-2;
+	}
+}
+
+html {
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	font-family: TWKEverett, sans-serif;
+	font-feature-settings: normal;
+	font-variation-settings: normal;
+}
