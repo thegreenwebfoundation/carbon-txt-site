@@ -103,19 +103,22 @@ credentials = [
 					</p>
 				</li>
 			</ul>
-			<div class="prose">
-				<h3 class="text-4xl uppercase pb-4">To achieve these goals, we:</h3>
-				<ul>
-					<li>
-						use as much existing infrastructure as possible (web standards, conventions, and common
-						governance)
-					</li>
-					<li>
-						apply permissive licensing around use, so it can easily be built into other modern
-						tooling and software platforms
-					</li>
-					<li>make it human readable, as well as machine readable</li>
-				</ul>
+			<div>
+				<h3 class="text-3xl text-center pb-4">Learn more about</h3>
+				<div class="flex flex-wrap gap-3 justify-center">
+					<a
+						class="btn btn-white inline-block min-w-[20ch] rounded-full text-center"
+						href="/about#why">Why we need carbon.txt</a
+					>
+					<a
+						href="/about#goals"
+						class="btn btn-white inline-block min-w-[20ch] rounded-full text-center">The goals</a
+					>
+					<a
+						href="/about#benefits"
+						class="btn btn-white inline-block min-w-[20ch] rounded-full text-center">The benefits</a
+					>
+				</div>
 			</div>
 		</div>
 
