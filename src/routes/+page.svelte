@@ -1,24 +1,82 @@
-<div class="relative grid place-content-center min-h-[100%]">
+<script>
+	import Github from '$lib/svg/github.svelte';
+	import Code from '$lib/components/Code.svelte';
+
+	const exampleToml = `[upstream]	
+providers = [
+	{ domain = "cloud.google.com", service = "infrastructure" },
+	{ domain = "aws.amazon.com", service = "infrastructure" }
+]
+
+[org]
+credentials = [
+	{ domain = "mycompany.com", doctype = "sustainability-page", url = "https://mycompany.com/sustainability" },
+	{ domain = "mycompany.com", doctype = "sustainability-report", url = "https://mycompany.com/carbon-emissions-2022.pdf" }
+]`;
+</script>
+
+<div class="relative block">
 	<div
 		class="block fixed -z-50 left-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-r from-green-500"
 		style="height: calc(100% + 100px);"
 	/>
 
-	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-		<section class="flex justify-center items-center" style="min-height: calc(100vh - 603px);">
-			<div
-				class="mx-auto w-full lg:min-w-[500px] bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8"
-			>
-				<h1 class="text-6xl uppercase text-center pb-4">Carbon.txt</h1>
-				<p>
+	<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4" id="intro">
+		<div class="min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
+			<div class="p-8">
+				<h1 class="text-6xl uppercase pb-4">Carbon.txt</h1>
+				<p class="mb-10">
 					A proposed convention for website owners and digital service providers to demonstrate that
 					their digital infrastructure runs on green electricity.
 				</p>
-				<div class="mt-8 flex flex-auto gap-3">
-					<a class="btn block m-auto w-2/3 rounded-full text-center">Learn more</a>
-					<a class="btn btn-white block m-auto w-2/3 rounded-full text-center">Github</a>
+				<div class="flex flex-wrap gap-3 justify-start">
+					<a href="#what" class="btn block min-w-[20ch] rounded-full text-center">Learn more</a>
+					<a
+						href="https://github.com/thegreenwebfoundation/carbon.txt"
+						class="btn btn-white block min-w-[20ch] rounded-full flex items-center justify-center gap-3"
+						>Github <Github /></a
+					>
 				</div>
 			</div>
-		</section>
-	</div>
+			<div class="p-8 max-w-100">
+				<Code code={exampleToml} />
+			</div>
+		</div>
+	</section>
+
+	<section id="what" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
+		<div class="w-100 mb-[10rem]">
+			<h2 class="text-4xl uppercase pb-4">What is carbon.txt?</h2>
+			<div class="flex flex-auto gap-10 items-center">
+				<p class="prose">
+					A proposed convention for website owners and digital service providers to demonstrate that
+					their digital infrastructure runs on green electricity. This is achieved by reusing
+					existing governance structures, already published data, and existing industry standards as
+					much possible.
+				</p>
+				<aside class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8">
+					<p>
+						Note: This is a draft version and we are still ironing out how this might work. If you
+						would like to contribute or have questions, please <a
+							href="https://github.com/thegreenwebfoundation/carbon.txt/issues"
+							>open a GitHub issue</a
+						>
+						or <a href="fershad@thegreenwebfoundation.org">contact us by email</a>.
+					</p>
+				</aside>
+			</div>
+		</div>
+		<div class="w-100">
+			<h2 class="text-4xl uppercase pb-4">What are the goals?</h2>
+			<ul class="flex flex-auto gap-10">
+				<li class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-cols-2">
+					<div class="border-r-2 border-dark-gray h-100" />
+					<p>Bring infor in the public.</p>
+				</li>
+				<li class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-cols-2">
+					retired
+				</li>
+			</ul>
+		</div>
+	</section>
 </div>
