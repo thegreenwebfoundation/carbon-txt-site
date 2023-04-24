@@ -121,7 +121,5 @@ credentials = [
 				</div>
 			</div>
 		</div>
-
-		<div class="w-100 mb-[10rem]" />
 	</section>
 </div>
