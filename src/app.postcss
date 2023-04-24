@@ -141,6 +141,11 @@ html {
 	font-family: TWKEverett, sans-serif;
 	font-feature-settings: normal;
 	font-variation-settings: normal;
+	scroll-behavior: smooth;
+}
+
+*:has([id]) {
+	scroll-margin-top: 4rem;
 }
 
 btn {
@@ -156,4 +161,11 @@ btn {
 	text-decoration-line: none;
 	border-width: 2px;
 	text-transform: uppercase;
+}
+
+/* For code styles */
+
+pre {
+	overflow: auto;
+	padding: 2rem;
 }
