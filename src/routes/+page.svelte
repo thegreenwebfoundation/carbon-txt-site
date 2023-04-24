@@ -1,6 +1,11 @@
 <script>
-	import Github from '$lib/svg/github.svelte';
+	// Components
 	import Code from '$lib/components/Code.svelte';
+
+	// Logos, SVGs and things
+	import Github from '$lib/svg/github.svelte';
+	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte';
+	import TWGF_Up_Arrow from '$lib/svg/tgwf_logo_up_arrow.svelte';
 
 	const exampleToml = `[upstream]	
 providers = [
@@ -66,17 +71,54 @@ credentials = [
 				</aside>
 			</div>
 		</div>
-		<div class="w-100">
+		<div class="w-100 mb-[10rem] grid grid-cols-1 gap-10">
 			<h2 class="text-4xl uppercase pb-4">What are the goals?</h2>
-			<ul class="flex flex-auto gap-10">
-				<li class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-cols-2">
-					<div class="border-r-2 border-dark-gray h-100" />
-					<p>Bring infor in the public.</p>
+			<ul class="grid grid-cols-1 md:grid-cols-2 gap-10">
+				<li
+					class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-rows-2 gap-4"
+				>
+					<div class="w-100 flex items-center">
+						<div class="border-r-2 border-dark-gray h-100 pr-4 inline-block">
+							<TWGF_Tree width="50px" />
+						</div>
+						<h3 class="text-3xl inline ml-4">Open data</h3>
+					</div>
+					<p>
+						Bring information about the energy used to power digital services into the public
+						domain.
+					</p>
 				</li>
-				<li class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-cols-2">
-					retired
+				<li
+					class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 flex items-center grid grid-rows-2 gap-4"
+				>
+					<div class="w-100 flex items-center">
+						<div class="border-r-2 border-dark-gray h-100 pr-4 inline-block">
+							<TWGF_Up_Arrow width="50px" />
+						</div>
+						<h3 class="text-3xl inline ml-4">Open source</h3>
+					</div>
+					<p>
+						Lays the groundwork for a future where checking if a website/service uses green energy
+						is not locked to a single database.
+					</p>
 				</li>
 			</ul>
+			<div class="prose">
+				<h3 class="text-4xl uppercase pb-4">To achieve these goals, we:</h3>
+				<ul>
+					<li>
+						use as much existing infrastructure as possible (web standards, conventions, and common
+						governance)
+					</li>
+					<li>
+						apply permissive licensing around use, so it can easily be built into other modern
+						tooling and software platforms
+					</li>
+					<li>make it human readable, as well as machine readable</li>
+				</ul>
+			</div>
 		</div>
+
+		<div class="w-100 mb-[10rem]" />
 	</section>
 </div>
