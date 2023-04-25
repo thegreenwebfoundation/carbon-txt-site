@@ -2,6 +2,7 @@
 	// Components
 	import Code from '$lib/components/Code.svelte';
 	import Heading from '$lib/components/Heading.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	// Logos, SVGs and things
 	import Github from '$lib/svg/github.svelte';
@@ -30,11 +31,9 @@ credentials = [
 				their digital infrastructure runs on green electricity.
 			</p>
 			<div class="flex flex-wrap gap-3 justify-start">
-				<a href="#what" class="btn block min-w-[20ch] rounded-full text-center">Learn more</a>
-				<a
-					href="https://github.com/thegreenwebfoundation/carbon.txt"
-					class="btn btn-white block min-w-[20ch] rounded-full flex items-center justify-center gap-3"
-					>Github <Github /></a
+				<Button link="#what">Learn more</Button>
+				<Button link="https://github.com/thegreenwebfoundation/carbon.txt" icon={true} white={true}
+					>Github <Github /></Button
 				>
 			</div>
 		</div>
@@ -97,18 +96,9 @@ credentials = [
 		<div>
 			<Heading level={3}>Learn more about</Heading>
 			<div class="flex flex-wrap gap-3 justify-center">
-				<a
-					class="btn btn-white inline-block min-w-[20ch] rounded-full text-center"
-					href="/about#why">Why we need carbon.txt</a
-				>
-				<a
-					href="/about#goals"
-					class="btn btn-white inline-block min-w-[20ch] rounded-full text-center">The goals</a
-				>
-				<a
-					href="/about#benefits"
-					class="btn btn-white inline-block min-w-[20ch] rounded-full text-center">The benefits</a
-				>
+				<Button link="/about#why" white={true}>Why we need carbon.txt</Button>
+				<Button link="/about#goals" white={true}>The goals</Button>
+				<Button link="/about#benefits" white={true}>The benefits</Button>
 			</div>
 		</div>
 	</div>
