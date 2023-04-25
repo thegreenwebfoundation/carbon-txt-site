@@ -9,23 +9,13 @@
 	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte';
 	import TWGF_Up_Arrow from '$lib/svg/tgwf_logo_up_arrow.svelte';
 
-	const exampleToml = `[upstream]	
-providers = [
-	{ domain = "cloud.google.com", service = "infrastructure" },
-	{ domain = "aws.amazon.com", service = "infrastructure" }
-]
-
-[org]
-credentials = [
-	{ domain = "mycompany.com", doctype = "sustainability-page", url = "https://mycompany.com/sustainability" },
-	{ domain = "mycompany.com", doctype = "sustainability-report", url = "https://mycompany.com/carbon-emissions-2022.pdf" }
-]`;
+	import { digitalServiceToml as exampleToml } from '$lib/utils/exampleToml';
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4" id="intro">
 	<div class="min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
 		<div class="p-8">
-			<h1 class="text-6xl uppercase pb-4">Carbon.txt</h1>
+			<Heading level={1}>Carbon.txt</Heading>
 			<p class="mb-10">
 				A proposed convention for website owners and digital service providers to demonstrate that
 				their digital infrastructure runs on green electricity.

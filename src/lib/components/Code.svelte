@@ -1,6 +1,6 @@
 <script>
 	export let lang = 'toml';
-	export let code = ';';
+	export let code = '';
 	import { onMount } from 'svelte';
 	let hightlight = '';
 	onMount(async () => {
