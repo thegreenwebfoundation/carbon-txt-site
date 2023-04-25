@@ -1,4 +1,7 @@
 <script>
+	// Components
+	import Heading from '$lib/components/Heading.svelte';
+
 	// Logos, SVGs and things
 	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte';
 	import TWGF_Up_Arrow from '$lib/svg/tgwf_logo_up_arrow.svelte';
@@ -6,7 +9,7 @@
 
 <article class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<section class="w-100 mb-[10rem]">
-		<h1 class="text-6xl uppercase pb-4">What is carbon.txt?</h1>
+		<Heading level={1}>What is carbon.txt?</Heading>
 		<div class="flex flex-auto gap-10 items-center">
 			<p class="prose">
 				A proposed convention for website owners and digital service providers to demonstrate that
@@ -26,7 +29,7 @@
 		</div>
 	</section>
 	<section id="why" class="w-100 mb-[10rem]">
-		<h1 class="text-6xl uppercase pb-4">Why do we need this?</h1>
+		<Heading level={2}>Why do we need this?</Heading>
 		<div class="prose">
 			<p>
 				We need a fossil free internet by 2030, but there's still not much transparency around how
@@ -63,7 +66,7 @@
 		</div>
 	</section>
 	<section id="goals" class="w-100 mb-[10rem] grid grid-cols-1 gap-10">
-		<h2 class="text-4xl uppercase pb-4">What are the goals?</h2>
+		<Heading level={2}>What are the goals?</Heading>
 		<ul class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-[9rem]">
 			<li class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-rows-2 gap-4">
 				<div class="w-100 flex items-center">
@@ -91,7 +94,7 @@
 				</p>
 			</li>
 		</ul>
-		<h3 class="text-3xl uppercase pb-4">To achieve these goals, we have:</h3>
+		<Heading level={3}>To achieve these goals, we have:</Heading>
 		<div class="prose">
 			<ul>
 				<li>
@@ -107,9 +110,9 @@
 	</section>
 
 	<section id="benefits" class="w-100 mb-[10rem]">
-		<h2 class="text-4xl uppercase pb-4">What are the benefits?</h2>
+		<Heading level={2}>What are the benefits?</Heading>
 		<div class="prose">
-			<h3 class="text-3xl uppercase pb-4">For For digital service providers</h3>
+			<Heading level={3}>For digital service providers</Heading>
 			<p>If you provide hosted digital services to others, carbon.txt lets you:</p>
 			<ul>
 				<li>
@@ -129,7 +132,7 @@
 					organisations in your supply chain by linking to your own work.
 				</li>
 			</ul>
-			<h3 class="text-3xl uppercase pb-4">For website owners</h3>
+			<Heading level={3}>For website owners</Heading>
 			<p>If you operate a website, or run an application yourself, you are able to:</p>
 
 			<ul>

@@ -1,6 +1,7 @@
 <script>
 	// Components
 	import Code from '$lib/components/Code.svelte';
+	import Heading from '$lib/components/Heading.svelte';
 
 	// Logos, SVGs and things
 	import Github from '$lib/svg/github.svelte';
@@ -45,7 +46,7 @@ credentials = [
 
 <section id="what" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[10rem]">
-		<h2 class="text-4xl uppercase pb-4">What is carbon.txt?</h2>
+		<Heading level={2}>What is carbon.txt?</Heading>
 		<div class="flex flex-auto gap-10 items-center">
 			<p class="prose">
 				A proposed convention for website owners and digital service providers to demonstrate that
@@ -65,7 +66,7 @@ credentials = [
 		</div>
 	</div>
 	<div class="w-100 mb-[10rem] grid grid-cols-1 gap-10">
-		<h2 class="text-4xl uppercase pb-4">What are the goals?</h2>
+		<Heading level={2}>What are the goals?</Heading>
 		<ul class="grid grid-cols-1 md:grid-cols-2 gap-10">
 			<li class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-rows-2 gap-4">
 				<div class="w-100 flex items-center">
@@ -94,7 +95,7 @@ credentials = [
 			</li>
 		</ul>
 		<div>
-			<h3 class="text-3xl text-center pb-4">Learn more about</h3>
+			<Heading level={3}>Learn more about</Heading>
 			<div class="flex flex-wrap gap-3 justify-center">
 				<a
 					class="btn btn-white inline-block min-w-[20ch] rounded-full text-center"
