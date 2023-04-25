@@ -26,7 +26,7 @@
 			</p>
 			<div class="flex flex-wrap gap-3 justify-start">
 				<Button
-					link="#digital-services"
+					link="/how/digital-services"
 					white={true}
 					mouseOverEventDetail="digitalService"
 					on:mouseOverEvent={handleMouseOver}>For digital services and self-hosted sites</Button
@@ -40,11 +40,22 @@
 			</div>
 		</div>
 		<div class="p-8 max-w-100">
-			{#if exampleToml === 'website'}
-				<Code code={websiteToml} />
-			{:else}
-				<Code code={digitalServiceToml} />
-			{/if}
+			<span data-toml class={exampleToml === 'website' ? 'active' : ''}
+				><Code code={websiteToml} /></span
+			>
+			<span data-toml class={exampleToml === 'digitalService' ? 'active' : ''}
+				><Code code={digitalServiceToml} /></span
+			>
 		</div>
 	</div>
 </section>
+
+<style>
+	[data-toml] {
+		display: none;
+	}
+
+	[data-toml].active {
+		display: block;
+	}
+</style>

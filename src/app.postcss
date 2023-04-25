@@ -169,3 +169,12 @@ pre {
 	overflow: auto;
 	padding: 2rem;
 }
+
+li:has(h3)::marker {
+	font-size: 1.75rem;
+	--tw-prose-counters: var(--tw-prose-headings);
+}
+
+li > h3 {
+	border: 0;
+}
