@@ -13,7 +13,7 @@
 			</div>
 
 			<div class="pl-10 flex gap-3">
-				<a href="">What is carbon.txt?</a>
+				<a href="/about">What is carbon.txt?</a>
 				<a href="">Validator</a>
 				<a href="">Builder</a>
 			</div>
