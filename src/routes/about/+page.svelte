@@ -32,36 +32,37 @@
 		<Heading level={2}>Why do we need this?</Heading>
 		<div class="prose">
 			<p>
-				We need a fossil free internet by 2030, but there's still not much transparency around how
-				we source power at the moment. The Green Web Foundation has been building a Green Domains
-				database, open sources the code for tracking this and is publishing open datasets about the
-				state of the green web.
+				We need a fossil free internet by 2030. But right now there's still not much transparency
+				around how we source power.
 			</p>
+
 			<p>
-				Creating this dataset has been an ongoing effort for years. It has comprised of associating
-				IP address space like IP ranges or Autonomous System Numbers with specific organisations -
-				and then accompanying these links to manually verified written reports and certificates
-				provided by said organisations to back up their green claims.
+				To address this, Green Web Foundation has been building a Green Domains database, open
+				sources the code for tracking this and is publishing open datasets about the state of the
+				green web. Creating this dataset has been an ongoing effort for years. It has involved
+				associating IP address space like IP ranges or Autonomous System Numbers with specific
+				organisations, then manually verifying written reports and certificates provided by said
+				organisations to back up their green claims.
 			</p>
 
 			<p>
 				This has worked for the first few million domains, and first few billion checks against the
-				database, but there are more tools that can help now, and the internet is a much bigger,
-				more dynamic place than it was when this endeavour was started.
+				database. But the internet is a much bigger, more dynamic place than it was when this
+				endeavour was started. Our approach needs to evolve with the times.
 			</p>
 
 			<p>
-				Tools like the domain name system (DNS) allow for a variety of ways to establish a link
-				between a domain and the party that is hosting or operating it. Dedicated registries already
-				exist to make it possible to trust that electricity has been generated from clean and
-				renewable energy sources. And, if you know where to look, it's possible to tell when efforts
-				to decarbonise energy are credible.
+				Luckily, today there are more tools that can help. Tools like the Domain Name System (DNS).
+				DNS provides a variety of ways to establish a link between a domain and the party that is
+				hosting or operating it. There are also dedicated registries that make it possible to trust
+				that electricity has been generated from clean and renewable energy sources. And, if you
+				know where to look, it's possible to tell when efforts to decarbonise energy are credible.
 			</p>
 
 			<p>
-				Carbon.txt serves to make links between these systems easier to follow, so when there is a
-				claim that a website is running on green energy, you can trace the provenance down to the
-				supporting evidence more easily.
+				Carbon.txt serves to make links between these systems easier to follow. So when there is a
+				claim that a website is running on green energy, you can trace the provenance of supporting
+				evidence more easily.
 			</p>
 		</div>
 	</section>
@@ -116,8 +117,8 @@
 			<p>If you provide hosted digital services to others, carbon.txt lets you:</p>
 			<ul>
 				<li>
-					Receive recognition in a human readable and machine readable way that the infrastructure
-					you manage or use to provide your service runs on green energy.
+					Receive recognition, in a human and machine readable way, that the infrastructure you
+					manage or use to provide your service runs on green energy.
 				</li>
 				<li>
 					Earn trust from customers by helping creating an evidence base of action being taken by
@@ -128,7 +129,7 @@
 					with a clear chain of attribution.
 				</li>
 				<li>
-					Demonstrate leadership if you are moving faster in terms of a climate repsonse than the
+					Demonstrate leadership if you are moving faster in terms of a climate response than the
 					organisations in your supply chain by linking to your own work.
 				</li>
 			</ul>
@@ -137,7 +138,7 @@
 
 			<ul>
 				<li>
-					Demonstrate in human and machine-readable ways, the care you have taken in responsibly
+					Demonstrate, in a human and machine readable way, the care you have taken in responsibly
 					sourcing the providers that make up the supply chain in your own sites or applications.
 				</li>
 				<li>
@@ -145,7 +146,7 @@
 					Projects like the <a href="https://almanac.httparchive.org/en/2022/"
 						>HTTP Archive’s Web Almanac</a
 					> use datasets like these to provide a detailed breakdown of the overall "greenness" of the
-					web every year. Your efforts provide the data needed for create the insights in these reports.
+					web every year. Your efforts provide the data needed for creating the insights in such reports.
 				</li>
 			</ul>
 		</div>
