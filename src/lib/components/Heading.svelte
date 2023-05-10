@@ -8,4 +8,6 @@
 	<h3 class="text-3xl uppercase pb-4"><slot /></h3>
 {:else if level === 1}
 	<h1 class="text-6xl uppercase pb-4"><slot /></h1>
+{:else if level === 4}
+	<h1 class="text-2xl uppercase pb-4"><slot /></h1>
 {/if}

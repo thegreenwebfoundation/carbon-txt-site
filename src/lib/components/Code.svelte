@@ -22,7 +22,7 @@
 		// const shiki = await import('shiki');
 		const highlighter = await shiki.getHighlighter({
 			theme: 'nord',
-			langs: ['toml']
+			langs: [lang]
 		})
 		if (!showComments) {
 			code = removeComments(code)
