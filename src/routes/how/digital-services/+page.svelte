@@ -54,9 +54,7 @@
 				<Heading level={3}>Upload your carbon.txt file to your servers.</Heading>
 				<p>For example: <em>https://www.my-org.com/carbon.txt</em></p>
 				<p>
-					We default to checking for a file located at the root of your domain (e.g. <code>/carbon.txt</code>). If you need to store the file at a different path, we support setting your own path,
-					like
-					<code>.well-known/carbon.txt</code>. We <a href="#link-domains-with-domain-hash">outline how</a> further below.
+					We default to checking for a file located at the root of your domain <code>/carbon.txt</code> or <code>/.well-known/carbon.txt</code>.
 				</p>
 			</li>
 			<li>
@@ -84,7 +82,7 @@
 		<Heading level={2}>Carbon.txt syntax</Heading>
 		<p>Carbon.txt files are written in TOML.</p>
 		<figure class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8">
-			<Code lang="toml" showComments={true} code={digitalServiceToml} />
+			<Code showComments={true} code={digitalServiceToml} />
 			<figcaption>An example of what a carbon.txt file might look like for a digital service provider or self-hosted site.</figcaption>
 		</figure>
 	</div>
