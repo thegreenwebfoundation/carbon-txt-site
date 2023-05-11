@@ -62,26 +62,33 @@
 			</li>
 			<li>
 				<Heading level={3}>Share the URL of the carbon.txt file with Green Web Foundation</Heading>
-				<p>The Green Web Foundation has an API for registering where to check for carbon.txt file for a given domain. Once this is listed, and the link established, your site shows as green.</p>
-				<Code lang="shell" code={stepFourCommand} />
-				<form class="form" use:enhance method="POST" action="?/registerFile	">
-					<div class="flex flex-col gap-1">
-						<label for="carbon-txt-url">Your carbon.txt URL</label>
-						<!-- URL input with validation that the URL ends with carbon.txt -->
-						<input class="form-input" type="url" id="carbon-txt-url" name="carbon-txt-url" required pattern=".*carbon\.txt$" />
-					</div>
-					<button type="submit" class="btn">Submit</button>
-				</form>
+				<p>The Green Web Foundation has an API for registering where to check for carbon.txt file for a given domain. You can do this using the form below.</p>
 				{#if form?.status === 'ok'}
-					<p>Yep, good.</p>
+					<div class="alert__success">
+						<p>Your carbon.txt file has been registered.</p>
+					</div>
 				{:else if form?.status === 'error'}
-					<p>Something went wrong. Please try again.</p>
+					<div class="alert__error">
+						<p>Something went wrong. Please try again with a valid carbon.txt URL.</p>
+					</div>
+					<form class="form" use:enhance method="POST" action="?/registerFile	">
+						<div class="flex flex-col gap-1">
+							<label for="carbon-txt-url">Your carbon.txt URL</label>
+							<!-- URL input with validation that the URL ends with carbon.txt -->
+							<input class="form-input" type="url" id="carbon-txt-url" name="carbon-txt-url" required pattern=".*carbon\.txt$" />
+						</div>
+						<button type="submit" class="btn" on:click|once>Submit</button>
+					</form>
 				{:else}
-					<p>Submit your carbon.txt URL to register it with the Green Web Foundation.</p>
+					<form class="form" use:enhance method="POST" action="?/registerFile	">
+						<div class="flex flex-col gap-1">
+							<label for="carbon-txt-url">Your carbon.txt URL</label>
+							<!-- URL input with validation that the URL ends with carbon.txt -->
+							<input class="form-input" type="url" id="carbon-txt-url" name="carbon-txt-url" required pattern=".*carbon\.txt$" />
+						</div>
+						<button type="submit" class="btn" on:click|once>Submit</button>
+					</form>
 				{/if}
-				<div class="alert__warning">
-					<p>You can use the <code>curl</code> command above for now. There'll be a tool to do this eventually.</p>
-				</div>
 			</li>
 			<li>
 				<Heading level={3}
