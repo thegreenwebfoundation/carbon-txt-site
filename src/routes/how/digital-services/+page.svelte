@@ -3,6 +3,7 @@
 	import Heading from '$lib/components/Heading.svelte'
 	import Code from '$lib/components/Code.svelte'
 	import Button from '$lib/components/Button.svelte'
+	import Callout from '$lib/components/Callout.svelte'
 
 	import { digitalServiceToml } from '$lib/utils/exampleToml'
 
@@ -12,12 +13,22 @@
 </script>
 
 <article id="digital-services" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<div class="w-100 mb-[10rem] prose">
+	<div class="w-100 mb-[10rem]">
 		<Heading level={1}>Implementing carbon.txt <br />For Digital Service Providers</Heading>
-		<p class="mb-10">
-			As a provider of managed digital services, you can implement carbon.txt to demonstrate that the infrastructure you manage or use to provide your service runs on green energy. It also allows you
-			to pass this on to your customers, allowing any downstream services or websites using your services to make the same claims, with a clear chain of attribution.
-		</p>
+		<div class="lg:grid lg:grid-cols-2 lg:items-center gap-10">
+			<p class="mb-10">
+				As a provider of managed digital services, you can implement carbon.txt to demonstrate that the infrastructure you manage or use to provide your service runs on green energy. It also allows
+				you to pass this on to your customers, allowing any downstream services or websites using your services to make the same claims, with a clear chain of attribution.
+			</p>
+			<Callout>
+				<h2 class="text-2xl">For self-hosted sites and website owners</h2>
+				<p>
+					We are currently piloting the carbon.txt specification with digital service providers only. The FAQ has information for self-hosted sites, and individual website owners who are interested in
+					this idea.
+				</p>
+				<div class="w-max mx-auto mt-[2rem]"><Button link="/faq">Read the FAQ</Button></div>
+			</Callout>
+		</div>
 	</div>
 
 	<div class="w-100 mb-[10rem] prose" id="getting-started">
