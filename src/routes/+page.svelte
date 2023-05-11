@@ -112,7 +112,7 @@
 						<p>Demonstrate leadership if you are moving faster in terms of a climate response than the organisations in your supply chain by linking to your own work.</p>
 					</li>
 				</ul>
-				<Heading level={4}>Get started</Heading>
+				<Heading level={3}>Get started</Heading>
 				<div class="flex flex-wrap gap-3">
 					<Button link="/how/digital-services">Implementing carbon.txt as a digital service provider</Button>
 				</div>
