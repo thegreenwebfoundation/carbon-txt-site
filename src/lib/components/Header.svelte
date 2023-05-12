@@ -1,7 +1,6 @@
 <script>
 	import { page } from '$app/stores'
 
-	console.log($page)
 	$: currentPage = (route = '') => ($page.route.id === route ? 'no-underline text-green-600' : '')
 </script>
 
