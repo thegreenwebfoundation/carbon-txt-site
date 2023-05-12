@@ -2,7 +2,7 @@
 	import { page } from '$app/stores'
 
 	console.log($page)
-	$: currentPage = (route = '') => ($page.url.pathname === route ? 'no-underline text-green-600' : '')
+	$: currentPage = (route = '') => ($page.route.id === route ? 'no-underline text-green-600' : '')
 </script>
 
 <header class="bg-white border-b-2">
@@ -18,8 +18,8 @@
 				<a href="/about" class={currentPage('/about')}>What is carbon.txt?</a>
 				<a href="/how/digital-services" class={currentPage('/how/digital-services')}>Get started</a>
 				<a href="/tools/validator" class={currentPage('/tools/validator')}>Validator</a>
-				<a href="">Builder</a>
-				<a href="/faq">FAQ</a>
+				<a href="/tools/builder" class={currentPage('/tools/builder')}>Builder</a>
+				<a href="/faq" class={currentPage('/faq')}>FAQ</a>
 			</div>
 		</nav>
 	</div>
