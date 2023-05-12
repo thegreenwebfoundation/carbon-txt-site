@@ -92,7 +92,7 @@
 
 			<p>
 				We're looking into ways and funding to surface greater geographic resolution for location-based carbon intensity, to reflect the physical reality. If you're interested in collaborating or
-				funding our work, please <a href="fershad@thegreenwebfoundation.org">get in touch</a>.
+				funding our work, please <a href="mailto:fershad@thegreenwebfoundation.org">get in touch</a>.
 			</p>
 		</div>
 	</Faq>
