@@ -1,7 +1,18 @@
 <script>
+	import Highlight from 'svelte-highlight'
+	import github from 'svelte-highlight/styles/github-dark'
+	import nord from 'svelte-highlight/styles/nord'
+	import papercolorDark from 'svelte-highlight/styles/papercolor-dark'
+	import { monokai } from 'svelte-highlight/styles'
+	import ini from 'svelte-highlight/languages/ini'
+
 	export let lang = 'toml'
 	export let code = ''
 	export let showComments = false
+
+	if (lang === 'toml' && !showComments) {
+		code = removeComments(code)
+	}
 
 	// Function that removes comments from TOML code
 	function removeComments(toml) {
@@ -15,24 +26,10 @@
 		}
 		return newLines.join('\n')
 	}
-
-	import { onMount } from 'svelte'
-	let hightlight = ''
-	onMount(async () => {
-		// const shiki = await import('shiki');
-		const highlighter = await shiki.getHighlighter({
-			theme: 'nord',
-			langs: [lang]
-		})
-		if (!showComments) {
-			code = removeComments(code)
-		}
-		hightlight = highlighter.codeToHtml(code, lang)
-	})
 </script>
 
 <svelte:head>
-	<script src="https://cdn.jsdelivr.net/npm/shiki"></script>
+	{@html monokai}
 </svelte:head>
 
-{@html hightlight}
+<Highlight language={ini} {code} />

@@ -34,5 +34,8 @@
 		"typescript": "^5.0.4",
 		"vite": "^4.3.5"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"svelte-highlight": "^7.3.0"
+	}
 }

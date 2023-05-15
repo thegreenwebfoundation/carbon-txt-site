@@ -2,25 +2,11 @@
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
 	import Code from '$lib/components/Code.svelte'
+	import BuilderInput from '$lib/components/tools/BuilderInput.svelte'
+	import BuilderOutput from '$lib/components/tools/BuilderOutput.svelte'
 
-	import { builderUpstream } from '$lib/store'
+	import { builderUpstream, builderOrg } from '$lib/store'
 	import services from '$lib/utils/upstreamServices'
-
-	let newUpstream = {
-		domain: '',
-		service: ''
-	}
-
-	const addUpstream = () => {
-		builderUpstream.update((upstream) => {
-			upstream.push(newUpstream)
-			return upstream
-		})
-		newUpstream = {
-			domain: '',
-			service: ''
-		}
-	}
 
 	$: console.log(outputCode)
 
@@ -46,27 +32,23 @@ credentials = [
 			<div class="mb-[3rem]">
 				<Heading level={2}>Upstream providers</Heading>
 				<p class="mb-10">List the providers you use to deliver your service</p>
-				<!-- A text input with validation to check that it is a domain -->
-				<input type="text" name="domain" bind:value={newUpstream.domain} />
-				<!-- A select listing some online services -->
-				<select name="service" bind:value={newUpstream.service}>
-					{#each services as service}
-						<option value={service.slug}>{service.name}</option>
-					{/each}
-				</select>
+				<BuilderInput store={builderUpstream} />
 				<p>Can't find a service you need in the list? <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/16">Let us know</a>.</p>
-				<!-- A button to add the domain to the list -->
-				<button on:click={addUpstream}>Add</button>
+
+				<BuilderOutput store={builderUpstream} />
 			</div>
 			<div class="mb-[3rem]">
 				<Heading level={2}>Organisation</Heading>
 				<p class="mb-10">List the documents that show evidence of your green claims</p>
-				<p>TBD</p>
+				<BuilderInput store={builderOrg} />
+				<p>Can't find a service you need in the list? <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/16">Let us know</a>.</p>
+
+				<BuilderOutput store={builderOrg} />
 			</div>
 		</div>
 		<div class="p-8 max-w-100">
 			<!-- TODO: Make the hightlighted and dynamic -->
-			<pre lang="toml"><code>{outputCode}</code></pre>
+			<Code lang="toml" code={outputCode} />
 		</div>
 	</div>
 </section>
