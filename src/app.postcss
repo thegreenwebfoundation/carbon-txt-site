@@ -178,3 +178,50 @@ li:has(h3)::marker {
 li > h3 {
 	border: 0;
 }
+
+label {
+	@apply text-4xl;
+	@apply text-black;
+}
+
+[type='text'],
+[type='email'],
+[type='url'],
+[type='password'],
+[type='number'],
+[type='date'],
+[type='datetime-local'],
+[type='month'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='week'],
+[multiple],
+textarea,
+select {
+	@apply w-full;
+	@apply bg-green-50;
+	@apply border-0;
+	@apply border-b-2;
+	@apply border-black;
+}
+textarea {
+	@apply border-2;
+}
+[type='checkbox'],
+[type='radio'] {
+	@apply mb-2;
+	@apply mr-2;
+	@apply text-black;
+	@apply border-black;
+}
+[type='checkbox']:checked,
+[type='radio']:checked {
+	@apply bg-black;
+}
+
+/* Form layouts specific to Django HTML output */
+.form-group label {
+	@apply text-base;
+	@apply uppercase;
+}

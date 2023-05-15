@@ -11,16 +11,14 @@
 	$: console.log(outputCode)
 
 	$: outputCode = `[upstream]
-providers = [
-	${$builderUpstream.map((provider) => `{ domain='${provider.domain}', service='${provider.service}' }`).join(',\n    ')}
-]
+providers = [${$builderUpstream.length > 0 ? '\n' : ''} ${$builderUpstream.map((provider) => `{ domain='${provider.domain}', service='${provider.service}' }`).join(',\n    ')} ${
+		$builderUpstream.length > 0 ? '\n' : ''
+	}]
 
 [org]
-credentials = [
-    # Optional.
-    # An array of documents that point to evidence of green claims made by my-org.com.
-    { domain='my-org.com', doctype = 'sustainability-page', url = 'https://my-org.com/our-climate-record'}
-]`
+credentials = [${$builderOrg.length > 0 ? '\n' : ''} ${$builderOrg
+		.map((credential) => `{ domain='${credential.domain}', doctype='${credential.doctype}', url='${credential.url}' }`)
+		.join(',\n    ')} ${$builderOrg.length > 0 ? '\n' : ''}]`
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
@@ -40,13 +38,11 @@ credentials = [
 			<div class="mb-[3rem]">
 				<Heading level={2}>Organisation</Heading>
 				<p class="mb-10">List the documents that show evidence of your green claims</p>
-				<BuilderInput store={builderOrg} />
-				<p>Can't find a service you need in the list? <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/16">Let us know</a>.</p>
-
+				<BuilderInput store={builderOrg} type="org" />
 				<BuilderOutput store={builderOrg} />
 			</div>
 		</div>
-		<div class="p-8 max-w-100">
+		<div class="p-8 max-w-100 sticky top-0">
 			<!-- TODO: Make the hightlighted and dynamic -->
 			<Code lang="toml" code={outputCode} />
 		</div>
