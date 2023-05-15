@@ -32,7 +32,7 @@ credentials = [${$builderOrg.length > 0 ? '\n' : ''} ${$builderOrg
 				<p class="mb-10">List the providers you use to deliver your service</p>
 				<BuilderInput store={builderUpstream} />
 				<p>Can't find a service you need in the list? <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/16">Let us know</a>.</p>
-
+				<!-- Todo: Update BuilderOutput with nicer style & functionality (remove, edit) -->
 				<BuilderOutput store={builderUpstream} />
 			</div>
 			<div class="mb-[3rem]">
@@ -42,8 +42,7 @@ credentials = [${$builderOrg.length > 0 ? '\n' : ''} ${$builderOrg
 				<BuilderOutput store={builderOrg} />
 			</div>
 		</div>
-		<div class="p-8 max-w-100 sticky top-0">
-			<!-- TODO: Make the hightlighted and dynamic -->
+		<div class="max-w-100 sticky top-0">
 			<Code lang="toml" code={outputCode} />
 		</div>
 	</div>
