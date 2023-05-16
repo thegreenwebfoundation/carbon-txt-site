@@ -8,17 +8,14 @@
 	import { builderUpstream, builderOrg } from '$lib/store'
 	import services from '$lib/utils/upstreamServices'
 
-	$: console.log(outputCode)
+	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service='${provider.service}' }`).join(',\n    ')
+	const mapOrg = () => $builderOrg.map((credential) => `{ domain='${credential.domain}', doctype='${credential.doctype}', url='${credential.url}' }`).join(',\n    ')
 
 	$: outputCode = `[upstream]
-providers = [${$builderUpstream.length > 0 ? '\n' : ''} ${$builderUpstream.map((provider) => `{ domain='${provider.domain}', service='${provider.service}' }`).join(',\n    ')} ${
-		$builderUpstream.length > 0 ? '\n' : ''
-	}]
+providers = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}]
 
 [org]
-credentials = [${$builderOrg.length > 0 ? '\n' : ''} ${$builderOrg
-		.map((credential) => `{ domain='${credential.domain}', doctype='${credential.doctype}', url='${credential.url}' }`)
-		.join(',\n    ')} ${$builderOrg.length > 0 ? '\n' : ''}]`
+credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
