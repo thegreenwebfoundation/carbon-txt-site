@@ -43,11 +43,21 @@
 				</p>
 			</li>
 			<li>
-				<Heading level={3}>Create a carbon.txt file for your organisation</Heading>
-				<p>
-					Create a carbon.txt file for your organisation. There is <a href="#digital-services-syntax">a guide</a> to the expected syntax below.
-				</p>
-				<a href="/tools/builder" class="btn btn-white">Use the carbon.txt builder</a>
+				<div class="lg:grid lg:grid-cols-2 lg:items-center gap-10">
+					<div>
+						<Heading level={3}>Create a carbon.txt file for your organisation</Heading>
+						<p>
+							Create a carbon.txt file for your organisation. There is <a href="#digital-services-syntax">a guide</a> to the expected syntax below.
+						</p>
+						<a href="/tools/builder" class="btn btn-white">Use the carbon.txt builder</a>
+					</div>
+					<Callout>
+						<h4 class="text-2xl">Note</h4>
+						<p>You only need one carbon.txt file for your organisation.</p>
+						<p>To link multiple domains to a single organisation, refer to the linking green claims to multiple domains section below.</p>
+						<div class="w-max mx-auto mt-[2rem]"><Button link="#link-multiple-domains">Linking multiple domains</Button></div>
+					</Callout>
+				</div>
 			</li>
 
 			<li>
@@ -72,18 +82,22 @@
 						<div class="flex flex-col gap-1">
 							<label for="carbon-txt-url">Your carbon.txt URL</label>
 							<!-- URL input with validation that the URL ends with carbon.txt -->
-							<input class="form-input" type="url" id="carbon-txt-url" name="carbon-txt-url" required pattern=".*carbon\.txt$" />
+							<div class="flex gap-3 flex-wrap">
+								<input class="form-input flex-none lg:max-w-[80%]" type="url" id="carbon-txt-url" name="carbon-txt-url" required />
+								<button type="submit" class="btn" on:click|once>Submit</button>
+							</div>
 						</div>
-						<button type="submit" class="btn" on:click|once>Submit</button>
 					</form>
 				{:else}
 					<form class="form" use:enhance method="POST" action="?/registerFile	">
 						<div class="flex flex-col gap-1">
 							<label for="carbon-txt-url">Your carbon.txt URL</label>
 							<!-- URL input with validation that the URL ends with carbon.txt -->
-							<input class="form-input" type="url" id="carbon-txt-url" name="carbon-txt-url" required pattern=".*carbon\.txt$" />
+							<div class="flex gap-3 flex-wrap">
+								<input class="form-input flex-grow flex-none lg:max-w-[80%]" type="url" id="carbon-txt-url" name="carbon-txt-url" required pattern=".*carbon\.txt$" />
+								<button type="submit" class="btn" on:click|once>Submit</button>
+							</div>
 						</div>
-						<button type="submit" class="btn" on:click|once>Submit</button>
 					</form>
 				{/if}
 			</li>
@@ -109,7 +123,7 @@
 		</figure>
 	</div>
 </article>
-<article id="link-domains-with-domain-hash" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
+<article id="link-multiple-domains" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[10rem] prose">
 		<Heading level={2}>Linking green claims to multiple domains</Heading>
 		<p>

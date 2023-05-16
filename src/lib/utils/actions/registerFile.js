@@ -1,6 +1,7 @@
 export default async (event) => {
     const data = await event.request.formData();
     const file = data.get('carbon-txt-url');
+
     event.locals.registeredFile = file;
 
     const resp = await fetch('https://api.thegreenwebfoundation.org/api/v3/carbontxt', {
@@ -18,6 +19,5 @@ export default async (event) => {
         return { status: 'error' };
     });
 
-    console.log(resp)
     return resp;
 }
