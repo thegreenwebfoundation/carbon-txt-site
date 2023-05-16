@@ -6,44 +6,49 @@
 	import { load } from 'js-toml'
 
 	let tomlError = ''
-	$: try {
-		let parsed = load(textInput)
+	function validateToml() {
 		tomlError = ''
-		console.log(parsed)
-	} catch (error) {
-		// Find offset: nnn in the error, where nnn is a number. Return that number.
-		let offset = error.message.match(/offset: (\d+)/)[1]
-		// Get the 5 characters around the offset
-		tomlError = textInput.slice(offset - 5, textInput.length - offset + 5)
-		// Highlight the position of the error in the tomlError string by positioning an arrow below the offset
-		tomlError = tomlError + '<br />' + '&nbsp;'.repeat(5) + '^'
-		console.log(error)
+		try {
+			let parsed = load(textInput)
+			tomlError = ''
+			console.log(parsed)
+		} catch (error) {
+			console.log(error)
+			// // Find offset: nnn in the error, where nnn is a number. Return that number.
+			// let offset = error.message.match(/offset: (\d+)/)
+			// if (offset) {
+			// 	offset = offset[1]
+			// } else {
+			// 	offset = 0
+			// }
+			// // Get the 5 characters around the offset
+			// tomlError = textInput.slice(parseInt(offset - 10), parseInt(offset) + 10)
+			// // Highlight the position of the error in the tomlError string by positioning an arrow below the offset
+			// tomlError = tomlError + '<br />' + '&nbsp;'.repeat(10) + '^'
+			tomlError = error.message
+		}
 	}
 
 	import { enhance } from '$app/forms'
+	import { text } from 'svelte/internal'
 	export let form
 
 	let checkedUrl = form?.url
-	$: textInput = ''
+	let textInput = ''
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<Heading level={1}>Validator</Heading>
 	<p>Use this validator too to check what is returned when your carbon.txt file is parsed.</p>
-	<div class="lg:grid lg:grid-cols-2 lg:items-center">
-		<textarea name="carbon-txt" bind:value={textInput} />
+	<div class="lg:grid lg:grid-cols-2 lg:items-center gap-5">
+		<div>
+			<textarea name="carbon-txt" bind:value={textInput} rows="15	" />
+			<button type="submit" class="btn" on:click={validateToml}>Submit</button>
+		</div>
 		{#if tomlError.length > 0}
 			<div class="alert__error">
 				<p>There is an error in your carbon.txt syntax:</p>
 				<p>{@html tomlError}</p>
-			</div>
-		{:else}
-			<!-- else content here -->
-			<div class="max-w-100">
-				<div class="alert__success">
-					<p>There are no errors in your carbon.txt syntax.</p>
-				</div>
-				<Code code={textInput} lang="toml" />
 			</div>
 		{/if}
 	</div>
