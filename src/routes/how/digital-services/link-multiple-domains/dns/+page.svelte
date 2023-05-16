@@ -18,7 +18,7 @@
 				<p>
 					Create a domain hash. This is a SHA256 hash of your shared secret and the domain you want to establish a link to. Various online tools demonstrate how to make SHA 256 hashes (<a
 						href="https://codebeautify.org/sha256-hash-generator">see this example</a
-					>). To make it easier, you can do all this in our <a href="our own observable notebook">own observable notebook</a>.
+					>). To make it easier, you can do all this in our <a href="https://observablehq.com/d/21dbe07b6d399868">own observable notebook</a>.
 				</p>
 				<div class="alert__warning">
 					<p>The Observable Notebook linked above is temporary. There'll be a dedicated tool to do this eventually.</p>
