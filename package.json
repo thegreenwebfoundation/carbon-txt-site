@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"clipboard-copy": "^4.0.1",
 		"svelte-highlight": "^7.3.0"
 	}
 }

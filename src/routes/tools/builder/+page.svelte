@@ -4,9 +4,12 @@
 	import Code from '$lib/components/Code.svelte'
 	import BuilderInput from '$lib/components/tools/BuilderInput.svelte'
 	import BuilderOutput from '$lib/components/tools/BuilderOutput.svelte'
+	import copy from 'clipboard-copy'
 
 	import { builderUpstream, builderOrg } from '$lib/store'
 	import services from '$lib/utils/upstreamServices'
+
+	let copyText = 'Copy to clipboard'
 
 	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service='${provider.service}' }`).join(',\n    ')
 	const mapOrg = () => $builderOrg.map((credential) => `{ domain='${credential.domain}', doctype='${credential.doctype}', url='${credential.url}' }`).join(',\n    ')
@@ -41,6 +44,19 @@ credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 		</div>
 		<div class="max-w-100 sticky top-0">
 			<Code lang="toml" code={outputCode} />
+			<button
+				class="btn mx-auto min-w-[20ch] block mx-auto"
+				on:click={() => {
+					const copySuccess = copy(outputCode)
+					// Check if promise resolves to true
+					if (copySuccess) {
+						copyText = '🎉 Copied!'
+						setTimeout(() => {
+							copyText = 'Copy to clipboard'
+						}, 2000)
+					}
+				}}>{copyText}</button
+			>
 		</div>
 	</div>
 </section>
