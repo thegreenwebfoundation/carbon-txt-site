@@ -1,8 +1,5 @@
 <script>
-	import Highlight from 'svelte-highlight'
-	import github from 'svelte-highlight/styles/github-dark'
-	import nord from 'svelte-highlight/styles/nord'
-	import papercolorDark from 'svelte-highlight/styles/papercolor-dark'
+	import Highlight, { LineNumbers } from 'svelte-highlight'
 	import { monokai } from 'svelte-highlight/styles'
 	import ini from 'svelte-highlight/languages/ini'
 

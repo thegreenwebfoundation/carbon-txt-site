@@ -13,9 +13,11 @@ export default async (event) => {
     }).then((response) => response.json()).then((data) => {
         return { 
             data,
-            status: 'ok'
+            status: 'ok',
+            url: file,
         };
     }).catch((e) => {
+        console.error(e);
         return { status: 'error' };
     });
 

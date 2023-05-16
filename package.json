@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"clipboard-copy": "^4.0.1",
+		"js-toml": "^0.1.1",
 		"svelte-highlight": "^7.3.0"
 	}
 }

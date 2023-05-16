@@ -28,8 +28,8 @@
 				</li>
 			{/if}
 			<li class="grid grid-cols-3 gap-2 items-center p-2 odd:bg-green-100 even:bg-gray-100">
-				<span class="domain">{provider.domain}</span>
-				<span class="service">{serviceName(provider.service)}</span>
+				<div class="domain">{provider.domain}</div>
+				<div class="service">{serviceName(provider.service)}</div>
 				<button on:click={() => removeUpstream(provider)} aria-label="Remove"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -51,9 +51,9 @@
 			</li>
 		{:else if Object.keys(provider).length === 3}
 			<li class="grid grid-cols-4 gap-2 items-center p-2 odd:bg-green-100 even:bg-gray-100">
-				<span class="domain">{provider.domain}</span>
-				<span class="doctype">{evidenceName(provider.doctype)}</span>
-				<span class="url">{provider.url}</span>
+				<div class="domain"><span>{provider.domain}</span></div>
+				<div class="doctype"><span>{evidenceName(provider.doctype)}</span></div>
+				<div class="url"><span>{provider.url}</span></div>
 				<button on:click={() => removeUpstream(provider)} aria-label="Remove"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -90,6 +90,13 @@
 	.domain,
 	.service {
 		overflow-x: auto;
+		width: 100%;
+	}
+
+	.url span,
+	.domain span,
+	.service span {
 		width: max-content;
+		display: block;
 	}
 </style>
