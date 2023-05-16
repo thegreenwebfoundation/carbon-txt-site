@@ -30,7 +30,7 @@
 				<Button link="https://github.com/thegreenwebfoundation/carbon.txt" icon={true} white={true}>Github <Github /></Button>
 			</div>
 		</div>
-		<div class="p-8 max-w-100">
+		<div class="max-w-100">
 			<Code code={exampleToml} />
 		</div>
 	</div>

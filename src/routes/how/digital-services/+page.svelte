@@ -9,10 +9,6 @@
 	export let form
 
 	import { digitalServiceToml } from '$lib/utils/exampleToml'
-
-	const stepFourCommand = `curl --request POST --location 'https://api.thegreenwebfoundation.org/api/v3/carbontxt'
-	--header 'Content-Type: application/json'
-	--data "{ 'url': 'https://my-org.com/carbon.txt' }"`
 </script>
 
 <article id="digital-services" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
@@ -114,7 +110,7 @@
 </article>
 <article id="link-domains-with-domain-hash" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[10rem] prose">
-		<Heading level={2}>Linking green claims to multiple domains with domain hashes</Heading>
+		<Heading level={2}>Linking green claims to multiple domains</Heading>
 		<p>
 			It's fairly common that a digital service provider might own and provide services through multiple domains. They might also have multiple products, or provide hosted services for a number of
 			users all who have their own domains.
@@ -128,96 +124,23 @@
 			<li>Using DNS TXT records, which contain the specific URL pointing to the carbon.txt file to read.</li>
 			<li>Using a dedicated HTTP Via Header, again containing a URL for the carbon.txt file to read.</li>
 		</ul>
-
+		<Heading level={3}>Choosing the right option for your organisation</Heading>
+		<Heading level={4}>Using DNS TXT records</Heading>
 		<p>
-			The first of these, using DNS TXT records, is intended for organisations who are able to add DNS records to both their own domain, as well as the domain they want to show up as green. If you own
-			both domains, this option is for you.
+			Using DNS TXT records is intended for organisations who are able to add DNS records to both their own domain, as well as the domain they want to show up as green. If you own both domains, this
+			option is for you.
 		</p>
 
+		<a href="/how/digital-services/link-multiple-domains/dns" class="btn btn-white">Guide: How to link multiple domains using DNS TXT records</a>
+
+		<Heading level={4}>Using HTTP Via Header</Heading>
 		<p>
-			The second, a HTTP Via Header, is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and
-			serve responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service offering, this is usually better suited for your use case.
+			Using a HTTP Via Header is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and serve
+			responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service (PaaS) offering, this is usually better suited for your use case.
 		</p>
+		<p>This option also allows you to "pass down" green claims to customer who use your service.</p>
 
-		<Heading level={3}>How to link two domains using DNS TXT records and domain hashes</Heading>
-
-		<p>DNS text records are frequently used to help organisations demonstrate they have control over a domain. The DNS TXT record approach follows similar principles.</p>
-
-		<p>To do this:</p>
-
-		<ol>
-			<li>
-				<Heading level={4}>Follow the steps above to create your carbon.txt file</Heading>
-				<p>Follow Steps 1 to 4 of the <a href="#getting-started">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>
-			</li>
-
-			<li>
-				<Heading level={4}>Create a domain hash for the domain you want to show as green</Heading>
-				<p>
-					Create a domain hash. This is a SHA256 hash of your shared secret and the domain you want to establish a link to. Various online tools demonstrate how to make SHA 256 hashes (<a
-						href="https://codebeautify.org/sha256-hash-generator">see this example</a
-					>). To make it easier, you can do all this in our <a href="our own observable notebook">own observable notebook</a>.
-				</p>
-				<div class="alert__warning">
-					<p>The Observable Notebook linked above is temporary. There'll be a dedicated tool to do this eventually.</p>
-				</div>
-			</li>
-			<li>
-				<Heading level={4}>Set a DNS record for the domains you want to link back to your main carbon.txt, containing the domain hash</Heading>
-				<p>
-					Add the generated domain hash as a final, optional part of the DNS TXT record defining the domain you want to link back to your main carbon.txt file, along with the location of the
-					carbon.txt file and the generated hash.
-				</p>
-
-				<p>For example: my-org.com also owns me.my-org.com. In order to link me.my-org.com to the main carbon.txt file, they would create a TXT record that looks something like:</p>
-				<Code code={'TXT "carbon-txt=https://my-org.com/carbon.txt <generated_domain_hash>"'} lang="http" />
-				<p>
-					<b>Note:</b> You can see an example DNS TXT record for the domain <a href="https://delegating-with-txt-record.carbontxt.org">delegating-with-txt-record.carbontxt.org</a> using online tools
-					like <a href="https://www.nslookup.io/domains/delegating-with-txt-record.carbontxt.org/dns-records/txt/">nslookup.io</a>
-				</p>
-			</li>
-		</ol>
-
-		<Heading level={3}>How to link two domains using HTTP Via headers domain hashes</Heading>
-
-		<p>HTTP requests and responses can contain a number of extra headers, which you can use to send along extra metadata about the server serving the request.</p>
-
-		<p>
-			Carbon.txt supports using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/via">HTTP Via header</a>, to declare that a HTTP response has been sent along by one or more
-			intermediate entities. In our case usually a managed hosting provider.
-		</p>
-
-		<ol>
-			<li>
-				<Heading level={4}>Follow the steps above to create your carbon.txt file</Heading>
-				<p>Follow Steps 1 to 4 of the <a href="#getting-started">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>
-			</li>
-			<li>
-				<Heading level={4}>Create a domain hash for the domain you want to show as green</Heading>
-				<p>
-					Create a domain hash. This is a SHA256 hash of your shared secret and the domain you want to establish a link to. Various online tools demonstrate how to make SHA 256 hashes (<a
-						href="https://codebeautify.org/sha256-hash-generator">see this example</a
-					>). To make it easier, you can do all this in our <a href="our own observable notebook">own observable notebook</a>.
-				</p>
-				<div class="alert__warning">
-					<p>The Observable Notebook linked above is temporary. There'll be a dedicated tool to do this eventually.</p>
-				</div>
-			</li>
-
-			<li>
-				<Heading level={4}>Set the <code>via</code> header on HTTP responses to requests for the domain you want to show as green</Heading>
-				<p>
-					For example: my-org.com also owns me.my-org.com. In order to link me.my-org.com to the main carbon.txt file, when a request comes in for me.my-org.com, you would configure the server serving
-					the request to add the following Via header.
-				</p>
-				<Code lang="http" code={'Via: 1.1 https://my-org.com/carbon.txt <generated_domain_hash>'} />
-				<p><b>Note</b>: the domain hash would be a 64 character hash of me.my-org.com and your shared secret.</p>
-				<p>
-					We maintain a set of <a href="https://github.com/thegreenwebfoundation/carbon.txt/tree/master/examples">server config setup examples folder on github</a>, for popular open source servers
-					like Nginx, Caddy, Apache, and so on (pull requests gratefully accepted).
-				</p>
-			</li>
-		</ol>
+		<a href="/how/digital-services/link-multiple-domains/via" class="btn btn-white">Guide: How to link multiple domains using HTTP VIA HEADER</a>
 	</div>
 </article>
 
