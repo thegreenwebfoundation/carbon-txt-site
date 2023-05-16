@@ -47,6 +47,7 @@
 				<p>
 					Create a carbon.txt file for your organisation. There is <a href="#digital-services-syntax">a guide</a> to the expected syntax below.
 				</p>
+				<a href="/tools/builder" class="btn btn-white">Use the carbon.txt builder</a>
 			</li>
 
 			<li>
