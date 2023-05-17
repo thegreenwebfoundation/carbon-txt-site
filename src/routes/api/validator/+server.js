@@ -13,7 +13,13 @@ export async function POST({ url, platform, request }) {
     // Save the TOML to KV
     await platform.env.TEST_KV.put(id, toml, { expirationTtl: 600 });
 
-    return new Response(String(id));
+    // Set a header to accept all CORS requests
+    const headers = {
+        'Access-Control-Allow-Origin': '*'
+    };
+
+    // Return the ID to the client
+    return new Response(id, { headers });
 }
 
 export async function GET({ url, platform }) {
