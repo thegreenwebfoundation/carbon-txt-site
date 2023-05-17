@@ -25,7 +25,7 @@
 			const data = await response.text()
 			console.log(data)
 
-			let url = 'https://carbon-txt-site.pages.dev/api/validator/get?url=' + data
+			let url = 'https://carbon-txt-site.pages.dev/api/validator/get?id=' + data
 			checkedUrl = url
 
 			const form = document.getElementById('validateFile')
