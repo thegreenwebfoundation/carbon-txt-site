@@ -1,4 +1,6 @@
 <script>
+	// NOTE: There is currently no way to test this validator locally as it relies on Cloudflare Workers KV.
+
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
 	import Code from '$lib/components/Code.svelte'
