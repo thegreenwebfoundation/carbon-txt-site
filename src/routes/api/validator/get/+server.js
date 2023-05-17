@@ -7,13 +7,13 @@ export async function GET({ url, platform }) {
     const id = url.searchParams.get('id');
 
     if (!id) {
-        return error(400, 'Missing ID');
+        return new Response(error(400, 'Missing ID'));
     }
 
     const toml = await platform.env.TEST_KV.get(id);
 
     if (!toml) {
-        return error(404, 'Not found');
+        return new Response(error(404, 'Not found'));
     }
 
     return new Response(String(toml));
