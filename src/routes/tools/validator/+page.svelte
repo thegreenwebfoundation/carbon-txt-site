@@ -2,6 +2,8 @@
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
 	import Code from '$lib/components/Code.svelte'
+	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte'
+	import TGWF_Question from '$lib/svg/tgwf_logo_question.svelte'
 
 	import { load } from 'js-toml'
 
@@ -32,6 +34,11 @@
 	import { enhance } from '$app/forms'
 	import { text } from 'svelte/internal'
 	export let form
+
+	$: upstream = form?.data?.upstream ? Object.entries(form?.data?.upstream).map(([key, value]) => ({ key, value })) : null
+	$: console.log(upstream)
+	$: org = form?.data?.org
+	$: notRegisteredProviders = form?.data?.not_registered.providers ? Object.entries(form?.data?.not_registered.providers).map(([key, value]) => ({ key, value })) : null
 
 	let checkedUrl = form?.url
 	let textInput = ''
@@ -64,34 +71,97 @@
 	</form>
 </section>
 
-<!-- {#if form?.status === 'ok'}
-	<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-		<Heading level={2}>Parsed results</Heading>
-
-		<Heading level={3}>Upstream</Heading>
-		<p>The information that is able to be gathered from the upstream providers in the carbon.txt.</p>
-
-		<ul class="mt-[1rem] divide-y">
-			<li class="grid grid-cols-3 gap-2 items-center p-2 bg-green-600 text-white">
-				<div class="domain">Provider name</div>
-				<div class="service">Verified green provider</div>
-				<div class="evidence">Supporting documentation</div>
-			</li>
-			{#each upstreamResults as upstream}
-				<li class="grid grid-cols-3 gap-2 items-center p-2 bg-green-600 text-white">
-					<div class="domain">{upstream.name || upstream.domaina}</div>
-					<div class="service">Verified green provider</div>
-					<div class="evidence">Supporting documentation</div>
-				</li>
-			{/each}
-		</ul>
-	</section>
-{/if} -->
-
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	{#if form?.status === 'ok'}
-		<Heading level={2}>Raw output</Heading>
-		<Code code={JSON.stringify(form?.data, null, 2)} lang="json" />
+		<Heading level={2}>Parsed output</Heading>
+		<Heading level={3}>Upstream</Heading>
+		{#if upstream}
+			<section class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-rows-2 gap-4">
+				<div class="w-100 flex items-center">
+					<div class="border-r-2 border-dark-gray h-100 pr-4 inline-block">
+						<TWGF_Tree width="50px" />
+					</div>
+					<h4 class="text-3xl inline ml-4">Known green upstreams</h4>
+				</div>
+				<p>These upstream providers are green because they have registered with the Green Web Foundation, or use an underlying service that has.</p>
+				<ul class="mt-[1rem] grid grid-cols-1 md:grid-cols-2 gap-10">
+					{#each upstream as provider}
+						<li class="block p-2">
+							<span class="domain font-mono col-span-2 text-center bg-green-100 p-2">{provider.key}</span>
+							<div class="host">
+								<p class="bg-green-600 text-white p-2">Hosted by</p>
+								<span class="flex gap-3 p-2"
+									>{provider.value.name}
+									<a href={provider.value.website}>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											class="icon icon-tabler icon-tabler-world"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											stroke-width="2"
+											stroke="currentColor"
+											fill="none"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+											<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+											<path d="M3.6 9h16.8" />
+											<path d="M3.6 15h16.8" />
+											<path d="M11.5 3a17 17 0 0 0 0 18" />
+											<path d="M12.5 3a17 17 0 0 1 0 18" />
+										</svg>
+									</a></span
+								>
+							</div>
+							<div class="services">
+								<p class="bg-green-600 text-white p-2">Services</p>
+								<ul class="flex flex-col gap-2 p-2">
+									{#each provider.value.services as service}
+										<li>{service}</li>
+									{/each}
+								</ul>
+							</div>
+							<div class="evidence">
+								<p class="bg-green-600 text-white p-2">Evidence</p>
+								<ul class="flex flex-col gap-2 p-2">
+									{#each provider.value.supporting_documents as evidence}
+										<li><a href={evidence.link}>{evidence.title}</a></li>
+									{/each}
+								</ul>
+							</div>
+						</li>
+					{/each}
+				</ul>
+			</section>
+		{/if}
+		{#if notRegisteredProviders}
+			<section class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 grid grid-rows-2 gap-4 mt-[4rem]">
+				<div class="w-100 flex items-center">
+					<div class="border-r-2 border-dark-gray h-100 pr-4 inline-block">
+						<TGWF_Question width="50px" />
+					</div>
+					<h4 class="text-3xl inline ml-4">Unknown upstreams</h4>
+				</div>
+				<p>These upstream providers for whom we cannot find any information.</p>
+				<ul class="mt-[1rem] grid grid-cols-1 md:grid-cols-2 gap-10">
+					{#each notRegisteredProviders as provider}
+						<li class="block p-2">
+							<span class="domain font-mono col-span-2 text-center bg-green-100 p-2">{provider.key}</span>
+							<div class="host">
+								<p class="bg-green-600 text-white p-2">Service</p>
+								<span class="flex gap-3 p-2">{provider.value.service} </span>
+							</div>
+						</li>
+					{/each}
+				</ul>
+			</section>
+		{/if}
+		<section class="mt-[4rem]">
+			<Heading level={2}>Raw output</Heading>
+			<Code code={JSON.stringify(form?.data, null, 2)} lang="json" />
+		</section>
 	{:else if form?.status === 'error'}
 		<div class="alert__error">
 			<p>Something went wrong. Please try again with a valid carbon.txt URL.</p>
