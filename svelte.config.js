@@ -10,7 +10,10 @@ export default {
 				include: ['/*'],
 				exclude: ['<all>']
 			}
-		})
+		}),
+		csrf: {
+			checkOrigin: false,
+		  }
 	},
 
 	preprocess: [
