@@ -8,8 +8,8 @@
 	import { load } from 'js-toml'
 
 	let tomlError = ''
-	async function storeToml() {
-		const toml = textInput
+	async function storeToml(parsed) {
+		const toml = parsed
 
 		const headers = {
 			'Content-Type': 'application/text'
@@ -34,6 +34,7 @@
 		try {
 			let parsed = load(textInput)
 			tomlError = ''
+			storeToml(parsed)
 		} catch (error) {
 			console.log(error)
 			// // Find offset: nnn in the error, where nnn is a number. Return that number.
