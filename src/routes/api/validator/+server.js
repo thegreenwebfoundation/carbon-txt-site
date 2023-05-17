@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 
-/** @type {import('../../tools/validator/$types').RequestHandler} */
-export async function GET({ url }) {
+// /** @type {import('../../tools/validator/$types').RequestHandler} */
+export async function onRequest(context) {
     const toml = `[upstream]
     providers = [
         { domain='aws.amazon.com', service = 'infrastructure' },
@@ -13,7 +13,7 @@ export async function GET({ url }) {
         { domain = 'imageengine.io', aliases = ['imgeng.in'], doctype = 'web page', url = "https://github.com/imgeng/sustainability"},
     ]`
 
-    await TEST_KV.put('test.toml', toml);
+    await context.env.TEST_KV.put('test.toml', toml);
 
     return new Response(String(toml));
 }
