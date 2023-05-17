@@ -8,12 +8,32 @@
 	import { load } from 'js-toml'
 
 	let tomlError = ''
+	async function storeToml() {
+		const toml = textInput
+
+		const headers = {
+			'Content-Type': 'application/text'
+		}
+
+		const response = await fetch('/api/validator/post', {
+			method: 'POST',
+			headers,
+			body: toml
+		})
+
+		if (response.ok) {
+			const data = await response.text()
+			console.log(data)
+		} else {
+			console.log('Error')
+		}
+	}
+
 	function validateToml() {
 		tomlError = ''
 		try {
 			let parsed = load(textInput)
 			tomlError = ''
-			console.log(parsed)
 		} catch (error) {
 			console.log(error)
 			// // Find offset: nnn in the error, where nnn is a number. Return that number.
@@ -32,7 +52,6 @@
 	}
 
 	import { enhance } from '$app/forms'
-	import { text } from 'svelte/internal'
 	export let form
 
 	$: upstream = form?.data?.upstream ? Object.entries(form?.data?.upstream).map(([key, value]) => ({ key, value })) : null
