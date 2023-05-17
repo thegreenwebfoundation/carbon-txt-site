@@ -8,8 +8,8 @@
 	import { load } from 'js-toml'
 
 	let tomlError = ''
-	async function storeToml(parsed) {
-		const toml = parsed
+	async function storeToml() {
+		const toml = textInput
 
 		const headers = {
 			'Content-Type': 'application/text'
@@ -18,7 +18,7 @@
 		const response = await fetch('/api/validator/post', {
 			method: 'POST',
 			headers,
-			body: JSON.stringify(toml)
+			body: toml
 		})
 
 		if (response.ok) {
@@ -28,7 +28,7 @@
 			let url = 'https://carbon-txt-site.pages.dev/api/validator/get?url=' + data
 			checkedUrl = url
 
-			// const form = document.getElementById('validateFile')
+			const form = document.getElementById('validateFile')
 			// form.submit()
 		} else {
 			console.log('Error')
@@ -40,7 +40,7 @@
 		try {
 			let parsed = load(textInput)
 			tomlError = ''
-			storeToml(parsed)
+			storeToml()
 		} catch (error) {
 			console.log(error)
 			// // Find offset: nnn in the error, where nnn is a number. Return that number.

@@ -7,7 +7,7 @@ export async function POST({ url, platform, request }) {
     // It will then return the ID to the client.
 
     // Get the TOML from the body
-    const toml = await request.json();
+    const toml = await request.text();
     // Generate a unique ID
     const id = crypto.randomUUID()
     // Save the TOML to KV
