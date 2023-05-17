@@ -18,12 +18,18 @@
 		const response = await fetch('/api/validator/post', {
 			method: 'POST',
 			headers,
-			body: toml
+			body: JSON.stringify(toml)
 		})
 
 		if (response.ok) {
 			const data = await response.text()
 			console.log(data)
+
+			let url = 'https://carbon-txt-site.pages.dev/api/validator/get?url=' + data
+			checkedUrl = url
+
+			// const form = document.getElementById('validateFile')
+			// form.submit()
 		} else {
 			console.log('Error')
 		}
@@ -79,7 +85,7 @@
 			</div>
 		{/if}
 	</div>
-	<form class="form mt-[5rem]" use:enhance method="POST" action="?/registerFile	">
+	<form id="validateFile" class="form mt-[5rem]" use:enhance method="POST" action="?/registerFile	">
 		<div class="flex flex-col gap-1">
 			<label for="carbon-txt-url">Your carbon.txt URL</label>
 			<!-- URL input with validation that the URL ends with carbon.txt -->
