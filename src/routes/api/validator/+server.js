@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 
 // /** @type {import('../../tools/validator/$types').RequestHandler} */
-export async function onRequest(context) {
+export async function onRequestGet(context) {
     const toml = `[upstream]
     providers = [
         { domain='aws.amazon.com', service = 'infrastructure' },
