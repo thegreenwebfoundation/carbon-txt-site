@@ -38,6 +38,16 @@
 		</div>
 	</Faq>
 	<Faq>
+		<span slot="question">What upstream provider services are accepted?</span>
+		<span class="prose" slot="answer">
+			<p>A list of accepted upstream provider services can be found on <a href="/faq/services">this FAQ page</a>.</p>
+			<p>
+				If there's a particular service you'd like listed, but which isn't on that page then please contribute to <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/17">this issue</a
+				>.
+			</p>
+		</span>
+	</Faq>
+	<Faq>
 		<span slot="question">What are the accepted doctype values that can be used?</span>
 		<div class="prose" slot="answer">
 			<p>Currently, we accept the doctypes below:</p>
