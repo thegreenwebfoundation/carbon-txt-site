@@ -170,12 +170,14 @@ pre {
 	padding: 2rem;
 }
 
-li:has(h3)::marker {
+li:has(h2, h3, h4)::marker {
 	font-size: 1.75rem;
 	--tw-prose-counters: var(--tw-prose-headings);
 }
 
-li > h3 {
+li > h2,
+h3,
+h4 {
 	border: 0;
 }
 

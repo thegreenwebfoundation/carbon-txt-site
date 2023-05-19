@@ -4,11 +4,11 @@
 </script>
 
 <article class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<div class="prose">
+	<div class="w-100 mb-[10rem] prose">
 		<Heading level={1}>How to link two domains using DNS TXT records and domain hashes</Heading>
 		<p>DNS text records are frequently used to help organisations demonstrate they have control over a domain. The DNS TXT record approach follows similar principles.</p>
 		<p>To do this:</p>
-		<ol>
+		<ol class="flex flex-col gap-3">
 			<li>
 				<Heading level={2}>Follow the steps above to create your carbon.txt file</Heading>
 				<p>Follow Steps 1 to 4 of the <a href="/how/digital-services">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>

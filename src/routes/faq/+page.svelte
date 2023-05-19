@@ -6,7 +6,10 @@
 </script>
 
 <article class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<Heading level={1}>Frequently asked questions</Heading>
+	<div class="prose mb-[3rem]">
+		<Heading level={1}>Frequently asked questions</Heading>
+		<p>While this concept is still new, we expect that some edge cases will be encountered. Here are some frequently asked questions we have internally.</p>
+	</div>
 	<Faq>
 		<span slot="question">I am self-hosting my website, can I use carbon.txt?</span>
 		<div class="prose" slot="answer">
@@ -48,7 +51,7 @@
 		</span>
 	</Faq>
 	<Faq>
-		<span slot="question">What are the accepted doctype values that can be used?</span>
+		<span slot="question">What are the accepted <code>doctype</code> values that can be used?</span>
 		<div class="prose" slot="answer">
 			<p>Currently, we accept the doctypes below:</p>
 			<ul>

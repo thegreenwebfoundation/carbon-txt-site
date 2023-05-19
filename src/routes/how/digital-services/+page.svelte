@@ -20,7 +20,7 @@
 				you to pass this on to your customers, allowing any downstream services or websites using your services to make the same claims, with a clear chain of attribution.
 			</p>
 			<Callout>
-				<h2 class="text-2xl">For self-hosted sites and website owners</h2>
+				<p class="text-2xl">For self-hosted sites and website owners</p>
 				<p>
 					We are currently piloting the carbon.txt specification with digital service providers only. The FAQ has information for self-hosted sites, and individual website owners who are interested in
 					this idea.
@@ -34,7 +34,7 @@
 		<Heading level={2}>Getting started</Heading>
 		<p class="mb-10">Follow the steps below to create an implement a carbon.txt file for your service.</p>
 
-		<ol>
+		<ol class="flex flex-col gap-3">
 			<li>
 				<Heading level={3}>Register with the Green Web Foundation</Heading>
 				<p>
@@ -43,28 +43,23 @@
 				</p>
 			</li>
 			<li>
-				<div class="lg:grid lg:grid-cols-2 lg:items-center gap-10">
-					<div>
-						<Heading level={3}>Create a carbon.txt file for your organisation</Heading>
-						<p>
-							Create a carbon.txt file for your organisation. There is <a href="#digital-services-syntax">a guide</a> to the expected syntax below.
-						</p>
-						<a href="/tools/builder" class="btn btn-white">Use the carbon.txt builder</a>
-					</div>
-					<Callout>
-						<h4 class="text-2xl">Note</h4>
-						<p>You only need one carbon.txt file for your organisation.</p>
-						<p>To link multiple domains to a single organisation, refer to the linking green claims to multiple domains section below.</p>
-						<div class="w-max mx-auto mt-[2rem]"><Button link="#link-multiple-domains">Linking multiple domains</Button></div>
-					</Callout>
-				</div>
+				<Heading level={3}>Create a carbon.txt file for your organisation</Heading>
+				<p>
+					Create a carbon.txt file for your organisation. There is <a href="#digital-services-syntax">a guide</a> to the expected syntax below.
+				</p>
+				<a href="/tools/builder" class="btn btn-white">Use the carbon.txt builder</a>
+				<Callout>
+					<p class="text-2xl">Note</p>
+					<p>You only need one carbon.txt file for your organisation.</p>
+					<p>To link multiple domains to a single organisation, refer to the <a href="#link-multiple-domains">linking green claims to multiple domains</a> section below.</p>
+				</Callout>
 			</li>
 
 			<li>
 				<Heading level={3}>Upload your carbon.txt file to your servers.</Heading>
 				<p>For example: <em>https://www.my-org.com/carbon.txt</em></p>
 				<p>
-					We default to checking for a file located at the root of your domain <code>/carbon.txt</code> or <code>/.well-known/carbon.txt</code>.
+					We default to checking for a file located at the root of your domain <code>/carbon.txt</code>.
 				</p>
 			</li>
 			<li>
@@ -102,12 +97,10 @@
 				{/if}
 			</li>
 			<li>
-				<Heading level={3}
-					>Link other domains to your green claims if they are using infrastructure you control <span class="bg-white border-2 border-dark-gray rounded-3xl text-base p-2">Optional</span></Heading
-				>
+				<Heading level={3}>Link other domains to your green claims if they are using infrastructure you control</Heading>
 				<p>
 					If you offer managed hosted services to other organisations, once your first link is established there is an automated process for listing future domains so they show up as green too, with
-					attribution to you. See <a href="#link-domains-with-domain-hash">domain hashes</a> below for more.
+					attribution to you. See <a href="#link-multiple-domains">domain hashes</a> below for more.
 				</p>
 			</li>
 		</ol>
@@ -140,22 +133,24 @@
 			<li>Using a dedicated HTTP Via Header, again containing a URL for the carbon.txt file to read.</li>
 		</ul>
 		<Heading level={3}>Choosing the right option for your organisation</Heading>
-		<Heading level={4}>Using DNS TXT records</Heading>
-		<p>
-			Using DNS TXT records is intended for organisations who are able to add DNS records to both their own domain, as well as the domain they want to show up as green. If you own both domains, this
-			option is for you.
-		</p>
+		<div class="mt-[3rem]">
+			<Heading level={4}>Using DNS TXT records</Heading>
+			<p>
+				Using DNS TXT records is intended for organisations who are able to add DNS records to both their own domain, as well as the domain they want to show up as green. If you own both domains, this
+				option is for you.
+			</p>
+			<a href="/how/digital-services/link-multiple-domains/dns" class="btn btn-white">Guide: How to link multiple domains using DNS TXT records</a>
+		</div>
 
-		<a href="/how/digital-services/link-multiple-domains/dns" class="btn btn-white">Guide: How to link multiple domains using DNS TXT records</a>
-
-		<Heading level={4}>Using HTTP Via Header</Heading>
-		<p>
-			Using a HTTP Via Header is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and serve
-			responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service (PaaS) offering, this is usually better suited for your use case.
-		</p>
-		<p>This option also allows you to "pass down" green claims to customer who use your service.</p>
-
-		<a href="/how/digital-services/link-multiple-domains/via" class="btn btn-white">Guide: How to link multiple domains using HTTP VIA HEADER</a>
+		<div class="mt-[3rem]">
+			<Heading level={4}>Using HTTP Via Header</Heading>
+			<p>
+				Using a HTTP Via Header is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and serve
+				responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service (PaaS) offering, this is usually better suited for your use case.
+			</p>
+			<p>This option also allows you to "pass down" green claims to customer who use your service.</p>
+			<a href="/how/digital-services/link-multiple-domains/via" class="btn btn-white">Guide: How to link multiple domains using HTTP VIA HEADER</a>
+		</div>
 	</div>
 </article>
 
