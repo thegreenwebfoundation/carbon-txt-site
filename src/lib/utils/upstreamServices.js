@@ -34,7 +34,7 @@ export default [
         name: 'Object storage',
         slug: 'object-storage',
         category: 'storage',
-        description: `<p>The other second form of storage is object storage. Here, most of the time, rather than knowing ahead of time how much storage you need and paying to have a disk large enough to hold everything you need, you upload files without needing to specify in advance how much space you need, and just pay for the storage it takes up.</p>
+        description: `<p>The second form of storage is object storage. Here, most of the time, rather than knowing ahead of time how much storage you need and paying to have a disk large enough to hold everything you need, you upload files without needing to specify in advance how much space you need, and just pay for the storage it takes up.</p>
         <p>Like the block storage service, you are shielded from hardware failures, and it’s often much cheaper than other forms of storage. The downside however is that you aren’t really using a file system like you are on a laptop with folders and so on, so software needs to be specially written to use this kind of storage.</p>`
     },
     {

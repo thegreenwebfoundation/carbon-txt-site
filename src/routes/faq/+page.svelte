@@ -38,6 +38,18 @@
 		</div>
 	</Faq>
 	<Faq>
+		<span slot="question">What are the accepted doctype values that can be used?</span>
+		<div class="prose" slot="answer">
+			<p>Currently, we accept the doctypes below:</p>
+			<ul>
+				<li><code>annual-report</code>: An organisations annual sustainability reporting.</li>
+				<li><code>webpage</code>: A web page outlining steps taken to avoid, reduce, or offset greenhouse gas emissions from service operations.</li>
+				<li><code>certificate</code>: Certificates showing the steps taken to purchase green energy, or offset greenhouse gas emissions from service operations.</li>
+				<li><code>other</code>: A catch-all for everything else.</li>
+			</ul>
+		</div>
+	</Faq>
+	<Faq>
 		<span slot="question">Why this approach?</span>
 		<div class="prose" slot="answer">
 			<p>There are a few reasons for taking the approach we’ve described on this site.</p>
