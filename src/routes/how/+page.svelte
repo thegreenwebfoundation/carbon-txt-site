@@ -4,7 +4,7 @@
 	import Code from '$lib/components/Code.svelte'
 	import Button from '$lib/components/Button.svelte'
 
-	import { digitalServiceToml, websiteToml } from '$lib/utils/exampleToml'
+	import { digitalServiceToml } from '$lib/utils/exampleToml'
 
 	// Logos, SVGs and things
 	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte'
@@ -32,7 +32,7 @@
 			</div>
 		</div>
 		<div class="p-8 max-w-100">
-			<span data-toml class={exampleToml === 'website' ? 'active' : ''}><Code code={websiteToml} /></span>
+			<!-- <span data-toml class={exampleToml === 'website' ? 'active' : ''}><Code code={websiteToml} /></span> -->
 			<span data-toml class={exampleToml === 'digitalService' ? 'active' : ''}><Code code={digitalServiceToml} /></span>
 		</div>
 	</div>
