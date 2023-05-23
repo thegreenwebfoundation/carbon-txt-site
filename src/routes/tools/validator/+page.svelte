@@ -191,7 +191,7 @@
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<Heading level={1}>Validator</Heading>
-	<p>Use this validator too to check what is returned when your carbon.txt file is parsed.</p>
+	<p>Use this validator to check what is returned when your carbon.txt file is parsed.</p>
 	<div class="lg:grid lg:grid-cols-2 lg:items-center gap-5 mt-[3rem]">
 		<div>
 			<textarea name="carbon-txt" bind:value={textInput} rows="15	" />
