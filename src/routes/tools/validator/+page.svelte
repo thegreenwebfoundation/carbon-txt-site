@@ -15,6 +15,8 @@
 	import { load } from 'js-toml'
 
 	let tomlError = ''
+	let tomlSuccess = false
+
 	// This code is for later, when we actually parse toml files & return the data
 	async function storeToml() {
 		const toml = textInput
@@ -156,34 +158,27 @@
 		}
 
 		// Check that org.credentials only has keys of domain, doctype & url
-		if (toml.org) {
-			for (let credential of toml.org.credentials) {
-				for (let key of Object.keys(credential)) {
-					if (key !== 'domain' && key !== 'doctype' && key !== 'url') {
-						return {
-							status: 'error',
-							message: 'One of the org credentials has an invalid key'
-						}
-					}
-				}
-			}
-		}
 
 		return
 	}
+
 	async function validateToml() {
 		tomlError = ''
 		try {
 			let parsed = load(textInput)
 			const parsedToml = await parseToml(parsed)
-			parsedToml?.message ? (tomlError = parsedToml.message) : (tomlError = '')
+			tomlError = parsedToml?.message ? parsedToml.message : ''
+
+			if (!parsedToml?.message) {
+				tomlSuccess = true
+			}
 		} catch (error) {
 			console.log(error)
 			tomlError = error.message
 		}
 	}
 
-	import { enhance } from '$app/forms'
+	// import { enhance } from '$app/forms'
 	export let form
 
 	$: upstream = form?.data?.upstream ? Object.entries(form?.data?.upstream).map(([key, value]) => ({ key, value })) : null
@@ -197,15 +192,19 @@
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<Heading level={1}>Validator</Heading>
 	<p>Use this validator too to check what is returned when your carbon.txt file is parsed.</p>
-	<div class="lg:grid lg:grid-cols-2 lg:items-center gap-5">
+	<div class="lg:grid lg:grid-cols-2 lg:items-center gap-5 mt-[3rem]">
 		<div>
 			<textarea name="carbon-txt" bind:value={textInput} rows="15	" />
-			<button type="submit" class="btn" on:click={validateToml}>Submit</button>
+			<button type="submit" class="btn btn-white w-[100%]" on:click={validateToml}>Submit</button>
 		</div>
 		{#if tomlError.length > 0}
 			<div class="alert__error">
 				<p>There is an error in your carbon.txt syntax:</p>
 				<p>{@html tomlError}</p>
+			</div>
+		{:else if tomlSuccess}
+			<div class="alert__success">
+				<p>The carbon.txt syntax you have entered appears to be valid!</p>
 			</div>
 		{/if}
 	</div>
