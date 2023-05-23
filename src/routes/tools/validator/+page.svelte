@@ -10,6 +10,7 @@
 	import { load } from 'js-toml'
 
 	let tomlError = ''
+	// This code is for later, when we actually parse toml files & return the data
 	async function storeToml() {
 		const toml = textInput
 
@@ -41,21 +42,11 @@
 		tomlError = ''
 		try {
 			let parsed = load(textInput)
+			console.log(parsed)
 			tomlError = ''
-			storeToml()
+			// storeToml()
 		} catch (error) {
 			console.log(error)
-			// // Find offset: nnn in the error, where nnn is a number. Return that number.
-			// let offset = error.message.match(/offset: (\d+)/)
-			// if (offset) {
-			// 	offset = offset[1]
-			// } else {
-			// 	offset = 0
-			// }
-			// // Get the 5 characters around the offset
-			// tomlError = textInput.slice(parseInt(offset - 10), parseInt(offset) + 10)
-			// // Highlight the position of the error in the tomlError string by positioning an arrow below the offset
-			// tomlError = tomlError + '<br />' + '&nbsp;'.repeat(10) + '^'
 			tomlError = error.message
 		}
 	}
@@ -64,7 +55,6 @@
 	export let form
 
 	$: upstream = form?.data?.upstream ? Object.entries(form?.data?.upstream).map(([key, value]) => ({ key, value })) : null
-	$: console.log(upstream)
 	$: org = form?.data?.org
 	$: notRegisteredProviders = form?.data?.not_registered.providers ? Object.entries(form?.data?.not_registered.providers).map(([key, value]) => ({ key, value })) : null
 
@@ -87,19 +77,18 @@
 			</div>
 		{/if}
 	</div>
-	<form id="validateFile" class="form mt-[5rem]" use:enhance method="POST" action="?/registerFile	">
+	<!-- <form id="validateFile" class="form mt-[5rem]" use:enhance method="POST" action="?/registerFile	">
 		<div class="flex flex-col gap-1">
 			<label for="carbon-txt-url">Your carbon.txt URL</label>
-			<!-- URL input with validation that the URL ends with carbon.txt -->
 			<div class="flex gap-3 flex-wrap">
 				<input class="form-input flex-none lg:max-w-[80%]" type="url" id="carbon-txt-url" name="carbon-txt-url" required bind:value={checkedUrl} />
 				<button type="submit" class="btn" on:click|once>Submit</button>
 			</div>
 		</div>
-	</form>
+	</form> -->
 </section>
 
-<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
+<!-- <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	{#if form?.status === 'ok'}
 		<Heading level={2}>Parsed output</Heading>
 		<Heading level={3}>Upstream</Heading>
@@ -195,4 +184,4 @@
 			<p>Something went wrong. Please try again with a valid carbon.txt URL.</p>
 		</div>
 	{/if}
-</section>
+</section> -->
