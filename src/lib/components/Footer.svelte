@@ -14,7 +14,7 @@
 					<p class="text-2xl mb-3">Green Web Foundation</p>
 					<ul>
 						<li class="my-3">
-							<a href="https://thegreenwebfoundation.org">Homepage</a>
+							<a href="https://thegreenwebfoundation.org">Main website</a>
 						</li>
 						<li class="my-3">
 							<a href="https://github.com/thegreenwebfoundation">Github</a>
