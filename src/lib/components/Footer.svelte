@@ -1,4 +1,4 @@
-<header class="bg-white border-t-2 mt-[10rem]">
+<footer class="bg-white border-t-2">
 	<div class="container mx-auto p-4 sm:px-4">
 		<nav class="flex gap-[2rem] justify-between items-center flex-wrap py-6 md:justify-start md:space-x-1">
 			<div class="flex-grow">
@@ -41,4 +41,4 @@
 			</div>
 		</nav>
 	</div>
-</header>
+</footer>

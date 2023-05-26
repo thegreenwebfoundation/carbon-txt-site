@@ -20,7 +20,7 @@
 	}
 </script>
 
-<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 mb-[10rem]" id="intro">
+<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 mb-[5rem]" id="intro">
 	<div class="min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
 		<div class="p-8">
 			<Heading level={1}>Carbon.txt</Heading>
@@ -36,18 +36,23 @@
 	</div>
 </section>
 
-<section id="what" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<div class="w-100 mb-[10rem]">
+<section id="what" class="w-100 bg-neutral-900">
+	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 mb-[5rem] text-white">
 		<Heading level={2}>What is carbon.txt?</Heading>
 		<What />
 	</div>
-	<div class="w-100 mb-[10rem]">
+</section>
+
+<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
+	<div class="w-100 mb-[5rem]">
 		<Heading level={2}>Why do we need this?</Heading>
 		<Why short={true} />
-		<div class="w-max mt-[2rem]"><Button link="/about#why" white={true}>Read more about why</Button></div>
+		<div class="w-max mt-[2rem]"><Button link="/about#why">Read more about why</Button></div>
 	</div>
+</section>
 
-	<div class="w-100 mb-[10rem] grid grid-cols-1 gap-10">
+<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
+	<div class="w-100 mb-[5rem] grid grid-cols-1 gap-10">
 		<Heading level={2}>What are the benefits?</Heading>
 		<div id="benefits-digital-services">
 			<Heading level={3}>For digital service providers</Heading>
@@ -90,12 +95,17 @@
 					<p>Demonstrate leadership if you are moving faster in terms of a climate response than the organisations in your supply chain by linking to your own work.</p>
 				</li>
 			</ul>
-			<Heading level={3}>Get started</Heading>
-			<div class="flex flex-wrap gap-3">
-				<Button link="/how/digital-services">Follow the guide</Button>
-				<Button link="/tools/builder" white={true}>Use the builder</Button>
-				<Button link="/tools/validator" white={true}>Use the validator</Button>
-			</div>
+		</div>
+	</div>
+</section>
+
+<section id="cta" class="w-100 bg-neutral-900">
+	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 text-white text-center flex flex-col justify-center gap-3">
+		<Heading level={3}>Get started</Heading>
+		<div class="flex flex-wrap gap-3 w-100 justify-center">
+			<Button link="/how/digital-services">Follow the guide</Button>
+			<Button link="/tools/builder" white={true}>Use the builder</Button>
+			<Button link="/tools/validator" white={true}>Use the validator</Button>
 		</div>
 	</div>
 </section>
