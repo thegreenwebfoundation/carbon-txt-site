@@ -20,18 +20,21 @@
 	}
 </script>
 
-<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 mb-[5rem]" id="intro">
-	<div class="min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
-		<div class="p-8">
-			<Heading level={1}>Carbon.txt</Heading>
-			<p class="mb-10">A proposed convention for website owners and digital service providers to demonstrate that their digital infrastructure runs on green electricity.</p>
-			<div class="flex flex-wrap gap-3 justify-start">
-				<Button link="#what">Learn more</Button>
-				<Button link="https://github.com/thegreenwebfoundation/carbon.txt" icon={true} white={true}>Github <Github /></Button>
+<section class="w-100" id="intro">
+	<div class="relative block">
+		<div class="absolute -z-50 right-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-l from-green-500 hidden md:block" style="height: calc(100% + 100px);" />
+		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
+			<div class="p-8">
+				<Heading level={1}>Carbon.txt</Heading>
+				<p class="mb-10">A proposed convention for website owners and digital service providers to demonstrate that their digital infrastructure runs on green electricity.</p>
+				<div class="flex flex-wrap gap-3 justify-center md:justify-start">
+					<Button link="#what">Learn more</Button>
+					<Button link="https://github.com/thegreenwebfoundation/carbon.txt" icon={true} white={true}>Github <Github /></Button>
+				</div>
 			</div>
-		</div>
-		<div class="max-w-100">
-			<Code code={exampleToml} />
+			<div class="max-w-100">
+				<Code code={exampleToml} />
+			</div>
 		</div>
 	</div>
 </section>
