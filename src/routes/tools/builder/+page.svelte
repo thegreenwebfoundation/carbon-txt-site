@@ -1,10 +1,12 @@
 <script>
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
+	import Button from '$lib/components/Button.svelte'
 	import Code from '$lib/components/Code.svelte'
 	import BuilderInput from '$lib/components/tools/BuilderInput.svelte'
 	import BuilderOutput from '$lib/components/tools/BuilderOutput.svelte'
 	import copy from 'clipboard-copy'
+	import Callout from '$lib/components/Callout.svelte'
 
 	import { builderUpstream, builderOrg } from '$lib/store'
 	import services from '$lib/utils/upstreamServices'
@@ -22,8 +24,20 @@ credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<Heading level={1}>Builder</Heading>
-	<p>Use this builder to create a carbon.txt file for your organisation.</p>
+	<div class="lg:grid lg:grid-cols-2 lg:items-center gap-10">
+		<div class="mb-10">
+			<Heading level={1}>Builder</Heading>
+			<p>Use this builder to create a carbon.txt file for your organisation.</p>
+		</div>
+
+		<Callout>
+			<p class="text-2xl">What is carbon.txt?</p>
+			<p>If carbon.txt you're wondering what carbon.txt actually is we recommend reading about it first.</p>
+			<div class="w-max mx-auto mt-[2rem]">
+				<Button link="/about">What is carbon.txt?</Button>
+			</div>
+		</Callout>
+	</div>
 
 	<div class="min-h-[80vh] mt-[3rem] lg:grid lg:grid-cols-2 lg:items-start">
 		<div class="py-8">
@@ -32,7 +46,6 @@ credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 				<p class="mb-10">List the providers you use to deliver your service</p>
 				<BuilderInput store={builderUpstream} />
 				<p>Can't find a service you need in the list? <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/16">Let us know</a>.</p>
-				<!-- Todo: Update BuilderOutput with nicer style & functionality (remove, edit) -->
 				<BuilderOutput store={builderUpstream} />
 			</div>
 			<div class="mb-[3rem]">
