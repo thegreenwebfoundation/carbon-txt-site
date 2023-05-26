@@ -16,20 +16,26 @@
 	}
 </script>
 
-<article class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<section class="w-100 mb-[10rem]">
+<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
+	<div class="w-100 mb-[5rem] pt-[2.5rem]">
 		<Heading level={1}>What is carbon.txt?</Heading>
 		<div class="flex flex-auto gap-10 items-center">
 			<What />
 		</div>
-	</section>
-	<section id="why" class="w-100 mb-[10rem]">
+	</div>
+</section>
+<section id="why" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
+	<div class="w-100 mb-[5rem] pt-[2.5rem]">
 		<Heading level={2}>Why do we need this?</Heading>
 		<Why />
-	</section>
-	<section id="goals" class="w-100 mb-[10rem] grid grid-cols-1 gap-10">
+	</div>
+</section>
+<section id="goals" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
+	<div class="w-100 mb-[5rem] pt-[2.5rem]">
 		<Heading level={2}>What are the goals?</Heading>
 		<Goals />
+	</div>
+	<div class="w-100 mb-[5rem] pt-[2.5rem]">
 		<Heading level={3}>To achieve these goals, we have:</Heading>
 		<div class="prose">
 			<ul>
@@ -38,9 +44,11 @@
 				<li>used a format that is human readable, as well as machine readable;</li>
 			</ul>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<section id="benefits" class="w-100 mb-[10rem]">
+<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
+	<div class="w-100 mb-[5rem] pt-[2.5rem] grid grid-cols-1 gap-10">
 		<Heading level={2}>What are the benefits?</Heading>
 		<div id="benefits-digital-services">
 			<Heading level={3}>For digital service providers</Heading>
@@ -83,12 +91,17 @@
 					<p>Demonstrate leadership if you are moving faster in terms of a climate response than the organisations in your supply chain by linking to your own work.</p>
 				</li>
 			</ul>
-			<Heading level={3}>Get started</Heading>
-			<div class="flex flex-wrap gap-3">
-				<Button link="/how/digital-services">Follow the guide</Button>
-				<Button link="/tools/builder" white={true}>Use the builder</Button>
-				<Button link="/tools/validator" white={true}>Use the validator</Button>
-			</div>
 		</div>
-	</section>
-</article>
+	</div>
+</section>
+
+<section id="cta" class="w-100 bg-neutral-900">
+	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 text-white text-center flex flex-col justify-center gap-3">
+		<Heading level={3}>Get started</Heading>
+		<div class="flex flex-wrap gap-3 w-100 justify-center">
+			<Button link="/how/digital-services">Follow the guide</Button>
+			<Button link="/tools/builder" white={true}>Use the builder</Button>
+			<Button link="/tools/validator" white={true}>Use the validator</Button>
+		</div>
+	</div>
+</section>
