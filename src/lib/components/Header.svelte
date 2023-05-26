@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores'
 
-	$: currentPage = (route = '') => ($page.route.id === route ? 'no-underline text-green-600 font-mono font-bold' : '')
+	$: currentPage = (route = '') => ($page.route.id === route ? 'no-underline text-black-600 font-mono font-bold' : '')
 </script>
 
 <header class="bg-white border-b-2">
