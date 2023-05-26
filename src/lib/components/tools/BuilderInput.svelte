@@ -146,7 +146,7 @@
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
 		</div>
-		<button on:click={add} class="btn btn-white min-w-[20ch] rounded-full">Add</button>
+		<button on:click={add} class="btn mx-auto w-max min-w-[20ch] rounded-full">Add</button>
 	</div>
 {:else if type === 'org'}
 	<div class="org-input">
@@ -178,7 +178,7 @@
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
 		</div>
-		<button on:click={add} class="btn btn-white min-w-[20ch] rounded-full">Add</button>
+		<button on:click={add} class="btn mx-auto w-max min-w-[20ch] rounded-full">Add</button>
 	</div>
 {/if}
 
