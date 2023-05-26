@@ -195,78 +195,83 @@
 	const dismissMessage = () => {
 		return (showMessage = !showMessage)
 	}
-
-	$: console.log(showMessage)
 </script>
 
-<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<div class="lg:grid lg:grid-cols-2 lg:items-center gap-10 mb-10">
-		<div class="mb-10">
-			<Heading level={1}>Validator</Heading>
-			<p>Use this validator to check what is returned when your carbon.txt file is parsed.</p>
-		</div>
-
-		<Callout>
-			<p class="text-2xl">What is carbon.txt?</p>
-			<p>If carbon.txt you're wondering what carbon.txt actually is we recommend reading about it first.</p>
-			<div class="w-max mx-auto mt-[2rem]">
-				<Button link="/about">What is carbon.txt?</Button>
+<section class="w-100" id="intro">
+	<div class="relative block">
+		<div class="absolute -z-50 right-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-l from-green-500 hidden md:block" style="height: calc(100% + 100px);" />
+		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
+			<div class="mb-10 prose md:w-[80%]">
+				<Heading level={1}>Validator</Heading>
+				<p>Use this validator to check check that a carbon.txt file you have created is syntactically valid.</p>
 			</div>
-		</Callout>
-	</div>
-	<div class="validator-holder relative">
-		<textarea name="carbon-txt" bind:value={textInput} rows="15	" class={tomlError.length > 0 ? 'bg-red-100' : ''} />
-		<button type="submit" class="btn btn-white w-[100%]" on:click={validateToml}>Submit</button>
-		<div class="validator-message absolute top-3 right-2 {showMessage ? 'hidden' : ''}">
-			{#if tomlError.length > 0}
-				<div class="alert__error">
-					<p>There is an error in your carbon.txt syntax:</p>
-					<p>{@html tomlError}</p>
-					<button class="ml-auto text-sm mt-2 text-gray-700 flex flex-row align-center gap-1" on:click={dismissMessage}
-						><svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="inline h-[2ch]"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							stroke-width="2"
-							stroke="currentColor"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-							<path d="M18 6l-12 12" />
-							<path d="M6 6l12 12" />
-						</svg> Dismiss</button
-					>
+			<div class="validator-holder relative">
+				<textarea name="carbon-txt" bind:value={textInput} rows="15	" class={tomlError.length > 0 ? 'bg-red-100' : ''} />
+				<button type="submit" class="btn btn-white w-[100%]" on:click={validateToml}>Submit</button>
+				<div class="validator-message absolute top-3 right-2 {showMessage ? 'hidden' : ''}">
+					{#if tomlError.length > 0}
+						<div class="alert__error">
+							<p>There is an error in your carbon.txt syntax:</p>
+							<p>{@html tomlError}</p>
+							<button class="ml-auto text-sm mt-2 text-gray-700 flex flex-row align-center gap-1" on:click={dismissMessage}
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="inline h-[2ch]"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									stroke-width="2"
+									stroke="currentColor"
+									fill="none"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M18 6l-12 12" />
+									<path d="M6 6l12 12" />
+								</svg> Dismiss</button
+							>
+						</div>
+					{:else if tomlSuccess}
+						<div class="alert__success">
+							<p>The carbon.txt syntax you have entered appears to be valid!</p>
+							<button class="ml-auto text-sm mt-2 text-gray-700 flex flex-row align-center gap-1" on:click={dismissMessage}
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="inline h-[2ch]"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									stroke-width="2"
+									stroke="currentColor"
+									fill="none"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M18 6l-12 12" />
+									<path d="M6 6l12 12" />
+								</svg> Dismiss</button
+							>
+						</div>
+					{/if}
 				</div>
-			{:else if tomlSuccess}
-				<div class="alert__success">
-					<p>The carbon.txt syntax you have entered appears to be valid!</p>
-					<button class="ml-auto text-sm mt-2 text-gray-700 flex flex-row align-center gap-1" on:click={dismissMessage}
-						><svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="inline h-[2ch]"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							stroke-width="2"
-							stroke="currentColor"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-							<path d="M18 6l-12 12" />
-							<path d="M6 6l12 12" />
-						</svg> Dismiss</button
-					>
-				</div>
-			{/if}
+			</div>
 		</div>
 	</div>
-	<!-- <form id="validateFile" class="form mt-[5rem]" use:enhance method="POST" action="?/registerFile	">
+</section>
+<section id="cta" class="w-100 bg-neutral-900">
+	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 text-white text-center flex flex-col justify-center gap-3">
+		<Heading leve={2}>What is carbon.txt?</Heading>
+		<p>If carbon.txt you're new to carbon.txt we recommend reading about it first.</p>
+		<div class="w-max mt-[2rem] mx-auto">
+			<Button link="/about">What is carbon.txt?</Button>
+		</div>
+	</div>
+</section>
+<!-- <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
+	<div class="w-100 mb-[5rem] pt-[2.5rem]"> -->
+<!-- <form id="validateFile" class="form mt-[5rem]" use:enhance method="POST" action="?/registerFile	">
 		<div class="flex flex-col gap-1">
 			<label for="carbon-txt-url">Your carbon.txt URL</label>
 			<div class="flex gap-3 flex-wrap">
@@ -275,7 +280,8 @@
 			</div>
 		</div>
 	</form> -->
-</section>
+<!-- </div>
+</section> -->
 
 <!-- <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	{#if form?.status === 'ok'}
