@@ -14,12 +14,12 @@
 		<Heading level={1}>How to link two domains using DNS TXT records and domain hashes</Heading>
 		<p>DNS text records are frequently used to help organisations demonstrate they have control over a domain. The DNS TXT record approach follows similar principles.</p>
 		<p>To do this:</p>
-		<ol class="flex flex-col gap-3">
-			<li>
+		<ol class="flex flex-col gap-3 p-0">
+			<li class="border-t border-gray-400">
 				<Heading level={2}>Follow the steps above to create your carbon.txt file</Heading>
 				<p>Follow Steps 1 to 4 of the <a href="/how/digital-services">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>
 			</li>
-			<li>
+			<li class="border-t border-gray-400">
 				<Heading level={2}>Create a domain hash for the domain you want to show as green</Heading>
 				<p>Create a domain hash. This is a SHA256 hash of your shared secret and the domain you want to establish a link to.</p>
 				<p>Use the form below to create one.</p>
@@ -51,7 +51,7 @@
 					<DomainHash />
 				{/if}
 			</li>
-			<li>
+			<li class="border-t border-gray-400">
 				<Heading level={2}>Set a DNS record for the domains you want to link back to your main carbon.txt, containing the domain hash</Heading>
 				<p>
 					Add the generated domain hash as a final, optional part of the DNS TXT record defining the domain you want to link back to your main carbon.txt file, along with the location of the

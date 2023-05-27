@@ -34,20 +34,20 @@
 		<Heading level={2}>Getting started</Heading>
 		<p class="mb-10">Follow the steps below to create an implement a carbon.txt file for your service.</p>
 
-		<ol class="flex flex-col gap-3">
-			<li>
+		<ol class="flex flex-col gap-3 p-0">
+			<li class="border-t border-gray-400 pb-[3rem]">
 				<Heading level={3}>Register with the Green Web Foundation</Heading>
 				<p>
 					As a digital service provider, you should first <a href="https://www.thegreenwebfoundation.org/green-web-check/register/">register with the Green Web Foundation</a>, and provide evidence of
 					your green claims.
 				</p>
 			</li>
-			<li>
+			<li class="border-t border-gray-400 pb-[3rem]">
 				<Heading level={3}>Create a carbon.txt file for your organisation</Heading>
 				<p>
 					Create a carbon.txt file for your organisation. There is <a href="#digital-services-syntax">a guide</a> to the expected syntax below.
 				</p>
-				<a href="/tools/builder" class="btn btn-white">Use the carbon.txt builder</a>
+				<div class="w-max"><Button link="/tools/builder">Use the carbon.txt builder</Button></div>
 				<Callout>
 					<p class="text-2xl">Note</p>
 					<p>You only need one carbon.txt file for your organisation.</p>
@@ -55,14 +55,14 @@
 				</Callout>
 			</li>
 
-			<li>
+			<li class="border-t border-gray-400 pb-[3rem]">
 				<Heading level={3}>Upload your carbon.txt file to your servers.</Heading>
 				<p>For example: <em>https://www.my-org.com/carbon.txt</em></p>
 				<p>
 					We default to checking for a file located at the root of your domain <code>/carbon.txt</code>.
 				</p>
 			</li>
-			<li>
+			<li class="border-t border-gray-400 pb-[3rem]">
 				<Heading level={3}>Share the URL of the carbon.txt file with Green Web Foundation</Heading>
 				<p>The Green Web Foundation has an API for registering where to check for carbon.txt file for a given domain. You can do this using the form below.</p>
 				{#if form?.status === 'ok'}
@@ -96,7 +96,7 @@
 					</form>
 				{/if}
 			</li>
-			<li>
+			<li class="border-t border-gray-400">
 				<Heading level={3}>Link other domains to your green claims if they are using infrastructure you control</Heading>
 				<p>
 					If you offer managed hosted services to other organisations, once your first link is established there is an automated process for listing future domains so they show up as green too, with
@@ -139,7 +139,7 @@
 				Using DNS TXT records is intended for organisations who are able to add DNS records to both their own domain, as well as the domain they want to show up as green. If you own both domains, this
 				option is for you.
 			</p>
-			<a href="/how/digital-services/link-multiple-domains/dns" class="btn btn-white">Guide: How to link multiple domains using DNS TXT records</a>
+			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/dns">Guide: How to link multiple domains using DNS TXT records</Button></div>
 		</div>
 
 		<div class="mt-[3rem]">
@@ -149,7 +149,7 @@
 				responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service (PaaS) offering, this is usually better suited for your use case.
 			</p>
 			<p>This option also allows you to "pass down" green claims to customer who use your service.</p>
-			<a href="/how/digital-services/link-multiple-domains/via" class="btn btn-white">Guide: How to link multiple domains using HTTP VIA HEADER</a>
+			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/via">Guide: How to link multiple domains using HTTP VIA HEADER</Button></div>
 		</div>
 	</div>
 </article>

@@ -17,12 +17,12 @@
 			Carbon.txt supports using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/via">HTTP Via header</a>, to declare that a HTTP response has been sent along by one or more
 			intermediate entities. In our case usually a managed hosting provider.
 		</p>
-		<ol>
-			<li>
+		<ol class="flex flex-col gap-3 p-0">
+			<li class="border-t border-gray-400">
 				<Heading level={2}>Follow the steps above to create your carbon.txt file</Heading>
 				<p>Follow Steps 1 to 4 of the <a href="/how/digital-services">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>
 			</li>
-			<li>
+			<li class="border-t border-gray-400">
 				<Heading level={2}>Create a domain hash for the domain you want to show as green</Heading>
 				<p>Create a domain hash. This is a SHA256 hash of your shared secret and the domain you want to establish a link to.</p>
 
@@ -55,7 +55,7 @@
 					<DomainHash />
 				{/if}
 			</li>
-			<li>
+			<li class="border-t border-gray-400">
 				<Heading level={2}>Set the <code>via</code> header on HTTP responses to requests for the domain you want to show as green</Heading>
 				<p>
 					For example: my-org.com also owns me.my-org.com. In order to link me.my-org.com to the main carbon.txt file, when a request comes in for me.my-org.com, you would configure the server serving

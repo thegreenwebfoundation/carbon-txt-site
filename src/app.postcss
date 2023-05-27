@@ -177,6 +177,36 @@ li:has(h2, h3, h4)::marker {
 	--tw-prose-counters: var(--tw-prose-headings);
 }
 
+ol {
+	counter-reset: list 0;
+}
+
+ol > li {
+	position: relative;
+	counter-increment: list 1;
+}
+
+ol > li::marker {
+	position: absolute;
+	content: '';
+}
+
+ol > li::before {
+	position: absolute;
+	content: 'Step ' counter(list, decimal);
+	width: 10ch;
+	height: auto;
+	background: white;
+	top: -1.75ex;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+}
+
+li::marker {
+	--tw-prose-bullets: currentColor;
+}
+
 li > h2,
 h3,
 h4 {

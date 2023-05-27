@@ -93,12 +93,14 @@
 
 			<p>There are two ways to associate a domain with a verified green hosting provider:</p>
 
-			<ol>
-				<li>
+			<ol class="flex flex-col gap-3 p-0 mt-4">
+				<li class="border-t border-gray-400 pb-[3rem] pt-5">
 					Using domain hashes - New domains are only automatically recognised as green, and associated to a verified green provider, if there is a matching domain hash available when they are first
 					submitted/checked through the Greencheck API.
 				</li>
-				<li>Manually - Green Web Foundation staff can manually create a record for a new domain, and associate with an existing verified green hosting provider.</li>
+				<li class="border-t border-gray-400 pb-[3rem] pt-5">
+					Manually - Green Web Foundation staff can manually create a record for a new domain, and associate with an existing verified green hosting provider.
+				</li>
 			</ol>
 		</div>
 	</Faq>
