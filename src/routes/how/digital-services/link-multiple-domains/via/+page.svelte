@@ -22,7 +22,7 @@
 				<Heading level={2}>Follow the steps above to create your carbon.txt file</Heading>
 				<p>Follow Steps 1 to 4 of the <a href="/how/digital-services">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>
 			</li>
-			<li class="border-t border-gray-400">
+			<li class="border-t border-gray-400" id="create-domain-hash">
 				<Heading level={2}>Create a domain hash for the domain you want to show as green</Heading>
 				<p>Create a domain hash. This is a SHA256 hash of your shared secret and the domain you want to establish a link to.</p>
 

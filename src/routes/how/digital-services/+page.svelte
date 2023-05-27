@@ -62,7 +62,7 @@
 					We default to checking for a file located at the root of your domain <code>/carbon.txt</code>.
 				</p>
 			</li>
-			<li class="border-t border-gray-400 pb-[3rem]">
+			<li class="border-t border-gray-400 pb-[3rem]" id="register-carbon-txt">
 				<Heading level={3}>Share the URL of the carbon.txt file with Green Web Foundation</Heading>
 				<p>The Green Web Foundation has an API for registering where to check for carbon.txt file for a given domain. You can do this using the form below.</p>
 				{#if form?.status === 'ok'}
