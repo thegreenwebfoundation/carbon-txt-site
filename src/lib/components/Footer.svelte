@@ -1,3 +1,7 @@
+<script>
+	import { dev } from '$app/environment'
+</script>
+
 <footer class="bg-white border-t-2">
 	<div class="container mx-auto p-4 sm:px-4">
 		<nav class="flex gap-[2rem] justify-between items-center flex-wrap py-6 md:justify-start md:space-x-1">
@@ -42,3 +46,7 @@
 		</nav>
 	</div>
 </footer>
+
+{#if !dev}
+	<script async defer src="https://scripts.withcabin.com/hello.js"></script>
+{/if}
