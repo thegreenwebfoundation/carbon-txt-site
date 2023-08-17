@@ -7,7 +7,7 @@
 		<nav class="flex gap-[2rem] justify-between items-center flex-wrap py-6 md:justify-start md:space-x-1">
 			<div class="flex-grow">
 				<p class="text-2xl mb-3">Carbon.txt is a</p>
-				<a href="/">
+				<a href="https://thegreenwebfoundation.org">
 					<img width="200px" height="48px" src="/tgwf-logo.svg" alt="Green Web Foundation logo" />
 				</a>
 				<p class="text-2xl mt-3">initiative.</p>

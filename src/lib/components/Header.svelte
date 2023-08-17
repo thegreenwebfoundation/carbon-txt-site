@@ -8,7 +8,7 @@
 	<div class="container mx-auto px-2 sm:px-4">
 		<nav class="flex flex-wrap justify-center md:justify-start items-center bg-white py-6 gap-8">
 			<div class="">
-				<a href="/">
+				<a href="https://thegreenwebfoundation.org">
 					<img width="200px" height="48px" src="/tgwf-logo.svg" alt="The Green Web Foundation logo" />
 				</a>
 			</div>
