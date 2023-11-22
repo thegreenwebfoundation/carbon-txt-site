@@ -1,35 +1,38 @@
-// import sha256 from 'crypto-js/sha256';
+import crypto from 'crypto';
 
 export default async (event) => {
-    // const data = await event.request.formData();
-    // const username = data.get('gwf-username');
-    // const password = data.get('gwf-password');
-    // const domain = data.get('carbon-txt-domain');
-    // let hash = "";
+  const data = await event.request.formData();
+  const username = data.get('gwf-username');
+  const password = data.get('gwf-password');
+  const domain = data.get('carbon-txt-domain');
+  let hash = "";
 
-    // const auth = Buffer.from(`${username}:${password}`).toString('base64')
+  const auth = Buffer.from(`${username}:${password}`).toString('base64');
 
-    // const key = await fetch(
-    //     "https://api.thegreenwebfoundation.org/api/v3/carbontxt_shared_secret",
-    //     {
-    //       method: "GET",
-    //       headers: {
-    //         Authorization: "Basic " + auth
-    //       }
-    //     }
-    //   ).then((r) => r.json()).catch((e) => {
-    //     console.log(e);
-    //     return { body: "error" };
-    //     });
-    
-    //     if (key.body !== "error" && key.body !== "") {
-    //         try {
-    //             hash = sha256(domain + key.body).toString()
-    //         } catch (e) {
-    //             console.log(e);
-    //             return { body: "error" };
-    //         }
-    //     }
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: "Basic " + auth
+    }
+  };
 
-      return { result: '1234' };
+  const response = await fetch("https://api.thegreenwebfoundation.org/api/v3/carbontxt_shared_secret", options);
+  const key = await response.json().catch((e) => {
+    console.log(e);
+    return { body: "error" };
+  });
+
+  if (key.body !== "error" && key.body !== "") {
+    try {
+      const hashInput = domain + key.body;
+      const hashAlgorithm = crypto.createHash('sha256');
+      hashAlgorithm.update(hashInput);
+      hash = hashAlgorithm.digest('hex');
+    } catch (e) {
+      console.log(e);
+      return { body: "error" };
+    }
+  }
+
+  return { result: hash };
 }
