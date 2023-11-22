@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import crypto from 'node:crypto';
 
 export default async (event) => {
   const data = await event.request.formData();
