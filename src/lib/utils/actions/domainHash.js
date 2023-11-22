@@ -31,5 +31,5 @@ export default async (event) => {
         //     }
         // }
 
-      return { result: key.body };
+      return { result: auth };
 }
