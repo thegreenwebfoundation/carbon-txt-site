@@ -1,5 +1,3 @@
-import crypto from 'node:crypto';
-
 export default async (event) => {
   const data = await event.request.formData();
   const username = data.get('gwf-username');
@@ -7,7 +5,7 @@ export default async (event) => {
   const domain = data.get('carbon-txt-domain');
   let hash = "";
 
-  const auth = Buffer.from(`${username}:${password}`).toString('base64');
+  const auth = btoa(`${username}:${password}`);
 
   const options = {
     method: "GET",
@@ -24,10 +22,11 @@ export default async (event) => {
 
   if (key.body !== "error" && key.body !== "") {
     try {
-      const hashInput = domain + key.body;
-      const hashAlgorithm = crypto.createHash('sha256');
-      hashAlgorithm.update(hashInput);
-      hash = hashAlgorithm.digest('hex');
+      const encoder = new TextEncoder();
+      const data = encoder.encode(domain + key.body);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      hash = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
     } catch (e) {
       console.log(e);
       return { body: "error" };
