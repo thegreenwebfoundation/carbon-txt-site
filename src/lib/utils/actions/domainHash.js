@@ -19,7 +19,7 @@ export default async (event) => {
         }
       ).then((r) => r.json()).catch((e) => {
         console.log(e);
-        return { body: "error" };
+        return { body: e };
         });
     
         if (key.body !== "error" && key.body !== "") {
