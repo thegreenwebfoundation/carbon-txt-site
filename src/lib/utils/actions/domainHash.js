@@ -22,14 +22,14 @@ export default async (event) => {
         return { body: "error" };
         });
     
-        if (key.body !== "error" && key.body !== "") {
-            try {
-                hash = sha256(domain + key.body).toString()
-            } catch (e) {
-                console.log(e);
-                return { body: "error" };
-            }
-        }
+        // if (key.body !== "error" && key.body !== "") {
+        //     try {
+        //         hash = sha256(domain + key.body).toString()
+        //     } catch (e) {
+        //         console.log(e);
+        //         return { body: "error" };
+        //     }
+        // }
 
-      return { result: hash };
+      return { result: key.body };
 }
