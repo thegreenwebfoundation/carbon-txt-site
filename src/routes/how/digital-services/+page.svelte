@@ -38,8 +38,8 @@
 			<li class="border-t border-gray-400 pb-[3rem]">
 				<Heading level={3}>Register with the Green Web Foundation</Heading>
 				<p>
-					As a digital service provider, you should first <a href="https://www.thegreenwebfoundation.org/green-web-check/register/">register with the Green Web Foundation</a>, and provide evidence of
-					your green claims.
+					As a digital service provider, you should first <a href="https://www.thegreenwebfoundation.org/tools/green-web-dataset/get-verified/">get verified by the Green Web Foundation</a>, and
+					provide evidence of your green claims.
 				</p>
 			</li>
 			<li class="border-t border-gray-400 pb-[3rem]">
