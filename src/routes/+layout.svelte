@@ -10,7 +10,7 @@
 
 		// Alternatively, use `process.env.npm_package_version` for a dynamic release version
 		// if your build tool supports it.
-		release: 'my-project-name@2.3.12',
+		release: 'carbontxt@2.3.12',
 		integrations: [Sentry.browserTracingIntegration(), Sentry.replayIntegration()],
 
 		// Set tracesSampleRate to 1.0 to capture 100%
@@ -19,7 +19,7 @@
 		tracesSampleRate: 1.0,
 
 		// Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
-		tracePropagationTargets: ['localhost', /^https:\/\/yourserver\.io\/api/],
+		// tracePropagationTargets: ['localhost', /^https:\/\/yourserver\.io\/api/],
 
 		// Capture Replay for 10% of all sessions,
 		// plus for 100% of sessions with an error
