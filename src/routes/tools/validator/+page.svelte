@@ -3,13 +3,9 @@
 
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
-	import Code from '$lib/components/Code.svelte'
-	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte'
-	import TGWF_Question from '$lib/svg/tgwf_logo_question.svelte'
 	import upstreamServices from '$lib/utils/upstreamServices.js'
 	import evidenceTypes from '$lib/utils/evidenceTypes.js'
 	import Button from '$lib/components/Button.svelte'
-	import Callout from '$lib/components/Callout.svelte'
 
 	const serviceSlugs = upstreamServices.map((service) => service.slug)
 	const evidenceSlugs = evidenceTypes.map((evidence) => evidence.slug)
