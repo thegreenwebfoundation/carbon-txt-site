@@ -1,10 +1,11 @@
 <script>
+	import NoticeBanner from './NoticeBanner.svelte'
 	import { page } from '$app/stores'
 
 	$: currentPage = (route = '') => ($page.route.id === route ? 'no-underline text-black-600 font-mono font-bold' : '')
 </script>
 
-<header class="bg-white border-b-2">
+<header class="bg-white">
 	<div class="container mx-auto px-2 sm:px-4">
 		<nav class="flex flex-wrap justify-center md:justify-start items-center bg-white py-6 gap-8">
 			<div class="">
@@ -27,3 +28,4 @@
 		</nav>
 	</div>
 </header>
+<NoticeBanner />
