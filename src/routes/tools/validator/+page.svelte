@@ -3,18 +3,19 @@
 
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
-	import upstreamServices from '$lib/utils/upstreamServices.js'
-	import evidenceTypes from '$lib/utils/evidenceTypes.js'
+	// import upstreamServices from '$lib/utils/upstreamServices.js'
+	// import evidenceTypes from '$lib/utils/evidenceTypes.js'
 	import Button from '$lib/components/Button.svelte'
 
-	const serviceSlugs = upstreamServices.map((service) => service.slug)
-	const evidenceSlugs = evidenceTypes.map((evidence) => evidence.slug)
+	// const serviceSlugs = upstreamServices.map((service) => service.slug)
+	// const evidenceSlugs = evidenceTypes.map((evidence) => evidence.slug)
 
 	import { load } from 'js-toml'
 
 	let tomlError = ''
 	let tomlSuccess = false
 	let showMessage = false
+	let textInput = ''
 
 	// This code is for later, when we actually parse toml files & return the data
 	// async function storeToml() {
@@ -186,7 +187,6 @@
 	// $: notRegisteredProviders = form?.data?.not_registered.providers ? Object.entries(form?.data?.not_registered.providers).map(([key, value]) => ({ key, value })) : null
 
 	// let checkedUrl = form?.url
-	let textInput = ''
 
 	const dismissMessage = () => {
 		return (showMessage = !showMessage)
