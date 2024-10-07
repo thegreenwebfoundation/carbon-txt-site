@@ -17,32 +17,32 @@
 	let showMessage = false
 
 	// This code is for later, when we actually parse toml files & return the data
-	async function storeToml() {
-		const toml = textInput
+	// async function storeToml() {
+	// 	const toml = textInput
 
-		const headers = {
-			'Content-Type': 'application/text'
-		}
+	// 	const headers = {
+	// 		'Content-Type': 'application/text'
+	// 	}
 
-		const response = await fetch('/api/validator/post', {
-			method: 'POST',
-			headers,
-			body: toml
-		})
+	// 	const response = await fetch('/api/validator/post', {
+	// 		method: 'POST',
+	// 		headers,
+	// 		body: toml
+	// 	})
 
-		if (response.ok) {
-			const data = await response.text()
-			console.log(data)
+	// 	if (response.ok) {
+	// 		const data = await response.text()
+	// 		console.log(data)
 
-			let url = 'https://carbon-txt-site.pages.dev/api/validator/get?id=' + data
-			checkedUrl = url
+	// 		let url = 'https://carbon-txt-site.pages.dev/api/validator/get?id=' + data
+	// 		checkedUrl = url
 
-			const form = document.getElementById('validateFile')
-			// form.submit()
-		} else {
-			console.log('Error')
-		}
-	}
+	// 		const form = document.getElementById('validateFile')
+	// 		// form.submit()
+	// 	} else {
+	// 		console.log('Error')
+	// 	}
+	// }
 
 	async function parseToml(toml) {
 		// Check that there is an upstream section
@@ -179,13 +179,13 @@
 	}
 
 	// import { enhance } from '$app/forms'
-	export let form
+	// export let form
 
-	$: upstream = form?.data?.upstream ? Object.entries(form?.data?.upstream).map(([key, value]) => ({ key, value })) : null
-	$: org = form?.data?.org
-	$: notRegisteredProviders = form?.data?.not_registered.providers ? Object.entries(form?.data?.not_registered.providers).map(([key, value]) => ({ key, value })) : null
+	// $: upstream = form?.data?.upstream ? Object.entries(form?.data?.upstream).map(([key, value]) => ({ key, value })) : null
+	// $: org = form?.data?.org
+	// $: notRegisteredProviders = form?.data?.not_registered.providers ? Object.entries(form?.data?.not_registered.providers).map(([key, value]) => ({ key, value })) : null
 
-	let checkedUrl = form?.url
+	// let checkedUrl = form?.url
 	let textInput = ''
 
 	const dismissMessage = () => {
