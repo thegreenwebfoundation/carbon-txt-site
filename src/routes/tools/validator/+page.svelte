@@ -188,8 +188,8 @@
 
 	// let checkedUrl = form?.url
 
-	const dismissMessage = () => {
-		return (showMessage = !showMessage)
+	function dismissMessage() {
+		showMessage = !showMessage
 	}
 </script>
 
