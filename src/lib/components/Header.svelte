@@ -21,8 +21,7 @@
 				<a href="/" class={currentPage('/')}>Home</a>
 				<a href="/about" class={currentPage('/about')}>What is carbon.txt?</a>
 				<a href="/how/digital-services" class={currentPage('/how/digital-services')}>Get started</a>
-				<a href="/tools/validator" class={currentPage('/tools/validator')}>Validator</a>
-				<a href="/tools/builder" class={currentPage('/tools/builder')}>Builder</a>
+				<a href="/tools" class={currentPage('/tools')}>Tools</a>
 				<a href="/faq" class={currentPage('/faq')}>FAQ</a>
 			</div>
 		</nav>
