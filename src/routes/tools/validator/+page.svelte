@@ -13,7 +13,7 @@
 		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
 			<div class="mb-10 prose md:w-[80%]">
 				<Heading level={1}>Validator</Heading>
-				<p>Use this validator to check check that a carbon.txt file you have created is syntactically valid.</p>
+				<p>Use this validator to check that a carbon.txt file you have created is syntactically valid.</p>
 				<SyntaxValidator />
 			</div>
 		</div>
