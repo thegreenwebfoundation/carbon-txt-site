@@ -7,6 +7,7 @@
 	import BuilderOutput from '$lib/components/tools/BuilderOutput.svelte'
 	import copy from 'clipboard-copy'
 	import Callout from '$lib/components/Callout.svelte'
+	import ToolsNav from '$lib/components/ToolsNav.svelte'
 
 	import { builderUpstream, builderOrg } from '$lib/store'
 	import services from '$lib/utils/upstreamServices'
@@ -22,6 +23,8 @@ providers = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '
 [org]
 credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 </script>
+
+<ToolsNav currentView="builder"/>
 
 <section class="w-100" id="intro">
 	<div class="relative block">
@@ -68,12 +71,4 @@ credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 	</div>
 </section>
 
-<section id="cta" class="w-100 bg-neutral-900">
-	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 text-white text-center flex flex-col justify-center gap-3">
-		<Heading level={2}>What is carbon.txt?</Heading>
-		<p>If carbon.txt you're new to carbon.txt we recommend reading about it first.</p>
-		<div class="w-max mt-[2rem] mx-auto">
-			<Button link="/about">What is carbon.txt?</Button>
-		</div>
-	</div>
-</section>
+<ToolsNav currentView="builder"/>
