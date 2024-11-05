@@ -3,9 +3,7 @@
 	import { monokai } from 'svelte-highlight/styles'
 	import ini from 'svelte-highlight/languages/ini'
 
-	export let lang = 'toml'
-	export let code = ''
-	export let showComments = false
+	let { lang, code, showComments } = $props()
 
 	if (lang === 'toml' && !showComments) {
 		code = removeComments(code)
