@@ -1,11 +1,15 @@
 <script>
+	import { goto } from '$app/navigation'
 	// NOTE: There is currently no way to test this validator locally as it relies on Cloudflare Workers KV.
 
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
 	import SyntaxValidator from '$lib/components/tools/SyntaxValidator.svelte'
-	import Button from '$lib/components/Button.svelte'
+	import SyntaxValidatorSuccess from '$lib/components/tools/SyntaxValidatorSuccess.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
+
+	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
+	let { data, form } = $props()
 </script>
 
 <ToolsNav currentView="validator" />
@@ -19,5 +23,11 @@
 		<SyntaxValidator />
 	</div>
 </section>
+
+{#if form?.response.success}
+	<SyntaxValidatorSuccess text_content={form?.text_content} />
+{:else}
+	<p>There is no success!!</p>
+{/if}
 
 <ToolsNav currentView="validator" />
