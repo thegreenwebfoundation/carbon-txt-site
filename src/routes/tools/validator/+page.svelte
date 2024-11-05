@@ -6,6 +6,7 @@
 	import Heading from '$lib/components/Heading.svelte'
 	import SyntaxValidator from '$lib/components/tools/SyntaxValidator.svelte'
 	import SyntaxValidatorSuccess from '$lib/components/tools/SyntaxValidatorSuccess.svelte'
+	import SyntaxValidatorError from '$lib/components/tools/SyntaxValidatorError.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
 
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
@@ -26,8 +27,8 @@
 
 {#if form?.response.success}
 	<SyntaxValidatorSuccess text_content={form?.text_content} />
-{:else}
-	<p>There is no success!!</p>
+{:else if form?.response.errors}
+	<SyntaxValidatorError text_content={form?.text_content} />
 {/if}
 
 <ToolsNav currentView="validator" />
