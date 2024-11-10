@@ -5,8 +5,7 @@
 	let { text_contents, errors } = $props()
 
 	console.log(errors)
-	/* Find the lines that have errors by searching through the text contents
-	// let showLines = true
+	let showLines = true
 	const getErrorLines = () => {
 		const lines = text_contents.split('\n')
 		let parsedToml = {}
@@ -81,10 +80,12 @@
 								const missingKey = field
 								if (missingKey === 'domain') {
 									if (!line.includes('domain')) {
+										error.line = i + 1
 										return i
 									}
 								} else {
 									if (!line.includes('service')) {
+										error.line = i + 1
 										return i
 									}
 								}
@@ -95,14 +96,17 @@
 								const missingKey = field
 								if (missingKey === 'domain') {
 									if (!line.includes('domain')) {
+										error.line = i + 1
 										return i
 									}
 								} else if (missingKey === 'url') {
 									if (!line.includes('url')) {
+										error.line = i + 1
 										return i
 									}
 								} else {
 									if (!line.includes('doctype')) {
+										error.line = i + 1
 										return i
 									}
 								}
@@ -111,6 +115,7 @@
 
 						// Only look for the value if we're in the correct section
 						if (inCorrectSection && line.includes(`${field}`) && line.includes(`${problemValue}`)) {
+							error.line = i + 1
 							return i
 						}
 					}
@@ -121,19 +126,24 @@
 			})
 			.filter((line) => line > 0)
 	}
+	/* Find the lines that have errors by searching through the text contents
 
-	const highlightedLines = getErrorLines()
 	*/
+	const highlightedLines = getErrorLines()
+	let hoverHighlightedLines = []
+	$effect(() => {
+		hoverHighlightedLines = []
+	})
 </script>
 
 <section class="w-100" id="result">
-	<div class="prose md:w-[80%]">
+	<div class="prose md:w-[80%] mb-4">
 		<h1 class="text-3xl font-bold mb-4">Error!</h1>
 		<p>Your carbon.txt file has a syntax error.</p>
 	</div>
 
 	{#if errors.length > 0}
-		<table class="table-auto w-full">
+		<table class="table-auto w-full mb-6">
 			<thead>
 				<tr>
 					<th>Error Type</th>
@@ -145,14 +155,20 @@
 				{#each errors as error}
 					<tr>
 						<td>{error.type}</td>
-						<td>{error.loc.join(' > ')}</td>
+						{#if error.line}
+							<!-- content here -->
+							<td>(Line: {error.line}) {error.loc.join(' > ')}</td>
+						{:else}
+							<!-- else content here -->
+							<td>{error.loc.join(' > ')}</td>
+						{/if}
 						<td>{error.msg}</td>
 					</tr>
 				{/each}
 			</tbody>
 		</table>
 	{/if}
-	<!-- <Code lang="toml" code={text_contents} {showLines} {highlightedLines} /> -->
+	<Code lang="toml" code={text_contents} {showLines} highlightedLines={hoverHighlightedLines.length > 0 ? hoverHighlightedLines : highlightedLines} />
 </section>
 
 <style>
