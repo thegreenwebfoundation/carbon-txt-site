@@ -26,9 +26,9 @@
 </section>
 
 {#if form?.response.success}
-	<SyntaxValidatorSuccess text_content={form?.text_content} />
+	<SyntaxValidatorSuccess text_contents={form?.text_contents} />
 {:else if form?.response.errors}
-	<SyntaxValidatorError text_content={form?.text_content} />
+	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} />
 {/if}
 
 <ToolsNav currentView="validator" />
