@@ -16,10 +16,19 @@ export const actions = {
 
     if (response.ok) {
       const json = await response.json();
-      // console.log(JSON.stringify (json, null, 2))
+      console.log(JSON.stringify (json, null, 2))
       return {
           text_contents,
           response:json
+      };
+    } else {
+      console.error('Failed to fetch data from the API');
+      console.log(response)
+      return {
+          text_contents,
+          response: {
+            error: response.statusText
+          }
       };
     }
 	}
