@@ -4,7 +4,6 @@
 
 	let { text_contents, errors } = $props()
 
-	console.log(errors)
 	let showLines = true
 	const getErrorLines = () => {
 		const lines = text_contents.split('\n')
@@ -19,8 +18,6 @@
 			.map((error) => {
 				const [section, property, arrayIndex, ...rest] = error.loc
 				const field = rest.length > 1 ? rest[1] : rest[0]
-				console.log(error)
-				console.log(section, property, arrayIndex, field)
 
 				// Navigate through the TOML structure to find the problematic value
 				try {
@@ -130,16 +127,12 @@
 
 	*/
 	const highlightedLines = getErrorLines()
-	let hoverHighlightedLines = []
-	$effect(() => {
-		hoverHighlightedLines = []
-	})
 </script>
 
 <section class="w-100" id="result">
 	<div class="prose md:w-[80%] mb-4">
-		<h1 class="text-3xl font-bold mb-4">Error!</h1>
-		<p>Your carbon.txt file has a syntax error.</p>
+		<h1 class="text-3xl font-bold mb-4">Syntax Error!</h1>
+		<p>Your carbon.txt file has {errors?.length > 1 ? 'syntax errors' : 'a syntax error'}.</p>
 	</div>
 
 	{#if errors.length > 0}
@@ -168,7 +161,7 @@
 			</tbody>
 		</table>
 	{/if}
-	<Code lang="toml" code={text_contents} {showLines} highlightedLines={hoverHighlightedLines.length > 0 ? hoverHighlightedLines : highlightedLines} />
+	<Code lang="toml" code={text_contents} {showLines} {highlightedLines} />
 </section>
 
 <style>
