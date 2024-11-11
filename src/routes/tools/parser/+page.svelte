@@ -11,7 +11,7 @@
 
 <section class="w-100" id="intro">
 	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-2 lg:items-center">
-		<div class="prose md:w-[80%]">
+		<div class="prose md:w-[80%] mb-4">
 			<Heading level={1}>Parser</Heading>
 			<p>Use this parser to check the content of a carbon.txt file for a domain.</p>
 		</div>
