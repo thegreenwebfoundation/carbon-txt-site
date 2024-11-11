@@ -5,7 +5,7 @@ export default [
     },
     {
         name: 'Webpage',
-        slug: 'webpage'
+        slug: 'web-page'
     },
     {
         name: 'Certificate',
