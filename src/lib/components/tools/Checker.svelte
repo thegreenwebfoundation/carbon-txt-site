@@ -6,7 +6,7 @@
 	$: validUrl = textInput.match(/https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt/)
 </script>
 
-<form class="validator-holder relative" method="POST" action="/tools/parser?/parse" use:enhance>
+<form class="validator-holder relative" method="POST" action="/tools/checker?/check" use:enhance>
 	<!-- A text input that takes a valid website domain -->
 	<label for="domain">Carbon.txt File URL</label>
 	<input
@@ -22,7 +22,7 @@
 		<p class="text-purple-500">Please enter a valid URL that ends with /carbon.txt</p>
 	{/if}
 	<!-- A submit button that sends the domain to the parser -->
-	<button type="submit" class="btn btn-white w-[100%]">Fetch and Check</button>
+	<button type="submit" class="btn btn-white w-[100%]">Fetch file and check</button>
 </form>
 
 <style>

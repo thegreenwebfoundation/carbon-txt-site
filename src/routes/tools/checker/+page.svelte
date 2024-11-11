@@ -3,22 +3,26 @@
 
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
-	import Parser from '$lib/components/tools/Parser.svelte'
+	import Checker from '$lib/components/tools/Checker.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
 
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()
 </script>
 
-<ToolsNav currentView="parser" />
+<ToolsNav currentView="checker" />
 
 <section class="w-100" id="intro">
 	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-2 lg:items-center">
 		<div class="prose md:w-[80%] mb-4">
-			<Heading level={1}>Parser</Heading>
-			<p>Use this parser to check the content of a carbon.txt file for a domain.</p>
+			<Heading level={1}>File checker</Heading>
+			<p>Use this tool to check the content of a carbon.txt file hosted online.</p>
+			<p class="italic">
+				Note: At this stage, the checker will simply validate the file's content for syntax errors. In the future, we will implement additional capabilities which allow for the contents of carbon.txt
+				files and associated linked documents to be parsed and displayed.
+			</p>
 		</div>
-		<Parser />
+		<Checker />
 	</div>
 </section>
 

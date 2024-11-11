@@ -1,7 +1,7 @@
 
 /** @satisfies {import('./$types').Actions} */
 export const actions = {
-	parse: async ({request}) => {
+	check: async ({request}) => {
     const data = await request.formData();
 		const url = data.get('carbon-txt-url');
 
