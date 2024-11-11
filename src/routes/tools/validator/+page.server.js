@@ -16,7 +16,6 @@ export const actions = {
 
     if (response.ok) {
       const json = await response.json();
-      console.log(JSON.stringify (json, null, 2))
       return {
           text_contents,
           response:json

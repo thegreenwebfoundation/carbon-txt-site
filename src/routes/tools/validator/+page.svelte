@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation'
-	// NOTE: There is currently no way to test this validator locally as it relies on Cloudflare Workers KV.
+	// NOTE: There is currently no waay to test this validator locally as it relies on Cloudflare Workers KV.
 
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
@@ -8,9 +8,21 @@
 	import SyntaxValidatorSuccess from '$lib/components/tools/SyntaxValidatorSuccess.svelte'
 	import SyntaxValidatorError from '$lib/components/tools/SyntaxValidatorError.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
+	import { onMount } from 'svelte'
 
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()
+
+	// Scroll to the #result section if it exists on the page
+	onMount(() => {
+		if (form?.response.success || form?.response.errors || form?.response.error) {
+			const result = document.getElementById('result')
+			if (result) {
+				console.log('HAS SECTION!')
+				result.scrollIntoView({ behavior: 'smooth' })
+			}
+		}
+	})
 </script>
 
 <ToolsNav currentView="validator" />
@@ -29,6 +41,14 @@
 	<SyntaxValidatorSuccess text_contents={form?.text_contents} />
 {:else if form?.response.errors}
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} />
+{:else if form?.response.error}
+	<section class="w-100" id="result">
+		<div class="prose md:w-[80%] mb-4">
+			<h1 class="text-3xl font-bold mb-4">Error</h1>
+			<p>Unable to validate the provided content. Please submit a valid TOML carbon.txt syntax for validation.</p>
+			<p>For help creating a carbon.txt file, please use our <a href="/tools/builder">Builder</a>.</p>
+		</div>
+	</section>
 {/if}
 
 <ToolsNav currentView="validator" />
