@@ -2,16 +2,27 @@
 	import { enhance } from '$app/forms'
 
 	let textInput = ''
-	// Validate that the input is a valid domain format
-	$: domain = textInput.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)?/g)
+	// Validate that the text input is a valid URL and ends with /carbon.txt
+	$: validUrl = textInput.match(/https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt/)
 </script>
 
-<form class="validator-holder relative" method="POST" action="/tools/parser?/" use:enhance>
+<form class="validator-holder relative" method="POST" action="/tools/parser?/parse" use:enhance>
 	<!-- A text input that takes a valid website domain -->
-	<label for="domain">Domain</label>
-	<input type="text" id="domain" name="domain" placeholder="example.com" required bind:value={textInput} />
+	<label for="domain">Carbon.txt File URL</label>
+	<input
+		type="url"
+		id="carbon-txt-url"
+		name="carbon-txt-url"
+		placeholder="https://example.com/carbon.txt"
+		required
+		bind:value={textInput}
+		pattern="https?://[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?/carbon\.txt"
+	/>
+	{#if validUrl === null}
+		<p class="text-purple-500">Please enter a valid URL that ends with /carbon.txt</p>
+	{/if}
 	<!-- A submit button that sends the domain to the parser -->
-	<button type="submit" class="btn btn-white w-[100%]">Parse</button>
+	<button type="submit" class="btn btn-white w-[100%]">Fetch and Check</button>
 </form>
 
 <style>
