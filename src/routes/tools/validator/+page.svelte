@@ -40,7 +40,7 @@
 {#if form?.response.success}
 	<SyntaxValidatorSuccess text_contents={form?.text_contents} />
 {:else if form?.response.errors}
-	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} />
+	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
 {:else if form?.response.error}
 	<section class="w-100" id="result">
 		<div class="prose md:w-[80%] mb-4">
