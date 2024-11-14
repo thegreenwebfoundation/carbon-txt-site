@@ -1,6 +1,12 @@
 <script>
 	import upstreamServices from '$lib/utils/upstreamServices'
-	import evidenceTypes from '$lib/utils/evidenceTypes'
+	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
+	import { onMount } from 'svelte'
+
+	let evidenceTypes = []
+	onMount(async () => {
+		evidenceTypes = await fetchEvidenceTypes()
+	})
 
 	export let store
 

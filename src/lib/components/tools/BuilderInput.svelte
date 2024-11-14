@@ -2,7 +2,13 @@
 	export let store
 	export let type = 'upstream'
 	import services from '$lib/utils/upstreamServices'
-	import evidenceTypes from '$lib/utils/evidenceTypes'
+	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
+	import { onMount } from 'svelte'
+
+	let evidenceTypes = []
+	onMount(async () => {
+		evidenceTypes = await fetchEvidenceTypes()
+	})
 
 	let newObject = {
 		domain: '',
