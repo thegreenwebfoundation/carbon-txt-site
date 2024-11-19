@@ -8,7 +8,7 @@
 
 <form class="validator-holder relative" method="POST" action="/tools/checker?/check" use:enhance>
 	<!-- A text input that takes a valid website domain -->
-	<label for="domain">Carbon.txt file URL</label>
+	<label for="domain">Carbon.txt File URL</label>
 	<input
 		type="url"
 		id="carbon-txt-url"

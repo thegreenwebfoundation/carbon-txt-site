@@ -45,7 +45,9 @@
 			</tbody>
 		</table>
 	{/if}
-	<Code lang="toml" code={text_contents} {showLines} {highlightedLines} />
+	{#if text_contents.length > 0}
+		<Code lang="toml" code={text_contents} {showLines} {highlightedLines} />
+	{/if}
 </section>
 
 <style>

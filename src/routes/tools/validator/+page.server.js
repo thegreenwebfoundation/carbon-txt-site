@@ -5,14 +5,26 @@ export const actions = {
 	validate: async ({request}) => {
     const data = await request.formData();
 		const text_contents = data.get('carbon-txt-validator');
+    const url = data.get('url')
 
-    const response = await fetch('https://carbon-txt-api.greenweb.org/api/validate/file/', {
+    let apiRoute = 'https://carbon-txt-api.greenweb.org/api/validate/file/'
+    if (url) {
+      apiRoute = 'https://carbon-txt-api.greenweb.org/api/validate/url/'
+    }
+
+    let bodyData = JSON.stringify({text_contents})
+
+    if (url) {
+      bodyData = JSON.stringify({url})
+    }
+
+    const response = await fetch(apiRoute, {
       method: 'POST',
-      body: JSON.stringify({text_contents}),
+      body: bodyData,
     })
 
     
-    if (response.ok) {
+    if (response.ok && text_contents) {
       let errorLines = []
       const json = await response.json();
 
@@ -127,7 +139,14 @@ export const actions = {
             errorLines
           }
       };
-    } else {
+    } else if (response.ok && url) {
+      const json = await response.json();
+      return {
+          text_contents,
+          response: {
+            ...json
+          }
+    }} else {
       console.error('Failed to fetch data from the API');
       return {
           text_contents,

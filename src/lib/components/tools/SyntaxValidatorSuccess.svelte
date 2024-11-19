@@ -8,5 +8,7 @@
 		<h1 class="text-3xl font-bold mb-4">Success!</h1>
 		<p>Your carbon.txt file is syntactically valid.</p>
 	</div>
-	<Code lang="toml" code={text_contents} />
+	{#if text_contents.length > 0}
+		<Code lang="toml" code={text_contents} />
+	{/if}
 </section>
