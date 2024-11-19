@@ -38,7 +38,7 @@
 		<div class="prose md:w-[80%] mb-4 alert alert-error">
 			<h1 class="text-3xl font-bold mb-4">Errors</h1>
 			<p>The provided carbon.txt file contains errors.</p>
-			<p>Use our <a href="/tools/validator">Validator tool</a> to check the content of the file and identify the errors.</p>
+			<p>Use our <a href="/tools/validator?url={form?.url}">Validator tool</a> to check the content of the file and identify the errors.</p>
 			<p>For help creating a carbon.txt file, please use our <a href="/tools/builder">Builder</a>.</p>
 		</div>
 	</section>

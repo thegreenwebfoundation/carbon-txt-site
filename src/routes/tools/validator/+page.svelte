@@ -1,5 +1,7 @@
 <script>
 	import { goto } from '$app/navigation'
+	import { page } from '$app/stores'
+
 	// NOTE: There is currently no waay to test this validator locally as it relies on Cloudflare Workers KV.
 
 	// Components
@@ -12,6 +14,12 @@
 
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()
+
+	let url = ''
+	let searchParams = new URLSearchParams($page?.url.search)
+	if (searchParams) {
+		url = searchParams.get('url')
+	}
 
 	// Scroll to the #result section if it exists on the page
 	onMount(() => {
@@ -33,7 +41,7 @@
 			<Heading level={1}>Validator</Heading>
 			<p>Use this validator to check that the contents of a carbon.txt file is syntactically valid.</p>
 		</div>
-		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || ''} />
+		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} />
 	</div>
 </section>
 
