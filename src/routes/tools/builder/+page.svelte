@@ -47,7 +47,7 @@ credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 					<BuilderOutput store={builderUpstream} />
 				</div>
 				<div>
-					<Heading level={2}>Organisation</Heading>
+					<Heading level={2}>Your organisation's data</Heading>
 					<p class="mb-10">List the documents that show evidence of your green claims</p>
 					<BuilderInput store={builderOrg} type="org" />
 					<BuilderOutput store={builderOrg} />
