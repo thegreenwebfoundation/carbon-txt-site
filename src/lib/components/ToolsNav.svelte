@@ -9,10 +9,10 @@
 <section class="w-100">
 	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 max-w-[700px]">
 		<ul class="grid gap-3 w-100 justify-center md:grid-cols-3">
-			<li data-current={currentView === 'checker'} class="bg-white border-2 border-dark-gray rounded-3xl">
-				<a href="/tools/checker" class="grid gap-4 no-underline p-4">
+			<li data-current={currentView === 'builder'} class="bg-white border-2 border-dark-gray rounded-3xl">
+				<a href="/tools/builder" class="grid gap-4 no-underline p-4">
 					<div class="w-100 flex justify-center">
-						<p>File Checker</p>
+						<p>File Builder</p>
 					</div>
 				</a>
 			</li>
@@ -23,10 +23,10 @@
 					</div>
 				</a>
 			</li>
-			<li data-current={currentView === 'builder'} class="bg-white border-2 border-dark-gray rounded-3xl">
-				<a href="/tools/builder" class="grid gap-4 no-underline p-4">
+			<li data-current={currentView === 'checker'} class="bg-white border-2 border-dark-gray rounded-3xl">
+				<a href="/tools/checker" class="grid gap-4 no-underline p-4">
 					<div class="w-100 flex justify-center">
-						<p>File Builder</p>
+						<p>File Checker</p>
 					</div>
 				</a>
 			</li>
