@@ -11,31 +11,22 @@
 		<ul class="grid gap-3 w-100 justify-center md:grid-cols-3">
 			<li data-current={currentView === 'checker'} class="bg-white border-2 border-dark-gray rounded-3xl">
 				<a href="/tools/checker" class="grid gap-4 no-underline p-4">
-					<div class="w-100 flex items-center">
-						<div class="border-r-2 border-dark-gray pr-4 inline-block">
-							<TGWF_Bolt width="50px" />
-						</div>
-						<p class="inline ml-4">File Checker</p>
+					<div class="w-100 flex justify-center">
+						<p>File Checker</p>
 					</div>
 				</a>
 			</li>
 			<li data-current={currentView === 'validator'} class="bg-white border-2 border-dark-gray rounded-3xl">
 				<a href="/tools/validator" class="grid gap-4 no-underline p-4">
-					<div class="w-100 flex items-center">
-						<div class="border-r-2 border-dark-gray pr-4 inline-block">
-							<TGWF_Question width="50px" />
-						</div>
-						<p class="inline ml-4">Syntax Validator</p>
+					<div class="w-100 flex justify-center">
+						<p>Syntax Validator</p>
 					</div>
 				</a>
 			</li>
 			<li data-current={currentView === 'builder'} class="bg-white border-2 border-dark-gray rounded-3xl">
 				<a href="/tools/builder" class="grid gap-4 no-underline p-4">
-					<div class="w-100 flex items-center">
-						<div class="border-r-2 border-dark-gray pr-4 inline-block">
-							<TGWF_Tree width="50px" />
-						</div>
-						<p class="inline ml-4">File<br /> Builder</p>
+					<div class="w-100 flex justify-center">
+						<p>File Builder</p>
 					</div>
 				</a>
 			</li>
