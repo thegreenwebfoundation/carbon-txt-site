@@ -1,9 +1,6 @@
 const fetchEvidenceTypes = async () => {
-    console.log('Fetching evidence types')
     const schema = await fetch('https://carbon-txt-api.greenweb.org/api/json_schema/')
     const json = await schema.json()
-
-    console.log(json)
 
     return json.$defs.Credential.properties.doctype.enum.map((type) => {
         return {
