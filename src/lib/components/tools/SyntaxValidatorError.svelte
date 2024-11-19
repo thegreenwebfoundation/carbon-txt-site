@@ -3,13 +3,8 @@
 
 	let { text_contents, errors, errorLines } = $props()
 
-	console.log(errorLines)
-
 	let showLines = true
 
-	/* Find the lines that have errors by searching through the text contents
-
-	*/
 	const highlightedLines = errorLines
 </script>
 
@@ -45,7 +40,7 @@
 			</tbody>
 		</table>
 	{/if}
-	{#if text_contents.length > 0}
+	{#if text_contents?.length > 0}
 		<Code lang="toml" code={text_contents} {showLines} {highlightedLines} />
 	{/if}
 </section>
