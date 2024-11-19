@@ -22,6 +22,11 @@ providers = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '
 
 [org]
 credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
+
+	const resetBuilder = () => {
+		builderUpstream.set([])
+		builderOrg.set([])
+	}
 </script>
 
 <ToolsNav currentView="builder" />
@@ -64,6 +69,7 @@ credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]`
 					}
 				}}>{copyText}</button
 			>
+			<button class="btn mx-auto min-w-[20ch] block mx-auto btn-black" on:click={resetBuilder()}>Clear</button>
 		</div>
 	</div>
 </section>
