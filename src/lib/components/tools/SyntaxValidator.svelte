@@ -1,7 +1,7 @@
 <script>
 	import { enhance } from '$app/forms'
 
-	let textInput = ''
+	let { textInput } = $props()
 </script>
 
 <form class="validator-holder relative" method="POST" action="/tools/validator?/validate" use:enhance>

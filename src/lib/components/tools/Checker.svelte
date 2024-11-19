@@ -1,9 +1,9 @@
 <script>
 	import { enhance } from '$app/forms'
 
-	let textInput = ''
+	let { textInput } = $props()
 	// Validate that the text input is a valid URL and ends with /carbon.txt
-	$: validUrl = textInput.match(/https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt/)
+	let validUrl = $derived(textInput.match(/https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt/))
 </script>
 
 <form class="validator-holder relative" method="POST" action="/tools/checker?/check" use:enhance>
@@ -16,7 +16,7 @@
 		placeholder="https://example.com/carbon.txt"
 		required
 		bind:value={textInput}
-		pattern="https?://[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?/carbon\.txt"
+		pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt"
 	/>
 	{#if validUrl === null}
 		<p class="text-purple-500">Please enter a valid URL that ends with /carbon.txt</p>

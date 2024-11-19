@@ -33,7 +33,7 @@
 			<Heading level={1}>Validator</Heading>
 			<p>Use this validator to check that a carbon.txt file you have created is syntactically valid.</p>
 		</div>
-		<SyntaxValidator />
+		<SyntaxValidator textInput={form?.text_contents || ''} />
 	</div>
 </section>
 

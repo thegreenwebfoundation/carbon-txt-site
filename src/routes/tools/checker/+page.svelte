@@ -22,7 +22,7 @@
 				files and associated linked documents to be parsed and displayed.
 			</p>
 		</div>
-		<Checker />
+		<Checker textInput={form?.url || ''} />
 	</div>
 </section>
 
