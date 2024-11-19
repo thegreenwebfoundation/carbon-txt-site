@@ -14,7 +14,7 @@
 </script>
 
 <section class="w-100" id="result">
-	<div class="prose md:w-[80%] mb-4">
+	<div class="prose md:w-[80%] mb-4 alert alert-error">
 		<h1 class="text-3xl font-bold mb-4">Syntax Error!</h1>
 		<p>Your carbon.txt file has {errors?.length > 1 ? 'syntax errors' : 'a syntax error'}.</p>
 	</div>

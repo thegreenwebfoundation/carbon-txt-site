@@ -4,7 +4,7 @@
 </script>
 
 <section class="w-100" id="result">
-	<div class="prose md:w-[80%]">
+	<div class="prose md:w-[80%] alert alert-success">
 		<h1 class="text-3xl font-bold mb-4">Success!</h1>
 		<p>Your carbon.txt file is syntactically valid.</p>
 	</div>

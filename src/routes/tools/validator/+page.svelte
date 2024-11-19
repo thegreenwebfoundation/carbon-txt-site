@@ -43,7 +43,7 @@
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
 {:else if form?.response.error}
 	<section class="w-100" id="result">
-		<div class="prose md:w-[80%] mb-4">
+		<div class="prose md:w-[80%] mb-4 alert alert-error">
 			<h1 class="text-3xl font-bold mb-4">Error</h1>
 			<p>Unable to validate the provided content. Please submit a valid TOML carbon.txt syntax for validation.</p>
 			<p>For help creating a carbon.txt file, please use our <a href="/tools/builder">Builder</a>.</p>
