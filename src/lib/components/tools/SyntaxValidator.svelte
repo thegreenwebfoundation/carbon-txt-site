@@ -1,18 +1,11 @@
 <script>
 	import { enhance } from '$app/forms'
-	import { stringify } from 'postcss'
 
 	let { textInput, url } = $props()
-	let validUrl = $derived(textInput.match(/https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt/))
 </script>
 
-<form class="validator-holder relative" method="POST" action="/tools/validator?/validate" use:enhance>
-	<label for="url"
-		>Carbon.txt URL: <input name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt" />
-		{#if url.length > 0 && validUrl === null}
-			<p class="text-purple-500">Please enter a valid URL that ends with /carbon.txt</p>
-		{/if}
-	</label>
+<form id="validator-form" class="validator-holder relative" method="POST" action="/tools/validator?/validate" use:enhance>
+	<label for="url">Carbon.txt URL: <input name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" /> </label>
 	<span class="divider">
 		<span>OR</span>
 		<hr />
