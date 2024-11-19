@@ -8,7 +8,7 @@
 
 <form class="validator-holder relative" method="POST" action="/tools/checker?/check" use:enhance>
 	<!-- A text input that takes a valid website domain -->
-	<label for="domain">Carbon.txt File URL</label>
+	<label for="domain">Carbon.txt file URL</label>
 	<input
 		type="url"
 		id="carbon-txt-url"
@@ -18,7 +18,7 @@
 		bind:value={textInput}
 		pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)?\/carbon\.txt"
 	/>
-	{#if validUrl === null}
+	{#if textInput.length > 0 && validUrl === null}
 		<p class="text-purple-500">Please enter a valid URL that ends with /carbon.txt</p>
 	{/if}
 	<!-- A submit button that sends the domain to the parser -->
