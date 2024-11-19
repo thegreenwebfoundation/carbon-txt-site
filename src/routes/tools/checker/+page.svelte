@@ -52,4 +52,4 @@
 	</section>
 {/if}
 
-<ToolsNav currentView="parser" />
+<ToolsNav currentView="checker" />
