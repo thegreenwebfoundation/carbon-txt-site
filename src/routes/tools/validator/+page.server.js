@@ -37,7 +37,7 @@ export const actions = {
             return []
           }
       
-         errorLines = await json.errors.map((error) => {
+         await json.errors.map((error) => {
               const [section, property, arrayIndex, ...rest] = error.loc
               const field = rest.length > 1 ? rest[1] : rest[0]
       
@@ -57,6 +57,9 @@ export const actions = {
                 // Find the line that contains this exact value in the correct section
                 let inCorrectSection = false
                 for (let i = 0; i < lines.length; i++) {
+                  if (errorLines.includes(i)) {
+                    continue
+                  }
                   const line = lines[i]
       
                   // Check if we're in the correct section
@@ -86,11 +89,13 @@ export const actions = {
                       if (missingKey === 'domain') {
                         if (!line.includes('domain')) {
                           error.line = i + 1
+                          errorLines.push(i)
                           return i
                         }
                       } else {
                         if (!line.includes('service')) {
                           error.line = i + 1
+                          errorLines.push(i)
                           return i
                         }
                       }
@@ -102,16 +107,19 @@ export const actions = {
                       if (missingKey === 'domain') {
                         if (!line.includes('domain')) {
                           error.line = i + 1
+                          errorLines.push(i)
                           return i
                         }
                       } else if (missingKey === 'url') {
                         if (!line.includes('url')) {
                           error.line = i + 1
+                          errorLines.push(i)
                           return i
                         }
                       } else {
                         if (!line.includes('doctype')) {
                           error.line = i + 1
+                          errorLines.push(i)
                           return i
                         }
                       }
@@ -121,6 +129,7 @@ export const actions = {
                   // Only look for the value if we're in the correct section
                   if (inCorrectSection && line.includes(`${field}`) && line.includes(`${problemValue}`)) {
                     error.line = i + 1
+                    errorLines.push(i)
                     return i
                   }
                 }
