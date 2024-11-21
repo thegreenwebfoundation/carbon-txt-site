@@ -1,7 +1,4 @@
 <script>
-	import { goto } from '$app/navigation'
-	import { page } from '$app/stores'
-
 	// NOTE: There is currently no waay to test this validator locally as it relies on Cloudflare Workers KV.
 
 	// Components
@@ -16,7 +13,7 @@
 	let { data, form } = $props()
 
 	let url = ''
-	let searchParams = new URLSearchParams($page?.url.search)
+	let searchParams = new URLSearchParams(data.url.search)
 	if (searchParams) {
 		url = searchParams.get('url')
 	}
