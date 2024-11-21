@@ -37,7 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sentry/sveltekit": "^8.39.0",
+		"@sentry/sveltekit": "^8.38.0",
 		"clipboard-copy": "^4.0.1",
 		"js-toml": "^1.0.0",
 		"svelte-highlight": "^7.7.0"
