@@ -4,15 +4,15 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
 	plugins: [
-		sentrySvelteKit({
-			sourceMapsUploadOptions: {
-				org: 'greenweb',
-				project: 'carbon-txt-website'
-			}
-		}),
+		// sentrySvelteKit({
+		// 	sourceMapsUploadOptions: {
+		// 		org: 'greenweb',
+		// 		project: 'carbon-txt-website'
+		// 	}
+		// }),
 		sveltekit()
 	],
 	build: {
-		sourcemap: true
+		sourcemap: true,
 	}
 })
