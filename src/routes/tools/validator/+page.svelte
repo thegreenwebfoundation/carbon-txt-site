@@ -12,22 +12,13 @@
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()
 
+	console.log('form', form)
+
 	let url = ''
 	let searchParams = new URLSearchParams(data.url.search)
 	if (searchParams) {
 		url = searchParams.get('url')
 	}
-
-	// Scroll to the #result section if it exists on the page
-	onMount(() => {
-		if (form?.response.success || form?.response.errors || form?.response.error) {
-			const result = document.getElementById('result')
-			if (result) {
-				console.log('HAS SECTION!')
-				result.scrollIntoView({ behavior: 'smooth' })
-			}
-		}
-	})
 </script>
 
 <ToolsNav currentView="validator" />

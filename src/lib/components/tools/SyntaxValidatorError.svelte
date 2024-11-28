@@ -6,6 +6,8 @@
 	let showLines = true
 
 	const highlightedLines = errorLines
+
+	const tomlError = typeof errors[0] === 'string'
 </script>
 
 <section class="w-100" id="result">
@@ -26,10 +28,17 @@
 			<tbody>
 				{#each errors as error}
 					<tr>
-						<td>{error.type}</td>
+						{#if tomlError}
+							<td>Invalid TOML</td>
+						{:else}
+							<td>{error.type}</td>
+						{/if}
 						{#if error.line}
 							<!-- content here -->
 							<td>(Line: {error.line}) {error.loc.join(' > ')}</td>
+						{:else if tomlError}
+							<!-- content here -->
+							<td>{error}</td>
 						{:else}
 							<!-- else content here -->
 							<td>{error.loc.join(' > ')}</td>

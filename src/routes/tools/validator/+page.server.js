@@ -30,14 +30,18 @@ export const actions = {
     if (response.ok && text_contents) {
       let errorLines = []
       const json = await response.json();
-
       if (!json.success) {
           const lines = text_contents.split('\n')
           let parsedToml = {}
           try {
             parsedToml = await load(text_contents)
           } catch (e) {
-            return []
+            return {
+              text_contents,
+              response: {
+                ...json,
+              }
+            }
           }
       
          await json.errors.map((error) => {
@@ -153,6 +157,7 @@ export const actions = {
       };
     } else if (response.ok && url) {
       const json = await response.json();
+      console.log('json', json)
       return {
           url,
           response: {
