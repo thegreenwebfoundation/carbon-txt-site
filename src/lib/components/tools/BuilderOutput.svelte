@@ -1,8 +1,16 @@
 <script>
 	import upstreamServices from '$lib/utils/upstreamServices'
-	import evidenceTypes from '$lib/utils/evidenceTypes'
+	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
+	import { evidenceTypes } from '$lib/store'
+	import { onMount } from 'svelte'
 
-	export let store
+	onMount(async () => {
+		if ($evidenceTypes.length === 0) {
+			$evidenceTypes = await fetchEvidenceTypes()
+		}
+	})
+
+	let { store } = $props()
 
 	const removeUpstream = (provider) => {
 		store.update((upstream) => upstream.filter((item) => item !== provider))
@@ -13,7 +21,7 @@
 	}
 
 	const evidenceName = (evidence) => {
-		return evidenceTypes.find((item) => item.slug === evidence).name
+		return $evidenceTypes.find((item) => item.slug === evidence).name
 	}
 </script>
 

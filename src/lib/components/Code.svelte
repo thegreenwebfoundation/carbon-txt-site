@@ -3,9 +3,7 @@
 	import { monokai } from 'svelte-highlight/styles'
 	import ini from 'svelte-highlight/languages/ini'
 
-	export let lang = 'toml'
-	export let code = ''
-	export let showComments = false
+	let { lang, code, showComments, showLines, highlightedLines } = $props()
 
 	if (lang === 'toml' && !showComments) {
 		code = removeComments(code)
@@ -29,4 +27,12 @@
 	{@html monokai}
 </svelte:head>
 
-<Highlight language={ini} {code} />
+{#if showLines}
+	<!-- content here -->
+	<Highlight language={ini} {code} let:highlighted>
+		<LineNumbers {highlighted} {highlightedLines} />
+	</Highlight>
+{:else}
+	<!-- else content here -->
+	<Highlight language={ini} {code} />
+{/if}

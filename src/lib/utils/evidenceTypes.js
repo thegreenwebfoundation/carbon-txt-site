@@ -1,18 +1,14 @@
-export default [
-    {
-        name: 'Annual report',
-        slug: 'annual-report'
-    },
-    {
-        name: 'Webpage',
-        slug: 'webpage'
-    },
-    {
-        name: 'Certificate',
-        slug: 'certificate'
-    },
-    {
-        name: 'Other',
-        slug: 'other'
-    }
-]
+const fetchEvidenceTypes = async () => {
+    const schema = await fetch('https://carbon-txt-api.greenweb.org/api/json_schema/')
+    const json = await schema.json()
+
+    return json.$defs.Credential.properties.doctype.enum.map((type) => {
+        return {
+            // Make the name a human-readable string with spaces and capitalization
+            name: type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+            slug: type
+        }
+    })
+}
+
+export default fetchEvidenceTypes
