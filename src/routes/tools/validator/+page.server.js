@@ -7,9 +7,6 @@ export const actions = {
 		const text_contents = data.get('carbon-txt-validator');
     const url = data.get('url')
 
-    console.log('text_contents', text_contents)
-    console.log('url', url)
-
     let apiRoute = 'https://carbon-txt-api.greenweb.org/api/validate/file/'
     if (url) {
       apiRoute = 'https://carbon-txt-api.greenweb.org/api/validate/url/'
@@ -157,7 +154,6 @@ export const actions = {
       };
     } else if (response.ok && url) {
       const json = await response.json();
-      console.log('json', json)
       return {
           url,
           response: {
