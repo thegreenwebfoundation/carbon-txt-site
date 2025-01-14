@@ -6,14 +6,17 @@
 	import Checker from '$lib/components/tools/Checker.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
 
-	import Question from '$lib/svg/tgwf_logo_question.svelte'
-	import GWF from '$lib/svg/tgwf_logo_gwf.svelte'
-	import { plugin } from 'postcss'
-
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()
 
 	const pluralisePlugins = (count) => (count === 1 ? 'plugin' : 'plugins')
+
+	$effect(() => {
+		if (form?.response) {
+			// Scroll to the result section
+			document.getElementById('result').scrollIntoView({ behavior: 'smooth' })
+		}
+	})
 </script>
 
 <ToolsNav currentView="checker" />
