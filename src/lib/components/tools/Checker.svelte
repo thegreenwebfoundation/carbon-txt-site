@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms'
-	let creating = $state(false)
+	let checkingFile = $state(false)
 
 	let { textInput } = $props()
 </script>
@@ -10,19 +10,19 @@
 	method="POST"
 	action="/tools/checker?/check"
 	use:enhance={() => {
-		creating = true
+		checkingFile = true
 
 		return async ({ update }) => {
 			await update()
-			creating = false
+			checkingFile = false
 		}
 	}}
 >
 	<!-- A text input that takes a valid website domain -->
 	<label for="domain">Carbon.txt File URL</label>
 	<input type="url" id="carbon-txt-url" name="carbon-txt-url" placeholder="https://example.com/carbon.txt" required bind:value={textInput} pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
-	<span aria-live="assertive" data-checking={creating}>
-		{#if creating}
+	<span aria-live="assertive" data-checking={checkingFile}>
+		{#if checkingFile}
 			<div class="checker">
 				<span></span>
 				<p>Checking carbon.txt file ....</p>
