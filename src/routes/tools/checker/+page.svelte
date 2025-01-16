@@ -43,7 +43,7 @@
 			<p><strong>Success!</strong> The provided carbon.txt file is syntactically valid.</p>
 		</div>
 
-		<div class="prose w-full mb-4">
+		<div class="prose max-w-fit w-full mb-4">
 			<Heading level={2}>File contents</Heading>
 			<p>The content found in the carbon.txt file is displayed below:</p>
 
@@ -99,12 +99,12 @@
 		</div>
 
 		{#if form?.response.document_data && Object.keys(form?.response.document_data).length > 0}
-			<div class="prose mb-4 w-full">
+			<div class="prose mb-4 max-w-fit w-full">
 				<Heading level={2}>Linked evidence</Heading>
 				<p>Found linked evidence using <b>{Object.keys(form?.response.document_data).length} {pluralisePlugins(Object.keys(form?.response.document_data).length)}</b>.</p>
 
 				{#each Object.keys(form?.response.document_data) as plugin}
-					<div class="relative overflow-x-auto">
+					<div class="relative overflow-x-auto max-w-[100vw]">
 						<table class="w-full">
 							<thead>
 								<tr>
