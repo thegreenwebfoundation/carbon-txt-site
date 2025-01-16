@@ -21,7 +21,7 @@
 
 <ToolsNav currentView="checker" />
 
-<section class="w-100" id="intro">
+<section class="w-full" id="intro">
 	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-2 lg:items-center">
 		<div class="prose md:w-[80%] mb-4">
 			<Heading level={1}>File checker</Heading>
@@ -37,96 +37,102 @@
 
 {#if form?.response.success}
 	<hr />
-	<section id="result" role="alert" class="w-100">
+	<section id="result" role="alert" class="w-full">
 		<Heading level={2}>Syntax validation</Heading>
 		<div class="prose md:w-[80%] mb-4 alert alert-success">
 			<p><strong>Success!</strong> The provided carbon.txt file is syntactically valid.</p>
 		</div>
 
-		<div class="prose md:w-[80%] mb-4">
+		<div class="prose w-full mb-4">
 			<Heading level={2}>File contents</Heading>
 			<p>The content found in the carbon.txt file is displayed below:</p>
 
 			{#if form?.response.data.upstream && form?.response.data.upstream.providers.length > 0}
-				<table class="table-auto w-full mb-6">
-					<thead>
-						<tr>
-							<td colspan="2">Upstream providers</td>
-						</tr>
-						<tr>
-							<th>Domain</th>
-							<th>Service</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each form?.response.data.upstream.providers as { domain, service }}
-							<tr>
-								<td>{domain}</td>
-								<td>{service}</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
-			{/if}
-
-			{#if form?.response.data.org && form?.response.data.org.credentials.length > 0}
-				<table class="table-auto w-full mb-6">
-					<thead>
-						<tr>
-							<td colspan="3">Organisation credentials</td>
-						</tr>
-						<tr>
-							<th>Domain</th>
-							<th>Document Type</th>
-							<th>Document URL</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each form?.response.data.org.credentials as { domain, doctype, url }}
-							<tr>
-								<td>{domain}</td>
-								<td>{doctype}</td>
-								<td>{url}</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
-			{/if}
-		</div>
-
-		{#if form?.response.document_data && Object.keys(form?.response.document_data).length > 0}
-			<div class="prose md:w-[80%] mb-4">
-				<Heading level={2}>Linked evidence</Heading>
-				<p>Found linked evidence using <b>{Object.keys(form?.response.document_data).length} {pluralisePlugins(Object.keys(form?.response.document_data).length)}</b>.</p>
-
-				{#each Object.keys(form?.response.document_data) as plugin}
-					<table class="table-auto w-full mb-6">
+				<div class="relative overflow-x-auto">
+					<table class="w-full">
 						<thead>
 							<tr>
-								<td colspan="6">Plugin: {plugin}</td>
+								<td colspan="2">Upstream providers</td>
 							</tr>
 							<tr>
-								<th>Evidence name</th>
-								<th>Value</th>
-								<th>Unit</th>
-								<th>Start date</th>
-								<th>End date</th>
-								<th>Source file</th>
+								<th>Domain</th>
+								<th>Service</th>
 							</tr>
 						</thead>
 						<tbody>
-							{#each form?.response.document_data[plugin] as { name, value, unit, start_date, end_date, file }}
+							{#each form?.response.data.upstream.providers as { domain, service }}
 								<tr>
-									<td>{name}</td>
-									<td>{value}</td>
-									<td>{unit}</td>
-									<td><time datetime={start_date}>{start_date}</time></td>
-									<td><time datetime={end_date}>{end_date}</time></td>
-									<td><a href={file}>{file}</a></td>
+									<td class="whitespace-nowrap">{domain}</td>
+									<td class="whitespace-nowrap">{service}</td>
 								</tr>
 							{/each}
 						</tbody>
 					</table>
+				</div>
+			{/if}
+
+			{#if form?.response.data.org && form?.response.data.org.credentials.length > 0}
+				<div class="relative overflow-x-auto">
+					<table class="w-full">
+						<thead>
+							<tr>
+								<td colspan="3">Organisation credentials</td>
+							</tr>
+							<tr>
+								<th>Domain</th>
+								<th>Document Type</th>
+								<th>Document URL</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each form?.response.data.org.credentials as { domain, doctype, url }}
+								<tr>
+									<td class="whitespace-nowrap">{domain}</td>
+									<td class="whitespace-nowrap">{doctype}</td>
+									<td class="whitespace-nowrap">{url}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
+			{/if}
+		</div>
+
+		{#if form?.response.document_data && Object.keys(form?.response.document_data).length > 0}
+			<div class="prose mb-4 w-full">
+				<Heading level={2}>Linked evidence</Heading>
+				<p>Found linked evidence using <b>{Object.keys(form?.response.document_data).length} {pluralisePlugins(Object.keys(form?.response.document_data).length)}</b>.</p>
+
+				{#each Object.keys(form?.response.document_data) as plugin}
+					<div class="relative overflow-x-auto">
+						<table class="w-full">
+							<thead>
+								<tr>
+									<td colspan="6">Plugin: {plugin}</td>
+								</tr>
+								<tr>
+									<th>Evidence name</th>
+									<th>Value</th>
+									<th>Unit</th>
+									<th>Start date</th>
+									<th>End date</th>
+									<th>Source file</th>
+								</tr>
+							</thead>
+							<tbody>
+								{#each form?.response.document_data[plugin] as { name, value, unit, start_date, end_date, file }}
+									<tr>
+										<td class="whitespace-nowrap">{name}</td>
+										<td class="whitespace-nowrap">{value}</td>
+										<td class="whitespace-nowrap">{unit}</td>
+										<td class="whitespace-nowrap"><time datetime={start_date}>{start_date}</time></td>
+										<td class="whitespace-nowrap"><time datetime={end_date}>{end_date}</time></td>
+										<td class="whitespace-nowrap"><a href={file}>{file}</a></td>
+									</tr>
+								{/each}
+							</tbody>
+						</table>
+					</div>
 				{/each}
 			</div>
 		{/if}
