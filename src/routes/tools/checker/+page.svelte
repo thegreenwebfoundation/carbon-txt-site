@@ -161,10 +161,6 @@
 <ToolsNav currentView="checker" />
 
 <style>
-	#result {
-		margin-top: 3rem;
-	}
-
 	.result-item {
 		display: flex;
 		align-items: center;

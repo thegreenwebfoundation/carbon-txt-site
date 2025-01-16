@@ -19,6 +19,13 @@
 	if (searchParams) {
 		url = searchParams.get('url')
 	}
+
+	$effect(() => {
+		if (form?.response) {
+			// Scroll to the result section
+			document.getElementById('result').scrollIntoView({ behavior: 'smooth' })
+		}
+	})
 </script>
 
 <ToolsNav currentView="validator" />
@@ -34,7 +41,7 @@
 </section>
 
 {#if form?.response.success}
-	<SyntaxValidatorSuccess text_contents={form?.text_contents} />
+	<SyntaxValidatorSuccess text_contents={form?.text_contents} {form} />
 {:else if form?.response.errors}
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
 {:else if form?.response.error}
