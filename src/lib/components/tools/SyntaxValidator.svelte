@@ -1,10 +1,24 @@
 <script>
 	import { enhance } from '$app/forms'
+	let validating = $state(false)
 
 	let { textInput, url } = $props()
 </script>
 
-<form id="validator-form" class="validator-holder relative" method="POST" action="/tools/validator?/validate" use:enhance>
+<form
+	id="validator-form"
+	class="validator-holder relative"
+	method="POST"
+	action="/tools/validator?/validate"
+	use:enhance={() => {
+		validating = true
+
+		return async ({ update }) => {
+			await update()
+			validating = false
+		}
+	}}
+>
 	<label for="url">Carbon.txt URL: <input name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" /> </label>
 	<span class="divider">
 		<span>OR</span>
@@ -16,7 +30,16 @@
 			<p>Please either a URL or text content, not both.</p>
 		</div>
 	{:else}
-		<button type="submit" class="btn btn-white w-[100%]">Submit</button>
+		<span aria-live="assertive" data-checking={validating}>
+			{#if validating}
+				<div class="checker">
+					<span></span>
+					<p>Validating carbon.txt syntax ....</p>
+				</div>
+			{:else}
+				<button type="submit" class="btn btn-white w-[100%]">Validate syntax & check contents</button>
+			{/if}
+		</span>
 	{/if}
 </form>
 
@@ -56,5 +79,33 @@
 
 	label > *:first-child {
 		margin-top: 0.75rem;
+	}
+
+	.checker {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.25rem;
+	}
+
+	.checker span {
+		display: inline-block;
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		border: 2px solid #333;
+		border-top-color: transparent;
+		border-right-color: transparent;
+		animation: spin 1s linear infinite;
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
 </style>
