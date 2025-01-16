@@ -69,7 +69,7 @@
 			{/if}
 		</div>
 
-		{#if form?.response.document_data && Object.keys(form?.response.document_data).length > 0}
+		{#if form?.response.document_data && Object.keys(form?.response.document_data).length > 0 && Object.keys(form?.response.document_data)[0] !== 'null'}
 			<div class="prose mb-4 max-w-fit w-full">
 				<Heading level={2}>Linked evidence</Heading>
 				<p>Found linked evidence using <b>{Object.keys(form?.response.document_data).length} {pluralisePlugins(Object.keys(form?.response.document_data).length)}</b>.</p>
