@@ -79,9 +79,10 @@
 						<table class="w-full">
 							<thead>
 								<tr>
-									<td colspan="6">Plugin: {plugin}</td>
+									<td colspan="7">Plugin: {plugin}</td>
 								</tr>
 								<tr>
+									<th>Status</th>
 									<th>Evidence name</th>
 									<th>Value</th>
 									<th>Unit</th>
@@ -91,15 +92,56 @@
 								</tr>
 							</thead>
 							<tbody>
-								{#each form?.response.document_data[plugin] as { name, value, unit, start_date, end_date, file }}
-									<tr>
-										<td class="whitespace-nowrap">{name}</td>
-										<td class="whitespace-nowrap">{value}</td>
-										<td class="whitespace-nowrap">{unit}</td>
-										<td class="whitespace-nowrap"><time datetime={start_date}>{start_date}</time></td>
-										<td class="whitespace-nowrap"><time datetime={end_date}>{end_date}</time></td>
-										<td class="whitespace-nowrap"><a href={file}>{file}</a></td>
-									</tr>
+								{#each form?.response.document_data[plugin] as { name, value, unit, start_date, end_date, file, message, error, datapoint_short_code, datapoint_readable_label }}
+									{#if error}
+										<tr data-error>
+											<td class="whitespace-nowrap">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													width="24"
+													height="24"
+													stroke-width="2"
+												>
+													<path
+														d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z"
+													></path> <path d="M12 16v.01"></path> <path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"></path>
+												</svg>
+												Not found</td
+											>
+											<td class="whitespace-nowrap">{datapoint_readable_label}</td>
+											<td class="whitespace-nowrap" colspan="5">{message}</td>
+										</tr>
+									{:else}
+										<tr>
+											<td class="whitespace-nowrap">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													width="24"
+													height="24"
+													stroke-width="2"
+												>
+													<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path> <path d="M9 12l2 2l4 -4"></path>
+												</svg>
+												Found</td
+											>
+											<td class="whitespace-nowrap">{name}</td>
+											<td class="whitespace-nowrap">{value}</td>
+											<td class="whitespace-nowrap">{unit}</td>
+											<td class="whitespace-nowrap"><time datetime={start_date}>{start_date}</time></td>
+											<td class="whitespace-nowrap"><time datetime={end_date}>{end_date}</time></td>
+											<td class="whitespace-nowrap"><a href={file}>{file}</a></td>
+										</tr>
+									{/if}
 								{/each}
 							</tbody>
 						</table>
@@ -146,5 +188,29 @@
 	td {
 		@apply px-4 py-4;
 		@apply border-b border-purple-400;
+	}
+
+	td svg {
+		display: inline-block;
+		margin-right: 0.5rem;
+	}
+
+	/* tr[data-error] {
+		@apply bg-red-50;
+	} */
+
+	tr > td:first-of-type,
+	tr > th:first-of-type {
+		position: sticky;
+		left: 0;
+		z-index: 1;
+	}
+
+	tr > td:first-of-type {
+		background-color: white;
+	}
+
+	tr > th:first-of-type {
+		background-color: bg-purple-100;
 	}
 </style>
