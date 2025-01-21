@@ -157,13 +157,6 @@
 {:else if type === 'org'}
 	<div class="org-input">
 		<!-- A text input with validation to check that it is a domain -->
-		<div class="form-group">
-			<label for="domain">Domain</label>
-			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
-			{#if error.field === 'org-domain'}
-				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
-			{/if}
-		</div>
 		<!-- A select listing some online services -->
 		<div class="form-group">
 			<label for="doctype">Document type</label>
@@ -181,6 +174,13 @@
 			<label for="url">URL</label>
 			<input type="text" name="url" bind:value={newObject.url} placeholder="https://example.com/our-sustainability-page" />
 			{#if error.field === 'org-url'}
+				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
+			{/if}
+		</div>
+		<div class="form-group">
+			<label for="domain">Domain</label>
+			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
+			{#if error.field === 'org-domain'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
 		</div>
