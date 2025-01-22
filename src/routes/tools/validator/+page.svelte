@@ -19,6 +19,13 @@
 	if (searchParams) {
 		url = searchParams.get('url')
 	}
+
+	$effect(() => {
+		if (form?.response) {
+			// Scroll to the result section
+			document.getElementById('result').scrollIntoView({ behavior: 'smooth' })
+		}
+	})
 </script>
 
 <ToolsNav currentView="validator" />
@@ -27,14 +34,18 @@
 	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-2 lg:items-center">
 		<div class="prose md:w-[80%]">
 			<Heading level={1}>Validator</Heading>
-			<p>Use this validator to check that the contents of a carbon.txt file is syntactically valid.</p>
+			<p>Use this validator to:</p>
+			<ul>
+				<li>Check that the contents of a carbon.txt file is syntactically valid.</li>
+				<li>View the content of the carbon.txt file in a human-readable format.</li>
+			</ul>
 		</div>
 		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} />
 	</div>
 </section>
 
 {#if form?.response.success}
-	<SyntaxValidatorSuccess text_contents={form?.text_contents} />
+	<SyntaxValidatorSuccess text_contents={form?.text_contents} {form} />
 {:else if form?.response.errors}
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
 {:else if form?.response.error}
