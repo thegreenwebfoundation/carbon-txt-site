@@ -37,6 +37,12 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 			<div class="prose md:w-[80%] mb-[3rem]">
 				<Heading level={1}>Builder</Heading>
 				<p>Use this builder to create a carbon.txt file for your organisation.</p>
+				<Callout>
+					<p>
+						This builder uses <b>version 0.2 syntax</b> of the carbon.txt syntax.
+					</p>
+					<div class="w-max mx-auto mt-[2rem]"><Button link="/syntax">Learn more about the syntax</Button></div>
+				</Callout>
 			</div>
 			<div class="py-8">
 				<div>
