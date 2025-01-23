@@ -4,7 +4,7 @@
 
 <form class="form" action="?/domainHash" method="POST" use:enhance>
 	<fieldset class="border pl-4 pr-4 pb-4 rounded-md mb-[1rem]">
-		<legend class="text-2xl pl-2 pr-2">Green Web Foundation credentials:</legend>
+		<legend class="text-2xl pl-2 pr-2">Green Web Foundation login details:</legend>
 		<div class="flex flex-col gap-1">
 			<label for="carbon-txt-url">Username</label>
 			<div class="flex gap-3 flex-wrap">

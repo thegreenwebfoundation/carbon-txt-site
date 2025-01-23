@@ -14,8 +14,8 @@
 
 	let copyText = 'Copy'
 
-	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service-type='${provider.service}' }`).join(',\n    ')
-	const mapOrg = () => $builderOrg.map((credential) => `{ doctype='${credential.doctype}', url='${credential.url}', domain='${credential.domain}' }`).join(',\n    ')
+	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service_type='${provider.service}' }`).join(',\n    ')
+	const mapOrg = () => $builderOrg.map((credential) => `{ doc_type='${credential.doctype}', url='${credential.url}', domain='${credential.domain}' }`).join(',\n    ')
 
 	$: outputCode = `[org]
 disclosures = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]
@@ -52,7 +52,6 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 					<Heading level={3}>Upstream services</Heading>
 					<p class="mb-10">List the services providers you use to deliver your service.</p>
 					<BuilderInput store={builderUpstream} />
-					<p>Can't find a service you need in the list? <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/16">Let us know</a>.</p>
 					<BuilderOutput store={builderUpstream} />
 				</div>
 			</div>

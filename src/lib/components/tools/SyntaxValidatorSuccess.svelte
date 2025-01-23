@@ -34,12 +34,12 @@
 			<Heading level={2}>File contents</Heading>
 			<p>The content found in the carbon.txt file is displayed below:</p>
 
-			{#if form?.response.data.upstream && form?.response.data.upstream.providers.length > 0}
+			{#if form?.response.data.upstream && form?.response.data.upstream.services?.length > 0}
 				<div class="relative overflow-x-auto">
 					<table class="w-full">
 						<thead>
 							<tr>
-								<td colspan="2">Upstream providers</td>
+								<td colspan="2">Upstream services</td>
 							</tr>
 							<tr>
 								<th>Domain</th>
@@ -47,7 +47,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each form?.response.data.upstream.providers as { domain, service }}
+							{#each form?.response.data.upstream.services as { domain, service }}
 								<tr>
 									<td class="whitespace-nowrap">{domain}</td>
 									<td class="whitespace-nowrap">{service}</td>
@@ -58,12 +58,12 @@
 				</div>
 			{/if}
 
-			{#if form?.response.data.org && form?.response.data.org.credentials.length > 0}
+			{#if form?.response.data.org && form?.response.data.org.disclosures.length > 0}
 				<div class="relative overflow-x-auto">
 					<table class="w-full">
 						<thead>
 							<tr>
-								<td colspan="3">Organisation credentials</td>
+								<td colspan="3">Organisation disclosures</td>
 							</tr>
 							<tr>
 								<th>Domain</th>
@@ -72,10 +72,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each form?.response.data.org.credentials as { domain, doctype, url }}
+							{#each form?.response.data.org.disclosures as { domain, doc_type, url }}
 								<tr>
 									<td class="whitespace-nowrap">{domain}</td>
-									<td class="whitespace-nowrap">{doctype}</td>
+									<td class="whitespace-nowrap">{doc_type}</td>
 									<td class="whitespace-nowrap">{url}</td>
 								</tr>
 							{/each}

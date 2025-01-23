@@ -88,7 +88,7 @@ export const actions = {
                   if (error.type === 'missing') {
                     // Check the section we are in
                     if (section === 'upstream') {
-                      // Upstream providers should have a domain and service key.
+                      // Upstream providers should have a domain and service-type key.
                       const missingKey = field
                       if (missingKey === 'domain') {
                         if (!line.includes('domain')) {
@@ -97,7 +97,7 @@ export const actions = {
                           return i
                         }
                       } else {
-                        if (!line.includes('service')) {
+                        if (!line.includes('service-type')) {
                           error.line = i + 1
                           errorLines.push(i)
                           return i
@@ -106,7 +106,7 @@ export const actions = {
                     }
       
                     if (section === 'org') {
-                      // Orgs should have a domain, url, and doctype key.
+                      // Orgs should have a domain, url, and doc_type key.
                       const missingKey = field
                       if (missingKey === 'domain') {
                         if (!line.includes('domain')) {
@@ -121,7 +121,7 @@ export const actions = {
                           return i
                         }
                       } else {
-                        if (!line.includes('doctype')) {
+                        if (!line.includes('doc_type')) {
                           error.line = i + 1
                           errorLines.push(i)
                           return i
