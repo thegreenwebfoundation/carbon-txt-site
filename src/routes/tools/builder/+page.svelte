@@ -15,13 +15,13 @@
 	let copyText = 'Copy'
 
 	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service='${provider.service}' }`).join(',\n    ')
-	const mapOrg = () => $builderOrg.map((credential) => `{ domain='${credential.domain}', doctype='${credential.doctype}', url='${credential.url}' }`).join(',\n    ')
+	const mapOrg = () => $builderOrg.map((credential) => `{ doctype='${credential.doctype}', url='${credential.url}', domain='${credential.domain}' }`).join(',\n    ')
 
 	$: outputCode = `[org]
-credentials = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]
+disclosures = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]
 
 [upstream]
-providers = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}]`
+services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}]`
 
 	const resetBuilder = () => {
 		builderUpstream.set([])
