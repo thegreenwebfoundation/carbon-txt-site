@@ -20,6 +20,7 @@
 			<div class="flex gap-3 flex-wrap">
 				<a href="/" class={currentPage('/')}>Home</a>
 				<a href="/about" class={currentPage('/about')}>What is carbon.txt?</a>
+				<a href="/syntax" class={currentPage('/syntax')}>Syntax</a>
 				<a href="/how/digital-services" class={currentPage('/how/digital-services')}>Get started</a>
 				<a href="/tools" class={currentPage('/tools')}>Tools</a>
 				<a href="/faq" class={currentPage('/faq')}>FAQ</a>

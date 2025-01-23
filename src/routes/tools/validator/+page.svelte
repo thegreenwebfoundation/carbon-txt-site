@@ -7,6 +7,8 @@
 	import SyntaxValidatorSuccess from '$lib/components/tools/SyntaxValidatorSuccess.svelte'
 	import SyntaxValidatorError from '$lib/components/tools/SyntaxValidatorError.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
+	import Button from '$lib/components/Button.svelte'
+	import Callout from '$lib/components/Callout.svelte'
 	import { onMount } from 'svelte'
 
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
@@ -39,6 +41,13 @@
 				<li>Check that the contents of a carbon.txt file is syntactically valid.</li>
 				<li>View the content of the carbon.txt file in a human-readable format.</li>
 			</ul>
+
+			<Callout>
+				<p>
+					This validator performs checks on Carbon.txt files based on the <b>version 0.2 syntax</b>.
+				</p>
+				<div class="w-max mx-auto mt-[2rem]"><Button link="/syntax">Learn more about the syntax</Button></div>
+			</Callout>
 		</div>
 		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} />
 	</div>

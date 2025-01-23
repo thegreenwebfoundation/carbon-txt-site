@@ -1,5 +1,4 @@
 <script>
-	import upstreamServices from '$lib/utils/upstreamServices'
 	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
 	import { evidenceTypes } from '$lib/store'
 	import { onMount } from 'svelte'
@@ -16,10 +15,6 @@
 		store.update((upstream) => upstream.filter((item) => item !== provider))
 	}
 
-	const serviceName = (service) => {
-		return upstreamServices.find((item) => item.slug === service).name
-	}
-
 	const evidenceName = (evidence) => {
 		return $evidenceTypes.find((item) => item.slug === evidence).name
 	}
@@ -32,12 +27,12 @@
 			{#if index === 0}
 				<li class="grid grid-cols-3 gap-2 items-center p-2 bg-green-600 text-white">
 					<span class="domain">Domain</span>
-					<span class="service">Service</span>
+					<span class="service">Service type</span>
 				</li>
 			{/if}
 			<li class="grid grid-cols-3 gap-2 items-center p-2 odd:bg-green-100 even:bg-gray-100">
 				<div class="domain">{provider.domain}</div>
-				<div class="service">{serviceName(provider.service)}</div>
+				<div class="service">{provider.service}</div>
 				<button on:click={() => removeUpstream(provider)} aria-label="Remove"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -59,9 +54,9 @@
 			</li>
 		{:else if Object.keys(provider).length === 3}
 			<li class="grid grid-cols-4 gap-2 items-center p-2 odd:bg-green-100 even:bg-gray-100">
-				<div class="domain"><span>{provider.domain}</span></div>
 				<div class="doctype"><span>{evidenceName(provider.doctype)}</span></div>
 				<div class="url"><span>{provider.url}</span></div>
+				<div class="domain"><span>{provider.domain}</span></div>
 				<button on:click={() => removeUpstream(provider)} aria-label="Remove"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
