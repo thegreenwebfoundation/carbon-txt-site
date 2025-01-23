@@ -11,12 +11,9 @@
 	import Pilot from '$lib/components/Pilot.svelte'
 
 	import { syntaxVersions } from '$lib/utils/syntax.js'
-	import { properties } from 'svelte-highlight/languages'
 
 	let currentSyntax = syntaxVersions.filter((version) => version.current)[0] || syntaxVersions[0]
 	let selectedSyntax = currentSyntax.name
-
-	console.log(currentSyntax)
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
@@ -33,13 +30,13 @@
 		</div>
 	</div>
 	{#if !currentSyntax.current}
-		<div class="border-2 border-dark-gray alert__warning text-center p-4">
+		<div class="border-2 border-dark-gray alert__warning text-center p-4" aria-live="polite">
 			<p class="text-sm sm:text-base">You are viewing content for an older version of the carbon.txt syntax.</p>
 		</div>
 	{/if}
 </section>
 
-<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
+<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4" aria-live="polite">
 	<Heading level={2}>Carbon.txt v{currentSyntax.name}</Heading>
 	<div class="relative overflow-x-auto mb-4">
 		<table class="w-full">
@@ -62,43 +59,47 @@
 	<div class="w-100 mb-[5rem] grid grid-cols-1 gap-10"></div>
 </section>
 
-<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
+<section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4" aria-live="polite">
 	<div class="w-100 mb-[5rem] grid grid-cols-1 gap-10">
 		<Heading level={2}>Syntax</Heading>
 
-		<div class="relative overflow-x-auto">
-			{#each currentSyntax.syntax as block}
+		{#each currentSyntax.syntax as block}
+			<div class="relative overflow-x-auto">
 				<table class="w-full">
 					<thead>
 						<tr>
 							<th>Property</th>
 							<th>Parent</th>
+							<th>Type</th>
 							<th>Required</th>
-							<th>description</th>
+							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>{block.name}</td>
 							<td></td>
+							<td>{block.type}</td>
 							<td>{block.required}</td>
-							<td>{block.description}</td>
+							<td class="prose text-wrap max-w-prose">{block.description}</td>
 						</tr>
 						{#if block.properties}
 							{#each block.properties as property}
 								<tr>
 									<td>↳ {property.name}</td>
 									<td>{property.parent}</td>
+									<td>{property.type}</td>
 									<td>{property.required}</td>
-									<td>{property.description}</td>
+									<td class="prose text-wrap max-w-prose">{property.description}</td>
 								</tr>
 								{#if property.properties}
 									{#each property.properties as subProperty}
 										<tr>
 											<td>&nbsp; &nbsp;↳ {subProperty.name}</td>
 											<td>{subProperty.parent}</td>
+											<td>{subProperty.type}</td>
 											<td>{subProperty.required}</td>
-											<td>{subProperty.description}</td>
+											<td class="prose text-wrap max-w-prose">{subProperty.description}</td>
 										</tr>
 									{/each}
 								{/if}
@@ -106,15 +107,15 @@
 						{/if}
 						{#if block.example}
 							<tr>
-								<td colspan="4">
+								<td colspan="5">
 									<Code code={block.example} />
 								</td>
 							</tr>
 						{/if}
 					</tbody>
 				</table>
-			{/each}
-		</div>
+			</div>
+		{/each}
 	</div>
 </section>
 
