@@ -4,6 +4,7 @@
 	import services from '$lib/utils/upstreamServices'
 	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
 	import { onMount } from 'svelte'
+	import slugify from '@sindresorhus/slugify'
 
 	let evidenceTypes = []
 	onMount(async () => {
@@ -17,9 +18,9 @@
 
 	if (type === 'org') {
 		newObject = {
-			domain: '',
 			doctype: '',
-			url: ''
+			url: '',
+			domain: ''
 		}
 	}
 
@@ -106,9 +107,9 @@
 				return org
 			})
 			newObject = {
-				domain: '',
 				doctype: '',
-				url: ''
+				url: '',
+				domain: ''
 			}
 			return
 		}
@@ -119,7 +120,10 @@
 		}
 
 		store.update((upstream) => {
-			upstream.push(newObject)
+			upstream.push({
+				domain: newObject.domain,
+				service: slugify(newObject.service)
+			})
 			return upstream
 		})
 		newObject = {
@@ -134,7 +138,10 @@
 	<!-- A label for the domain & services inputs -->
 	<div class="upstream-input">
 		<div class="form-group">
-			<label for="domain">Domain</label>
+			<span>
+				<label for="domain">Domain</label>
+				<small>The domain of the provider who's services you use.</small>
+			</span>
 			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
 			{#if error.field === 'upstream-domain'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
@@ -142,12 +149,16 @@
 		</div>
 		<!-- A select listing some online services -->
 		<div class="form-group">
-			<label for="service">Service</label>
-			<select name="service" bind:value={newObject.service}>
+			<span>
+				<label for="service">Service</label>
+				<small>A short name for the service provided.</small>
+			</span>
+			<input type="text" name="service" bind:value={newObject.service} placeholder="hosting-provider" />
+			<!-- <select name="service" bind:value={newObject.service}>
 				{#each services as service}
 					<option value={service.slug}>{service.name}</option>
 				{/each}
-			</select>
+			</select> -->
 			{#if error.field === 'upstream-service'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
@@ -159,7 +170,10 @@
 		<!-- A text input with validation to check that it is a domain -->
 		<!-- A select listing some online services -->
 		<div class="form-group">
-			<label for="doctype">Document type</label>
+			<span>
+				<label for="doctype">Document type</label>
+				<small>The type of document that is being linked to.</small>
+			</span>
 			<select name="doctype" bind:value={newObject.doctype}>
 				{#each evidenceTypes as doctype}
 					<option value={doctype.slug}>{doctype.name}</option>
@@ -171,14 +185,20 @@
 		</div>
 		<!-- A text input with validation to check that it is a URL -->
 		<div class="form-group">
-			<label for="url">URL</label>
+			<span>
+				<label for="url">URL</label>
+				<small>The publicly accessible URL for the document.</small>
+			</span>
 			<input type="text" name="url" bind:value={newObject.url} placeholder="https://example.com/our-sustainability-page" />
 			{#if error.field === 'org-url'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
 		</div>
 		<div class="form-group">
-			<label for="domain">Domain</label>
+			<span>
+				<label for="domain">Domain</label>
+				<small>The domain for which the document applies.</small>
+			</span>
 			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
 			{#if error.field === 'org-domain'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
@@ -192,6 +212,11 @@
 	.form-group {
 		display: flex;
 		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.form-group small {
+		display: block;
 	}
 
 	.upstream-input,
