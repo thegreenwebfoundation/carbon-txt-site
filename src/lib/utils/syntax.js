@@ -6,6 +6,7 @@ export const syntaxVersions = [
         current: false,
         validFrom: '2021-01-01',
         validTo: '2025-01-22',
+        language: 'TOML',
         syntax: [
             {
                 name: 'upstream',
@@ -115,6 +116,7 @@ credentials = [
         current: true,
         validFrom: '2025-01-23',
         validTo: '-',
+        language: 'TOML',
         syntax: [
             {
                 name: 'org',

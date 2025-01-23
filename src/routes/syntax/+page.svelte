@@ -43,6 +43,7 @@
 			<thead>
 				<tr>
 					<th>Latest version</th>
+					<th>Language</th>
 					<th>Valid from</th>
 					<th>Valid to</th>
 				</tr>
@@ -50,6 +51,7 @@
 			<tbody>
 				<tr>
 					<td>{currentSyntax.current}</td>
+					<td>{currentSyntax.language}</td>
 					<td>{currentSyntax.validFrom}</td>
 					<td>{currentSyntax.validTo}</td>
 				</tr>
