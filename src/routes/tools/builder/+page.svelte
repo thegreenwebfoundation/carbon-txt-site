@@ -14,7 +14,7 @@
 
 	let copyText = 'Copy'
 
-	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service='${provider.service}' }`).join(',\n    ')
+	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service-type='${provider.service}' }`).join(',\n    ')
 	const mapOrg = () => $builderOrg.map((credential) => `{ doctype='${credential.doctype}', url='${credential.url}', domain='${credential.domain}' }`).join(',\n    ')
 
 	$: outputCode = `[org]

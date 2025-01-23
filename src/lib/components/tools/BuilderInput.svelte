@@ -150,7 +150,7 @@
 		<!-- A select listing some online services -->
 		<div class="form-group">
 			<span>
-				<label for="service">Service</label>
+				<label for="service">Service type</label>
 				<small>A short name for the service provided.</small>
 			</span>
 			<input type="text" name="service" bind:value={newObject.service} placeholder="hosting-provider" />

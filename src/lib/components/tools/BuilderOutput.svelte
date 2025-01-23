@@ -27,7 +27,7 @@
 			{#if index === 0}
 				<li class="grid grid-cols-3 gap-2 items-center p-2 bg-green-600 text-white">
 					<span class="domain">Domain</span>
-					<span class="service">Service</span>
+					<span class="service">Service type</span>
 				</li>
 			{/if}
 			<li class="grid grid-cols-3 gap-2 items-center p-2 odd:bg-green-100 even:bg-gray-100">
