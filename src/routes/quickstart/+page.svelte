@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="w-100 mb-[5rem]" id="getting-started">
-		<ol class="flex flex-col gap-3 p-0">
+		<ol class="steps flex flex-col gap-3 p-0">
 			<li class="border-t border-gray-400 pb-[3rem]">
 				<div class="mt-[2rem]">
 					<Heading level={2}>Create a carbon.txt file</Heading>
