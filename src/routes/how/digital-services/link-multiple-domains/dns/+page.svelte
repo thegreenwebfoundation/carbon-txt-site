@@ -17,7 +17,7 @@
 		<ol class="flex flex-col gap-3 p-0">
 			<li class="border-t border-gray-400">
 				<Heading level={2}>Follow the steps above to create your carbon.txt file</Heading>
-				<p>Follow Steps 1 to 4 of the <a href="/how/digital-services">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>
+				<p>Follow Steps 1 to 3 of the <a href="/quickstart">Getting Started guide</a> above to create a carbon.txt file for your organisation.</p>
 			</li>
 			<li class="border-t border-gray-400" id="create-domain-hash">
 				<Heading level={2}>Create a domain hash for the domain you want to show as green</Heading>
