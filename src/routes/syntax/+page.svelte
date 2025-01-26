@@ -4,7 +4,7 @@
 	import Heading from '$lib/components/Heading.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import What from '$lib/components/content/What.svelte'
-	import Goals from '$lib/components/content/Goals.svelte'
+	import Goals from '$lib/components/content/Features.svelte'
 	import Why from '$lib/components/content/Why.svelte'
 	import Callout from '$lib/components/Callout.svelte'
 	import TGWF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'

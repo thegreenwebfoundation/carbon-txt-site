@@ -4,7 +4,7 @@
 	import Heading from '$lib/components/Heading.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import What from '$lib/components/content/What.svelte'
-	import Goals from '$lib/components/content/Goals.svelte'
+	import Features from '$lib/components/content/Features.svelte'
 	import Why from '$lib/components/content/Why.svelte'
 	import Callout from '$lib/components/Callout.svelte'
 	import TGWF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'
@@ -32,18 +32,8 @@
 </section>
 <section id="goals" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
 	<div class="w-100 mb-[5rem] pt-[2.5rem]">
-		<Heading level={2}>What are the goals?</Heading>
-		<Goals />
-	</div>
-	<div class="w-100 mb-[5rem] pt-[2.5rem]">
-		<Heading level={3}>To achieve these goals, we have:</Heading>
-		<div class="prose">
-			<ul>
-				<li>used as much existing infrastructure as possible (web standards, conventions, governance)</li>
-				<li>applied permissive licensing around use, so it can easily be built into modern tooling for continuous delivery and existing platforms/software;</li>
-				<li>used a format that is human readable, as well as machine readable;</li>
-			</ul>
-		</div>
+		<Heading level={2}>Carbon.txt features</Heading>
+		<Features />
 	</div>
 </section>
 
