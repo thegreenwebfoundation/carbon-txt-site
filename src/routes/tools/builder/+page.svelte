@@ -12,7 +12,7 @@
 	import { builderUpstream, builderOrg } from '$lib/store'
 	import services from '$lib/utils/upstreamServices'
 
-	let copyText = 'Copy'
+	let copyText = 'Copy output'
 
 	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service_type='${provider.service}' }`).join(',\n    ')
 	const mapOrg = () => $builderOrg.map((credential) => `{ doc_type='${credential.doctype}', url='${credential.url}', domain='${credential.domain}' }`).join(',\n    ')
@@ -26,6 +26,20 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 	const resetBuilder = () => {
 		builderUpstream.set([])
 		builderOrg.set([])
+	}
+
+	const downloadFile = () => {
+		const file = new Blob([outputCode], { type: 'text/plain' })
+		const a = document.createElement('a')
+		const url = URL.createObjectURL(file)
+		a.href = url
+		a.download = 'carbon.txt'
+		document.body.appendChild(a)
+		a.click()
+		setTimeout(() => {
+			document.body.removeChild(a)
+			window.URL.revokeObjectURL(url)
+		}, 0)
 	}
 </script>
 
@@ -66,6 +80,7 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 		</div>
 		<div class="max-w-100" id="output">
 			<Code lang="toml" code={outputCode} />
+			<button class="btn mx-auto min-w-[20ch] block mx-auto" on:click={() => downloadFile()}>Download file</button>
 			<button
 				class="btn mx-auto min-w-[20ch] block mx-auto btn-white"
 				on:click={() => {
