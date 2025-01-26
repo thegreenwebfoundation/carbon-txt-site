@@ -28,7 +28,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="flex flex-col">
+				<div class="flex flex-col gap-3">
 					<p class="text-2xl mb-3">Carbon.txt</p>
 					<ul>
 						<li class="my-3">
