@@ -26,7 +26,9 @@
 		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
 			<div class="p-8">
 				<Heading level={1}>Carbon.txt</Heading>
-				<p class="mb-10">A proposed convention for website owners and digital service providers to demonstrate that their digital infrastructure runs on green electricity.</p>
+				<div class="mb-10">
+					<What short={true} />
+				</div>
 				<div class="flex flex-wrap gap-3 justify-center md:justify-start">
 					<Button link="#what">Learn more</Button>
 					<Button link="https://github.com/thegreenwebfoundation/carbon.txt" icon={true} white={true}>Github <Github /></Button>
