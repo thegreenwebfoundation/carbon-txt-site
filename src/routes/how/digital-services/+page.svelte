@@ -5,161 +5,91 @@
 	import Code from '$lib/components/Code.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import Callout from '$lib/components/Callout.svelte'
-	import { enhance } from '$app/forms'
-	export let form
-
-	import { digitalServiceToml } from '$lib/utils/exampleToml'
 </script>
 
 <article id="digital-services" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<div class="w-100 mb-[10rem]">
-		<Heading level={1}>Implementing carbon.txt <br />For Digital Service Providers</Heading>
-		<div class="lg:grid lg:grid-cols-2 lg:items-center gap-10">
+	<div class="w-100 mb-[3rem] prose">
+		<Heading level={1}>Implementing carbon.txt for your organisation</Heading>
+		<div class="">
 			<p class="mb-10">
-				As a provider of managed digital services, you can implement carbon.txt to demonstrate that the infrastructure you manage or use to provide your service runs on green energy. It also allows
-				you to pass this on to your customers, allowing any downstream services or websites using your services to make the same claims, with a clear chain of attribution.
+				Organisations can use carbon.txt to link to information about their own sustainability-related disclosures, such as their carbon footprint, or the energy mix of the infrastructure they use,
+				CSRD reports, or other similar information. This presents information in a manner that is both readable by humans and machines, and which can be subsequently verified by third parties.
 			</p>
-			<Callout>
-				<p class="text-2xl">For self-hosted sites and website owners</p>
-				<p>
-					We are currently piloting the carbon.txt specification with digital service providers only. The FAQ has information for self-hosted sites, and individual website owners who are interested in
-					this idea.
-				</p>
-				<div class="w-max mx-auto mt-[2rem]"><Button link="/faq">Read the FAQ</Button></div>
-			</Callout>
+			<p>In this guide, you will learn:</p>
+			<ul>
+				<li>How to create a carbon.txt file for your organisation</li>
+				<li>How to upload your carbon.txt file to your servers</li>
+				<li>How to validate the contents of that carbon.txt file</li>
+			</ul>
 		</div>
 	</div>
 
-	<div class="w-100 mb-[10rem] prose" id="getting-started">
-		<Heading level={2}>Getting started</Heading>
-		<p class="mb-10">Follow the steps below to create an implement a carbon.txt file for your service.</p>
-
+	<div class="w-100 mb-[10rem]" id="getting-started">
 		<ol class="flex flex-col gap-3 p-0">
 			<li class="border-t border-gray-400 pb-[3rem]">
-				<Heading level={3}>Register with the Green Web Foundation</Heading>
-				<p>
-					As a digital service provider, you should first <a href="https://www.thegreenwebfoundation.org/tools/green-web-dataset/get-verified/">get verified by the Green Web Foundation</a>, and
-					provide evidence of your green claims.
-				</p>
+				<div class="mt-[2rem]">
+					<Heading level={2}>Create a carbon.txt file</Heading>
+					<p class="mb-10">Follow the steps below to create a carbon.txt file for your organisation.</p>
+					<ul class="flex flex-col gap-6 p-0">
+						<li>
+							<Heading level={3}>Use the carbon.txt builder</Heading>
+							<p class="prose">The easiest way to create a carbon.txt file is to use the carbon.txt builder tool.</p>
+							<p class="prose mb-[2rem]">
+								The carbon.txt builder will help you create a carbon.txt file with the appropriate fields and content. You can then save the output in a carbon.txt file, or manually copy it and save
+								it to a file on your computer.
+							</p>
+							<div class="w-max"><Button link="/tools/builder">Use the carbon.txt builder</Button></div>
+						</li>
+						<li class="border-t border-gray-400 pb-[3rem]">
+							<div class="mt-[2rem] prose">
+								<Heading level={3}>Manually create a carbon.txt file</Heading>
+								<p class="prose">If you prefer to create the carbon.txt file manually, based on the latest syntax, in your favourite text editor.</p>
+								<p class="prose mb-[2rem]">At a minimum, a valid carbon.txt file should contain at least one (1) publicly accessible link to an organisational disclosure document.</p>
+								<div class="w-max"><Button link="/syntax">Learn more about the carbon.txt syntax</Button></div>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</li>
 			<li class="border-t border-gray-400 pb-[3rem]">
-				<Heading level={3}>Create a carbon.txt file for your organisation</Heading>
-				<p>
-					Create a carbon.txt file for your organisation. There is <a href="#digital-services-syntax">a guide</a> to the expected syntax below.
-				</p>
-				<div class="w-max"><Button link="/tools/builder">Use the carbon.txt builder</Button></div>
-				<Callout>
-					<p class="text-2xl">Note</p>
-					<p>You only need one carbon.txt file for your organisation.</p>
-					<p>To link multiple domains to a single organisation, refer to the <a href="#link-multiple-domains">linking green claims to multiple domains</a> section below.</p>
-				</Callout>
+				<div class="mt-[2rem]">
+					<Heading level={2}>Upload your carbon.txt file</Heading>
+					<p class="prose mb-[2rem]">
+						Upload the carbon.txt file you just created to your website. We strongly recommend that you upload the file to the root of your domain - that is the URL should look something like this: <code
+							>https://www.my-org.com/carbon.txt</code
+						>.
+					</p>
+				</div>
 			</li>
-
 			<li class="border-t border-gray-400 pb-[3rem]">
-				<Heading level={3}>Upload your carbon.txt file to your servers.</Heading>
-				<p>For example: <em>https://www.my-org.com/carbon.txt</em></p>
-				<p>
-					We default to checking for a file located at the root of your domain <code>/carbon.txt</code>.
-				</p>
-			</li>
-			<li class="border-t border-gray-400 pb-[3rem]" id="register-carbon-txt">
-				<Heading level={3}>Share the URL of the carbon.txt file with Green Web Foundation</Heading>
-				<p>The Green Web Foundation has an API for registering where to check for carbon.txt file for a given domain. You can do this using the form below.</p>
-				{#if form?.status === 'ok'}
-					<div class="alert__success">
-						<p>Your carbon.txt file has been registered.</p>
-					</div>
-				{:else if form?.status === 'error'}
-					<div class="alert__error">
-						<p>Something went wrong. Please try again with a valid carbon.txt URL.</p>
-					</div>
-					<form class="form" use:enhance method="POST" action="?/registerFile	">
-						<div class="flex flex-col gap-1">
-							<label for="carbon-txt-url">Your carbon.txt URL</label>
-							<!-- URL input with validation that the URL ends with carbon.txt -->
-							<div class="flex gap-3 flex-wrap">
-								<input class="form-input flex-none lg:max-w-[80%]" type="url" id="carbon-txt-url" name="carbon-txt-url" required />
-								<button type="submit" class="btn" on:click|once>Submit</button>
-							</div>
-						</div>
-					</form>
-				{:else}
-					<form class="form" use:enhance method="POST" action="?/registerFile	">
-						<div class="flex flex-col gap-1">
-							<label for="carbon-txt-url">Your carbon.txt URL</label>
-							<!-- URL input with validation that the URL ends with carbon.txt -->
-							<div class="flex gap-3 flex-wrap">
-								<input class="form-input flex-grow flex-none lg:max-w-[80%]" type="url" id="carbon-txt-url" name="carbon-txt-url" required pattern=".*carbon\.txt$" />
-								<button type="submit" class="btn" on:click|once>Submit</button>
-							</div>
-						</div>
-					</form>
-				{/if}
-			</li>
-			<li class="border-t border-gray-400">
-				<Heading level={3}>Link other domains to your green claims if they are using infrastructure you control</Heading>
-				<p>
-					If you offer managed hosted services to other organisations, once your first link is established there is an automated process for listing future domains so they show up as green too, with
-					attribution to you. See <a href="#link-multiple-domains">domain hashes</a> below for more.
-				</p>
+				<div class="mt-[2rem]">
+					<Heading level={2}>Validate your carbon.txt file</Heading>
+					<p class="prose mb-[2rem]">
+						Once you have uploaded your carbon.txt file, you can validate it using the carbon.txt validator. The validator will check that your carbon.txt file is correctly formatted and contains the
+						required fields. It will also display the content of the carbon.txt file in a human readable format.
+					</p>
+					<div class="w-max"><Button link="/tools/validator">Use the carbon.txt validator</Button></div>
+				</div>
 			</li>
 		</ol>
 	</div>
 </article>
-<article id="digital-services-syntax" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<div class="w-100 mb-[10rem] prose">
-		<Heading level={2}>Carbon.txt syntax</Heading>
-		<p>Carbon.txt files are written in TOML.</p>
-		<figure class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8">
-			<Code showComments={true} code={digitalServiceToml} />
-			<figcaption>An example of what a carbon.txt file might look like for a digital service provider or self-hosted site.</figcaption>
-		</figure>
-	</div>
-</article>
-<article id="link-multiple-domains" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<div class="w-100 mb-[10rem] prose">
-		<Heading level={2}>Linking green claims to multiple domains</Heading>
-		<p>
-			It's fairly common that a digital service provider might own and provide services through multiple domains. They might also have multiple products, or provide hosted services for a number of
-			users all who have their own domains.
-		</p>
-
-		<p>In this case, you can maintain a single carbon.txt file at one domain (e.g. https://my-org.com/carbon.txt) and refer other domains to that single source of truth.</p>
-
-		<p>There are two supported ways to do this:</p>
-
-		<ul>
-			<li>Using DNS TXT records, which contain the specific URL pointing to the carbon.txt file to read.</li>
-			<li>Using a dedicated HTTP Via Header, again containing a URL for the carbon.txt file to read.</li>
-		</ul>
-		<Heading level={3}>Choosing the right option for your organisation</Heading>
-		<div class="mt-[3rem]">
-			<Heading level={4}>Using DNS TXT records</Heading>
-			<p>
-				Using DNS TXT records is intended for organisations who are able to add DNS records to both their own domain, as well as the domain they want to show up as green. If you own both domains, this
-				option is for you.
-			</p>
-			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/dns">Guide: How to link multiple domains using DNS TXT records</Button></div>
-		</div>
-
-		<div class="mt-[3rem]">
-			<Heading level={4}>Using HTTP Via Header</Heading>
-			<p>
-				Using a HTTP Via Header is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and serve
-				responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service (PaaS) offering, this is usually better suited for your use case.
-			</p>
-			<p>This option also allows you to "pass down" green claims to customer who use your service.</p>
-			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/via">Guide: How to link multiple domains using HTTP VIA HEADER</Button></div>
-		</div>
-	</div>
-</article>
 
 <style>
-	[data-toml] {
-		display: none;
+	ul {
+		list-style-type: disc;
 	}
 
-	[data-toml].active {
-		display: block;
+	ul li {
+		margin-left: 1.5rem;
+		margin-block-start: 0.5rem;
+	}
+
+	ol ul {
+		list-style-type: none;
+	}
+
+	ol ul li {
+		margin: 0;
 	}
 </style>
