@@ -9,9 +9,9 @@
 			<div class="border-r-2 border-dark-gray h-100 pr-4 inline-block">
 				<TWGF_Tree width="50px" />
 			</div>
-			<h3 class="text-3xl inline ml-4">Surface energy sources</h3>
+			<h3 class="text-3xl inline ml-4">Surface organisational sustainability data</h3>
 		</div>
-		<p>Bring information about the energy used to power digital services and the internet as a whole into the public domain.</p>
+		<p>Bring data reported in organisational sustainability reports and disclosures into the public domain in a format that is easily read by both humans and machines.</p>
 	</li>
 	<li class="bg-white border-2 border-dark-gray rounded-3xl h-100-l p-8 flex items-center grid grid-rows-2 gap-4">
 		<div class="w-100 flex items-center">
