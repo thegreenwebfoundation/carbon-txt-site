@@ -24,7 +24,7 @@
 		</div>
 	</div>
 
-	<div class="w-100 mb-[10rem]" id="getting-started">
+	<div class="w-100 mb-[5rem]" id="getting-started">
 		<ol class="flex flex-col gap-3 p-0">
 			<li class="border-t border-gray-400 pb-[3rem]">
 				<div class="mt-[2rem]">
@@ -72,6 +72,52 @@
 				</div>
 			</li>
 		</ol>
+	</div>
+</article>
+
+<article id="advanced" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
+	<div class="w-100 mb-[10rem] prose">
+		<Heading level={2}>Advanced</Heading>
+		<Heading level={3}>Linking a carbon.txt file to multiple domains</Heading>
+		<Callout>
+			<p>
+				The section below only applies to green hosting providers that have already registered an account in the <a href="http://admin.thegreenwebfoundation.org/provider-portal"
+					>Green Web Foundation's Provider Portal</a
+				>.
+			</p>
+		</Callout>
+		<p>
+			It's fairly common that a digital service provider might own and provide services through multiple domains. They might also have multiple products, or provide hosted services for a number of
+			users all who have their own domains.
+		</p>
+
+		<p>In this case, you can maintain a single carbon.txt file at one domain (e.g. <code>https://my-org.com/carbon.txt</code>) and refer other domains to that single source of truth.</p>
+
+		<p>There are two supported ways to do this:</p>
+
+		<ul>
+			<li>Using DNS TXT records, which contain the specific URL pointing to the carbon.txt file to read.</li>
+			<li>Using a dedicated HTTP Via Header, again containing a URL for the carbon.txt file to read.</li>
+		</ul>
+		<Heading level={3}>Choosing the right option for your organisation</Heading>
+		<div class="mt-[3rem]">
+			<Heading level={4}>Using DNS TXT records</Heading>
+			<p>
+				Using DNS TXT records is intended for organisations who are able to add DNS records to both their own domain, as well as the domain they want to show up as green. If you own both domains, this
+				option is for you.
+			</p>
+			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/dns">Guide: How to link multiple domains using DNS TXT records</Button></div>
+		</div>
+
+		<div class="mt-[3rem]">
+			<Heading level={4}>Using HTTP Via Header</Heading>
+			<p>
+				Using a HTTP Via Header is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and serve
+				responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service (PaaS) offering, this is usually better suited for your use case.
+			</p>
+			<p>This option also allows you to "pass down" green claims to customer who use your service.</p>
+			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/via">Guide: How to link multiple domains using HTTP VIA HEADER</Button></div>
+		</div>
 	</div>
 </article>
 
