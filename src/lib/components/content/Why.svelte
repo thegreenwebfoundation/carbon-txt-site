@@ -4,38 +4,44 @@
 
 <div class="prose">
 	{#if short}
-		<p>We need a fossil free internet by 2030. But right now there's still not much transparency around how we source power.</p>
-
 		<p>
-			To address this, Green Web Foundation has been building a Green Domains database, open sources the code for tracking this and is publishing open datasets about the state of the green web.
-			Creating this dataset has been an ongoing effort for years. This has worked for the first few million domains, but the internet is a much bigger, more dynamic place than it was when this
-			endeavour was started. Our approach needs to evolve with the times.
+			The Green Web Foundation is oriented around the world reaching a fossil free internet by 2030. For this to be possible, the firms that make up large parts of the internet need to do two main
+			things:
 		</p>
 
-		<p>Carbon.txt is an evolution on how we publish and track this data.</p>
+		<ol>
+			<li>Make clear public commitments to reduce their carbon emissions</li>
+			<li>Follow through on their commitments with meaningful action.</li>
+		</ol>
+
+		<p>
+			Carbon.txt is our open-source project to make this sustainability information easier to discover. It is a spec that defines predictable, consistent places on any website to publish
+			sustainability data so that both humans and machines can find it.
+		</p>
 	{:else}
-		<p>We need a fossil free internet by 2030. But right now there's still not much transparency around how we source power.</p>
+		<p>
+			The Green Web Foundation is oriented around the world reaching a fossil free internet by 2030. For this to be possible, the firms that make up large parts of the internet need to do two main
+			things:
+		</p>
+
+		<ol>
+			<li>Make clear public commitments to reduce their carbon emissions</li>
+			<li>Follow through on their commitments with meaningful action.</li>
+		</ol>
 
 		<p>
-			To address this, Green Web Foundation has been building a Green Domains database, open sources the code for tracking this and is publishing open datasets about the state of the green web.
-			Creating this dataset has been an ongoing effort for years. It has involved associating IP address space like IP ranges or Autonomous System Numbers with specific organisations, then manually
-			verifying written reports and certificates provided by said organisations to back up their green claims.
+			However, at this time, being able to verify that an organisation has done part one of that process, and is active in undertaking part two remains a challenge. Reliably finding credible data in
+			formats that can be easily interpreted by humans and machines remains a major limitation.
 		</p>
 
 		<p>
-			This has worked for the first few million domains, and first few billion checks against the database. But the internet is a much bigger, more dynamic place than it was when this endeavour was
-			started. Our approach needs to evolve with the times.
+			Carbon.txt is our open-source project to make this sustainability information easier to discover. It is a spec that defines predictable, consistent places on any website to publish
+			sustainability data so that both humans and machines can find it.
 		</p>
 
 		<p>
-			Luckily, today there are more tools that can help. Tools like the Domain Name System (DNS). DNS provides a variety of ways to establish a link between a domain and the party that is hosting or
-			operating it. There are also dedicated registries that make it possible to trust that electricity has been generated from clean and renewable energy sources. And, if you know where to look, it's
-			possible to tell when efforts to decarbonise energy are credible.
-		</p>
-
-		<p>
-			Carbon.txt serves to make links between these systems easier to follow. So when there is a claim that a website is running on green energy, you can trace the provenance of supporting evidence
-			more easily.
+			The spec, and tooling around it, also aims to be extendible so that it can be applied to make organisational disclosures discoverable for any number of areas such as water usage, modern slavery,
+			etc.
 		</p>
 	{/if}
 </div>
