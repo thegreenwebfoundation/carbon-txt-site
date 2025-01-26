@@ -1,5 +1,5 @@
 <script>
-	/** @type {import('./$types').ActionData} */
+	/** @type {import('../how/digital-services/$types').ActionData} */
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
 	import Code from '$lib/components/Code.svelte'
