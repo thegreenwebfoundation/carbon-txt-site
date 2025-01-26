@@ -177,21 +177,21 @@ li:has(h2, h3, h4)::marker {
 	--tw-prose-counters: var(--tw-prose-headings);
 }
 
-ol {
+ol.steps {
 	counter-reset: list 0;
 }
 
-ol > li {
+ol.steps > li {
 	position: relative;
 	counter-increment: list 1;
 }
 
-ol > li::marker {
+ol.steps > li::marker {
 	position: absolute;
 	content: '';
 }
 
-ol > li::before {
+ol.steps > li::before {
 	position: absolute;
 	content: 'Step ' counter(list, decimal);
 	width: 10ch;
