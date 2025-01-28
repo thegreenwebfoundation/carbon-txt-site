@@ -46,11 +46,13 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 <ToolsNav currentView="builder" />
 
 <section class="w-100" id="intro">
-	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-2 lg:items-start">
+	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-1 lg:items-start">
 		<div>
-			<div class="prose md:w-[80%] mb-[3rem]">
-				<Heading level={1}>Builder</Heading>
-				<p>Use this builder to create a carbon.txt file for your organisation.</p>
+			<div class="">
+				<div class="mb-8">
+					<Heading level={1}>Builder</Heading>
+					<p>Use this builder to create a carbon.txt file for your organisation.</p>
+				</div>
 				<Callout>
 					<p>
 						This builder uses <b>version 0.2 syntax</b> of the carbon.txt syntax.
@@ -76,7 +78,7 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 				</div>
 			</div>
 		</div>
-		<div class="max-w-100 sticky top-0">
+		<div class="max-w-100" id="output">
 			<Code lang="toml" code={outputCode} />
 			<button class="btn mx-auto min-w-[20ch] block mx-auto" on:click={() => downloadFile()}>Download file</button>
 			<button
