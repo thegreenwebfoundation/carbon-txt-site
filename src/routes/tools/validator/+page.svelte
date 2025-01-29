@@ -55,6 +55,15 @@
 
 {#if form?.response.success}
 	<SyntaxValidatorSuccess text_contents={form?.text_contents} {form} />
+	<section class="w-100">
+		<div class="prose md:w-[80%] mb-4 alert alert-error">
+			<h1 class="text-3xl font-bold mb-4">Error</h1>
+			<p>
+				Think there's an error on this page? Contact us via our <a href="https://www.thegreenwebfoundation.org/contact/">website support form</a>, or create an
+				<a href="https://github.com/thegreenwebfoundation/carbon-txt-site/issues">issue on GitHub</a>.
+			</p>
+		</div>
+	</section>
 {:else if form?.response.errors}
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
 {:else if form?.response.error}
