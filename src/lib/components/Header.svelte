@@ -28,4 +28,4 @@
 		</nav>
 	</div>
 </header>
-<!-- <NoticeBanner /> -->
+<NoticeBanner />
