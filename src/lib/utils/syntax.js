@@ -162,7 +162,7 @@ credentials = [
                 ],
                 example: `[org]
 disclosures = [
-	{ doc_type = "webpage", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
+	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
 	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2022.pdf", domain = "mycompany.com" }
 ]`,
             },
@@ -210,7 +210,7 @@ services = [
             ],
         example: `[org]
 disclosures = [
-	{ doc_type = "webpage", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
+	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
 	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2022.pdf", domain = "mycompany.com" }
 ]
 	
