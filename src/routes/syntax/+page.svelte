@@ -67,7 +67,7 @@
 
 		{#each currentSyntax.syntax as block}
 			<div class="relative overflow-x-auto">
-				<table class="w-full">
+				<table class="table-auto w-full">
 					<thead>
 						<tr>
 							<th>Property</th>
