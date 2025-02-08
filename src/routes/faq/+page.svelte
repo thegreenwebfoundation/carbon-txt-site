@@ -11,55 +11,16 @@
 		<p>While this concept is still new, we expect that some edge cases will be encountered. Here are some frequently asked questions we have internally.</p>
 	</div>
 	<Faq>
-		<span slot="question">I am self-hosting my website, can I use carbon.txt?</span>
+		<span slot="question">Where should I store a carbon.txt file for my organisation?</span>
 		<div class="prose" slot="answer">
 			<p>
-				For now, no. We are currently working with larger organisations to pilot the carbon.txt specification. This will help us uncover use cases and implementation details that will be applicable to
-				smaller providers and website operators.
+				You should upload your carbon.txt file to a location on your website that is easily discoverable for both humans and machines. We recommend placing it in the root directory of your website, or
+				in a well-known location such as <code>/.well-known/</code>.
 			</p>
 
 			<p>
-				Expanding the carbon.txt specification to cater for self-hosted sites is on our roadmap. You can follow <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/9"
-					>this Github issue</a
-				> to keep updated with progress.
+				The Quickstart guide has more information on <a href="/quickstart">uploading your carbon.txt file</a>.
 			</p>
-		</div>
-	</Faq>
-	<Faq>
-		<span slot="question">I run a website for my company/myself, can I use carbon.txt?</span>
-		<div class="prose" slot="answer">
-			<p>
-				For now, no. We are currently working with larger organisations to pilot the carbon.txt specification. This will help us uncover use cases and implementation details that will be applicable to
-				smaller providers and website operators.
-			</p>
-
-			<p>
-				Expanding the carbon.txt specification to cater for self-hosted sites is on our roadmap. You can follow <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/9"
-					>this Github issue</a
-				> to keep updated with progress.
-			</p>
-		</div>
-	</Faq>
-	<Faq>
-		<span slot="question">What upstream provider services are accepted?</span>
-		<span class="prose" slot="answer">
-			<p>A list of accepted upstream provider services can be found on <a href="/faq/services">this FAQ page</a>.</p>
-			<p>
-				If there's a particular service you'd like listed, but which isn't on that page then please contribute to <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues/17">this issue</a
-				>.
-			</p>
-		</span>
-	</Faq>
-	<Faq>
-		<span slot="question">What are the accepted <code>doctype</code> values that can be used?</span>
-		<div class="prose" slot="answer">
-			<p>Currently, we accept the doctypes below:</p>
-			<ul>
-				<li><code>annual-report</code>: An organisations annual sustainability reporting.</li>
-				<li><code>webpage</code>: A web page outlining steps taken to avoid, reduce, or offset greenhouse gas emissions from service operations.</li>
-				<li><code>certificate</code>: Certificates showing the steps taken to purchase green energy, or offset greenhouse gas emissions from service operations.</li>
-				<li><code>other</code>: A catch-all for everything else.</li>
-			</ul>
 		</div>
 	</Faq>
 	<Faq>
@@ -73,8 +34,9 @@
 			</p>
 
 			<p>
-				We believe that providing a way for hosting providers/managed services to implement the carbon.txt specification for their product/s is key to broader adoption. It allows us, as a small
-				not-for-profit driving this idea, to have a much larger reach & impact when compared to the alternative of relying on individuals to upload carbon.txt files to their own domains.
+				We believe that providing a simple way for organisations to implement the carbon.txt specification is key to broader adoption. It allows us, as a small not-for-profit driving this idea, to
+				have a much larger reach & impact when compared to the alternative of relying on individual action. Buulding this project around a plugin ecosystem also allows for other organisations to build
+				on top of the carbon.txt specification, and extend it in ways that we haven't thought of.
 			</p>
 
 			<p>
@@ -87,39 +49,8 @@
 		<span slot="question">What would stop me using someone else's carbon.txt file instead?</span>
 		<div class="prose" slot="answer">
 			<p>
-				Domains must be associated to an organisation that is a verified green hosting provider with the Green Web Foundation before they show up as being green. This is to mitigate against bad actors
-				taking credit for the green claims made in another organisation's carbon.txt file.
-			</p>
-
-			<p>There are two ways to associate a domain with a verified green hosting provider:</p>
-
-			<ol class="flex flex-col gap-3 p-0 mt-4">
-				<li class="border-t border-gray-400 pb-[3rem] pt-5">
-					Using domain hashes - New domains are only automatically recognised as green, and associated to a verified green provider, if there is a matching domain hash available when they are first
-					submitted/checked through the Greencheck API.
-				</li>
-				<li class="border-t border-gray-400 pb-[3rem] pt-5">
-					Manually - Green Web Foundation staff can manually create a record for a new domain, and associate with an existing verified green hosting provider.
-				</li>
-			</ol>
-		</div>
-	</Faq>
-	<Faq>
-		<span slot="question">How does this work for globally distributed providers?</span>
-		<div class="prose" slot="answer">
-			<p>
-				The internet is a distributed network by its very nature. And, many hosting providers - especially CDNs and edge compute services - will serve content from locations around the world. Some of
-				these locations could be in regions that run entirely (or almost entirely) on green energy.
-			</p>
-
-			<p>
-				At present, carbon.txt is designed to work at an organisational level, for organisations aiming to demonstrate that 100% of the carbon emissions associated with operating digital
-				infrastructure have been accounted for.
-			</p>
-
-			<p>
-				We're looking into ways and funding to surface greater geographic resolution for location-based carbon intensity, to reflect the physical reality. If you're interested in collaborating or
-				funding our work, please <a href="mailto:fershad@thegreenwebfoundation.org">get in touch</a>.
+				Carbon.txt files are publically accessible, and are designed to be easily discoverable. This means that anyone can access them, and use the information contained within them. It allows for
+				transparency, and for anyone to verify the claims made by an organisation.
 			</p>
 		</div>
 	</Faq>
