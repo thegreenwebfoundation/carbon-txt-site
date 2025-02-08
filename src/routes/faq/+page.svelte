@@ -3,6 +3,8 @@
 	import Button from '$lib/components/Button.svelte'
 	import Pilot from '$lib/components/Pilot.svelte'
 	import Faq from '$lib/components/Faq.svelte'
+
+	import DomainLookup from '$lib/svg/mermaid_domain-lookup.svelte'
 </script>
 
 <article class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
@@ -52,6 +54,45 @@
 				Carbon.txt files are publically accessible, and are designed to be easily discoverable. This means that anyone can access them, and use the information contained within them. It allows for
 				transparency, and for anyone to verify the claims made by an organisation.
 			</p>
+		</div>
+	</Faq>
+	<Faq>
+		<span slot="question">How does the carbon.txt validator work?</span>
+		<div class="prose" slot="answer">
+			<p>There are three ways to use the carbon.txt validator:</p>
+
+			<details class="mb-4 ml-4">
+				<summary class="text-xl">Check a website domain</summary>
+
+				<p>
+					When you enter a website domain, the validator will look for a carbon.txt file in the root of the website (e.g. <code>https://example.com/carbon.txt</code>). If it finds one, it will parse
+					the file and return the information contained within it. If it doesn't find a carbon.txt file at the root of the domain, then it will check for the file in a well-known location on the
+					server (e.g. <code>https://example.com/.well-known/carbon.txt</code>). Again, if it finds one, it will parse the file and return the information contained within it. If no file is found at
+					either location, then the validator will return an error message.
+				</p>
+
+				<p>The diagram below shows this process visually.</p>
+
+				<DomainLookup />
+			</details>
+
+			<details class="mb-4 ml-4">
+				<summary class="text-xl">Check a carbon.txt URL</summary>
+
+				<p>
+					When you enter a URL that points to a specific carbon.txt file (e.g. <code>https://example.com/carbon.txt</code>), the validator will look make a request to find the file at that location.
+					If it finds one, it will parse the file and return the information contained within it. If no file is found at either location, then the validator will return an error message.
+				</p>
+			</details>
+
+			<details class="mb-4 ml-4">
+				<summary class="text-xl">Manually enter the content of a carbon.txt file</summary>
+
+				<p>
+					If you manually enter the content of a carbon.txt file, then the validator will try to parse the syntax that has been entered and return the information contained within it. If the syntax is
+					incorrect, then the validator will return an error message.
+				</p>
+			</details>
 		</div>
 	</Faq>
 </article>
