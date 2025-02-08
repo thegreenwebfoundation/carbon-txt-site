@@ -78,7 +78,7 @@ providers = [
                                     required: false,
                                     parent: 'credentials',
                                     longTitle: 'Document type',
-                                    description: 'A slugified string representing the type of document you are linking to.',
+                                    description: 'A slugified string representing the type of document you are linking to.  Accepted values are: "webpage", "annual-report", "sustainability-page", "certificate", "other"',
                                     type: 'string',
                                 },
                                 {
