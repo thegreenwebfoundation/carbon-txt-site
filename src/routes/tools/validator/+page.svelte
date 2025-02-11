@@ -14,8 +14,6 @@
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()
 
-	console.log('form', form)
-
 	let url = ''
 	let searchParams = new URLSearchParams(data.url.search)
 	if (searchParams) {
