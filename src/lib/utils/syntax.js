@@ -195,7 +195,7 @@ disclosures = [
                                 parent: 'services',
                                 longTitle: 'Service type',
                                 description: 'A slug representing the service provided by the upstream provider.',
-                                type: 'string',
+                                type: 'string or ["array of strings"]',
                             }
                         ]
                     }
