@@ -20,8 +20,8 @@
 	}}
 >
 	<label class="flex flex-col gap-1" for="url"
-		>Carbon.txt URL or domain:
-		<small class="text-xs mb-3">Enter the URL of a carbon.txt file, or a domain that hosts a carbon.txt.</small>
+		>Carbon.txt URL:
+		<small class="text-xs mb-3">Enter the URL of a public carbon.txt file.</small>
 		<input name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
 	</label>
 	<span class="divider">
