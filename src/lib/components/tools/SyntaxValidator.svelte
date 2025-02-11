@@ -19,12 +19,20 @@
 		}
 	}}
 >
-	<label for="url">Carbon.txt URL: <input name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" /> </label>
+	<label class="flex flex-col gap-1" for="url"
+		>Carbon.txt URL:
+		<small class="text-xs mb-3">Enter the URL of a public carbon.txt file.</small>
+		<input name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
+	</label>
 	<span class="divider">
 		<span>OR</span>
 		<hr />
 	</span>
-	<label for="carbon-txt-validator">Carbon.txt content<textarea name="carbon-txt-validator" bind:value={textInput} rows="15" /></label>
+	<label for="carbon-txt-validator" class="flex flex-col gap-1"
+		>Carbon.txt content
+		<small class="text-xs mb-3">Paste the contents of a carbon.txt file in the textarea below.</small>
+		<textarea name="carbon-txt-validator" bind:value={textInput} rows="15" /></label
+	>
 	{#if url.length > 0 && textInput.length > 0}
 		<div class="prose mb-4 alert alert-error">
 			<p>Please either a URL or text content, not both.</p>
@@ -77,7 +85,7 @@
 		font-size: 1rem;
 	}
 
-	label > *:first-child {
+	label > *:is(input):first-child {
 		margin-top: 0.75rem;
 	}
 

@@ -20,7 +20,7 @@
 >
 	<!-- A text input that takes a valid website domain -->
 	<label for="domain">Carbon.txt File URL</label>
-	<input type="url" id="carbon-txt-url" name="carbon-txt-url" placeholder="https://example.com/carbon.txt" required bind:value={textInput} pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
+	<input type="url" id="carbon-txt-url" name="carbon-txt-url" required bind:value={textInput} pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
 	<span aria-live="assertive" data-checking={checkingFile}>
 		{#if checkingFile}
 			<div class="checker">

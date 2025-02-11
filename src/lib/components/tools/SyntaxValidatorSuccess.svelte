@@ -47,10 +47,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each form?.response.data.upstream.services as { domain, service }}
+							{#each form?.response.data.upstream.services as { domain, service_type }}
 								<tr>
 									<td class="whitespace-nowrap">{domain}</td>
-									<td class="whitespace-nowrap">{service}</td>
+									<td class="whitespace-nowrap">{service_type}</td>
 								</tr>
 							{/each}
 						</tbody>

@@ -5,12 +5,12 @@
 <div class="grid gap-6">
 	{#if short}
 		<p class="prose text-inherit">
-			carbon.txt makes sustainability data easier to discover and use on the web. Carbon.txt is a single place to look on any domain – /carbon.txt – for public, machine-readable, sustainability data
+			carbon.txt makes sustainability data easier to discover and use on the web. Carbon.txt is a single, discoverable location on any web domain for public, machine-readable, sustainability data
 			relating to that company.
 		</p>
 	{:else}
 		<p class="prose text-inherit">
-			carbon.txt makes sustainability data easier to discover and use on the web. Carbon.txt is a single place to look on any domain – /carbon.txt – for public, machine-readable, sustainability data
+			carbon.txt makes sustainability data easier to discover and use on the web. Carbon.txt is a single, discoverable location on any web domain for public, machine-readable, sustainability data
 			relating to that company.
 		</p>
 		<p class="prose text-inherit">

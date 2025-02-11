@@ -1,4 +1,4 @@
-import { properties } from "svelte-highlight/languages";
+import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
 
 export const syntaxVersions = [
     {
@@ -78,7 +78,7 @@ providers = [
                                     required: false,
                                     parent: 'credentials',
                                     longTitle: 'Document type',
-                                    description: 'A slugified string representing the type of document you are linking to.',
+                                    description: 'A slugified string representing the type of document you are linking to.  Accepted values are: "webpage", "annual-report", "sustainability-page", "certificate", "other"',
                                     type: 'string',
                                 },
                                 {
@@ -138,7 +138,7 @@ credentials = [
                                 required: true,
                                 parent: 'disclosures',
                                 longTitle: 'Document type',
-                                description: 'A slugified string representing the type of document you are linking to.',
+                                description: 'A slugified string representing the type of document you are linking to. Accepted values are: "web-page", "annual-report", "sustainability-page", "certificate", "csrd-report", "other"',
                                 type: 'string',
                             },
                             {
@@ -195,7 +195,7 @@ disclosures = [
                                 parent: 'services',
                                 longTitle: 'Service type',
                                 description: 'A slug representing the service provided by the upstream provider.',
-                                type: 'string',
+                                type: 'string or ["array of strings"]',
                             }
                         ]
                     }
