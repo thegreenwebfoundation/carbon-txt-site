@@ -69,23 +69,15 @@ We are always open for discussions about how people can contribute back to the d
 
 # Spin this site up locally
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Follow the steps below to run this website on your local development machine.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+1. Clone this repository to your development machine.
+2. Navigate to the folder you have clone the repository to.
+3. Run `npm install` to install SvelteKit and other dependencies.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've cloned the project and installed dependencies, start a development server:
 
 ```bash
 npm run dev
@@ -104,4 +96,6 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Deploying
+
+When changes are made to this repository and merged into the `main` branch a new build of the site is automatically triggered.
