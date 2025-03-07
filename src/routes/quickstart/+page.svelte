@@ -58,17 +58,17 @@
 						With your carbon.txt file created, the next step is to upload it to your website in a location that is easily discoverable for both humans and machines. There are two options you can use:
 					</p>
 
-					<div class="prose mb-[2rem] ml-[1rem]">
+					<div class="prose mb-[2rem]">
 						<Heading level={3}>Beginners</Heading>
 						<p>
-							<span class="font-bold text-lg">For beginners:</span> Upload the carbon.txt file to the root of your domain - that is the URL should look something like this:
+							Upload the carbon.txt file to the root of your domain - that is the URL should look something like this:
 							<code>https://www.my-org.com/carbon.txt</code>.
 						</p>
 					</div>
-					<div class="prose mb-[2rem] ml-[1rem]">
+					<div class="prose mb-[2rem]]">
 						<Heading level={3}>Experienced users & web admins</Heading>
 						<p>
-							<span class="font-bold text-lg">For advanced users:</span> Upload the carbon.txt file to a <code>/.well-known/</code> path on your server. This follows existing conventions that web administrators
+							Upload the carbon.txt file to a <code>/.well-known/</code> path on your server. This follows existing conventions that web administrators
 							will be familiar with.
 						</p>
 					</div>
