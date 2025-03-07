@@ -40,12 +40,11 @@
 				<li>View the content of the carbon.txt file in a human-readable format.</li>
 			</ul>
 
-			<Callout>
-				<p>
-					This validator performs checks on carbon.txt files based on the <b>version 0.2 syntax</b>.
-					<a href="/syntax">Learn more about the syntax</a>
-				</p>
-			</Callout>
+			<p>
+				This validator performs checks on carbon.txt files based on the <b>version 0.2 syntax</b>.
+				<a href="/syntax">Learn more about the syntax</a>.
+			</p>
+
 		</div>
 		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} />
 	</div>
