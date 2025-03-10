@@ -45,7 +45,7 @@
 					<p>Validating carbon.txt syntax ....</p>
 				</div>
 			{:else}
-				<button type="submit" class="btn btn-white w-[100%]">Validate syntax & check contents</button>
+				<button type="submit" class="btn btn-green w-[100%]">Validate syntax & check contents</button>
 			{/if}
 		</span>
 	{/if}
