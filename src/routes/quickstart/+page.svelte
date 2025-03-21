@@ -59,7 +59,7 @@
 						>.
 					</p>
 					<Heading level={3}>Use another file location</Heading>
-					<p class="prose mb-[2rem]">Alternately, you can upload your carbon.txt file to a different location on your website. See the FAQ to learn more.</p>
+					<p class="prose mb-[2rem]">Alternately, you can upload your carbon.txt file to a different location on your website. <a href="/faq#upload">See the FAQ</a> to learn more.</p>
 				</div>
 			</li>
 			<li class="border-t border-gray-400 pb-[3rem]">

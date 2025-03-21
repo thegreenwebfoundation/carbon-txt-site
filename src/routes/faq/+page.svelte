@@ -12,7 +12,7 @@
 		<Heading level={1}>Frequently asked questions</Heading>
 		<p>While this concept is still new, we expect that some edge cases will be encountered. Here are some frequently asked questions we have internally.</p>
 	</div>
-	<Faq>
+	<Faq id="upload">
 		<span slot="question">Where should I store a carbon.txt file for my organisation?</span>
 		<div class="prose" slot="answer">
 			<p>
