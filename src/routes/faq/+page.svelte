@@ -20,9 +20,19 @@
 				in a well-known location such as <code>/.well-known/</code>.
 			</p>
 
-			<p>
-				The Quickstart guide has more information on <a href="/quickstart">uploading your carbon.txt file</a>.
-			</p>
+			<div class="prose mb-[2rem] ml-[1rem]">
+				<Heading level={3}>Root of your domain</Heading>
+				<p>
+					Upload the carbon.txt file to the root of your domain - that is the URL should look something like this:
+					<code>https://www.my-org.com/carbon.txt</code>.
+				</p>
+			</div>
+			<div class="prose mb-[2rem] ml-[1rem]">
+				<Heading level={3}>.well-known</Heading>
+				<p>
+					Upload the carbon.txt file to a <code>/.well-known/</code> path on your server. This follows existing conventions that web administrators will be familiar with.
+				</p>
+			</div>
 		</div>
 	</Faq>
 	<Faq>
