@@ -35,7 +35,7 @@
 			</div>
 		</div>
 	</Faq>
-	<Faq>
+	<Faq id="why">
 		<span slot="question">Why this approach?</span>
 		<div class="prose" slot="answer">
 			<p>There are a few reasons for taking the approach we’ve described on this site.</p>
@@ -57,7 +57,7 @@
 			</p>
 		</div>
 	</Faq>
-	<Faq>
+	<Faq id="ownership">
 		<span slot="question">What would stop me using someone else's carbon.txt file instead?</span>
 		<div class="prose" slot="answer">
 			<p>
@@ -66,7 +66,7 @@
 			</p>
 		</div>
 	</Faq>
-	<Faq>
+	<Faq id="validator-how">
 		<span slot="question">How does the carbon.txt validator work?</span>
 		<div class="prose" slot="answer">
 			<p>There are three ways to use the carbon.txt validator:</p>
