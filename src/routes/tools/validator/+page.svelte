@@ -31,7 +31,7 @@
 <ToolsNav currentView="validator" />
 
 <section class="w-100" id="intro">
-	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-2 lg:items-center">
+	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-2 lg:items-top">
 		<div class="prose md:w-[80%]">
 			<Heading level={1}>Validator</Heading>
 			<p>Use this validator to:</p>
@@ -40,12 +40,11 @@
 				<li>View the content of the carbon.txt file in a human-readable format.</li>
 			</ul>
 
-			<Callout>
-				<p>
-					This validator performs checks on Carbon.txt files based on the <b>version 0.2 syntax</b>.
-				</p>
-				<div class="w-max mx-auto mt-[2rem]"><Button link="/syntax">Learn more about the syntax</Button></div>
-			</Callout>
+			<p>
+				This validator performs checks on carbon.txt files based on the <b>version 0.2 syntax</b>.
+				<a href="/syntax">Learn more about the syntax</a>.
+			</p>
+
 		</div>
 		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} />
 	</div>
