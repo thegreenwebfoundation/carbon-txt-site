@@ -1,8 +1,22 @@
 <script>
 	import { enhance } from '$app/forms'
+	import { onMount } from 'svelte'
 	let validating = $state(false)
 
-	let { textInput, url } = $props()
+	let { textInput, url, data } = $props()
+
+	// This code is used to trigger a verification lookup automatically if a url is provided when the page loads.
+	onMount(() => {
+		// Set the URL input value if it exists
+		let searchParams = new URLSearchParams(data.url.search)
+		const autoTrigger = searchParams.get('auto') || null
+
+		if (url && autoTrigger === 'true') {
+			document.getElementById('input-url').value = url
+			document.getElementById('validator-form').submit()
+			validating = true
+		}
+	})
 </script>
 
 <form
@@ -22,7 +36,7 @@
 	<label class="flex flex-col gap-1" for="url"
 		>Carbon.txt URL:
 		<small class="text-xs mb-3">Enter the URL of a public carbon.txt file.</small>
-		<input name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
+		<input id="input-url" name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
 	</label>
 	<span class="divider">
 		<span>OR</span>
@@ -42,7 +56,10 @@
 			{#if validating}
 				<div class="checker">
 					<span></span>
-					<p>Validating carbon.txt syntax ....</p>
+					<p>
+						Validating carbon.txt syntax {#if url}
+							for <br /><b>{url}</b>{/if}
+					</p>
 				</div>
 			{:else}
 				<button type="submit" class="btn btn-green w-[100%]">Validate syntax & check contents</button>
@@ -90,11 +107,16 @@
 	}
 
 	.checker {
-		position: relative;
+		position: absolute;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 1.25rem;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: #fff;
 	}
 
 	.checker span {
