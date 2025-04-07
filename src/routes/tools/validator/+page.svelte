@@ -44,9 +44,8 @@
 				This validator performs checks on carbon.txt files based on the <b>version 0.2 syntax</b>.
 				<a href="/syntax">Learn more about the syntax</a>.
 			</p>
-
 		</div>
-		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} />
+		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} {data} />
 	</div>
 </section>
 
