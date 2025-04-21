@@ -3,7 +3,15 @@
 	import { onMount } from 'svelte'
 	let validating = $state(false)
 
-	let { textInput, url, data } = $props()
+	let { textInput, url, data, domain } = $props()
+
+	let fieldsEntered = $derived(() => {
+		let fields = 0
+		fields += domain?.length > 0 ? 1 : 0
+		fields += url?.length > 0 ? 1 : 0
+		fields += textInput?.length > 0 ? 1 : 0
+		return fields
+	})
 
 	// This code is used to trigger a verification lookup automatically if a url is provided when the page loads.
 	onMount(() => {
@@ -13,6 +21,10 @@
 
 		if (url && autoTrigger === 'true') {
 			document.getElementById('input-url').value = url
+			document.getElementById('validator-form').submit()
+			validating = true
+		} else if (domain && autoTrigger === 'true') {
+			document.getElementById('input-domain').value = domain
 			document.getElementById('validator-form').submit()
 			validating = true
 		}
@@ -33,10 +45,19 @@
 		}
 	}}
 >
+	<label class="flex flex-col gap-1" for="domain"
+		>Website domain:
+		<small class="text-xs mb-3">Enter a website domain to check if it has a valid carbon.txt file.</small>
+		<input id="input-domain" name="domain" bind:value={domain} type="text" disabled={url.length > 0 || textInput.length > 0} />
+	</label>
+	<span class="divider">
+		<span>OR</span>
+		<hr />
+	</span>
 	<label class="flex flex-col gap-1" for="url"
-		>Carbon.txt URL:
+		>Carbon.txt file URL:
 		<small class="text-xs mb-3">Enter the URL of a public carbon.txt file.</small>
-		<input id="input-url" name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
+		<input id="input-url" name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" disabled={domain.length > 0 || textInput.length > 0} />
 	</label>
 	<span class="divider">
 		<span>OR</span>
@@ -45,11 +66,11 @@
 	<label for="carbon-txt-validator" class="flex flex-col gap-1"
 		>Carbon.txt content
 		<small class="text-xs mb-3">Paste the contents of a carbon.txt file in the textarea below.</small>
-		<textarea name="carbon-txt-validator" bind:value={textInput} rows="15" /></label
+		<textarea name="carbon-txt-validator" bind:value={textInput} rows="8" disabled={url.length > 0 || domain.length > 0} /></label
 	>
-	{#if url.length > 0 && textInput.length > 0}
-		<div class="prose mb-4 alert alert-error">
-			<p>Please either a URL or text content, not both.</p>
+	{#if fieldsEntered() > 1}
+		<div class="prose my-4 alert alert-error">
+			<p>Please enter only one field - a domain, a URL or text content.</p>
 		</div>
 	{:else}
 		<span aria-live="assertive" data-checking={validating}>
@@ -58,7 +79,9 @@
 					<span></span>
 					<p>
 						Validating carbon.txt syntax {#if url}
-							for <br /><b>{url}</b>{/if}
+							for <br /><b>{url}</b>{:else if domain}
+							for <br /><b>{domain}</b>
+						{/if}
 					</p>
 				</div>
 			{:else}

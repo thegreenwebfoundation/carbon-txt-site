@@ -6,16 +6,25 @@ export const actions = {
     const data = await request.formData();
 		const text_contents = data.get('carbon-txt-validator');
     const url = data.get('url')
+    let domain = data.get('domain')
 
+    
     let apiRoute = 'https://carbon-txt-api.greenweb.org/api/validate/file/'
     if (url) {
       apiRoute = 'https://carbon-txt-api.greenweb.org/api/validate/url/'
+    } else if (domain) {
+      if (domain.toString().startsWith('https://') || domain.toString().startsWith('http://')) {
+        domain = domain?.toString().replace('https://', '').replace('http://', '')
+      }
+      apiRoute = 'https://carbon-txt-api.greenweb.org/api/validate/domain/'
     }
 
     let bodyData = JSON.stringify({text_contents})
 
     if (url) {
       bodyData = JSON.stringify({url})
+    } else if (domain) {
+      bodyData = JSON.stringify({domain})
     }
 
     const response = await fetch(apiRoute, {
@@ -159,7 +168,15 @@ export const actions = {
           response: {
             ...json
           }
-    }} else {
+    }} else if (response.ok && domain) {
+      const json = await response.json();
+      return {
+          domain,
+          response: {
+            ...json
+          }
+    }
+  } else {
       console.error('Failed to fetch data from the API');
       return {
           text_contents,
