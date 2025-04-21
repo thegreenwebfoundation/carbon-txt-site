@@ -48,7 +48,7 @@
 	<label class="flex flex-col gap-1" for="domain"
 		>Website domain:
 		<small class="text-xs mb-3">Enter a website domain to check if it has a valid carbon.txt file.</small>
-		<input id="input-domain" name="domain" bind:value={domain} type="text" />
+		<input id="input-domain" name="domain" bind:value={domain} type="text" disabled={url.length > 0 || textInput.length > 0} />
 	</label>
 	<span class="divider">
 		<span>OR</span>
@@ -57,7 +57,7 @@
 	<label class="flex flex-col gap-1" for="url"
 		>Carbon.txt file URL:
 		<small class="text-xs mb-3">Enter the URL of a public carbon.txt file.</small>
-		<input id="input-url" name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
+		<input id="input-url" name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" disabled={domain.length > 0 || textInput.length > 0} />
 	</label>
 	<span class="divider">
 		<span>OR</span>
@@ -66,7 +66,7 @@
 	<label for="carbon-txt-validator" class="flex flex-col gap-1"
 		>Carbon.txt content
 		<small class="text-xs mb-3">Paste the contents of a carbon.txt file in the textarea below.</small>
-		<textarea name="carbon-txt-validator" bind:value={textInput} rows="8" /></label
+		<textarea name="carbon-txt-validator" bind:value={textInput} rows="8" disabled={url.length > 0 || domain.length > 0} /></label
 	>
 	{#if fieldsEntered() > 1}
 		<div class="prose my-4 alert alert-error">
