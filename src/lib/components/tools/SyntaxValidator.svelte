@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte'
 	let validating = $state(false)
 
-	let { textInput, url, data } = $props()
+	let { textInput, url, data, domain } = $props()
 
 	// This code is used to trigger a verification lookup automatically if a url is provided when the page loads.
 	onMount(() => {
@@ -34,7 +34,16 @@
 	}}
 >
 	<label class="flex flex-col gap-1" for="url"
-		>Carbon.txt URL:
+		>Website domain:
+		<small class="text-xs mb-3">Enter a website domain to check if it has a valid carbon.txt file.</small>
+		<input id="input-domain" name="domain" bind:value={domain} type="text" />
+	</label>
+	<span class="divider">
+		<span>OR</span>
+		<hr />
+	</span>
+	<label class="flex flex-col gap-1" for="url"
+		>Carbon.txt file URL:
 		<small class="text-xs mb-3">Enter the URL of a public carbon.txt file.</small>
 		<input id="input-url" name="url" bind:value={url} type="url" pattern="https?:\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([/?].*)" />
 	</label>
