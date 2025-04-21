@@ -45,7 +45,7 @@
 	<label for="carbon-txt-validator" class="flex flex-col gap-1"
 		>Carbon.txt content
 		<small class="text-xs mb-3">Paste the contents of a carbon.txt file in the textarea below.</small>
-		<textarea name="carbon-txt-validator" bind:value={textInput} rows="15" /></label
+		<textarea name="carbon-txt-validator" bind:value={textInput} rows="8" /></label
 	>
 	{#if url.length > 0 && textInput.length > 0}
 		<div class="prose mb-4 alert alert-error">
