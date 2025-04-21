@@ -15,6 +15,7 @@
 	let { data, form } = $props()
 
 	let url = ''
+	let domain = ''
 	let searchParams = new URLSearchParams(data.url.search)
 	if (searchParams) {
 		url = searchParams.get('url')
@@ -45,7 +46,7 @@
 				<a href="/syntax">Learn more about the syntax</a>.
 			</p>
 		</div>
-		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} {data} />
+		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} domain={form?.domain || domain || ''} {data} />
 	</div>
 </section>
 

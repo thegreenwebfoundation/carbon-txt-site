@@ -5,6 +5,14 @@
 
 	let { textInput, url, data, domain } = $props()
 
+	let fieldsEntered = $derived(() => {
+		let fields = 0
+		fields += domain?.length > 0 ? 1 : 0
+		fields += url?.length > 0 ? 1 : 0
+		fields += textInput?.length > 0 ? 1 : 0
+		return fields
+	})
+
 	// This code is used to trigger a verification lookup automatically if a url is provided when the page loads.
 	onMount(() => {
 		// Set the URL input value if it exists
@@ -33,7 +41,7 @@
 		}
 	}}
 >
-	<label class="flex flex-col gap-1" for="url"
+	<label class="flex flex-col gap-1" for="domain"
 		>Website domain:
 		<small class="text-xs mb-3">Enter a website domain to check if it has a valid carbon.txt file.</small>
 		<input id="input-domain" name="domain" bind:value={domain} type="text" />
@@ -56,9 +64,9 @@
 		<small class="text-xs mb-3">Paste the contents of a carbon.txt file in the textarea below.</small>
 		<textarea name="carbon-txt-validator" bind:value={textInput} rows="8" /></label
 	>
-	{#if url.length > 0 && textInput.length > 0}
-		<div class="prose mb-4 alert alert-error">
-			<p>Please either a URL or text content, not both.</p>
+	{#if fieldsEntered() > 1}
+		<div class="prose my-4 alert alert-error">
+			<p>Please enter only one field - a domain, a URL or text content.</p>
 		</div>
 	{:else}
 		<span aria-live="assertive" data-checking={validating}>
@@ -67,7 +75,9 @@
 					<span></span>
 					<p>
 						Validating carbon.txt syntax {#if url}
-							for <br /><b>{url}</b>{/if}
+							for <br /><b>{url}</b>{:else if domain}
+							for <br /><b>{domain}</b>
+						{/if}
 					</p>
 				</div>
 			{:else}
