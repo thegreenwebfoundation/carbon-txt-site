@@ -19,6 +19,7 @@
 	let searchParams = new URLSearchParams(data.url.search)
 	if (searchParams) {
 		url = searchParams.get('url')
+		domain = searchParams.get('domain')
 	}
 
 	$effect(() => {

@@ -23,6 +23,10 @@
 			document.getElementById('input-url').value = url
 			document.getElementById('validator-form').submit()
 			validating = true
+		} else if (domain && autoTrigger === 'true') {
+			document.getElementById('input-domain').value = domain
+			document.getElementById('validator-form').submit()
+			validating = true
 		}
 	})
 </script>
