@@ -23,19 +23,21 @@
 <section class="w-100" id="intro">
 	<div class="relative block">
 		<div class="absolute -z-50 right-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-l from-green-500 hidden md:block" style="height: calc(100% + 100px);" />
-		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] min-h-[80vh] lg:grid lg:grid-cols-2 lg:items-center">
-			<div class="p-8">
-				<Heading level={1}>Carbon.txt</Heading>
+		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] min-h-[60vh] lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+			<div class="py-8">
+				<Heading level={1}>Sustainability data that’s easier to discover and use.</Heading>
 				<div class="mb-10">
-					<What short={true} />
-				</div>
-				<div class="flex flex-wrap gap-3 justify-center md:justify-start">
-					<Button link="#what">Learn more</Button>
-					<Button link="https://github.com/thegreenwebfoundation/carbon.txt" icon={true} white={true}>Github <Github /></Button>
+					<p class="prose">Carbon.txt is a single location on any web domain for public sustainability data relating 
+					to that company. It's an open source tool that's free for you to use or build on.</p>
+					<p class="prose mt-4">Be a part of the movement for open, discoverable, comparable, 
+					and traceable sustainability data on the web.</p>
 				</div>
 			</div>
 			<div class="max-w-100">
-				<Code code={exampleToml} />
+				<img class="m-auto" width="600px" height="308px" src="/carbontxt-video-cover.jpg" alt="Hannah Smith presenting carbon.txt at State of the Open Con" />
+				<p class="prose my-4 text-center">
+					<a href="https://www.youtube.com/watch?v=55cjE8B-wBM&list=PL0U2cL1JGPZcU-k-4_RT7url83zFdJRug&index=9">
+					Watch our presentation of carbon.txt at State of the Open, London on YouTube</a>.</p>
 			</div>
 		</div>
 	</div>
@@ -45,6 +47,10 @@
 	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 mb-[5rem] text-white">
 		<Heading level={2}>What is carbon.txt?</Heading>
 		<What />
+						<div class="flex flex-wrap gap-3 justify-center md:justify-start">
+					<Button link="#what">Learn more</Button>
+					<Button link="https://github.com/thegreenwebfoundation/carbon.txt" icon={true} white={true}>Github <Github /></Button>
+				</div>
 	</div>
 </section>
 
@@ -53,6 +59,7 @@
 		<Heading level={2}>Why do we need this?</Heading>
 		<Why short={true} />
 		<div class="w-max mt-[2rem]"><Button link="/about#why">Read more about why</Button></div>
+		<Code code={exampleToml} />
 	</div>
 </section>
 
