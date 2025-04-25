@@ -26,9 +26,9 @@
 	}
 </script>
 
-<section class="w-100 pb-[1rem] mb-[2rem] border-b border-gray-200 last:border-0">
+<section class="w-100 pb-4 mb-4 border-b border-gray-200 last:border-0">
 	<details {id}>
-		<summary class="text-3xl">
+		<summary class="text-xl">
 			<slot name="question" />
 		</summary>
 		<div class="flex flex-auto gap-10 items-center mt-[1rem]">

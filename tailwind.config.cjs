@@ -72,23 +72,24 @@ const config = {
 							fontSize: theme('fontSize.6xl'),
 						},
 						h2: {
-							fontSize: theme('fontSize.5xl'),
+							fontSize: theme('fontSize.4xl'),
 							borderTopWidth: '2px',
 							borderBottomWidth: '2px',
 							paddingTop: '1.5rem',
 							paddingBottom: '1.5rem',
 						},
 						h3: {
-							fontSize: theme('fontSize.4xl'),
+							fontSize: theme('fontSize.3xl'),
 							borderBottomWidth: '1px',
 							paddingBottom: '0.5rem',
 							marginBottom: '1rem',
 						},
 						h4: {
-							fontSize: theme('fontSize.3xl'),
+							fontSize: theme('fontSize.2xl'),
 						},
 						h5: {
-							fontSize: theme('fontSize.2xl'),
+							fontSize: theme('fontSize.xl'),
+							fontWeight: 'default',
 						},
 					},
 				},
