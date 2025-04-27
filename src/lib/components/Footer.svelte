@@ -38,7 +38,7 @@
 							<a href="https://github.com/thegreenwebfoundation/carbon.txt">Github</a>
 						</li>
 						<li class="mt-3">
-							<a href="mailto:fershad@thegreenwebfoundation.org">Support email</a>
+							<a href="https://www.thegreenwebfoundation.org/support-form/">Contact support</a>
 						</li>
 					</ul>
 				</div>
