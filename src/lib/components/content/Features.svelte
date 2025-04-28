@@ -25,7 +25,7 @@
 				<h3 class="text-3xl inline ml-4">Extendible syntax</h3>
 			</div>
 			<p>
-				A simple, extendible syntax that can be used to describe a wide range of sustainability data, from carbon emissions to social impact, and be easily updated as new data types and mandated
+				A simple, extendible <a href="/syntax">syntax</a> that can be used to describe a wide range of sustainability data, from carbon emissions to social impact, and be easily updated as new data types and mandated
 				reporting requirements emerge.
 			</p>
 		</li>
@@ -38,7 +38,7 @@
 				<h3 class="text-3xl inline ml-4">Plugin architecture</h3>
 			</div>
 			<p>
-				A plugin architecture that allows for the easy integration of <a href="https://github.com/thegreenwebfoundation/carbon-txt-validator">carbon.txt validation tools</a> into existing platforms and software,
+				A <a href="https://developers.thegreenwebfoundation.org/carbon-txt/overview/">plugin architecture</a> that allows for the easy integration of <a href="https://github.com/thegreenwebfoundation/carbon-txt-validator">carbon.txt validation tools</a> into existing platforms and software,
 				enabling discovery and validation of sustainability data at scale across a range of use cases.
 			</p>
 		</li>
