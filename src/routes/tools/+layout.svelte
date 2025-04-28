@@ -15,7 +15,7 @@
 		<Heading level={2}>What is carbon.txt?</Heading>
 		<p>If you're new to carbon.txt our overview will help you get primed on the basics.</p>
 		<div class="w-max mx-auto">
-			<Button link="/about">Read overview</Button>
+			<Button link="/">Read overview</Button>
 		</div>
 	</div>
 </section>
