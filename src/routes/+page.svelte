@@ -25,13 +25,13 @@
 <section class="w-100" id="intro">
 	<div class="relative block">
 		<div class="absolute -z-50 right-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-l from-green-500 hidden md:block" style="height: calc(100% + 100px);" />
-		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] min-h-[60vh] lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-10 min-h-[60vh] lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
 			<div class="py-8">
 				<Heading level={1}>Sustainability data that’s easy to discover and use.</Heading>
-				<div class="mb-10">
-					<p class="prose">Carbon.txt is a single location on any web domain for public sustainability data relating 
-					to that company. It's an open source tool that's free to use or build on.</p>
-					<p class="prose mt-4">Be part of the movement for open, discoverable, comparable, 
+				<div class="mb-10 prose">
+					<p class="">Carbon.txt is a single recognisable location on any web domain for public sustainability data relating 
+					to that company. The open source ecosystem of syntax, apis & plugins is free to use and build on.</p>
+					<p class="mt-4">Be part of the movement for open, discoverable, comparable, 
 					and traceable sustainability data on the web.</p>
 				</div>
 			</div>
