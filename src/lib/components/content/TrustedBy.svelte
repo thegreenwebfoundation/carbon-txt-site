@@ -18,5 +18,6 @@
 		<a href="https://www.neuenarrative.de/carbon.txt"><img width="150px" height="40px" src="/users/neuenarrative.svg" alt="Neue Narrative logo" /></a>
 		<a href="https://www.feelcreated.com/carbon.txt"><img width="120px" height="40px" src="/users/feelcreated-logo.svg" alt="Feel Created logo" /></a>
 		<a href="https://worldoflouis.com/carbon.txt"><img width="50px" height="40px" src="/users/wol-logo.png" alt="World of Louis logo" /></a>
+		<a href="https://www.buddyworks.co.jp/carbon.txt"><img width="250px" height="40px" src="/users/buddyworks_logo.svg" alt="World of Louis logo" /></a>
 	</div>
 </div>

@@ -8,7 +8,7 @@
 <header class="bg-white border-b-2">
 	<div class="container mx-auto px-2 sm:px-4">
 		<nav class="flex flex-wrap justify-center md:justify-start items-center bg-white py-6 gap-x-8 gap-y-4 min-[400px]:gap-y-2">
-			<div class="">
+			<div class="sm:pl-5">
 				<a href="/">
 					<img width="50px" height="50px" src="/carbontxt-logo.svg" alt="carbon.txt logo" />
 				</a>
@@ -26,4 +26,3 @@
 		</nav>
 	</div>
 </header>
-
