@@ -67,7 +67,9 @@
 
 <section id="features" class="w-100 container mx-auto p-6 px-2 sm:px-4 md:py-10">
 	<Heading level={2} class="text-center">Key features</Heading>
-	<Features />
+	<div class="max-w-4xl mx-auto">
+		<Features />
+	</div>
 </section>
 
 <section id="cta" class="w-100 bg-neutral-900">
