@@ -78,12 +78,13 @@
 	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 text-white text-center flex flex-col justify-center gap-3">
 
 		<Heading level={3}>Get started</Heading>
-		<div class="flex flex-wrap gap-3 w-100 justify-center">
+    <div class="m-auto text-left pt-[2rem]">
+      <What />
+    </div>
+		<div class="flex flex-wrap gap-3 pt-[3rem] w-100 justify-center">
 			<Button link="/quickstart">Follow the guide</Button>
 			<Button link="/tools/builder" white={true}>Use the builder</Button>
 			<Button link="/tools/validator" white={true}>Use the validator</Button>
 		</div>
 	</div>
 </section>
-
-
