@@ -32,6 +32,14 @@
 				<p>
 					Upload the carbon.txt file to a <code>/.well-known/</code> path on your server. This follows existing conventions that web administrators will be familiar with.
 				</p>
+				<Heading level={3}>Anywhere else (using a DNS TXT record)</Heading>
+				<p>
+					Upload the carbon.txt file at any publicly accessible HTTP URL, then set up a DNS TXT record in the format <code>carbon-txt-location=URL</code> pointing to the location of this file.
+				</p>
+				<Heading level={3}>Anywhere else (using an HTTP header)</Heading>
+				<p>
+					Upload the carbon.txt file at any publicly accessible HTTP URL, then set up your web server to add the header `CarbonTxt-Location: URL` to all requests, pointing to the location of this file.
+				</p>
 			</div>
 		</div>
 	</Faq>
@@ -78,7 +86,7 @@
 					When you enter a website domain, the validator will look for a carbon.txt file in the root of the website (e.g. <code>https://example.com/carbon.txt</code>). If it finds one, it will parse
 					the file and return the information contained within it. If it doesn't find a carbon.txt file at the root of the domain, then it will check for the file in a well-known location on the
 					server (e.g. <code>https://example.com/.well-known/carbon.txt</code>). Again, if it finds one, it will parse the file and return the information contained within it. If no file is found at
-					either location, then the validator will return an error message.
+					either location, then the validator will proceeed to check for a DNS TXT record in the format <code>carbon-txt-location=URL</code>, and then, if that is not found, a <code>CarbonTxt-Location</code> HTTP header specifying a URL. If none of the above are found, the validator will return an error message.
 				</p>
 
 				<p>The diagram below shows this process visually.</p>
@@ -91,7 +99,7 @@
 
 				<p>
 					When you enter a URL that points to a specific carbon.txt file (e.g. <code>https://example.com/carbon.txt</code>), the validator will look make a request to find the file at that location.
-					If it finds one, it will parse the file and return the information contained within it. If no file is found at either location, then the validator will return an error message.
+					If it finds one, it will parse the file and return the information contained within it. If no file is found, then the validator will return an error message.
 				</p>
 			</details>
 
