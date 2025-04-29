@@ -9,7 +9,7 @@
 
 	<p>Organisations across the globe are using carbon.txt and changing the norms for disclosing sustainability data.</p>
 
-	<div class="max-w-2xl flex flex-wrap gap-10 justify-center items-center bg-white rounded-lg border border-gray-300 mx-auto my-6 p-6">
+	<div class="max-w-4xl flex flex-wrap gap-10 justify-center items-center bg-white rounded-lg border border-gray-300 mx-auto my-6 p-6">
 		<a href="/tools/validator?auto=true&url=https://www.thegreenwebfoundation.org/carbon.txt"><img width="150px" height="40px" src="/tgwf-logo.svg" alt="Green Web Foundation logo" /></a>
 		<a href="/tools/validator?auto=true&url=https://www.scottlogic.com/carbon.txt"><img width="150px" height="40px" src="/users/scott-logic-logo.svg" alt="Scott Logic logo" /></a>
 		<a href="/tools/validator?auto=true&url=https://bigroom.eco/carbon.txt"><img width="70px" height="40px" src="/users/doteco-logo.svg" alt=".eco logo" /></a>
