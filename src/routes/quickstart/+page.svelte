@@ -111,13 +111,13 @@
 		</div>
 
 		<div class="mt-[3rem]">
-			<Heading level={4}>Using HTTP Via Header</Heading>
+			<Heading level={4}>Using an HTTP Header</Heading>
 			<p>
-				Using a HTTP Via Header is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and serve
+				Using an HTTP Header is intended for organisations who are not able to add DNS records for the domain they want to show up as green, but do accept HTTP requests for the domain, and serve
 				responses for it. If you operate a CDN, a managed Wordpress service, or a general Platform-As-A-Service (PaaS) offering, this is usually better suited for your use case.
 			</p>
 			<p>This option also allows you to "pass down" green claims to customer who use your service.</p>
-			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/via">Guide: How to link multiple domains using HTTP VIA HEADER</Button></div>
+			<div class="w-max max-w-100"><Button link="/how/digital-services/link-multiple-domains/via">Guide: How to link multiple domains using an HTTP HEADER</Button></div>
 		</div>
 	</div>
 </article>
