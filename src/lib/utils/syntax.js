@@ -64,7 +64,6 @@ providers = [
 						type: '[[array]]',
 						longTitle: 'Credentials',
 						description: 'Links to documents that show your organisations sustainability credentials.',
-						type: 'array',
 						properties: [
 							{
 								name: 'domain',
@@ -87,7 +86,7 @@ providers = [
 								required: false,
 								parent: 'credentials',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
 								type: 'url'
 							}
 						]

@@ -87,7 +87,7 @@
 
 		if (!urlRegex.test(newObject.url)) {
 			error.field = 'org-url'
-			error.message = 'Please enter a valid URL'
+			error.message = 'Please enter a valid URL beginning with "http://" or "https://'
 			return
 		}
 
