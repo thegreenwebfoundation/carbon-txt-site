@@ -22,7 +22,6 @@ export const syntaxVersions = [
 						type: '[[array]]',
 						longTitle: 'Providers',
 						description: 'Information linking your organisation to upstream providers used to deliver your services.',
-						type: 'array',
 						properties: [
 							{
 								name: 'domain',
