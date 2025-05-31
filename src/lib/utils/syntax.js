@@ -29,7 +29,7 @@ export const syntaxVersions = [
 								parent: 'providers',
 								longTitle: 'Domain',
 								description:
-									'The domain of the organisation providing the upstream service. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://").',
+									'The domain of the organisation providing the upstream service. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).',
 								type: 'string'
 							},
 							{
@@ -69,7 +69,8 @@ providers = [
 								required: false,
 								parent: 'credentials',
 								longTitle: 'Domain',
-								description: 'The domain of your organisation. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://").',
+								description:
+									'The domain of your organisation. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).',
 								type: 'string'
 							},
 							{
@@ -146,7 +147,7 @@ credentials = [
 								required: true,
 								parent: 'disclosures',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
 								type: 'url'
 							},
 							{
@@ -154,7 +155,8 @@ credentials = [
 								required: false,
 								parent: 'disclosures',
 								longTitle: 'Domain',
-								description: 'The domain for which the disclosure applies.',
+								description:
+									'The domain for which the disclosure applies. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).',
 								type: 'string'
 							}
 						]
@@ -186,7 +188,8 @@ disclosures = [
 								required: false,
 								parent: 'services',
 								longTitle: 'Domain',
-								description: 'The domain of the organisation providing the upstream service.',
+								description:
+									'The domain of the organisation providing the upstream service. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).',
 								type: 'string'
 							},
 							{
