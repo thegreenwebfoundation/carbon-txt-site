@@ -40,7 +40,7 @@
 		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
 		if (!domainRegex.test(newObject.domain)) {
 			error.field = 'upstream-domain'
-			error.message = 'Please enter a valid domain'
+			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http:// or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).'
 			return
 		}
 
@@ -66,7 +66,7 @@
 		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
 		if (!domainRegex.test(newObject.domain)) {
 			error.field = 'org-domain'
-			error.message = 'Please enter a valid domain'
+			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).'
 			return
 		}
 
@@ -87,7 +87,7 @@
 
 		if (!urlRegex.test(newObject.url)) {
 			error.field = 'org-url'
-			error.message = 'Please enter a valid URL'
+			error.message = 'Please enter a valid URL beginning with "http://" or "https://'
 			return
 		}
 
@@ -140,7 +140,7 @@
 		<div class="form-group">
 			<span>
 				<label for="domain">Domain</label>
-				<small>The domain of the provider who's services you use.</small>
+				<small>The domain of the provider who's services you use. Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).</small>
 			</span>
 			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
 			{#if error.field === 'upstream-domain'}
@@ -197,7 +197,7 @@
 		<div class="form-group">
 			<span>
 				<label for="domain">Domain</label>
-				<small>The domain for which the document applies.</small>
+				<small>The domain for which the document applies. Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).</small>
 			</span>
 			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
 			{#if error.field === 'org-domain'}
