@@ -140,7 +140,7 @@
 		<div class="form-group">
 			<span>
 				<label for="domain">Domain</label>
-				<small>The domain of the provider who's services you use.</small>
+				<small>The domain of the provider who's services you use. Do not include the protocol (i.e. http:// or https://).</small>
 			</span>
 			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
 			{#if error.field === 'upstream-domain'}
@@ -197,7 +197,7 @@
 		<div class="form-group">
 			<span>
 				<label for="domain">Domain</label>
-				<small>The domain for which the document applies.</small>
+				<small>The domain for which the document applies. Do not include the protocol (i.e. http:// or https://).</small>
 			</span>
 			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
 			{#if error.field === 'org-domain'}
