@@ -40,7 +40,7 @@
 		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
 		if (!domainRegex.test(newObject.domain)) {
 			error.field = 'upstream-domain'
-			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. http:// or https://).'
+			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http:// or "https://").'
 			return
 		}
 
@@ -66,7 +66,7 @@
 		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
 		if (!domainRegex.test(newObject.domain)) {
 			error.field = 'org-domain'
-			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. http:// or https://).'
+			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http://" or "https://").'
 			return
 		}
 
