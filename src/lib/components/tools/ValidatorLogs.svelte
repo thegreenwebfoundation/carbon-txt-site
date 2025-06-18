@@ -1,6 +1,5 @@
 <script>
-	let { logs, isError = false } = $props()
-	let open = isError
+	let { logs, open = false } = $props()
 </script>
 
 <section class="w-100 mb-4" id="logss">
@@ -21,6 +20,10 @@
 </section>
 
 <style>
+	section {
+		overflow: hidden;
+	}
+
 	ol {
 		font-family: 'Courier New', Courier, monospace;
 		list-style-type: decimal-leading-zero;
@@ -28,9 +31,11 @@
 		border: 1px solid black;
 		background: white;
 		border-radius: 8px;
+		overflow: auto;
 	}
 
 	ol > li {
 		margin-inline-start: 2.5rem;
+		margin-block: 0.5rem;
 	}
 </style>
