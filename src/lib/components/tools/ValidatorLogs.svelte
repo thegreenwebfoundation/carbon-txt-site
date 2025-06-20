@@ -1,10 +1,11 @@
 <script>
+	import Heading from '../Heading.svelte'
 	let { logs, open = false } = $props()
 </script>
 
-<section class="w-100 mb-4" id="logss">
+<section class="w-100 mb-8" id="logs">
 	<div class="prose md:w-[80%] mb-4">
-		<h1 class="text-3xl font-bold mb-4">Log trace</h1>
+		<Heading level={2}>Log trace</Heading>
 		<p>Below are the steps performed by the validator.</p>
 	</div>
 
