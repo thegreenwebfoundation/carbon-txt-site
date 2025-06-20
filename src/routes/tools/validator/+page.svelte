@@ -54,7 +54,7 @@
 
 {#if form?.response.success}
 	<SyntaxValidatorSuccess text_contents={form?.text_contents} {form} />
-	<ValidatorLogs logs={form?.response.logs} open={true} />
+	<ValidatorLogs logs={form?.response.logs} open={false} />
 	<section class="w-100">
 		<div class="prose md:w-[80%] my-4">
 			<h2 class="text-3xl font-bold mb-4">Think something's wrong?</h2>
