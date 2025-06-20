@@ -7,6 +7,7 @@
 	import SyntaxValidatorSuccess from '$lib/components/tools/SyntaxValidatorSuccess.svelte'
 	import SyntaxValidatorError from '$lib/components/tools/SyntaxValidatorError.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
+	import ValidatorLogs from '$lib/components/tools/ValidatorLogs.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import Callout from '$lib/components/Callout.svelte'
 	import { onMount } from 'svelte'
@@ -53,6 +54,7 @@
 
 {#if form?.response.success}
 	<SyntaxValidatorSuccess text_contents={form?.text_contents} {form} />
+	<ValidatorLogs logs={form?.response.logs} open={false} />
 	<section class="w-100">
 		<div class="prose md:w-[80%] my-4">
 			<h2 class="text-3xl font-bold mb-4">Think something's wrong?</h2>
@@ -64,6 +66,7 @@
 	</section>
 {:else if form?.response.errors}
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
+	<ValidatorLogs logs={form?.response.logs} open={true} />
 	<section class="w-100">
 		<div class="prose md:w-[80%] my-4">
 			<h2 class="text-3xl font-bold mb-4">Think something's wrong?</h2>
@@ -81,6 +84,7 @@
 			<p>For help creating a carbon.txt file, please use our <a href="/tools/builder">Builder</a>.</p>
 		</div>
 	</section>
+	<ValidatorLogs logs={form?.response.logs} open={true} />
 	<section class="w-100">
 		<div class="prose md:w-[80%] mb-4">
 			<h2 class="text-3xl font-bold m-4">Think something's wrong?</h2>
