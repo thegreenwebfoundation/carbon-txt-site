@@ -96,6 +96,11 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
+### Editing Mermaid diagrams
+
+To edit the mermaid diagrams in the site, simply take the URL of the embedded diagram in the site, and replace "mermaid.ink/svg/" with "mermaid.live/edit#" - then when you are finished editing, embed the *new* URL from the editor
+
+
 ## Deploying
 
 When changes are made to this repository and merged into the `main` branch a new build of the site is automatically triggered.

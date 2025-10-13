@@ -97,7 +97,7 @@
           If no file is found at either location, then the validator will proceeed to check for a <code>CarbonTxt-Location</code> HTTP header specifying a URL, and follow it.
         </p>
         <p>
-          If none of the above succeeed, and you have requested either a top-level domain, or the www. subdomain of a top level domain - the validator will then attempt to find the carbontxt at the other alternative automatically
+          If none of the above succeed, and you have requested either a top-level domain, or the www. subdomain of a top level domain - the validator will then attempt to find the carbontxt at the other alternative automatically
           (the www. subdomain will be tried, if a TLD was requested, the TLD will be tried if a www. subdomain is requested). The entire process is repeated for the alternate domain. For any other subdomains, no further attempts are carried out.
         </p>
         <p>
