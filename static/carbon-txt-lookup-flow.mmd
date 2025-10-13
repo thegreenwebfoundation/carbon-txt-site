@@ -1,0 +1,25 @@
+flowchart TD
+
+    InputCheck -->|Domain| ResolveDomain[Resolve Domain]
+    ResolveDomain --> CheckDNSTXT1[Check DNS TXT Record]
+    CheckAlternateDomain["Set domain to the alternate domain (TLD or www.)"] --> ResolveDomain
+    subgraph DomainResolution
+
+        CheckDNSTXT1 --> HasDNSTXT1{Has TXT Record?}
+        HasDNSTXT1 -->|Yes| ResolveURI
+        HasDNSTXT1 -->|No| TryDefaultPath[Try default path /carbon.txt]
+        TryDefaultPath --> DefaultPathFound{File Found?}
+        DefaultPathFound --> |Yes| ReturnURL
+        DefaultPathFound --> |No| TryFallbackPath[Try fallback path /.well-known/carbon.txt]
+        TryFallbackPath --> FallbackPathFound{File Found?}
+        FallbackPathFound --> |Yes| ReturnURL
+        FallbackPathFound -->|No| CheckViaHeader1[Check Via Header]
+
+        CheckViaHeader1 --> HasVia1{Has Via Header?}
+        HasVia1 -->|Yes| ResolveURI
+        HasVia1 -->|No| IsWWWorTLD{Is the domain a TLD or www. subdomain?}
+        IsWWWorTLD -->|Yes| CheckAlternateDomain
+        IsWWWorTLD -->|No| Error1[Raise UnreachableCarbonTxtFile]
+    end
+    style DomainResolution fill: none;
+
