@@ -11,7 +11,7 @@ export default async (event) => {
         },
         body: JSON.stringify({url: file}),
     }).then((response) => response.json()).then((data) => {
-        return { 
+        return {
             data,
             status: 'ok',
             url: file,
