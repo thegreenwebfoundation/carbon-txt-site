@@ -15,9 +15,27 @@
 	let copyText = 'Copy output'
 
 	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service_type='${provider.service}' }`).join(',\n    ')
-	const mapOrg = () => $builderOrg.map((credential) => `{ doc_type='${credential.doctype}', url='${credential.url}', domain='${credential.domain}' }`).join(',\n    ')
+	const mapOrg = () => $builderOrg.map( (credential) => {
 
-	$: outputCode = `[org]
+      var content = `doc_type='${credential.doctype}', url='${credential.url}'`
+
+      if(credential.domain.length > 0) {
+        content += `, domain='${credential.domain}'`;
+      }
+
+      if(credential.validUntil.length > 0) {
+        content += `, valid_until='${credential.validUntil}'`;
+      }
+      return `{ ${content} }`
+  }).join(',\n    ')
+
+  const carbonTxtSyntaxVersion = "0.3";
+  const todaysDate = new Date().toISOString().split("T")[0];
+
+	$: outputCode = `version="${carbonTxtSyntaxVersion}"
+last_updated="${todaysDate}"
+
+[org]
 disclosures = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]
 
 [upstream]
@@ -53,7 +71,7 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 					<Heading level={1}>Builder</Heading>
 					<p>Use this builder to create a carbon.txt file for your organisation.</p>
 					<p>
-						This builder uses <b>version 0.2</b> of the carbon.txt syntax. 
+						This builder uses <b>version 0.3</b> of the carbon.txt syntax.
 						<a href="/syntax">Learn more about the syntax</a>.
 					</p>
 				</div>

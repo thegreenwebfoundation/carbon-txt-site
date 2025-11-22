@@ -72,6 +72,7 @@
 						<th class="p-2 text-left">Document type</th>
 						<th class="p-2 text-left">URL</th>
 						<th class="p-2 text-left">Domain</th>
+						<th class="p-2 text-left">Valid until</th>
 						<th class="p-2 w-12"></th>
 					</tr>
 				</thead>
@@ -80,7 +81,8 @@
 						<tr class="odd:bg-green-50 even:bg-green-100">
 							<td class="p-2">{evidenceName(provider.doctype)}</td>
 							<td class="p-2">{provider.url}</td>
-							<td class="p-2">{provider.domain}</td>
+							<td class="p-2">{provider.domain || "-"}</td>
+							<td class="p-2">{provider.validUntil || "-"}</td>
 							<td class="p-2">
 								<button on:click={() => removeUpstream(provider)} aria-label="Remove"
 									><svg
