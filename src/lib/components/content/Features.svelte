@@ -2,7 +2,6 @@
 	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte'
 	import TWGF_Up_Arrow from '$lib/svg/tgwf_logo_up_arrow.svelte'
 	import TWGF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'
-	import Heading from '$lib/components/Heading.svelte'
 </script>
 
 <div class="my-4">

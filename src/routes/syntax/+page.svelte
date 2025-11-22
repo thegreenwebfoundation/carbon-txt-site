@@ -2,13 +2,6 @@
 	// Components
 	import Code from '$lib/components/Code.svelte'
 	import Heading from '$lib/components/Heading.svelte'
-	import Button from '$lib/components/Button.svelte'
-	import What from '$lib/components/content/What.svelte'
-	import Goals from '$lib/components/content/Features.svelte'
-	import Why from '$lib/components/content/Why.svelte'
-	import Callout from '$lib/components/Callout.svelte'
-	import TGWF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'
-	import Pilot from '$lib/components/Pilot.svelte'
 
 	import { syntaxVersions } from '$lib/utils/syntax.js'
 
@@ -23,7 +16,7 @@
 
 		<div class="mt-8">
 			Viewing syntax for <select bind:value={selectedSyntax} class="my-2" on:change={() => (currentSyntax = syntaxVersions.filter((version) => version.name === selectedSyntax)[0])}>
-				{#each syntaxVersions as version}
+				{#each syntaxVersions as version (version)}
 					<option value={version.name}>{version.name}</option>
 				{/each}
 			</select>
@@ -65,7 +58,7 @@
 	<div class="w-100 mb-[5rem] grid grid-cols-1 gap-10">
 		<Heading level={2}>Syntax</Heading>
 
-		{#each currentSyntax.syntax as block}
+		{#each currentSyntax.syntax as block (block)}
 			<div class="relative overflow-x-auto">
 				<table class="table-auto w-full">
 					<thead>
@@ -86,7 +79,7 @@
 							<td class="prose text-wrap max-w-prose">{block.description}</td>
 						</tr>
 						{#if block.properties}
-							{#each block.properties as property}
+							{#each block.properties as property (property)}
 								<tr>
 									<td>↳ {property.name}</td>
 									<td>{property.parent}</td>
@@ -95,7 +88,7 @@
 									<td class="prose text-wrap max-w-prose">{property.description}</td>
 								</tr>
 								{#if property.properties}
-									{#each property.properties as subProperty}
+									{#each property.properties as subProperty (subProperty)}
 										<tr>
 											<td>&nbsp; &nbsp;↳ {subProperty.name}</td>
 											<td>{subProperty.parent}</td>

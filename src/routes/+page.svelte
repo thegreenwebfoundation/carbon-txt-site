@@ -1,25 +1,11 @@
 <script>
 	// Components
-	import Code from '$lib/components/Code.svelte'
 	import Heading from '$lib/components/Heading.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import What from '$lib/components/content/What.svelte'
 	import WhatData from '$lib/components/content/WhatData.svelte'
 	import TrustedBy from '$lib/components/content/TrustedBy.svelte'
 	import Features from '$lib/components/content/Features.svelte'
-	import Why from '$lib/components/content/Why.svelte'
-	import Callout from '$lib/components/Callout.svelte'
-	import TGWF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'
-
-	// Logos, SVGs and things
-	import Github from '$lib/svg/github.svelte'
-
-	import { digitalServiceToml as exampleToml } from '$lib/utils/exampleToml'
-
-	let showBenefits = 'digitalService'
-	function handleMouseOver(event) {
-		showBenefits = event.detail.type
-	}
 </script>
 
 <section class="w-100" id="intro">

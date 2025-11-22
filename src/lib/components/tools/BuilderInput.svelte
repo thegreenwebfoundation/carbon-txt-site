@@ -1,7 +1,6 @@
 <script>
 	export let store
 	export let type = 'upstream'
-	import services from '$lib/utils/upstreamServices'
 	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
 	import { onMount } from 'svelte'
 	import slugify from '@sindresorhus/slugify'
@@ -70,7 +69,7 @@
 		}
 
 		// Check the URL is valid using a regex that must start with http:// or https://
-		const urlRegex = new RegExp(/^(http:\/\/|https:\/\/)(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)
+		const urlRegex = new RegExp(/^(http:\/\/|https:\/\/)(www\.)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)
 
 		if (!urlRegex.test(newObject.url)) {
 			error.field = 'org-url'
@@ -180,7 +179,7 @@
 				<small>The type of document that is being linked to.</small>
 			</span>
 			<select name="doctype" bind:value={newObject.doctype}>
-				{#each evidenceTypes as doctype}
+				{#each evidenceTypes as doctype (doctype.slug)}
 					<option value={doctype.slug}>{doctype.name}</option>
 				{/each}
 			</select>

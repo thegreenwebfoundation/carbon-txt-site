@@ -38,5 +38,12 @@ module.exports = defineConfig([
 			}
 		}
 	},
+	{
+		rules: {
+			'svelte/no-navigation-without-resolve': 'off',
+			'svelte/no-at-html-tags': 'off',
+			'svelte/no-reactive-functions': 'off'
+		}
+	},
 	globalIgnores(['**/.DS_Store', '**/node_modules', 'build', '.svelte-kit', 'package', '**/.env', '**/.env.*', '!**/.env.example', '**/pnpm-lock.yaml', '**/package-lock.json', '**/yarn.lock'])
 ])

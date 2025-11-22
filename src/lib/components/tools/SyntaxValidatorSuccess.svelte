@@ -75,12 +75,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each form?.response.data.org.disclosures as { domain, doc_type, url, valid_until }}
+							{#each form?.response.data.org.disclosures as disclosure (disclosure)}
 								<tr>
-									<td class="whitespace-nowrap">{doc_type}</td>
-									<td class="whitespace-nowrap">{url}</td>
-									<td class="whitespace-nowrap">{domain || "-" }</td>
-									<td class="whitespace-nowrap">{valid_until || "-" }</td>
+									<td class="whitespace-nowrap">{disclosure.doc_type}</td>
+									<td class="whitespace-nowrap">{disclosure.url}</td>
+									<td class="whitespace-nowrap">{disclosure.domain || '-'}</td>
+									<td class="whitespace-nowrap">{disclosure.valid_until || '-'}</td>
 								</tr>
 							{/each}
 						</tbody>
@@ -93,7 +93,7 @@
 					<Heading level={2}>Linked evidence</Heading>
 					<p>Found linked evidence using <b>{Object.keys(form?.response.document_data).length} {pluralisePlugins(Object.keys(form?.response.document_data).length)}</b>.</p>
 
-					{#each pluginData as plugin}
+					{#each pluginData as plugin (plugin)}
 						<div class="relative overflow-x-auto max-w-[100vw]">
 							{#if plugin.data.success.length > 0}
 								<Heading level={3}>Data found</Heading>
@@ -113,7 +113,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										{#each plugin.data?.success as { name, value, unit, start_date, end_date, file }}
+										{#each plugin.data?.success as data (data)}
 											<tr>
 												<td class="whitespace-nowrap">
 													<svg
@@ -131,12 +131,12 @@
 													</svg>
 													Found</td
 												>
-												<td class="whitespace-nowrap">{name}</td>
-												<td class="whitespace-nowrap">{value}</td>
-												<td class="whitespace-nowrap">{unit}</td>
-												<td class="whitespace-nowrap"><time datetime={start_date}>{start_date}</time></td>
-												<td class="whitespace-nowrap"><time datetime={end_date}>{end_date}</time></td>
-												<td class="whitespace-nowrap"><a href={file}>{file}</a></td>
+												<td class="whitespace-nowrap">{data.name}</td>
+												<td class="whitespace-nowrap">{data.value}</td>
+												<td class="whitespace-nowrap">{data.unit}</td>
+												<td class="whitespace-nowrap"><time datetime={data.start_date}>{data.start_date}</time></td>
+												<td class="whitespace-nowrap"><time datetime={data.end_date}>{data.end_date}</time></td>
+												<td class="whitespace-nowrap"><a href={data.file}>{data.file}</a></td>
 											</tr>
 										{/each}
 									</tbody>
@@ -157,7 +157,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										{#each plugin.data?.error as { message, error, datapoint_short_code, datapoint_readable_label }}
+										{#each plugin.data?.error as data (data)}
 											<tr data-error>
 												<td class="whitespace-nowrap">
 													<svg
@@ -177,8 +177,8 @@
 													</svg>
 													Not found</td
 												>
-												<td class="whitespace-nowrap">{datapoint_readable_label}</td>
-												<td class="whitespace-nowrap"><span class="prose text-wrap max-w-prose">{message}</span></td>
+												<td class="whitespace-nowrap">{data.datapoint_readable_label}</td>
+												<td class="whitespace-nowrap"><span class="prose text-wrap max-w-prose">{data.message}</span></td>
 											</tr>
 										{/each}
 									</tbody>
@@ -202,10 +202,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each form?.response.data.upstream.services as { domain, service_type }}
+							{#each form?.response.data.upstream.services as service (service)}
 								<tr>
-									<td class="whitespace-nowrap">{domain}</td>
-									<td class="whitespace-nowrap">{service_type}</td>
+									<td class="whitespace-nowrap">{service.domain}</td>
+									<td class="whitespace-nowrap">{service.service_type}</td>
 								</tr>
 							{/each}
 						</tbody>

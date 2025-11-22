@@ -29,16 +29,16 @@
 		<details>
 			<summary>Jump to:</summary>
 			<ul>
-				{#each Object.keys(servicesByCategory) as category}
+				{#each Object.keys(servicesByCategory) as category (category)}
 					<li><a href="#{category}">{readableCategoryName(category)}</a></li>
 				{/each}
 			</ul>
 		</details>
 
-		{#each Object.keys(servicesByCategory) as category}
+		{#each Object.keys(servicesByCategory) as category (category)}
 			<Heading level={2}><span id={category}>{readableCategoryName(category)}</span></Heading>
 
-			{#each servicesByCategory[category] as service}
+			{#each servicesByCategory[category] as service (service)}
 				<Heading level={3}><code>{service.slug}</code></Heading>
 				<p class="font-bold">{service.name}</p>
 				<div>{@html service.description}</div>

@@ -1,19 +1,7 @@
 <script>
 	// Components
-	import Code from '$lib/components/Code.svelte'
 	import Heading from '$lib/components/Heading.svelte'
-	import Button from '$lib/components/Button.svelte'
 	import What from '$lib/components/content/What.svelte'
-	import Features from '$lib/components/content/Features.svelte'
-	import Why from '$lib/components/content/Why.svelte'
-	import Callout from '$lib/components/Callout.svelte'
-	import TGWF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'
-	import Pilot from '$lib/components/Pilot.svelte'
-
-	let showBenefits = 'digitalService'
-	function handleMouseOver(event) {
-		showBenefits = event.detail.type
-	}
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">

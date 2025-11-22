@@ -1,7 +1,5 @@
 <script>
 	import Heading from '$lib/components/Heading.svelte'
-	import Button from '$lib/components/Button.svelte'
-	import Pilot from '$lib/components/Pilot.svelte'
 	import Faq from '$lib/components/Faq.svelte'
 
 	import DomainLookup from '$lib/svg/mermaid_domain-lookup.svelte'

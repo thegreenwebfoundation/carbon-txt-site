@@ -1,8 +1,4 @@
 <script>
-	import TGWF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'
-	import TGWF_Question from '$lib/svg/tgwf_logo_question.svelte'
-	import TGWF_Tree from '$lib/svg/tgwf_logo_tree.svelte'
-
 	let { currentView } = $props()
 </script>
 
