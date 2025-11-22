@@ -56,19 +56,6 @@
 	}
 
 	const validateOrgInput = () => {
-		if (newObject.domain.length === 0) {
-			error.field = 'org-domain'
-			error.message = 'Please enter a domain'
-			return
-		}
-
-		// Check the domain is valid
-		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
-		if (!domainRegex.test(newObject.domain)) {
-			error.field = 'org-domain'
-			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).'
-			return
-		}
 
 		if (newObject.doctype.length === 0) {
 			error.field = 'org-doctype'
@@ -91,7 +78,15 @@
 			return
 		}
 
-		error.field = ''
+		// Check the domain is valid if present
+		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
+		if (newObject.domain.length > 0 && !domainRegex.test(newObject.domain)) {
+			error.field = 'org-domain'
+			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).'
+			return
+		}
+
+    error.field = ''
 		error.message = ''
 		return
 	}
