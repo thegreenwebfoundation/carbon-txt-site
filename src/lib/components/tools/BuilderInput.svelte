@@ -21,7 +21,7 @@
 			doctype: '',
 			url: '',
 			domain: '',
-      validUntil: ''
+			validUntil: ''
 		}
 	}
 
@@ -57,7 +57,6 @@
 	}
 
 	const validateOrgInput = () => {
-
 		if (newObject.doctype.length === 0) {
 			error.field = 'org-doctype'
 			error.message = 'Please select a document type'
@@ -87,15 +86,15 @@
 			return
 		}
 
-	  // Check the valid until is valid if present
-    const dateRegex = new RegExp(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)
-    if (newObject.validUntil.length > 0 && (!dateRegex.test(newObject.validUntil) || isNaN(Date.parse(newObject.validUntil)))) {
-      error.field = "org-valid-until"
-      error.message = "Please enter a valid date, in the format YYYY-MM-DD"
-      return
-    }
+		// Check the valid until is valid if present
+		const dateRegex = new RegExp(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)
+		if (newObject.validUntil.length > 0 && (!dateRegex.test(newObject.validUntil) || isNaN(Date.parse(newObject.validUntil)))) {
+			error.field = 'org-valid-until'
+			error.message = 'Please enter a valid date, in the format YYYY-MM-DD'
+			return
+		}
 
-    error.field = ''
+		error.field = ''
 		error.message = ''
 		return
 	}
@@ -114,7 +113,7 @@
 				doctype: '',
 				url: '',
 				domain: '',
-        validUntil: ''
+				validUntil: ''
 			}
 			return
 		}
@@ -151,9 +150,7 @@
 			{#if error.field === 'upstream-domain'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
-      <small class="text-gray-600">
-        Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).
-      </small>
+			<small class="text-gray-600"> Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.). </small>
 		</div>
 		<!-- A select listing some online services -->
 		<div class="form-group">
@@ -191,6 +188,17 @@
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
 		</div>
+		<div class="form-group">
+			<span>
+				<label for="valid_until">Valid until (Optional)</label>
+				<small>The last date that this disclosure is valid for, if it is time-limited.</small>
+			</span>
+			<input type="text" name="valid_until" bind:value={newObject.validUntil} />
+			{#if error.field === 'org-valid-until'}
+				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
+			{/if}
+			<small class="text-gray-600"> As a string in YYYY-MM-DD format, e.g "2025-11-22". </small>
+		</div>
 		<!-- A text input with validation to check that it is a URL -->
 		<div class="form-group">
 			<span>
@@ -201,32 +209,6 @@
 			{#if error.field === 'org-url'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
-		</div>
-		<div class="form-group">
-			<span>
-				<label for="domain">Domain (Optional)</label>
-				<small>The specific domain for which the document applies.</small>
-			</span>
-			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
-			{#if error.field === 'org-domain'}
-				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
-			{/if}
-      <small class="text-gray-600">
-        Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).
-      </small>
-		</div>
-		<div class="form-group">
-			<span>
-				<label for="valid_until">Valid until (Optional)</label>
-				<small>The last date that this disclosure is valid for, if it is time-limited </small>
-			</span>
-			<input type="text" name="valid_until" bind:value={newObject.validUntil} placeholder="2030-12-31" />
-			{#if error.field === 'org-valid-until'}
-				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
-			{/if}
-      <small class="text-gray-600">
-        As a string in YYYY-MM-DD format, e.g "2025-11-22".
-      </small>
 		</div>
 		<button on:click={add} class="btn mx-auto w-max min-w-[20ch] rounded-full">Add</button>
 	</div>
@@ -247,19 +229,19 @@
 	.org-input {
 		display: flex;
 		flex-wrap: wrap;
-    row-gap: 2rem;
-    column-gap: 1rem;
+		row-gap: 2rem;
+		column-gap: 1rem;
 	}
 
 	.upstream-input .form-group,
 	.org-input .form-group {
 		flex: 1 1 auto;
-    margin: 0;
+		margin: 0;
 	}
 
-  .org-input .form-group {
-    width: 49%;
-  }
+	.org-input .form-group {
+		width: 49%;
+	}
 
 	.upstream-input button {
 		flex: 1 0 auto;
