@@ -10,7 +10,7 @@
 			"options": {
 				"parser": "svelte"
 			}
-		},
+		}
 	],
 	"tabWidth": 2,
 	"semi": false

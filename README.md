@@ -59,7 +59,7 @@ If that doesn't feel right for any reason or you would value a private conversat
 
 ### Ways to contribute to existing ideas
 
-We *really* welcome community feedback on ideas we are looking to move forward, or ideas that have come from others in the community. The best place for this is in the [issues section](#issues) of our three main github repositories as explained above.
+We _really_ welcome community feedback on ideas we are looking to move forward, or ideas that have come from others in the community. The best place for this is in the [issues section](#issues) of our three main github repositories as explained above.
 
 ### Ways to collaborate, donate or fund this project
 
@@ -98,8 +98,7 @@ You can preview the production build with `npm run preview`.
 
 ### Editing Mermaid diagrams
 
-To edit the mermaid diagrams in the site, simply take the URL of the embedded diagram in the site, and replace "mermaid.ink/svg/" with "mermaid.live/edit#" - then when you are finished editing, embed the *new* URL from the editor
-
+To edit the mermaid diagrams in the site, simply take the URL of the embedded diagram in the site, and replace "mermaid.ink/svg/" with "mermaid.live/edit#" - then when you are finished editing, embed the _new_ URL from the editor
 
 ## Deploying
 

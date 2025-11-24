@@ -35,29 +35,29 @@
 			<p>The content found in the carbon.txt file is displayed below:</p>
 
 			<div class="relative overflow-x-auto">
-        <table class="w-fulll">
-            <thead>
-              <tr>
-                <td colspan="2">File metadata</td>
-              </tr>
-              <tr>
-                <th>Name</th>
-                <th>Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="whitespace-nowrap"><b>Syntax version: </b></td>
-                <td class="whitespace-nowrap">{form?.response.data.version }</td>
-              </tr>
-              {#if form?.response.data.last_updated}
-                <tr>
-                  <td class="whitespace-nowrap"><b>Last updated on: </b></td>
-                  <td class="whitespace-nowrap">{form?.response.data.last_updated }</td>
-                </tr>
-              {/if }
-            </tbody>
-        </table>
+				<table class="w-fulll">
+					<thead>
+						<tr>
+							<td colspan="2">File metadata</td>
+						</tr>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="whitespace-nowrap"><b>Syntax version: </b></td>
+							<td class="whitespace-nowrap">{form?.response.data.version}</td>
+						</tr>
+						{#if form?.response.data.last_updated}
+							<tr>
+								<td class="whitespace-nowrap"><b>Last updated on: </b></td>
+								<td class="whitespace-nowrap">{form?.response.data.last_updated}</td>
+							</tr>
+						{/if}
+					</tbody>
+				</table>
 			</div>
 
 			{#if form?.response.data.org && form?.response.data.org.disclosures.length > 0}
