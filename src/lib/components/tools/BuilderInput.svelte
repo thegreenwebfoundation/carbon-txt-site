@@ -193,11 +193,10 @@
 				<label for="valid_until">Valid until (Optional)</label>
 				<small>The last date that this disclosure is valid for, if it is time-limited.</small>
 			</span>
-			<input type="text" name="valid_until" bind:value={newObject.validUntil} />
+			<input type="date" name="valid_until" bind:value={newObject.validUntil} />
 			{#if error.field === 'org-valid-until'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
-			<small class="text-gray-600"> As a string in YYYY-MM-DD format, e.g "2025-11-22". </small>
 		</div>
 		<!-- A text input with validation to check that it is a URL -->
 		<div class="form-group">
