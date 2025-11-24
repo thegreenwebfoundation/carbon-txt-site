@@ -5,7 +5,6 @@ about: Raise an issue with the carbon.txt syntax, website, builder, validator, o
 title: ''
 labels: ''
 assignees: fershad
-
 ---
 
 ## What is the issue related to?
@@ -19,6 +18,5 @@ assignees: fershad
 - [ ] something else
 
 ## Describe the issue in as much detail as possible. If necessary, you should include screenshots or links to files related to your issue.
-
 
 ## Outline the steps to reproduce the issue.

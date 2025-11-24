@@ -8,9 +8,6 @@
 	import SyntaxValidatorError from '$lib/components/tools/SyntaxValidatorError.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
 	import ValidatorLogs from '$lib/components/tools/ValidatorLogs.svelte'
-	import Button from '$lib/components/Button.svelte'
-	import Callout from '$lib/components/Callout.svelte'
-	import { onMount } from 'svelte'
 
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()

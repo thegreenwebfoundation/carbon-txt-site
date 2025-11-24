@@ -1,16 +1,13 @@
 <script>
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
-	import Button from '$lib/components/Button.svelte'
 	import Code from '$lib/components/Code.svelte'
 	import BuilderInput from '$lib/components/tools/BuilderInput.svelte'
 	import BuilderOutput from '$lib/components/tools/BuilderOutput.svelte'
 	import copy from 'clipboard-copy'
-	import Callout from '$lib/components/Callout.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
 
 	import { builderUpstream, builderOrg } from '$lib/store'
-	import services from '$lib/utils/upstreamServices'
 
 	let copyText = 'Copy output'
 

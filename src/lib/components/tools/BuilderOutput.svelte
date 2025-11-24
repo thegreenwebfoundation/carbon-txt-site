@@ -34,7 +34,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					{#each $store as provider}
+					{#each $store as provider (provider)}
 						<tr class="odd:bg-green-50 even:bg-green-100">
 							<td class="p-2">{provider.domain}</td>
 							<td class="p-2">{provider.service}</td>
@@ -76,7 +76,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					{#each $store as provider}
+					{#each $store as provider (provider)}
 						<tr class="odd:bg-green-50 even:bg-green-100">
 							<td class="p-2">{evidenceName(provider.doctype)}</td>
 							<td class="p-2">{provider.url}</td>

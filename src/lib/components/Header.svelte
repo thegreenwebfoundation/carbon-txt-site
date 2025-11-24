@@ -1,5 +1,4 @@
 <script>
-	import NoticeBanner from './NoticeBanner.svelte'
 	import { page } from '$app/stores'
 
 	$: currentPage = (route = '') => ($page.route.id === route ? 'no-underline text-black-600 font-bold' : '')

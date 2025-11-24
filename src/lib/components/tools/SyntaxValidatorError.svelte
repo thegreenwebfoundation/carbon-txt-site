@@ -26,7 +26,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each errors as error}
+				{#each errors as error (error)}
 					<tr>
 						{#if tomlError}
 							<td>Invalid TOML</td>

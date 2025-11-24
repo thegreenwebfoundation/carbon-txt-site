@@ -1,4 +1,3 @@
-import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
 const todaysDate = new Date().toISOString().split('T')[0]
 
 export const syntaxVersions = [

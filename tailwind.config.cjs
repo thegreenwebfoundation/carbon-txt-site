@@ -14,11 +14,11 @@ const config = {
 			'5xl': '2.25rem',
 			'6xl': '2.5rem',
 			'disp-sm': '2.75rem',
-			'disp-lg': '3.25rem',
+			'disp-lg': '3.25rem'
 		},
-        extend: {
-            colors: {
-				'green': {
+		extend: {
+			colors: {
+				green: {
 					50: '#F0FDF0',
 					100: '#DCFCDC',
 					200: '#BBF7BB',
@@ -29,9 +29,9 @@ const config = {
 					700: '#158015',
 					800: '#166516',
 					900: '#145314',
-					DEFAULT: '#00FF00',
+					DEFAULT: '#00FF00'
 				},
-				'purple': {
+				purple: {
 					50: '#FBF2FE',
 					100: '#F7E2FE',
 					200: '#F1CAFE',
@@ -42,9 +42,9 @@ const config = {
 					700: '#921CB9',
 					800: '#7A1B99',
 					900: '#671D7F',
-					DEFAULT: '#CB2CFF',
+					DEFAULT: '#CB2CFF'
 				},
-				'blue': {
+				blue: {
 					50: '#EEF5FF',
 					100: '#E0ECFF',
 					200: '#C7DDFE',
@@ -55,12 +55,12 @@ const config = {
 					700: '#3872CA',
 					800: '#305EA3',
 					900: '#2E4F81',
-					DEFAULT: '#0066FF',
-				},
-            },			
+					DEFAULT: '#0066FF'
+				}
+			},
 			fontFamily: {
 				sans: ['TWKEverett', 'sans-serif'],
-				serif: ['TWKEverett', 'serif'],
+				serif: ['TWKEverett', 'serif']
 			},
 			typography: (theme) => ({
 				DEFAULT: {
@@ -69,39 +69,34 @@ const config = {
 						'--tw-prose-headings': theme('colors.neutral[900]'),
 						h1: {
 							textTransform: 'uppercase',
-							fontSize: theme('fontSize.6xl'),
+							fontSize: theme('fontSize.6xl')
 						},
 						h2: {
 							fontSize: theme('fontSize.4xl'),
 							borderTopWidth: '2px',
 							borderBottomWidth: '2px',
 							paddingTop: '1.5rem',
-							paddingBottom: '1.5rem',
+							paddingBottom: '1.5rem'
 						},
 						h3: {
 							fontSize: theme('fontSize.3xl'),
 							borderBottomWidth: '1px',
 							paddingBottom: '0.5rem',
-							marginBottom: '1rem',
+							marginBottom: '1rem'
 						},
 						h4: {
-							fontSize: theme('fontSize.2xl'),
+							fontSize: theme('fontSize.2xl')
 						},
 						h5: {
 							fontSize: theme('fontSize.xl'),
-							fontWeight: 'default',
-						},
-					},
-				},
-			}),
-        },
-    },
-    plugins: [
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
-        require('@tailwindcss/line-clamp'),
-        require('@tailwindcss/aspect-ratio'),
-    ],
-};
+							fontWeight: 'default'
+						}
+					}
+				}
+			})
+		}
+	},
+	plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('@tailwindcss/line-clamp'), require('@tailwindcss/aspect-ratio')]
+}
 
-module.exports = config;
+module.exports = config

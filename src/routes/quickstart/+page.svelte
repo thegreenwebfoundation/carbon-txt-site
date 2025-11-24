@@ -2,9 +2,7 @@
 	/** @type {import('../quickstart/$types').ActionData} */
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
-	import Code from '$lib/components/Code.svelte'
 	import Button from '$lib/components/Button.svelte'
-	import Callout from '$lib/components/Callout.svelte'
 </script>
 
 <article id="digital-services" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">

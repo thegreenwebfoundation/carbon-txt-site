@@ -2,7 +2,6 @@
 	import TWGF_Tree from '$lib/svg/tgwf_logo_tree.svelte'
 	import TWGF_Up_Arrow from '$lib/svg/tgwf_logo_up_arrow.svelte'
 	import TWGF_Bolt from '$lib/svg/tgwf_logo_bolt.svelte'
-	import Heading from '$lib/components/Heading.svelte'
 </script>
 
 <div class="my-4">
@@ -25,8 +24,8 @@
 				<h3 class="text-3xl inline ml-4">Extendible syntax</h3>
 			</div>
 			<p>
-				A simple, extendible <a href="/syntax">syntax</a> that can be used to describe a wide range of sustainability data, from carbon emissions to social impact, and be easily updated as new data types and mandated
-				reporting requirements emerge.
+				A simple, extendible <a href="/syntax">syntax</a> that can be used to describe a wide range of sustainability data, from carbon emissions to social impact, and be easily updated as new data types
+				and mandated reporting requirements emerge.
 			</p>
 		</li>
 
@@ -38,8 +37,9 @@
 				<h3 class="text-3xl inline ml-4">Plugin architecture</h3>
 			</div>
 			<p>
-				A <a href="https://developers.thegreenwebfoundation.org/carbon-txt/overview/">plugin architecture</a> that allows for the easy integration of <a href="https://github.com/thegreenwebfoundation/carbon-txt-validator">carbon.txt validation tools</a> into existing platforms and software,
-				enabling discovery and validation of sustainability data at scale across a range of use cases.
+				A <a href="https://developers.thegreenwebfoundation.org/carbon-txt/overview/">plugin architecture</a> that allows for the easy integration of
+				<a href="https://github.com/thegreenwebfoundation/carbon-txt-validator">carbon.txt validation tools</a> into existing platforms and software, enabling discovery and validation of sustainability
+				data at scale across a range of use cases.
 			</p>
 		</li>
 	</ul>

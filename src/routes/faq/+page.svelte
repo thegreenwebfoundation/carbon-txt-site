@@ -1,7 +1,5 @@
 <script>
 	import Heading from '$lib/components/Heading.svelte'
-	import Button from '$lib/components/Button.svelte'
-	import Pilot from '$lib/components/Pilot.svelte'
 	import Faq from '$lib/components/Faq.svelte'
 
 	import DomainLookup from '$lib/svg/mermaid_domain-lookup.svelte'
@@ -38,7 +36,8 @@
 				</p>
 				<Heading level={3}>Anywhere else (using an HTTP header)</Heading>
 				<p>
-					Upload the carbon.txt file at any publicly accessible HTTP URL, then set up your web server to add the header <code>CarbonTxt-Location: URL</code> to all requests, pointing to the location of this file.
+					Upload the carbon.txt file at any publicly accessible HTTP URL, then set up your web server to add the header <code>CarbonTxt-Location: URL</code> to all requests, pointing to the location of
+					this file.
 				</p>
 			</div>
 		</div>
@@ -84,25 +83,24 @@
 
 				<p>
 					When you enter a website domain, the validator will check for a DNS TXT record in the format <code>carbon-txt-location=URL</code> and follow it, if it exists.
-        </p>
-        <p>
-          If no DNS TXT record is found, it will proceed to look for a carbon.txt
-          file in the root of the website (e.g. <code>https://example.com/carbon.txt</code>). If it finds one, it will parse the file and return the information contained within it.
-        </p>
-        <p>
-          If there is no carbon.txt file at the root of the domain, it will then check for the file in a well-known location on the server (e.g. <code>https://example.com/.well-known/carbon.txt</code>).
-          Again, if it finds one, it will parse the file and return the information contained within it.
-        </p>
-        <p>
-          If no file is found at either location, then the validator will proceeed to check for a <code>CarbonTxt-Location</code> HTTP header specifying a URL, and follow it.
-        </p>
-        <p>
-          If none of the above succeed, and you have requested either a top-level domain, or the www. subdomain of a top level domain - the validator will then attempt to find the carbontxt at the other alternative automatically
-          (the www. subdomain will be tried, if a TLD was requested, the TLD will be tried if a www. subdomain is requested). The entire process is repeated for the alternate domain. For any other subdomains, no further attempts are carried out.
-        </p>
-        <p>
-          If none of the above are found, the validator will return an error message.
 				</p>
+				<p>
+					If no DNS TXT record is found, it will proceed to look for a carbon.txt file in the root of the website (e.g. <code>https://example.com/carbon.txt</code>). If it finds one, it will parse the
+					file and return the information contained within it.
+				</p>
+				<p>
+					If there is no carbon.txt file at the root of the domain, it will then check for the file in a well-known location on the server (e.g. <code>https://example.com/.well-known/carbon.txt</code
+					>). Again, if it finds one, it will parse the file and return the information contained within it.
+				</p>
+				<p>
+					If no file is found at either location, then the validator will proceeed to check for a <code>CarbonTxt-Location</code> HTTP header specifying a URL, and follow it.
+				</p>
+				<p>
+					If none of the above succeed, and you have requested either a top-level domain, or the www. subdomain of a top level domain - the validator will then attempt to find the carbontxt at the
+					other alternative automatically (the www. subdomain will be tried, if a TLD was requested, the TLD will be tried if a www. subdomain is requested). The entire process is repeated for the
+					alternate domain. For any other subdomains, no further attempts are carried out.
+				</p>
+				<p>If none of the above are found, the validator will return an error message.</p>
 
 				<p>The diagram below shows this process visually.</p>
 
