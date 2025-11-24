@@ -20,7 +20,8 @@
 		newObject = {
 			doctype: '',
 			url: '',
-			domain: ''
+			domain: '',
+			validUntil: ''
 		}
 	}
 
@@ -56,20 +57,6 @@
 	}
 
 	const validateOrgInput = () => {
-		if (newObject.domain.length === 0) {
-			error.field = 'org-domain'
-			error.message = 'Please enter a domain'
-			return
-		}
-
-		// Check the domain is valid
-		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
-		if (!domainRegex.test(newObject.domain)) {
-			error.field = 'org-domain'
-			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).'
-			return
-		}
-
 		if (newObject.doctype.length === 0) {
 			error.field = 'org-doctype'
 			error.message = 'Please select a document type'
@@ -91,6 +78,22 @@
 			return
 		}
 
+		// Check the domain is valid if present
+		const domainRegex = new RegExp(/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/)
+		if (newObject.domain.length > 0 && !domainRegex.test(newObject.domain)) {
+			error.field = 'org-domain'
+			error.message = 'Please enter a valid domain. Do not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).'
+			return
+		}
+
+		// Check the valid until is valid if present
+		const dateRegex = new RegExp(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)
+		if (newObject.validUntil.length > 0 && (!dateRegex.test(newObject.validUntil) || isNaN(Date.parse(newObject.validUntil)))) {
+			error.field = 'org-valid-until'
+			error.message = 'Please enter a valid date, in the format YYYY-MM-DD'
+			return
+		}
+
 		error.field = ''
 		error.message = ''
 		return
@@ -109,7 +112,8 @@
 			newObject = {
 				doctype: '',
 				url: '',
-				domain: ''
+				domain: '',
+				validUntil: ''
 			}
 			return
 		}
@@ -140,12 +144,13 @@
 		<div class="form-group">
 			<span>
 				<label for="domain">Domain</label>
-				<small>The domain of the provider who's services you use. Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).</small>
+				<small>The domain of the provider who's services you use.</small>
 			</span>
 			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
 			{#if error.field === 'upstream-domain'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
+			<small class="text-gray-600"> Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.). </small>
 		</div>
 		<!-- A select listing some online services -->
 		<div class="form-group">
@@ -183,6 +188,16 @@
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
 		</div>
+		<div class="form-group">
+			<span>
+				<label for="valid_until">Valid until (Optional)</label>
+				<small>The last date that this disclosure is valid for, if it is time-limited.</small>
+			</span>
+			<input type="date" name="valid_until" bind:value={newObject.validUntil} />
+			{#if error.field === 'org-valid-until'}
+				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
+			{/if}
+		</div>
 		<!-- A text input with validation to check that it is a URL -->
 		<div class="form-group">
 			<span>
@@ -191,16 +206,6 @@
 			</span>
 			<input type="text" name="url" bind:value={newObject.url} placeholder="https://example.com/our-sustainability-page" />
 			{#if error.field === 'org-url'}
-				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
-			{/if}
-		</div>
-		<div class="form-group">
-			<span>
-				<label for="domain">Domain</label>
-				<small>The domain for which the document applies. Do not include the protocol (i.e. http:// or https://) or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).</small>
-			</span>
-			<input type="text" name="domain" bind:value={newObject.domain} placeholder="example.com" />
-			{#if error.field === 'org-domain'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
 		</div>
@@ -223,17 +228,18 @@
 	.org-input {
 		display: flex;
 		flex-wrap: wrap;
-		row-gap: 0.5rem;
+		row-gap: 2rem;
+		column-gap: 1rem;
 	}
 
 	.upstream-input .form-group,
 	.org-input .form-group {
-		flex: 1 0 auto;
-		margin-right: 1rem;
+		flex: 1 1 auto;
+		margin: 0;
 	}
 
-	.org-input > .form-group:has(input[name='url']) {
-		flex: 1 0 auto;
+	.org-input .form-group {
+		width: 49%;
 	}
 
 	.upstream-input button {

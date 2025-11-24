@@ -34,25 +34,53 @@
 			<Heading level={2}>File contents</Heading>
 			<p>The content found in the carbon.txt file is displayed below:</p>
 
+			<div class="relative overflow-x-auto">
+        <table class="w-fulll">
+            <thead>
+              <tr>
+                <td colspan="2">File metadata</td>
+              </tr>
+              <tr>
+                <th>Name</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="whitespace-nowrap"><b>Syntax version: </b></td>
+                <td class="whitespace-nowrap">{form?.response.data.version }</td>
+              </tr>
+              {#if form?.response.data.last_updated}
+                <tr>
+                  <td class="whitespace-nowrap"><b>Last updated on: </b></td>
+                  <td class="whitespace-nowrap">{form?.response.data.last_updated }</td>
+                </tr>
+              {/if }
+            </tbody>
+        </table>
+			</div>
+
 			{#if form?.response.data.org && form?.response.data.org.disclosures.length > 0}
 				<div class="relative overflow-x-auto">
 					<table class="w-full">
 						<thead>
 							<tr>
-								<td colspan="3">Organisation disclosures</td>
+								<td colspan="4">Organisation disclosures</td>
 							</tr>
 							<tr>
-								<th>Domain</th>
 								<th>Document Type</th>
 								<th>Document URL</th>
+								<th>Domain</th>
+								<th>Valid until</th>
 							</tr>
 						</thead>
 						<tbody>
-							{#each form?.response.data.org.disclosures as { domain, doc_type, url }}
+							{#each form?.response.data.org.disclosures as { domain, doc_type, url, valid_until }}
 								<tr>
-									<td class="whitespace-nowrap">{domain}</td>
 									<td class="whitespace-nowrap">{doc_type}</td>
 									<td class="whitespace-nowrap">{url}</td>
+									<td class="whitespace-nowrap">{domain || "-" }</td>
+									<td class="whitespace-nowrap">{valid_until || "-" }</td>
 								</tr>
 							{/each}
 						</tbody>

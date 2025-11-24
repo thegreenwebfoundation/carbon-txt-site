@@ -1,5 +1,9 @@
+import * as publicEnv from "$env/static/public";
+
+const apiBase = publicEnv["PUBLIC_API_BASE_URL"] || "https://carbon-txt-api.greenweb.org";
+
 const fetchEvidenceTypes = async () => {
-    const schema = await fetch('https://carbon-txt-api.greenweb.org/api/json_schema/')
+    const schema = await fetch(`${apiBase}/api/json_schema/`)
     const json = await schema.json()
 
     return json.$defs.Disclosure.properties.doc_type.enum.map((type) => {

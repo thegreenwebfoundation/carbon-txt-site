@@ -8,15 +8,15 @@
 
 <section class="w-100">
 	<div class="container mx-auto p-6 md:pb-[4rem] md:pt-[4rem] px-2 sm:px-4 max-w-[700px]">
-		<ul class="grid gap-3 w-100 justify-center md:grid-cols-2">
-			<li data-current={currentView === 'builder'} class="bg-white border-2 border-dark-gray rounded-3xl">
+		<ul class="grid w-100 justify-center grid-cols-2">
+			<li data-current={currentView === 'builder'} class="bg-white border-s-2 border-t-2 border-b-2 border-e-2 border-dark-gray rounded-l-3xl">
 				<a href="/tools/builder" class="grid gap-4 no-underline p-4">
 					<div class="w-100 flex justify-center">
 						<p>File Builder</p>
 					</div>
 				</a>
 			</li>
-			<li data-current={currentView === 'validator'} class="bg-white border-2 border-dark-gray rounded-3xl">
+			<li data-current={currentView === 'validator'} class="bg-white border-t-2 border-e-2 border-b-2 border-s-1 border-dark-gray rounded-r-3xl">
 				<a href="/tools/validator" class="grid gap-4 no-underline p-4">
 					<div class="w-100 flex justify-center">
 						<p>Validator</p>
