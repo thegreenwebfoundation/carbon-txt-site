@@ -96,8 +96,7 @@ export const actions = {
                   if (line.trim().split('=')[0].startsWith(property)) {
                     continue
                   }
-
-                  if (error.type === 'missing') {
+                  if (error.type === 'missing' && inCorrectSection) {
                     // Check the section we are in
                     if (section === 'upstream') {
                       // Upstream providers should have a domain and service-type key.
