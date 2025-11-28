@@ -20,7 +20,8 @@
 			doctype: '',
 			url: '',
 			domain: '',
-			validUntil: ''
+			validUntil: '',
+			title: ''
 		}
 	}
 
@@ -112,7 +113,8 @@
 				doctype: '',
 				url: '',
 				domain: '',
-				validUntil: ''
+				validUntil: '',
+				title: ''
 			}
 			return
 		}
@@ -207,6 +209,13 @@
 			{#if error.field === 'org-url'}
 				<div class="p-2 border rounded alert__error mt-1"><small>{error.message}</small></div>
 			{/if}
+		</div>
+		<div class="form-group">
+			<span>
+				<label for="disclosure_title">Title</label>
+				<small>A meaningful title describing the disclosure.</small>
+			</span>
+			<input type="text" name="disclosure_title" bind:value={newObject.title} placeholder="" />
 		</div>
 		<button on:click={add} class="btn mx-auto w-max min-w-[20ch] rounded-full">Add</button>
 	</div>
