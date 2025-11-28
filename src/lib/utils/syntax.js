@@ -301,6 +301,14 @@ services = [
 								description:
 									'The domain for which the disclosure applies, if this carbon.txt is to be used across multiple domains. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).',
 								type: 'string'
+							},
+							{
+								name: 'title',
+								required: false,
+								parent: 'disclosures',
+								longTitle: 'Title',
+								description: 'A meaningful title describing the disclosure.',
+								type: 'string'
 							}
 						]
 					}
@@ -308,7 +316,7 @@ services = [
 				example: `[org]
 disclosures = [
 	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
-	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31" }
+	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31", title = "Emissions Report 2025" }
 ]`
 			},
 			{
@@ -359,7 +367,7 @@ last_updated="${todaysDate}"
 [org]
 disclosures = [
     { doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
-    { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31" }
+    { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31", title = "Emissions Report 2025" }
 ]
 
 [upstream]
