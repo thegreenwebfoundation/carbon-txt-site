@@ -70,9 +70,7 @@
 							<tr>
 								<th>Document Type</th>
 								<th>Document URL</th>
-								{#if !form?.response.data.version}
-									<th>Domain</th>
-								{/if}
+								<th>Domain</th>
 								<th>Valid until</th>
 								<th>Title</th>
 							</tr>
@@ -82,9 +80,7 @@
 								<tr>
 									<td class="whitespace-nowrap">{disclosure.doc_type}</td>
 									<td class="whitespace-nowrap">{disclosure.url}</td>
-									{#if !form?.response.data.version}
-										<td class="whitespace-nowrap">{disclosure.domain || '-'}</td>
-									{/if}
+									<td class="whitespace-nowrap">{disclosure.domain || '-'}</td>
 									<td class="whitespace-nowrap">{disclosure.valid_until || '-'}</td>
 									<td class="whitespace-nowrap">{disclosure.title || '-'}</td>
 								</tr>
