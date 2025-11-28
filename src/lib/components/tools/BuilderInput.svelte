@@ -212,7 +212,7 @@
 		</div>
 		<div class="form-group">
 			<span>
-				<label for="disclosure_title">Title</label>
+				<label for="disclosure_title">Title (Optional)</label>
 				<small>A meaningful title describing the disclosure.</small>
 			</span>
 			<input type="text" name="disclosure_title" bind:value={newObject.title} placeholder="" />

@@ -24,11 +24,16 @@
 				if (credential.validUntil.length > 0) {
 					content += `, valid_until='${credential.validUntil}'`
 				}
+
+				if (credential.title.length > 0) {
+					content += `, title='${credential.title}'`
+				}
+
 				return `{ ${content} }`
 			})
 			.join(',\n    ')
 
-	const carbonTxtSyntaxVersion = '0.3'
+	const carbonTxtSyntaxVersion = '0.4'
 	const todaysDate = new Date().toISOString().split('T')[0]
 
 	$: outputCode = `version="${carbonTxtSyntaxVersion}"
