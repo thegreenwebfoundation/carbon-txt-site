@@ -75,7 +75,7 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 					<Heading level={1}>Builder</Heading>
 					<p>Use this builder to create a carbon.txt file for your organisation.</p>
 					<p>
-						This builder uses <b>version 0.3</b> of the carbon.txt syntax.
+						This builder uses <b>the latest</b> of the carbon.txt syntax.
 						<a href="/syntax">Learn more about the syntax</a>.
 					</p>
 				</div>
