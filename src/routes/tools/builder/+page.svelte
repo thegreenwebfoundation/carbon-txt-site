@@ -24,11 +24,16 @@
 				if (credential.validUntil.length > 0) {
 					content += `, valid_until='${credential.validUntil}'`
 				}
+
+				if (credential.title.length > 0) {
+					content += `, title='${credential.title}'`
+				}
+
 				return `{ ${content} }`
 			})
 			.join(',\n    ')
 
-	const carbonTxtSyntaxVersion = '0.3'
+	const carbonTxtSyntaxVersion = '0.4'
 	const todaysDate = new Date().toISOString().split('T')[0]
 
 	$: outputCode = `version="${carbonTxtSyntaxVersion}"
@@ -70,7 +75,7 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 					<Heading level={1}>Builder</Heading>
 					<p>Use this builder to create a carbon.txt file for your organisation.</p>
 					<p>
-						This builder uses <b>version 0.3</b> of the carbon.txt syntax.
+						This builder uses <b>the latest</b> of the carbon.txt syntax.
 						<a href="/syntax">Learn more about the syntax</a>.
 					</p>
 				</div>

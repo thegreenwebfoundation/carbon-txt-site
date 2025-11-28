@@ -72,6 +72,7 @@
 								<th>Document URL</th>
 								<th>Domain</th>
 								<th>Valid until</th>
+								<th>Title</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -81,6 +82,7 @@
 									<td class="whitespace-nowrap">{disclosure.url}</td>
 									<td class="whitespace-nowrap">{disclosure.domain || '-'}</td>
 									<td class="whitespace-nowrap">{disclosure.valid_until || '-'}</td>
+									<td class="whitespace-nowrap">{disclosure.title || '-'}</td>
 								</tr>
 							{/each}
 						</tbody>
