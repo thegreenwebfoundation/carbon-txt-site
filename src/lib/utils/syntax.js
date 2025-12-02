@@ -234,7 +234,7 @@ services = [
 		name: '0.3',
 		current: true,
 		validFrom: '2025-11-24',
-		validTo: '2025-XX-XX',
+		validTo: '2025-12-01',
 		language: 'TOML',
 		syntax: [
 			{
@@ -371,17 +371,17 @@ services = [
 	{
 		name: '0.4',
 		current: true,
-		validFrom: '2025-XX-XX',
+		validFrom: '2025-12-02',
 		validTo: '-',
 		language: 'TOML',
 		syntax: [
 			{
 				name: 'version',
 				required: true,
-				description: 'carbon.txt syntax version, e.g. "0.3", required from version 0.3 onwards.',
+				description: 'carbon.txt syntax version, e.g. "0.4", required from version 0.3 onwards.',
 				longTitle: 'Version',
 				type: 'string',
-				example: `version = "0.3"`
+				example: `version = "0.4"`
 			},
 			{
 				name: 'last_updated',
@@ -499,7 +499,7 @@ services = [
 ]`
 			}
 		],
-		example: `version="0.3"
+		example: `version="0.4"
 last_updated="${todaysDate}"
 
 [org]
