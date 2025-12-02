@@ -234,7 +234,7 @@ services = [
 		name: '0.3',
 		current: true,
 		validFrom: '2025-11-24',
-		validTo: '-',
+		validTo: '2025-12-01',
 		language: 'TOML',
 		syntax: [
 			{
@@ -360,6 +360,152 @@ last_updated="${todaysDate}"
 disclosures = [
     { doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
     { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31" }
+]
+
+[upstream]
+services = [
+	{ domain = "cloud.google.com", service_type = "shared-hosting" },
+	{ domain = "aws.amazon.com" }
+]`
+	},
+	{
+		name: '0.4',
+		current: true,
+		validFrom: '2025-12-02',
+		validTo: '-',
+		language: 'TOML',
+		syntax: [
+			{
+				name: 'version',
+				required: true,
+				description: 'carbon.txt syntax version, e.g. "0.4", required from version 0.3 onwards.',
+				longTitle: 'Version',
+				type: 'string',
+				example: `version = "0.4"`
+			},
+			{
+				name: 'last_updated',
+				required: false,
+				longTitle: 'Last updated',
+				description: `The date this file was last updated, as a string in ISO8601 format, e.g "${todaysDate}".`,
+				type: 'string',
+				example: `last_updated = "${todaysDate}"`
+			},
+			{
+				name: 'org',
+				required: true,
+				longTitle: 'Organisation disclosures',
+				// description: 'Links to documents that show your organisations sustainability disclosures.',
+				type: '[table]',
+				properties: [
+					{
+						name: 'disclosures',
+						parent: 'org',
+						required: true,
+						longTitle: 'disclosures',
+						description: 'Links to documents that show your organisations sustainability data disclosures.',
+						type: '[[array]]',
+						properties: [
+							{
+								name: 'doc_type',
+								required: true,
+								parent: 'disclosures',
+								longTitle: 'Document type',
+								description:
+									'A slugified string representing the type of document you are linking to. Accepted values are: "web-page", "annual-report", "sustainability-page", "certificate", "csrd-report", "other"',
+								type: 'string'
+							},
+							{
+								name: 'url',
+								required: true,
+								parent: 'disclosures',
+								longTitle: 'URL',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								type: 'url'
+							},
+							{
+								name: 'valid_until',
+								required: false,
+								parent: 'disclosure',
+								longTitle: 'Valid until',
+								description: `The last date that this disclosure is valid for, if it is time-limited (for example, an annual report or renewable energy certificate), as a string in ISO8601 format, e.g "${todaysDate}".`,
+								type: 'date'
+							},
+							{
+								name: 'domain',
+								required: false,
+								parent: 'disclosures',
+								longTitle: 'Domain',
+								description:
+									'The domain for which the disclosure applies, if this carbon.txt is to be used across multiple domains. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).',
+								type: 'string'
+							},
+							{
+								name: 'title',
+								required: false,
+								parent: 'disclosures',
+								longTitle: 'Title',
+								description: 'A meaningful title describing the disclosure.',
+								type: 'string'
+							}
+						]
+					}
+				],
+				example: `[org]
+disclosures = [
+	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
+	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31", title = "Emissions Report 2025" }
+]`
+			},
+			{
+				name: 'upstream',
+				required: false,
+				type: '[table]',
+				longTitle: 'Upstream services',
+				// description: 'Information linking your organisation to upstream providers used to deliver your services.',
+				properties: [
+					{
+						name: 'services',
+						parent: 'upstream',
+						required: false,
+						longTitle: 'Services',
+						description: 'Information linking your organisation to upstream providers you use.',
+						type: '[[array]]',
+						properties: [
+							{
+								name: 'domain',
+								required: false,
+								parent: 'services',
+								longTitle: 'Domain',
+								description:
+									'The domain of the organisation providing the upstream service. This can include any subdomains (e.g. "www."), but should not include the protocol (i.e. "http://" or "https://") or any content paths (e.g "/news/", "/about", "news-update-2025" etc.).',
+								type: 'string'
+							},
+							{
+								name: 'service_type',
+								required: false,
+								parent: 'services',
+								longTitle: 'Service type',
+								description: 'A slug representing the service provided by the upstream provider.',
+								type: 'string or ["array of strings"]'
+							}
+						]
+					}
+				],
+				example: `[upstream]
+services = [
+    { domain = "cloud.google.com", service_type = "shared-hosting" },
+    { domain = "aws.amazon.com", service_type = "cdn" }
+]`
+			}
+		],
+		example: `version="0.4"
+last_updated="${todaysDate}"
+
+[org]
+disclosures = [
+    { doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
+    { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31", title = "Emissions Report 2025" }
 ]
 
 [upstream]

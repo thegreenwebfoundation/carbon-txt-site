@@ -53,102 +53,104 @@ export const actions = {
 
 				await json.errors
 					.map((error) => {
-						const [section, property, arrayIndex, ...rest] = error.loc
-						const field = rest.length > 1 ? rest[1] : rest[0]
+						if (error.loc) {
+							const [section, property, arrayIndex, ...rest] = error.loc
+							const field = rest.length > 1 ? rest[1] : rest[0]
 
-						// Navigate through the TOML structure to find the problematic value
-						try {
-							const sectionObj = parsedToml[section]
-							if (!sectionObj) return -1
+							// Navigate through the TOML structure to find the problematic value
+							try {
+								const sectionObj = parsedToml[section]
+								if (!sectionObj) return -1
 
-							const propertyArray = sectionObj[property]
-							if (!propertyArray || !Array.isArray(propertyArray)) return -1
+								const propertyArray = sectionObj[property]
+								if (!propertyArray || !Array.isArray(propertyArray)) return -1
 
-							const arrayItem = propertyArray[arrayIndex]
-							if (!arrayItem) return -1
+								const arrayItem = propertyArray[arrayIndex]
+								if (!arrayItem) return -1
 
-							const problemValue = arrayItem[field]
+								const problemValue = arrayItem[field]
 
-							// Find the line that contains this exact value in the correct section
-							let inCorrectSection = false
-							for (let i = 0; i < lines.length; i++) {
-								if (errorLines.includes(i)) {
-									continue
-								}
-								const line = lines[i]
+								// Find the line that contains this exact value in the correct section
+								let inCorrectSection = false
+								for (let i = 0; i < lines.length; i++) {
+									if (errorLines.includes(i)) {
+										continue
+									}
+									const line = lines[i]
 
-								// Check if we're in the correct section
-								if (line.trim() === `[${section}]`) {
-									inCorrectSection = true
-									continue
-								}
+									// Check if we're in the correct section
+									if (line.trim() === `[${section}]`) {
+										inCorrectSection = true
+										continue
+									}
 
-								if (line.trim().startsWith('#')) {
-									continue
-								}
+									if (line.trim().startsWith('#')) {
+										continue
+									}
 
-								// If we hit another section, stop looking
-								if (line.trim().startsWith('[') && inCorrectSection) {
-									break
-								}
+									// If we hit another section, stop looking
+									if (line.trim().startsWith('[') && inCorrectSection) {
+										break
+									}
 
-								if (line.trim().split('=')[0].startsWith(property)) {
-									continue
-								}
-								if (error.type === 'missing' && inCorrectSection) {
-									// Check the section we are in
-									if (section === 'upstream') {
-										// Upstream providers should have a domain and service-type key.
-										const missingKey = field
-										if (missingKey === 'domain') {
-											if (!line.includes('domain')) {
-												error.line = i + 1
-												errorLines.push(i)
-												return i
+									if (line.trim().split('=')[0].startsWith(property)) {
+										continue
+									}
+									if (error.type === 'missing' && inCorrectSection) {
+										// Check the section we are in
+										if (section === 'upstream') {
+											// Upstream providers should have a domain and service-type key.
+											const missingKey = field
+											if (missingKey === 'domain') {
+												if (!line.includes('domain')) {
+													error.line = i + 1
+													errorLines.push(i)
+													return i
+												}
+											} else {
+												if (!line.includes('service-type')) {
+													error.line = i + 1
+													errorLines.push(i)
+													return i
+												}
 											}
-										} else {
-											if (!line.includes('service-type')) {
-												error.line = i + 1
-												errorLines.push(i)
-												return i
+										}
+
+										if (section === 'org') {
+											// Orgs should have a domain, url, and doc_type key.
+											const missingKey = field
+											if (missingKey === 'domain') {
+												if (!line.includes('domain')) {
+													error.line = i + 1
+													errorLines.push(i)
+													return i
+												}
+											} else if (missingKey === 'url') {
+												if (!line.includes('url')) {
+													error.line = i + 1
+													errorLines.push(i)
+													return i
+												}
+											} else {
+												if (!line.includes('doc_type')) {
+													error.line = i + 1
+													errorLines.push(i)
+													return i
+												}
 											}
 										}
 									}
 
-									if (section === 'org') {
-										// Orgs should have a domain, url, and doc_type key.
-										const missingKey = field
-										if (missingKey === 'domain') {
-											if (!line.includes('domain')) {
-												error.line = i + 1
-												errorLines.push(i)
-												return i
-											}
-										} else if (missingKey === 'url') {
-											if (!line.includes('url')) {
-												error.line = i + 1
-												errorLines.push(i)
-												return i
-											}
-										} else {
-											if (!line.includes('doc_type')) {
-												error.line = i + 1
-												errorLines.push(i)
-												return i
-											}
-										}
+									// Only look for the value if we're in the correct section
+									if (inCorrectSection && line.includes(`${field}`) && line.includes(`${problemValue}`)) {
+										error.line = i + 1
+										errorLines.push(i)
+										return i
 									}
 								}
-
-								// Only look for the value if we're in the correct section
-								if (inCorrectSection && line.includes(`${field}`) && line.includes(`${problemValue}`)) {
-									error.line = i + 1
-									errorLines.push(i)
-									return i
-								}
+							} catch {
+								return -1
 							}
-						} catch {
-							return -1
 						}
 						return -1
 					})
