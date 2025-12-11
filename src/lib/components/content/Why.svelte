@@ -40,7 +40,7 @@
 		</p>
 
 		<p>
-			The spec, and tooling around it, also aims to be extendible so that it can be applied to make organisational disclosures discoverable for any number of areas such as water usage, modern slavery,
+			The spec, and tooling around it, also aims to be extendable so that it can be applied to make organisational disclosures discoverable for any number of areas such as water usage, modern slavery,
 			etc.
 		</p>
 	{/if}

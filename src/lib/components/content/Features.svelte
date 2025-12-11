@@ -21,10 +21,10 @@
 				<div class="border-r-2 border-dark-gray h-100 pr-4 inline-block">
 					<TWGF_Up_Arrow width="50px" />
 				</div>
-				<h3 class="text-3xl inline ml-4">Extendible syntax</h3>
+				<h3 class="text-3xl inline ml-4">Extendable syntax</h3>
 			</div>
 			<p>
-				A simple, extendible <a href="/syntax">syntax</a> that can be used to describe a wide range of sustainability data, from carbon emissions to social impact, and be easily updated as new data types
+				A simple, extendable <a href="/syntax">syntax</a> that can be used to describe a wide range of sustainability data, from carbon emissions to social impact, and be easily updated as new data types
 				and mandated reporting requirements emerge.
 			</p>
 		</li>
