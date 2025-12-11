@@ -232,7 +232,7 @@ services = [
 	},
 	{
 		name: '0.3',
-		current: true,
+		current: false,
 		validFrom: '2025-11-24',
 		validTo: '2025-12-01',
 		language: 'TOML',
