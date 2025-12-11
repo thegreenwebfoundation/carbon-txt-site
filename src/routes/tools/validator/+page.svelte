@@ -92,5 +92,3 @@
 		</div>
 	</section>
 {/if}
-
-<ToolsNav currentView="validator" />

@@ -123,8 +123,6 @@ services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}
 	</div>
 </section>
 
-<ToolsNav currentView="builder" />
-
 <style>
 	hr {
 		margin-block: 2rem;
