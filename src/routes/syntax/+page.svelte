@@ -60,14 +60,14 @@
 
 		{#each currentSyntax.syntax as block (block)}
 			<div class="relative overflow-x-auto">
-				<table class="table-auto w-full">
+				<table class="table-fixed w-full">
 					<thead>
 						<tr>
 							<th>Property</th>
 							<th>Parent</th>
 							<th>Type</th>
 							<th>Required</th>
-							<th>Description</th>
+							<th colspan="4">Description</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -76,7 +76,7 @@
 							<td></td>
 							<td>{block.type}</td>
 							<td>{block.required}</td>
-							<td class="prose text-wrap max-w-prose">{block.description}</td>
+							<td colspan="4" class="prose text-wrap max-w-prose">{block.description}</td>
 						</tr>
 						{#if block.properties}
 							{#each block.properties as property (property)}
@@ -85,7 +85,7 @@
 									<td>{property.parent}</td>
 									<td>{property.type}</td>
 									<td>{property.required}</td>
-									<td class="prose text-wrap max-w-prose">{property.description}</td>
+									<td colspan="4" class="prose text-wrap max-w-prose">{property.description}</td>
 								</tr>
 								{#if property.properties}
 									{#each property.properties as subProperty (subProperty)}
@@ -94,7 +94,7 @@
 											<td>{subProperty.parent}</td>
 											<td>{subProperty.type}</td>
 											<td>{subProperty.required}</td>
-											<td class="prose text-wrap max-w-prose">{subProperty.description}</td>
+											<td colspan="4" class="prose text-wrap max-w-prose">{subProperty.description}</td>
 										</tr>
 									{/each}
 								{/if}
@@ -102,7 +102,7 @@
 						{/if}
 						{#if block.example}
 							<tr>
-								<td colspan="5">
+								<td colspan="8">
 									<Code code={block.example} />
 								</td>
 							</tr>

@@ -65,7 +65,7 @@
 					<table class="w-full">
 						<thead>
 							<tr>
-								<td colspan="4">Organisation disclosures</td>
+								<td colspan="5">Organisation disclosures</td>
 							</tr>
 							<tr>
 								<th>Document Type</th>
@@ -79,10 +79,10 @@
 							{#each form?.response.data.org.disclosures as disclosure (disclosure)}
 								<tr>
 									<td class="whitespace-nowrap">{disclosure.doc_type}</td>
-									<td class="whitespace-nowrap">{disclosure.url}</td>
+									<td class="break-all">{disclosure.url}</td>
 									<td class="whitespace-nowrap">{disclosure.domain || '-'}</td>
 									<td class="whitespace-nowrap">{disclosure.valid_until || '-'}</td>
-									<td class="whitespace-nowrap">{disclosure.title || '-'}</td>
+									<td>{disclosure.title || '-'}</td>
 								</tr>
 							{/each}
 						</tbody>

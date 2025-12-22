@@ -17,12 +17,12 @@
 	</div>
 
 	{#if errors.length > 0}
-		<table class="table-auto w-full mb-6">
+		<table class="table-fixed w-full mb-6">
 			<thead>
 				<tr>
 					<th>Error Type</th>
 					<th>Location</th>
-					<th>Error Message</th>
+					<th colspan="2">Error Message</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,13 +37,17 @@
 							<!-- content here -->
 							<td>(Line: {error.line}) {error.loc.join(' > ')}</td>
 						{:else if tomlError}
-							<!-- content here -->
-							<td>{error}</td>
-						{:else}
+              <td>-</td>
+            {:else}
 							<!-- else content here -->
 							<td>{error.loc.join(' > ')}</td>
 						{/if}
-						<td>{error.msg}</td>
+						{#if tomlError}
+							<!-- content here -->
+							<td colspan="2">{error}</td>
+            {:else}
+						  <td colspan="2">{error.msg}</td>
+            {/if}
 					</tr>
 				{/each}
 			</tbody>
