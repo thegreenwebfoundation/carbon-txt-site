@@ -41,7 +41,7 @@
 			</ul>
 
 			<p>
-				This validator performs checks on carbon.txt files based on files which use <b>version 0.2 syntax or above</b>.
+				This validator performs checks on carbon.txt files which use <b>version 0.2 to 0.4 of the syntax</b>.
 				<a href="/syntax">Learn more about the syntax</a>.
 			</p>
 		</div>
