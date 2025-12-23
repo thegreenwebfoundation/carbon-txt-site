@@ -4,7 +4,7 @@
 </script>
 
 <section class="w-100 mb-8" id="logs">
-	<div class="prose md:w-[80%] mb-4">
+	<div class="prose max-w-full w-full md:w-[80%] mb-4">
 		<Heading level={2}>Log trace</Heading>
 		<p>Below are the steps performed by the validator.</p>
 	</div>

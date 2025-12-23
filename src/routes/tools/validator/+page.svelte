@@ -53,7 +53,7 @@
 	<SyntaxValidatorSuccess text_contents={form?.text_contents} {form} />
 	<ValidatorLogs logs={form?.response.logs} open={false} />
 	<section class="w-100">
-		<div class="prose md:w-[80%] my-4">
+		<div class="prose max-w-full w-full md:w-[80%] my-4">
 			<h2 class="text-3xl font-bold mb-4">Think something's wrong?</h2>
 			<p>
 				Think there's an error on this page? Contact us via our <a href="https://www.thegreenwebfoundation.org/contact/">website support form</a>, or create an
@@ -65,7 +65,7 @@
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
 	<ValidatorLogs logs={form?.response.logs} open={true} />
 	<section class="w-100">
-		<div class="prose md:w-[80%] my-4">
+		<div class="prose max-w-full w-full md:w-[80%] my-4">
 			<h2 class="text-3xl font-bold mb-4">Think something's wrong?</h2>
 			<p>
 				Think there's an error on this page? Contact us via our <a href="https://www.thegreenwebfoundation.org/contact/">website support form</a>, or create an
@@ -83,7 +83,7 @@
 	</section>
 	<ValidatorLogs logs={form?.response.logs} open={true} />
 	<section class="w-100">
-		<div class="prose md:w-[80%] mb-4">
+		<div class="prose max-w-full w-full md:w-[80%] mb-4">
 			<h2 class="text-3xl font-bold m-4">Think something's wrong?</h2>
 			<p>
 				Think there's an error on this page? Contact us via our <a href="https://www.thegreenwebfoundation.org/contact/">website support form</a>, or create an

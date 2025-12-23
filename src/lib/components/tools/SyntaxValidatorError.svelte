@@ -17,7 +17,7 @@
 	</div>
 
 	{#if errors.length > 0}
-		<table class="table-fixed w-full mb-6">
+		<table class="table-fixed w-full md:w-[80%] mb-6">
 			<thead>
 				<tr>
 					<th>Error Type</th>
