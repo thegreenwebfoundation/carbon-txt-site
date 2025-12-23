@@ -60,7 +60,7 @@
 
 		{#each currentSyntax.syntax as block (block)}
 			<div class="relative overflow-x-auto">
-				<table class="table-fixed w-full">
+				<table class="sm:table-auto md:table-fixed w-full">
 					<thead>
 						<tr>
 							<th>Property</th>
