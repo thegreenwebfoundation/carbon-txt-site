@@ -40,10 +40,10 @@
 last_updated="${todaysDate}"
 
 [org]
-disclosures = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]
+disclosures = [${$builderOrg.length > 0 ? '\n    ' + mapOrg() + '\n' : ' '}]
 
 [upstream]
-services = [${$builderUpstream.length > 0 ? '\n\t' + mapUpstream() + '\n' : ' '}]`
+services = [${$builderUpstream.length > 0 ? '\n    ' + mapUpstream() + '\n' : ' '}]`
 
 	const resetBuilder = () => {
 		builderUpstream.set([])
