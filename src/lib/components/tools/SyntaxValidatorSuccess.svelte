@@ -79,7 +79,7 @@
 							{#each form?.response.data.org.disclosures as disclosure (disclosure)}
 								<tr>
 									<td class="whitespace-nowrap">{disclosure.doc_type}</td>
-									<td class="break-all"><a href="{disclosure.url}" target="_blank">{disclosure.url}</a></td>
+									<td class="break-all"><a href={disclosure.url} target="_blank">{disclosure.url}</a></td>
 									<td class="whitespace-nowrap">{disclosure.domain || '-'}</td>
 									<td class="whitespace-nowrap">{disclosure.valid_until || '-'}</td>
 									<td>{disclosure.title || '-'}</td>
