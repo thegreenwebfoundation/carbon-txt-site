@@ -5,11 +5,14 @@
 </script>
 
 <header class="bg-white border-b-2">
-  <div class="annoucement-banner bg-green-200 border-b-2">
-    <div class="container mx-auto px-2 sm-px-4 bg-green-200">
-      <p class="py-6 text-center">🌱 We've just released <strong>version 0.4 of the carbon.txt syntax</strong>! You can <a href="https://www.thegreenwebfoundation.org/news/carbontxt-v0-4/" target="_blank">read about the changes</a> on our blog. 🌱</p>
-    </div>
-  </div>
+	<div class="annoucement-banner bg-green-200 border-b-2">
+		<div class="container mx-auto px-2 sm-px-4 bg-green-200">
+			<p class="py-6 text-center">
+				🌱 We've just released <strong>version 0.4 of the carbon.txt syntax</strong>! You can
+				<a href="https://www.thegreenwebfoundation.org/news/carbontxt-v0-4/" target="_blank">read about the changes</a> on our blog. 🌱
+			</p>
+		</div>
+	</div>
 	<div class="container mx-auto px-2 sm:px-4">
 		<nav class="flex flex-wrap justify-center md:justify-start items-center bg-white py-6 gap-x-8 gap-y-4 min-[400px]:gap-y-2">
 			<div class="">

@@ -19,5 +19,6 @@
 		<a href="/tools/validator?auto=true&url=https://www.feelcreated.com/carbon.txt"><img width="120px" height="40px" src="/users/feelcreated-logo.svg" alt="Feel Created logo" /></a>
 		<a href="/tools/validator?auto=true&url=https://worldoflouis.com/carbon.txt"><img width="50px" height="40px" src="/users/wol-logo.png" alt="World of Louis logo" /></a>
 		<a href="/tools/validator?auto=true&url=https://www.buddyworks.co.jp/carbon.txt"><img width="250px" height="40px" src="/users/buddyworks_logo.svg" alt="World of Louis logo" /></a>
+		<a href="/tools/validator?auto=true&url=https://wagtail.org/carbon.txt"><img width="109px" height="40px" src="/users/wagtail.svg" alt="Wagtail CMS logo" /></a>
 	</div>
 </div>

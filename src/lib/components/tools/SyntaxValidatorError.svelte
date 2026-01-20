@@ -37,17 +37,17 @@
 							<!-- content here -->
 							<td>(Line: {error.line}) {error.loc.join(' > ')}</td>
 						{:else if tomlError}
-              <td>-</td>
-            {:else}
+							<td>-</td>
+						{:else}
 							<!-- else content here -->
 							<td>{error.loc.join(' > ')}</td>
 						{/if}
 						{#if tomlError}
 							<!-- content here -->
 							<td colspan="2">{error}</td>
-            {:else}
-						  <td colspan="2">{error.msg}</td>
-            {/if}
+						{:else}
+							<td colspan="2">{error.msg}</td>
+						{/if}
 					</tr>
 				{/each}
 			</tbody>
