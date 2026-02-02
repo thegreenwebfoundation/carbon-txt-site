@@ -12,20 +12,26 @@
 
 		<ul class="prose ml-0">
 			<li class="py-3 pl-0">
-				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/using-carbon-txt-with-csrd-reports/"> Using carbon.txt with CSRD reports</a> - how carbon.txt can be used to share Corporate
-				Sustainability Reporting Directive (CSRD) reports and find specific sustainability data points within them.
+				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/green-hosting-providers-can-use-carbon-txt/" target="_blank"> Green hosting providers can use carbon.txt</a> - how we’re using
+				carbon.txt, in combination with our Green Web Dataset. We cover why sharing evidence of green claims data inside a carbon.txt file has the potential to positively impact organisations disclosing
+				data and the digital sustainability sector as a whole.
 			</li>
 
 			<li class="py-3 pl-0">
-				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/using-carbon-txt-with-tcs/"> Using carbon.txt with the Technology Carbon Standard</a> - how carbon.txt can be combined with
-				the Technology Carbon Standard (TCS) to create greater transparency in the field of digital sustainability. We cover how we collaborated with the sustainability team at Scott Logic, the driving
-				force behind TCS, to simplify digital estate emissions reports through developing an initial TCS Schema.
+				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/using-carbon-txt-with-tcs/" target="_blank"> Using carbon.txt with the Technology Carbon Standard</a> - how carbon.txt can
+				be combined with the Technology Carbon Standard (TCS) to create greater transparency in the field of digital sustainability. We cover how we collaborated with the sustainability team at Scott Logic,
+				the driving force behind TCS, to simplify digital estate emissions reports through developing an initial TCS Schema.
 			</li>
 
 			<li class="py-3 pl-0">
-				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/green-hosting-providers-can-use-carbon-txt/"> Green hosting providers can use carbon.txt</a> - how we’re using carbon.txt,
-				in combination with our Green Web Dataset. We cover why sharing evidence of green claims data inside a carbon.txt file has the potential to positively impact organisations disclosing data and the
-				digital sustainability sector as a whole.
+				<a class="font-bold" href="https://torchbox.com/news/adding-carbon-txt/" target="_blank"> Making sustainability reporting more transparent and discoverable</a> - B-Corp certified digital agency
+				Torchbox adopted carbon.txt to link to their yearly Impact Reports, their Sustainability Policy, and information about their website’s digital emissions - ensuring transparency, and making it possible
+				for automated tools, partners, clients - anyone, to discover their sustainability data easily.
+			</li>
+
+			<li class="py-3 pl-0">
+				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/using-carbon-txt-with-csrd-reports/" target="_blank"> Using carbon.txt with CSRD reports</a> - how carbon.txt can be used to
+				share Corporate Sustainability Reporting Directive (CSRD) reports and find specific sustainability data points within them.
 			</li>
 		</ul>
 	</div>
