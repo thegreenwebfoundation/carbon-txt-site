@@ -22,22 +22,22 @@
 				}
 
 				if (credential.validUntil.length > 0) {
-					content += `, valid_until='${credential.validUntil}'`
+					content += `, valid_until=${credential.validUntil}`
 				}
 
 				if (credential.title.length > 0) {
 					content += `, title='${credential.title}'`
 				}
 
-				return `{ ${content} }`
+				return `{ ${content} },`
 			})
-			.join(',\n    ')
+			.join('\n    ')
 
 	const carbonTxtSyntaxVersion = '0.4'
 	const todaysDate = new Date().toISOString().split('T')[0]
 
 	$: outputCode = `version="${carbonTxtSyntaxVersion}"
-last_updated="${todaysDate}"
+last_updated=${todaysDate}
 
 [org]
 disclosures = [${$builderOrg.length > 0 ? '\n\t' + mapOrg() + '\n' : ' '}]

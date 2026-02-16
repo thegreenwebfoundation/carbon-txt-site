@@ -2,7 +2,7 @@ const carbonTxtSyntaxVersion = '0.3'
 const todaysDate = new Date().toISOString().split('T')[0]
 
 export const digitalServiceToml = `version="${carbonTxtSyntaxVersion}"
-last_updated="${todaysDate}"
+last_updated=${todaysDate}
 
 [org]
 disclosures = [
