@@ -11,6 +11,9 @@
 		<p class="prose my-4">Here's some practical ways you can put to carbon.txt to use in your own organisation.</p>
 
 		<ul class="prose ml-0">
+			<li class="p-3 bg-yellow-100 my-5">
+				<strong>✨️ New! carbon.txt can help buyers of digital services and infrastructure evaluate the sustainability of the products they're procuring</strong> - listen to our Director of Technology and Policy, Chris Adams explain how in  <a class="font-bold" href="https://podcast.greenio.tech/e/68rr5078-72-green-io-paris-2025-making-sustainability-easy-to-discover-with-chris-adams" target="_blank">this Green.IO podcast episode</a>.
+      </li>
 			<li class="py-3 pl-0">
 				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/green-hosting-providers-can-use-carbon-txt/" target="_blank"> Green hosting providers can use carbon.txt</a> - how we’re using
 				carbon.txt, in combination with our Green Web Dataset. We cover why sharing evidence of green claims data inside a carbon.txt file has the potential to positively impact organisations disclosing

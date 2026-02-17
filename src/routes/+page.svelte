@@ -11,7 +11,7 @@
 <section class="w-100" id="intro">
 	<div class="relative block">
 		<div class="absolute -z-50 right-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-l from-green-500 hidden md:block" style="height: calc(100% + 100px);" />
-		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-10 min-h-[60vh] lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-10 min-h-[60vh] lg:grid lg:grid-cols-2 lg:gap-12">
 			<div class="py-8">
 				<Heading level={1}>Sustainability data that’s easy to discover and use.</Heading>
 				<div class="mb-10 prose">
@@ -20,20 +20,25 @@
 						and build on.
 					</p>
 					<p class="mt-4">Be part of the movement for open, discoverable, comparable, and traceable sustainability data on the web.</p>
+          <div class="pt-4">
+			      <TrustedBy />
+          </div>
 				</div>
 			</div>
-			<div class="max-w-100 flex justify-center xl:justify-end">
+			<div class="max-w-100 flex flex-col gap-8 items-center pt-8">
 				<div>
 					<img width="600px" height="308px" src="/carbontxt-video-cover.jpg" alt="Hannah Smith presenting carbon.txt at State of the Open Con" />
 					<p class="prose my-4 text-center">
-						<a href="https://www.youtube.com/watch?v=55cjE8B-wBM&list=PL0U2cL1JGPZcU-k-4_RT7url83zFdJRug&index=9"> Watch our presentation of carbon.txt at State of the Open, London on YouTube</a>.
+						<a href="https://www.youtube.com/watch?v=55cjE8B-wBM&list=PL0U2cL1JGPZcU-k-4_RT7url83zFdJRug&index=9" target="_blank"> Watch our presentation of carbon.txt at State of the Open, London on YouTube</a>.
+					</p>
+				</div>
+				<div>
+					<img width="600px" height="400px" src="/chris-gael-greenio.jpg" alt="Chris Adams and Gaël Duez in conversation on the Green.io podcast" />
+					<p class="prose my-4 text-center">
+						<a href="https://podcast.greenio.tech/e/68rr5078-72-green-io-paris-2025-making-sustainability-easy-to-discover-with-chris-adams" target="_blank"> Listen to Chris Adams talking about carbon.txt on the Green.io podcast</a>.
 					</p>
 				</div>
 			</div>
-		</div>
-
-		<div class="max-w-4xl pb-[5rem] m-auto">
-			<TrustedBy />
 		</div>
 	</div>
 </section>
