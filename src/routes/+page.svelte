@@ -12,19 +12,19 @@
 	<div class="relative block">
 		<div class="absolute -z-50 right-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-l from-green-500 hidden md:block" style="height: calc(100% + 100px);" />
 		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-0 min-h-[60vh]">
-      <div class="max-w-4xl mx-auto my-8 mb-20">
+      <div class="max-w-4xl mx-auto md:my-16 md:mb-20">
         <div>
           <Heading level={1}>Sustainability data that’s easy to discover and use.</Heading>
-          <div class="my-6">
-            <p class="">
-              Carbon.txt is a single recognisable location on any web domain for public sustainability data relating to that company. The open source ecosystem of syntax, apis & plugins is free to use
+          <div class="my-2 md:my-2">
+            <p>
+              <strong>carbon.txt</strong> is a single recognisable location on any web domain for public sustainability data relating to that company. The open source ecosystem of syntax, apis & plugins is free to use
               and build on.
             </p>
             <p class="mt-4">Be part of the movement for open, discoverable, comparable, and traceable sustainability data on the web.</p>
           </div>
         </div>
       </div>
-      <div id="media" class="max-w-100 flex flex-col md:flex-row gap-8 items-center justify-center mx-auto mt-10">
+      <div id="media" class="max-w-100 flex flex-col md:flex-row gap-8 items-center justify-center mx-auto mt-6 md:mt-20 pt-4">
         <div>
           <img width="600px" height="308px" src="/carbontxt-video-cover.jpg" alt="Hannah Smith presenting carbon.txt at State of the Open Con" />
           <p class="prose my-4 text-center">
@@ -38,7 +38,7 @@
           </p>
         </div>
       </div>
-    <div id="trusted-by" class="max-w-4xl pb-[5rem] m-auto mt-16">
+    <div id="trusted-by" class="max-w-4xl pb-[5rem] m-auto mt-6 md:mt-20">
       <TrustedBy />
     </div>
 </section>
