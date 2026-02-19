@@ -249,9 +249,9 @@ services = [
 				name: 'last_updated',
 				required: false,
 				longTitle: 'Last updated',
-				description: `The date this file was last updated, as a string in ISO8601 format, e.g "${todaysDate}".`,
+				description: `The date this file was last updated, either as a TOML native date (e.g. ${todaysDate}), or a string in RFC 3339 format (e.g. "${todaysDate}").`,
 				type: 'string',
-				example: `last_updated = "${todaysDate}"`
+				example: `last_updated = ${todaysDate}`
 			},
 			{
 				name: 'org',
@@ -290,7 +290,7 @@ services = [
 								required: false,
 								parent: 'disclosure',
 								longTitle: 'Valid until',
-								description: `The last date that this disclosure is valid for, if it is time-limited (for example, an annual report or renewable energy certificate), as a string in ISO8601 format, e.g "${todaysDate}".`,
+								description: `The last date that this disclosure is valid for, if it is time-limited (for example, an annual report or renewable energy certificate), either as a TOML native date (e.g. ${todaysDate}), or a string in RFC 3339 format (e.g. "${todaysDate}").`,
 								type: 'date'
 							},
 							{
@@ -308,7 +308,7 @@ services = [
 				example: `[org]
 disclosures = [
 	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
-	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31" }
+	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = 2025-12-31 }
 ]`
 			},
 			{
@@ -354,12 +354,12 @@ services = [
 			}
 		],
 		example: `version="0.3"
-last_updated="${todaysDate}"
+last_updated=${todaysDate}
 
 [org]
 disclosures = [
     { doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
-    { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31" }
+    { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = 2025-12-31 }
 ]
 
 [upstream]
@@ -387,9 +387,9 @@ services = [
 				name: 'last_updated',
 				required: false,
 				longTitle: 'Last updated',
-				description: `The date this file was last updated, as a string in ISO8601 format, e.g "${todaysDate}".`,
+				description: `The date this file was last updated, either as a TOML native date (e.g. ${todaysDate}), or a string in RFC 3339 format (e.g. "${todaysDate}").`,
 				type: 'string',
-				example: `last_updated = "${todaysDate}"`
+				example: `last_updated = ${todaysDate}`
 			},
 			{
 				name: 'org',
@@ -428,7 +428,7 @@ services = [
 								required: false,
 								parent: 'disclosure',
 								longTitle: 'Valid until',
-								description: `The last date that this disclosure is valid for, if it is time-limited (for example, an annual report or renewable energy certificate), as a string in ISO8601 format, e.g "${todaysDate}".`,
+								description: `The last date that this disclosure is valid for, if it is time-limited (for example, an annual report or renewable energy certificate), either as a TOML native date (e.g. ${todaysDate}), or a string in RFC 3339 format (e.g. "${todaysDate}").`,
 								type: 'date'
 							},
 							{
@@ -454,7 +454,7 @@ services = [
 				example: `[org]
 disclosures = [
 	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
-	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31", title = "Emissions Report 2025" }
+	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = 2025-12-31, title = "Emissions Report 2025" }
 ]`
 			},
 			{
@@ -500,12 +500,12 @@ services = [
 			}
 		],
 		example: `version="0.4"
-last_updated="${todaysDate}"
+last_updated=${todaysDate}
 
 [org]
 disclosures = [
     { doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com" },
-    { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = "2025-12-31", title = "Emissions Report 2025" }
+    { doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = 2025-12-31, title = "Emissions Report 2025" }
 ]
 
 [upstream]
