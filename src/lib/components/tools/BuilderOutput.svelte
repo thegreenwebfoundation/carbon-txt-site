@@ -80,7 +80,7 @@
 					{#each $store as provider (provider)}
 						<tr class="odd:bg-green-50 even:bg-green-100">
 							<td class="p-2">{evidenceName(provider.doctype)}</td>
-							<td class="p-2">{provider.url}</td>
+							<td class="p-2 break-all"><a href="{provider.url}" target="_blank">{provider.url}</a></td>
 							<td class="p-2">{provider.validUntil || '-'}</td>
 							<td class="p-2">{provider.title || '-'}</td>
 							<td class="p-2">
@@ -107,7 +107,7 @@
 					{/each}
 					{#if $store.length > 0}
 						<tr>
-							<td colspan="3" class="p-2 text-center"><a href="#output">View output</a></td>
+							<td colspan="5" class="p-2 text-center"><a href="#output">View output</a></td>
 						</tr>
 					{/if}
 				</tbody>
@@ -118,7 +118,6 @@
 
 <style>
 	td {
-		overflow-x: auto;
-		white-space: nowrap;
+		overflow-x: none;
 	}
 </style>
