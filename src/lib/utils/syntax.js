@@ -250,7 +250,7 @@ services = [
 				required: false,
 				longTitle: 'Last updated',
 				description: `The date this file was last updated, either as a TOML native date (e.g. ${todaysDate}), or a string in RFC 3339 format (e.g. "${todaysDate}").`,
-				type: 'string',
+				type: 'date',
 				example: `last_updated = ${todaysDate}`
 			},
 			{
@@ -388,7 +388,7 @@ services = [
 				required: false,
 				longTitle: 'Last updated',
 				description: `The date this file was last updated, either as a TOML native date (e.g. ${todaysDate}), or a string in RFC 3339 format (e.g. "${todaysDate}").`,
-				type: 'string',
+				type: 'date',
 				example: `last_updated = ${todaysDate}`
 			},
 			{
