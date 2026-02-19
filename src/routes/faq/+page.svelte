@@ -126,4 +126,12 @@
 			</details>
 		</div>
 	</Faq>
+	<Faq id="developer-tools">
+		<span slot="question">I'm a developer, how can I use carbon.txt in my own applications?</span>
+		<div class="prose" slot="answer">
+      <p>Our <a href="https://pypi.org/project/carbon-txt/" target="_blank">carbon.txt python package</a> is the reference implementation of the carbon.txt syntax, and powers the validator on this site as well as carbon.support in the <a href="https://www.thegreenwebfoundation.org/green-web-check/" target="_blank">Green Web Check tool</a> - it also allows you to build and validate carbon.txt files programatically within your own applications.</p>
+      <p>There is <a href="https://carbon-txt-validator.readthedocs.io/en/latest/" target="_blank">documentation on the python package available at ReadTheDocs</a>, and <a href="https://github.com/thegreenwebfoundation/carbon-txt-validator" target="_blank">source code on GitHub</a>.</p>
+      <p>More <a href="https://developers.thegreenwebfoundation.org/carbon-txt/overview/" target="_blank">general technical documentation on the carbon.txt project</a> is available on our developer documentation site.</p>
+		</div>
+	</Faq>
 </article>
