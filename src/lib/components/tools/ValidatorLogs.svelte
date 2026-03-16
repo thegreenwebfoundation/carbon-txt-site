@@ -13,7 +13,7 @@
 	<details {open}>
 		<summary>View logs</summary>
 		<ol>
-			{#each logs as log (log)}
+			{#each logs as log, ix (ix)}
 				<li>{log}</li>
 			{/each}
 		</ol>

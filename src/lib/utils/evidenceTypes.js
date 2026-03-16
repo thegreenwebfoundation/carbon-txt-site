@@ -11,6 +11,9 @@ const fetchEvidenceTypes = async () => {
 		if (name.startsWith('Csrd')) {
 			name = name.replace('Csrd', 'CSRD')
 		}
+    if (name.startsWith("Ai")) {
+      name = name.replace("Ai", "AI")
+    }
 		return {
 			// Make the name a human-readable string with spaces and capitalization
 			name: name,
