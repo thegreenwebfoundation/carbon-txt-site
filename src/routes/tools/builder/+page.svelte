@@ -33,7 +33,7 @@
 			})
 			.join('\n    ')
 
-	const carbonTxtSyntaxVersion = '0.4'
+	const carbonTxtSyntaxVersion = '0.5'
 	const todaysDate = new Date().toISOString().split('T')[0]
 
 	$: outputCode = `version="${carbonTxtSyntaxVersion}"

@@ -1,5 +1,6 @@
 <script>
 	import Code from '$lib/components/Code.svelte'
+  import SyntaxValidatorHelp from "./SyntaxValidatorHelp.svelte"
 
 	let { text_contents, errors, errorLines } = $props()
 
@@ -53,6 +54,9 @@
 			</tbody>
 		</table>
 	{/if}
+</section>
+<SyntaxValidatorHelp />
+<section class="w-100" id="result">
 	{#if text_contents?.length > 0}
 		<Code lang="toml" code={text_contents} {showLines} {highlightedLines} />
 	{/if}

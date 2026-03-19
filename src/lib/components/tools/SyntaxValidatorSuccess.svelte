@@ -1,5 +1,6 @@
 <script>
 	import Heading from '../Heading.svelte'
+  import SyntaxValidatorHelp from "./SyntaxValidatorHelp.svelte"
 	let { text_contents, form } = $props()
 	import Code from '../Code.svelte'
 
@@ -30,7 +31,7 @@
 			<p><strong>Success!</strong> The provided carbon.txt file is syntactically valid.</p>
 		</div>
 
-		<div class="prose max-w-full w-full md:w-[80%] mb-4">
+		<div class="prose max-w-full w-full mb-4">
 			<Heading level={2}>File contents</Heading>
 			<p>The content found in the carbon.txt file is displayed below:</p>
 
@@ -91,12 +92,12 @@
 			{/if}
 
 			{#if form?.response.document_data && Object.keys(form?.response.document_data).length > 0 && Object.keys(form?.response.document_data)[0] !== 'null'}
-				<div class="prose mb-4 w-full">
+				<div class="mb-4 w-full">
 					<Heading level={2}>Linked evidence</Heading>
 					<p>Found linked evidence using <b>{Object.keys(form?.response.document_data).length} {pluralisePlugins(Object.keys(form?.response.document_data).length)}</b>.</p>
 
 					{#each pluginData as plugin (plugin)}
-						<div class="relative overflow-x-auto max-w-[100vw]">
+						<div class="relative overflow-x-auto">
 							{#if plugin.data.success.length > 0}
 								<Heading level={3}>Data found</Heading>
 								<table class="w-full">
@@ -133,12 +134,12 @@
 													</svg>
 													Found</td
 												>
-												<td class="whitespace-nowrap">{data.name}</td>
-												<td class="whitespace-nowrap">{data.value}</td>
-												<td class="whitespace-nowrap">{data.unit}</td>
-												<td class="whitespace-nowrap"><time datetime={data.start_date}>{data.start_date}</time></td>
-												<td class="whitespace-nowrap"><time datetime={data.end_date}>{data.end_date}</time></td>
-												<td class="whitespace-nowrap"><a href={data.file}>{data.file}</a></td>
+												<td>{data.name}</td>
+												<td>{data.value}</td>
+												<td>{data.unit}</td>
+												<td><time datetime={data.start_date}>{data.start_date}</time></td>
+												<td><time datetime={data.end_date}>{data.end_date}</time></td>
+												<td><a href={data.file}>{data.file}</a></td>
 											</tr>
 										{/each}
 									</tbody>
@@ -179,8 +180,8 @@
 													</svg>
 													Not found</td
 												>
-												<td class="whitespace-nowrap">{data.datapoint_readable_label}</td>
-												<td class="whitespace-nowrap"><span class="prose text-wrap max-w-prose">{data.message}</span></td>
+												<td>{data.datapoint_readable_label}</td>
+												<td><span class="prose text-wrap max-w-prose">{data.message}</span></td>
 											</tr>
 										{/each}
 									</tbody>
@@ -216,9 +217,9 @@
 			{/if}
 		</div>
 	</section>
-
+  <SyntaxValidatorHelp />
 	{#if text_contents?.length > 0}
-		<div class="prose mb-4 w-full">
+		<div class="prose mb-4 max-w-full w-full">
 			<Heading level={2}>File contents</Heading>
 			<Code lang="toml" code={text_contents} />
 		</div>
