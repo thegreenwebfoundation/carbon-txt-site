@@ -1,5 +1,6 @@
 <script>
 	import Heading from '../Heading.svelte'
+  import SyntaxValidatorHelp from "./SyntaxValidatorHelp.svelte"
 	let { text_contents, form } = $props()
 	import Code from '../Code.svelte'
 
@@ -30,7 +31,7 @@
 			<p><strong>Success!</strong> The provided carbon.txt file is syntactically valid.</p>
 		</div>
 
-		<div class="prose max-w-full w-full md:w-[80%] mb-4">
+		<div class="prose max-w-full w-full mb-4">
 			<Heading level={2}>File contents</Heading>
 			<p>The content found in the carbon.txt file is displayed below:</p>
 
@@ -216,9 +217,9 @@
 			{/if}
 		</div>
 	</section>
-
+  <SyntaxValidatorHelp />
 	{#if text_contents?.length > 0}
-		<div class="prose mb-4 w-full">
+		<div class="prose mb-4 max-w-full w-full">
 			<Heading level={2}>File contents</Heading>
 			<Code lang="toml" code={text_contents} />
 		</div>

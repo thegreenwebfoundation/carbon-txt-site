@@ -9,6 +9,11 @@
 
 <div class="my-8 md:grid md:grid-cols-2 md:grid-rows-2 xl:grid-cols-4 xl:grid-rows-1 gap-3">
 	<Callout>
+		<Heading level={5}>AI model cards</Heading>
+		<p class="mt-0">Model cards are overviews of how a particular AI model was designed and trained, and can contain structured information on CO2 equivalent emissions incurred during training.</p>
+	</Callout>
+
+  <Callout>
 		<Heading level={5}>CSRD reports</Heading>
 		<p class="mt-0">
 			The Corporate Sustainability Reporting Directive (CRSD) is an EU law requiring certain companies to disclose data in accordance with the European Sustainability Reporting Standards (ESRS).
@@ -18,11 +23,6 @@
 	<Callout>
 		<Heading level={5}>Certificates</Heading>
 		<p class="mt-0">Examples include Renewable Energy Certificates (RECs), Power Purchase Agreements (PPAs) or public contracts that show use of 100% green energy.</p>
-	</Callout>
-
-	<Callout>
-		<Heading level={5}>ESG reports</Heading>
-		<p class="mt-0">Environmental, Social and Governance (ESG) reports are detailed disclosures of a company’s initiatives, performance and impact in these three key areas.</p>
 	</Callout>
 
 	<Callout>

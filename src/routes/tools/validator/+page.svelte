@@ -6,6 +6,7 @@
 	import SyntaxValidator from '$lib/components/tools/SyntaxValidator.svelte'
 	import SyntaxValidatorSuccess from '$lib/components/tools/SyntaxValidatorSuccess.svelte'
 	import SyntaxValidatorError from '$lib/components/tools/SyntaxValidatorError.svelte'
+	import SyntaxValidatorHelp from '$lib/components/tools/SyntaxValidatorHelp.svelte'
 	import ToolsNav from '$lib/components/ToolsNav.svelte'
 	import ValidatorLogs from '$lib/components/tools/ValidatorLogs.svelte'
 
@@ -52,27 +53,9 @@
 {#if form?.response.success}
 	<SyntaxValidatorSuccess text_contents={form?.text_contents} {form} />
 	<ValidatorLogs logs={form?.response.logs} open={false} />
-	<section class="w-100">
-		<div class="prose max-w-full w-full md:w-[80%] my-4">
-			<h2 class="text-3xl font-bold mb-4">Think something's wrong?</h2>
-			<p>
-				Think there's an error on this page? Contact us via our <a href="https://www.thegreenwebfoundation.org/contact/">website support form</a>, or create an
-				<a href="https://github.com/thegreenwebfoundation/carbon-txt-site/issues">issue on GitHub</a>.
-			</p>
-		</div>
-	</section>
 {:else if form?.response.errors}
 	<SyntaxValidatorError text_contents={form?.text_contents} errors={form?.response.errors} errorLines={form?.response.errorLines} />
 	<ValidatorLogs logs={form?.response.logs} open={true} />
-	<section class="w-100">
-		<div class="prose max-w-full w-full md:w-[80%] my-4">
-			<h2 class="text-3xl font-bold mb-4">Think something's wrong?</h2>
-			<p>
-				Think there's an error on this page? Contact us via our <a href="https://www.thegreenwebfoundation.org/contact/">website support form</a>, or create an
-				<a href="https://github.com/thegreenwebfoundation/carbon-txt-site/issues">issue on GitHub</a>.
-			</p>
-		</div>
-	</section>
 {:else if form?.response.error}
 	<section class="w-100" id="result">
 		<div class="prose md:w-[80%] mb-4 alert alert-error">
@@ -81,14 +64,6 @@
 			<p>For help creating a carbon.txt file, please use our <a href="/tools/builder">Builder</a>.</p>
 		</div>
 	</section>
+  <SyntaxValidatorHelp />
 	<ValidatorLogs logs={form?.response.logs} open={true} />
-	<section class="w-100">
-		<div class="prose max-w-full w-full md:w-[80%] mb-4">
-			<h2 class="text-3xl font-bold m-4">Think something's wrong?</h2>
-			<p>
-				Think there's an error on this page? Contact us via our <a href="https://www.thegreenwebfoundation.org/contact/">website support form</a>, or create an
-				<a href="https://github.com/thegreenwebfoundation/carbon-txt-site/issues">issue on GitHub</a>.
-			</p>
-		</div>
-	</section>
 {/if}
