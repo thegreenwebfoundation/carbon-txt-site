@@ -9,7 +9,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"hf-models": "cd src/lib/utils && node hugging-face-lookup.js"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.1",
@@ -40,11 +41,15 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@huggingface/hub": "^2.11.0",
 		"@sentry/cloudflare": "^8.39.0",
 		"@sentry/sveltekit": "^8.38.0",
 		"@sindresorhus/slugify": "^2.2.1",
 		"clipboard-copy": "^4.0.1",
+		"gridjs": "^6.2.0",
+		"gridjs-svelte": "^2.1.1",
 		"js-toml": "^1.0.0",
-		"svelte-highlight": "^7.7.0"
+		"svelte-highlight": "^7.7.0",
+		"svelte-multiselect": "^11.6.2"
 	}
 }
