@@ -1,5 +1,5 @@
 <script>
-	let { id } = $$props
+	let { id, open } = $$props
 	// Get the ID from the page URL using the hash
 	let faqId = null
 	try {
@@ -27,11 +27,11 @@
 </script>
 
 <section class="w-100 pb-4 mb-4 border-b border-gray-200 last:border-0">
-	<details {id}>
+	<details {id} {open}>
 		<summary class="text-xl">
 			<slot name="question" />
 		</summary>
-		<div class="flex flex-auto gap-10 items-center mt-[1rem]">
+		<div class="mt-[2rem]">
 			<slot name="answer" />
 		</div>
 	</details>

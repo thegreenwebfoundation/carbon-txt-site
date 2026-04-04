@@ -17,7 +17,10 @@ export default {
 
 	preprocess: [
 		preprocess({
-			postcss: true
+			postcss: true,
+			typescript: {
+				tsconfigFile: 'tsconfig.app.json'
+			}
 		})
 	]
 }
