@@ -70,7 +70,7 @@
 		}
 
 		// Check the URL is valid using a regex that must start with http:// or https://
-		const urlRegex = new RegExp(/^(http:\/\/|https:\/\/)(www\.)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)
+		const urlRegex = new RegExp(/^(https?:\/\/)(([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,63})(:[0-9]{1,5})?(\/.*)?$/i)
 
 		if (!urlRegex.test(newObject.url)) {
 			error.field = 'org-url'
