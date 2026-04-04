@@ -99,6 +99,7 @@ services = [
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<Heading level={2}>Use in carbon.txt</Heading>
+	<p class="prose">Carbon.txt provides a single, dependable endpoint to disclose the sustainability data for the AI models your organisation trains and uses. </p>
 	<div class="w-100 mb-[3rem]">
 		<Faq id="use" open="true">
 			<span slot="question"><Heading level={3}>Use this model?</Heading></span>
@@ -151,22 +152,6 @@ services = [
 
 		<!-- Link back to ITU’s AI lifecycle guide "here's how we're helping you follow the best standards to do this! training is a key part of the standard" -->
 
-		<!-- <Code lang="toml" code={outputCode} />
-		<div class="mx-auto flex justify-center items-center flex-wrap">
-			<button class="btn mx-auto min-w-[20ch] block" on:click={() => downloadFile()}>Download file</button>
-			<button
-				class="btn mx-auto min-w-[20ch] block btn-white"
-				on:click={() => {
-					const copySuccess = copy(outputCode)
-					// Check if promise resolves to true
-					if (copySuccess) {
-						copyText = '🎉 Copied!'
-						setTimeout(() => {
-							copyText = 'Copy to clipboard'
-						}, 2000)
-					}
-				}}>{copyText}</button
-			> -->
 		<a href="/quickstart" class="btn mx-auto min-w-[20ch] bg-blue-400 text-white hover:bg-blue-200 hover:text-black text-center">Get started</a>
 	</div>
 </section>
