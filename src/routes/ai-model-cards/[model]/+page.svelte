@@ -149,10 +149,6 @@ services = [
 				</div>
 			</div>
 		</Faq>
-
-		<!-- Link back to ITU’s AI lifecycle guide "here's how we're helping you follow the best standards to do this! training is a key part of the standard" -->
-
-		<a href="/quickstart" class="btn mx-auto min-w-[20ch] bg-blue-400 text-white hover:bg-blue-200 hover:text-black text-center">Get started</a>
 	</div>
 </section>
 
