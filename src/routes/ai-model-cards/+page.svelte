@@ -107,15 +107,6 @@
 		<p class="prose mb-[3rem]">
 			Using the carbon.txt syntax and validator, we have extracted the sustainability data from over 2500 AI model cards from Hugging Face that are listed with <code>co2_eq_emissions</code> metadata.
 		</p>
-		<Heading level={2}>Findings</Heading>
-		<ul class="prose">
-			<li>{data.totalCount} models have <code>co2_eq_emissions</code> metadata.</li>
-			<li>{data.totalErrors} of these models have missing or incorrectly formatted data.</li>
-			<li>{data.trainingCount['pre-training']} models are marked as pre-training models</li>
-			<li>{data.trainingCount['fine-tuning']} models are marked as fine-tuning models.</li>
-			<li>{data.locationCount} models declared a training location.</li>
-			<li>{data.hardwareCount} models specified the hardware used.</li>
-		</ul>
 	</div>
 	<div id="results" class="w-100 mb-[3rem]">
 		<div class="table-wrapper">
@@ -133,6 +124,20 @@
 		</div>
 	</div>
 </section>
+
+<!-- <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
+	<div class="w-100 mb-[3rem]">
+		<Heading level={2}>Findings</Heading>
+		<ul class="prose">
+			<li>{data.totalCount} models have <code>co2_eq_emissions</code> metadata.</li>
+			<li>{data.totalErrors} of these models have missing or incorrectly formatted data.</li>
+			<li>{data.trainingCount['pre-training']} models are marked as pre-training models</li>
+			<li>{data.trainingCount['fine-tuning']} models are marked as fine-tuning models.</li>
+			<li>{data.locationCount} models declared a training location.</li>
+			<li>{data.hardwareCount} models specified the hardware used.</li>
+		</ul>
+	</div>
+</section> -->
 
 <style>
 	.filter-wrapper {
