@@ -98,8 +98,8 @@ services = [
 </section>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
-	<Heading level={2}>Use in carbon.txt</Heading>
-	<p class="prose">Carbon.txt provides a single, dependable endpoint to disclose the sustainability data for the AI models your organisation trains and uses. </p>
+	<Heading level={2}>Reference this model in carbon.txt</Heading>
+	<p class="prose mb-[1rem]">Carbon.txt provides a single, dependable endpoint to disclose the sustainability data for the AI models your organisation trains and uses.</p>
 	<div class="w-100 mb-[3rem]">
 		<Faq id="use" open="true">
 			<span slot="question"><Heading level={3}>Use this model?</Heading></span>
