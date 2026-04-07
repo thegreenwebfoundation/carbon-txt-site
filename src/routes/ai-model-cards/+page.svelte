@@ -17,7 +17,7 @@
 		{ label: 'Has location data', value: 'hasLocationData' },
 		{ label: 'Has hardware data', value: 'hasHardwareData' }
 	]
-	let selected = $state([{ label: 'Exclude invalid data', value: 'excludeErrors' }])
+	let selected = $state([])
 
 	const slugify = (str) => str.replace(/\//g, '-')
 
