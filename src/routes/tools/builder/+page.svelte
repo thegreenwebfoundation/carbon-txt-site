@@ -11,14 +11,18 @@
 
 	let copyText = 'Copy output'
 
-	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain='${provider.domain}', service_type='${provider.service}' }`).join(',\n    ')
+  let escapeQuotes = (str) => {
+    return str.replace(/(?<!\\)"/g, '\\"');
+  }
+
+	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain="${provider.domain}", service_type="${provider.service}" }`).join(',\n    ')
 	const mapOrg = () =>
 		$builderOrg
 			.map((credential) => {
-				var content = `doc_type='${credential.doctype}', url='${credential.url}'`
+				var content = `doc_type="${credential.doctype}", url="${escapeQuotes(credential.url)}"`
 
 				if (credential.domain.length > 0) {
-					content += `, domain='${credential.domain}'`
+					content += `, domain="${credential.domain}"`
 				}
 
 				if (credential.validUntil.length > 0) {
@@ -26,7 +30,7 @@
 				}
 
 				if (credential.title.length > 0) {
-					content += `, title='${credential.title}'`
+					content += `, title="${escapeQuotes(credential.title)}"`
 				}
 
 				return `{ ${content} },`
