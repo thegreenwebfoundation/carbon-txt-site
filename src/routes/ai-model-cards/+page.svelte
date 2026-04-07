@@ -122,7 +122,10 @@
 			<div class="filter-wrapper mb-[1rem]">
 				<Heading level={3}>Results</Heading>
 				<p class="prose mb-[1rem]">Data updated on {data.timestamp}</p>
-				<MultiSelect bind:selected options={filters} keepSelectedInDropdown="checkboxes" />
+				<div class="filters">
+					<Heading level={4}>Filters</Heading>
+					<MultiSelect bind:selected options={filters} keepSelectedInDropdown="checkboxes" />
+				</div>
 			</div>
 			{#key baseUrl}
 				<Grid {columns} server={gridServer} {pagination} {sort} {search} fixedHeader={true} height="600px" />
@@ -179,5 +182,15 @@
 	:global(tr:has([data-cell-content='error']) td:not([data-cell-content='error']):not([data-column-id='name'])) {
 		display: none;
 		width: 0;
+	}
+
+	.filters {
+		display: grid;
+		grid-template-columns: 10ch 1fr;
+		align-items: center;
+	}
+
+	:global(.filters > *:first-child) {
+		padding-bottom: 0;
 	}
 </style>
