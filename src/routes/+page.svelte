@@ -14,7 +14,8 @@
 		<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-0 min-h-[60vh]">
       <div class="max-w-4xl mx-auto md:my-16 md:mb-20">
         <div>
-          <Heading level={1}>Sustainability data that’s easy to discover and use.</Heading>
+          <Heading level={1} class="text-center mb-4">Sustainability data that’s easy to discover and use.</Heading>
+          <img src="/address_bar.png" class="mb-12 m-auto" alt="Image of a browser address bar showing the URL to a carbon.txt file: 'https://greenweb.org/carbon.txt'" />
           <div class="my-2 md:my-2">
             <p>
               <strong>carbon.txt</strong> is a single recognisable location on any web domain for public sustainability data relating to that company. The open source ecosystem of syntax, apis & plugins is free to use
