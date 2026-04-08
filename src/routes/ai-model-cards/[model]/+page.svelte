@@ -86,7 +86,7 @@ services = [
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[3rem]">
 		<p class="prose mb-[3rem]"><a href="/ai-model-cards"> &larr; Back to model cards</a></p>
-		<Heading level={1}>{data.model.name}</Heading>
+		<Heading level={1} class="break-all">{data.model.name}</Heading>
 		<p class="prose mb-[1rem]">This page contains sustainability information extracted from the model card for <code>{data.model.name}</code>.</p>
 		<p class="prose mb-[3rem]">
 			View model card on <a href="https://huggingface.co/{data.model.name}" target="_blank">Hugging Face</a> |
