@@ -103,7 +103,7 @@
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[3rem]">
-		<Heading level={1}>AI model card data</Heading>
+		<Heading level={1}>AI Model Sustainability Directory</Heading>
 		<p class="prose mb-[3rem]">
 			Using the carbon.txt syntax and validator, we have extracted the sustainability data from over 2500 AI model cards from Hugging Face that are listed with <code>co2_eq_emissions</code> metadata.
 		</p>

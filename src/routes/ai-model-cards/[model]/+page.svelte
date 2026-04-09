@@ -160,8 +160,8 @@ services = [
 				<span slot="question"><Heading level={3}>Why am I seeing a missing or incorrectly formatted data error?</Heading></span>
 				<div class="" slot="answer">
 					<p class="prose mb-[1rem]">
-						Our carbon.txt AI model card parser looks for structured frontmatter in a markdown file which adhere's to the specification outlined in Hugging Face's documentation for <i
-							><a href="https://huggingface.co/docs/hub/model-cards-co2#carbon-footprint-metadata">"Displaying carbon emissions for your model</a></i
+						Our carbon.txt AI model card parser looks for structured frontmatter in a markdown file which follows to the specification outlined in Hugging Face's documentation for <i
+							><a href="https://huggingface.co/docs/hub/model-cards-co2#carbon-footprint-metadata">"Displaying carbon emissions for your model"</a></i
 						>. If we are unable to find data in the <code>co2_eq_emissions.emissions</code> field, we display a "Missing or incorrectly formatted data" error for a given model. You can verify this by
 						checking the <a href="https://huggingface.co/{data.model.name}/raw/main/README.md" target="_blank">raw model card</a> content.
 					</p>
