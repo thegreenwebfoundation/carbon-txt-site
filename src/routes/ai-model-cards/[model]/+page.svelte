@@ -101,7 +101,7 @@ services = [
 	<Heading level={2}>Reference this model in carbon.txt</Heading>
 	<p class="prose mb-[1rem]">Carbon.txt provides a single, dependable endpoint to disclose the sustainability data for the AI models your organisation trains and uses.</p>
 	<div class="w-100 mb-[3rem]">
-		<Faq id="use" open="true">
+		<!-- <Faq id="use" open="true">
 			<span slot="question"><Heading level={3}>Use this model?</Heading></span>
 			<div class="" slot="answer">
 				<p class="prose mb-[1rem]">Publish this information in a carbon.txt file for your organisation using the code below.</p>
@@ -124,8 +124,8 @@ services = [
 					<a href="/quickstart" class="btn mx-auto min-w-[20ch] bg-blue-400 text-white hover:bg-blue-200 hover:text-black text-center">carbon.txt guide</a>
 				</div>
 			</div></Faq
-		>
-		<Faq id="own">
+		> -->
+		<Faq id="own" open="true">
 			<span slot="question"><Heading level={3}>Own this model?</Heading></span>
 			<div class="" slot="answer">
 				<p class="prose mb-[1rem]">Publish this information in a carbon.txt file for your organisation using the code below.</p>
@@ -147,6 +147,12 @@ services = [
 					>
 					<a href="/quickstart" class="btn mx-auto min-w-[20ch] bg-blue-400 text-white hover:bg-blue-200 hover:text-black text-center">carbon.txt guide</a>
 				</div>
+			</div>
+		</Faq>
+		<Faq id="use" open="true">
+			<span slot="question"><Heading level={3}>Use this model?</Heading></span>
+			<div class="" slot="answer">
+				<p class="prose mb-[1rem]">We are currently working on the sytanx for linking to training data for models that are used by an organisation.</p>
 			</div>
 		</Faq>
 	</div>
