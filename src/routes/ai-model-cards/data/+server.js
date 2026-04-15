@@ -53,6 +53,7 @@ export function GET({ url, setHeaders }) {
 	const fineTuning = url.searchParams.get('fineTuning') === 'true'
 	const hasLocationData = url.searchParams.get('hasLocationData') === 'true'
 	const hasHardwareData = url.searchParams.get('hasHardwareData') === 'true'
+	const hasSource = url.searchParams.get('hasSource') === 'true'
 
 	let data = buildDataset()
 
@@ -78,6 +79,10 @@ export function GET({ url, setHeaders }) {
 
 	if (hasHardwareData) {
 		data = data.filter((row) => typeof row.hardware_used === 'string')
+	}
+
+	if (hasSource) {
+		data = data.filter((row) => typeof row.source === 'string')
 	}
 
 	if (sort && SORT_FIELDS.has(sort)) {

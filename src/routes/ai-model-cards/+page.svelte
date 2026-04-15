@@ -15,7 +15,8 @@
 		{ label: 'Pre-training', value: 'pretraining', group: 'Training type' },
 		{ label: 'Fine-tuning', value: 'finetuning', group: 'Training type' },
 		{ label: 'Has location data', value: 'hasLocationData' },
-		{ label: 'Has hardware data', value: 'hasHardwareData' }
+		{ label: 'Has hardware data', value: 'hasHardwareData' },
+		{ label: 'Has source', value: 'hasSource' }
 	]
 	let selected = $state([])
 
@@ -48,6 +49,8 @@
 	let fineTuning = $derived(selected.some((filter) => filter.value === 'finetuning'))
 	let hasLocationData = $derived(selected.some((filter) => filter.value === 'hasLocationData'))
 	let hasHardwareData = $derived(selected.some((filter) => filter.value === 'hasHardwareData'))
+	let hasSource = $derived(selected.some((filter) => filter.value === 'hasSource'))
+
 	const buildUrl = (prev, params) => {
 		const url = new URL(prev, 'http://gridjs')
 
@@ -65,7 +68,7 @@
 	}
 
 	let baseUrl = $derived(
-		`/ai-model-cards/data?excludeErrors=${excludeErrors}&pretraining=${pretraining}&fineTuning=${fineTuning}&hasLocationData=${hasLocationData}&hasHardwareData=${hasHardwareData}`
+		`/ai-model-cards/data?excludeErrors=${excludeErrors}&pretraining=${pretraining}&fineTuning=${fineTuning}&hasLocationData=${hasLocationData}&hasHardwareData=${hasHardwareData}&hasSource=${hasSource}`
 	)
 
 	let gridServer = $derived({
@@ -197,5 +200,9 @@
 
 	:global(.filters > *:first-child) {
 		padding-bottom: 0;
+	}
+
+	:global(.gridjs-td) {
+		overflow-wrap: anywhere;
 	}
 </style>
