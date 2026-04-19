@@ -12,7 +12,10 @@
 
 		<ul class="prose ml-0">
 			<li class="p-3 bg-yellow-100 my-5">
-				<strong>✨️ New! carbon.txt can help buyers of digital services and infrastructure evaluate the sustainability of the products they're procuring</strong> - listen to our Director of Technology and Policy, Chris Adams explain how in  <a class="font-bold" href="https://podcast.greenio.tech/e/68rr5078-72-green-io-paris-2025-making-sustainability-easy-to-discover-with-chris-adams" target="_blank">this Green.IO podcast episode</a>.
+				<strong>✨️ New! carbon.txt can help providers of AI services to surface their carbon emissions data</strong>, and users of AI services to evaluate the carbon impact of their model choices and usage. <a target="_blank" href="https://www.thegreenwebfoundation.org/news/ai-model-cards-in-carbon-txt/">Learn more in our blog post</a>!
+      </li>
+			<li class="py-3 pl-0">
+				<a class="font-bold" href="https://podcast.greenio.tech/e/68rr5078-72-green-io-paris-2025-making-sustainability-easy-to-discover-with-chris-adams" target="_blank">Carbon.txt can help buyers of digital services and infrastructure evaluate the sustainability of the products they're procuring</a> - listen to our Director of Technology and Policy, Chris Adams explain how in this Green.IO podcast episode.
       </li>
 			<li class="py-3 pl-0">
 				<a class="font-bold" href="https://www.thegreenwebfoundation.org/news/green-hosting-providers-can-use-carbon-txt/" target="_blank"> Green hosting providers can use carbon.txt</a> - how we’re using
