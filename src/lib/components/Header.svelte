@@ -26,6 +26,7 @@
 			<div class="flex gap-3 w-full sm:w-auto min-[400px]:gap-6 sm:gap-6 flex-wrap items-center justify-end">
 				<a href="/tools" class={currentPage('/tools')}>Tools</a>
 				<a href="/use-cases" class={currentPage('/about')}>Use cases</a>
+        <a href="/news" class={currentPage("/news")}>News</a>
 				<a href="/faq" class={currentPage('/faq')}>FAQ</a>
 				<a href="/quickstart" class="{currentPage('/quickstart')} btn bg-blue-400 text-white hover:bg-blue-200 hover:text-black">Get started</a>
 			</div>
