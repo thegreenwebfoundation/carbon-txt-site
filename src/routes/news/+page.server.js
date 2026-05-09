@@ -1,33 +1,20 @@
 const WP_BLOG_HOST = 'www.thegreenwebfoundation.org'
 const PER_PAGE = 10
 const WP_CATEGORY_ID = 93
+const fetchUrl = `http://${WP_BLOG_HOST}/wp-json/wp/v2/posts?categories=${WP_CATEGORY_ID}&per_page=${PER_PAGE}`
 
-/** @type {import('./$types').PageLoad} */
-export async function load() {
-	const fetchUrl = `https://${WP_BLOG_HOST}/wp-json/wp/v2/posts?categories=${WP_CATEGORY_ID}&per_page=${PER_PAGE}`
-	console.log(fetchUrl)
+/** @type {import('./$types').PageServerLoad} */
+export async function load({ fetch }) {
 	const response = await fetch(fetchUrl)
 	const json = await response.json()
 
 	const posts = json.map((postJson) => {
 		const title = postJson.title.rendered
 		const link = postJson.link
-		const time = Intl.DateTimeFormat(navigator.language, { weekday: 'long', month: 'short', day: 'numeric' }).format(new Date(postJson.date))
-		const excerptSource = postJson.excerpt.rendered
-		const excerptDoc = new DOMParser().parseFromString(excerptSource, 'text/html')
-		const excerptNode = excerptDoc.querySelector('p')
-		const dateNode = excerptDoc.createElement('strong')
-		dateNode.innerText = `${time}: `
-		excerptNode.prepend(dateNode)
-		excerptNode.classList.add('mt-0')
-		const readMoreNode = excerptDoc.createElement('a')
-		readMoreNode.href = link
-		readMoreNode.target = '_blank'
-		readMoreNode.innerText = '[read more]'
-		excerptNode.append(' ')
-		excerptNode.append(readMoreNode)
-		const excerpt = excerptNode.outerHTML
-		return { title, link, excerpt }
+		const time = postJson.date
+		const excerpt = postJson.excerpt.rendered
+
+		return { title, link, time, excerpt }
 	})
 
 	return {

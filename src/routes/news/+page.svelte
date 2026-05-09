@@ -7,7 +7,7 @@
 	/** @type {import('./$types').PageProps} */
 	let { data } = $props()
 
-	const posts = data?.posts || []
+	let posts = data?.posts || []
 </script>
 
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
@@ -16,10 +16,12 @@
 		<p class="prose mt-4 mb-8">Read the latest news about the carbon.txt project from the <a href="https://{WP_BLOG_HOST}/news/" target="_blank">Green Web Foundation blog</a>.</p>
 		{#if posts && posts.length > 0}
 			<ul class="prose ml-0">
-				{#each $posts as post}
+				{#each posts as post}
 					<li class="pt-3 pb-5 pl-0">
 						<Heading level={3} class="pb-1 pt-1 mt-1 mb-0"><a href={post.link} class="no-underline hover:underline" target="_blank">{@html post.title}</a></Heading>
-						<div class="excerpt">{@html post.excerpt}</div>
+						<div class="excerpt">
+							<time datetime={post.time}>{Intl.DateTimeFormat(navigator.language, { weekday: 'long', month: 'short', day: 'numeric' }).format(new Date(post.time))}</time> - {@html post.excerpt}
+						</div>
 					</li>
 				{/each}
 			</ul>
