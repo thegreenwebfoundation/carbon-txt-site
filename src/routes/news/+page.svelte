@@ -32,3 +32,9 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	:global(.excerpt p) {
+		display: inline;
+	}
+</style>
