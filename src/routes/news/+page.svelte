@@ -1,7 +1,6 @@
 <script>
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
-	import * as publicEnv from '$env/static/public'
 
 	const WP_BLOG_HOST = 'www.thegreenwebfoundation.org'
 

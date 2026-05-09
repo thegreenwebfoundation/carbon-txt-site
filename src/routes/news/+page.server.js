@@ -1,5 +1,3 @@
-import * as publicEnv from '$env/static/public'
-
 const WP_BLOG_HOST = 'www.thegreenwebfoundation.org'
 const PER_PAGE = 10
 const WP_CATEGORY_ID = 93
