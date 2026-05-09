@@ -14,9 +14,6 @@
 	<div class="w-100 mb-[5rem] pt-[2.5rem]">
 		<Heading level={1}>News</Heading>
 		<p class="prose mt-4 mb-8">Read the latest news about the carbon.txt project from the <a href="https://{WP_BLOG_HOST}/news/" target="_blank">Green Web Foundation blog</a>.</p>
-		<div class="prose" id="loading-spinner-container">
-			<img src="/loading.gif" alt="Loading..." class="mx-auto my-8 py-8" height="75" width="75" />
-		</div>
 		{#if posts && posts.length > 0}
 			<ul class="prose ml-0">
 				{#each $posts as post}
