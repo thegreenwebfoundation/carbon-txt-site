@@ -3,7 +3,7 @@
 	import Heading from '$lib/components/Heading.svelte'
 	import * as publicEnv from '$env/static/public'
 
-	const WP_BLOG_HOST = publicEnv['PUBLIC_WP_BLOG_HOST'] || 'www.thegreenwebfoundation.org'
+	const WP_BLOG_HOST = 'www.thegreenwebfoundation.org'
 
 	/** @type {import('./$types').PageProps} */
 	let { data } = $props()

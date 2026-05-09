@@ -1,8 +1,8 @@
 import * as publicEnv from '$env/static/public'
 
-const WP_BLOG_HOST = publicEnv['PUBLIC_WP_BLOG_HOST'] || 'www.thegreenwebfoundation.org'
-const PER_PAGE = publicEnv['PUBLIC_WP_PER_PAGE'] || 10
-const WP_CATEGORY_ID = publicEnv['PUBLIC_WP_CATEGORY_ID'] || 93
+const WP_BLOG_HOST = 'www.thegreenwebfoundation.org'
+const PER_PAGE = 10
+const WP_CATEGORY_ID = 93
 
 /** @type {import('./$types').PageLoad} */
 export async function load() {
