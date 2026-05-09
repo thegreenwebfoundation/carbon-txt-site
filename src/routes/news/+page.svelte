@@ -20,7 +20,8 @@
 					<li class="pt-3 pb-5 pl-0">
 						<Heading level={3} class="pb-1 pt-1 mt-1 mb-0"><a href={post.link} class="no-underline hover:underline" target="_blank">{@html post.title}</a></Heading>
 						<div class="excerpt">
-							<time datetime={post.time}>{Intl.DateTimeFormat(navigator.language, { weekday: 'long', month: 'short', day: 'numeric' }).format(new Date(post.time))}</time> - {@html post.excerpt}
+							<time class="font-bold inline" datetime={post.time}>{Intl.DateTimeFormat(navigator.language, { weekday: 'long', month: 'short', day: 'numeric' }).format(new Date(post.time))}</time>:
+							{@html post.excerpt} <a class="inline" href={post.link} target="_blank">[read more]</a>
 						</div>
 					</li>
 				{/each}
