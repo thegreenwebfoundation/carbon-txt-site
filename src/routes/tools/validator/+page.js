@@ -1,6 +1,7 @@
 /** @type {import('./$types').PageLoad} */
-export async function load({ url }) {
+export async function load({ url, data }) {
 	return {
-		url
+		url,
+    ...data
 	}
 }

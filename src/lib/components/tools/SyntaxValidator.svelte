@@ -45,6 +45,7 @@
 		}
 	}}
 >
+  <input type="hidden" name="csrf_token" value={data.csrfToken} />
 	<label class="flex flex-col gap-1" for="domain"
 		>Website domain:
 		<small class="text-xs mb-3">Enter a website domain to check if it has a valid carbon.txt file.</small>
