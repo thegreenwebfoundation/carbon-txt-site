@@ -1,7 +1,9 @@
 import { load } from 'js-toml'
 import * as publicEnv from '$env/static/public'
+import * as privateEnv from '$env/static/private'
 
 const apiBase = publicEnv['PUBLIC_API_BASE_URL'] || 'https://carbon-txt-api.greenweb.org'
+const apiKey = privateEnv["GWF_API_KEY"];
 
 /** @satisfies {import('./$types').Actions} */
 export const actions = {
@@ -31,6 +33,9 @@ export const actions = {
 
 		const response = await fetch(apiRoute, {
 			method: 'POST',
+      headers: {
+        "X-Api-Key": apiKey,
+      },
 			body: bodyData
 		})
 
