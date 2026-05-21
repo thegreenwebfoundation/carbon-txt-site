@@ -1,4 +1,4 @@
-import { load } from 'js-toml'
+import { load as loadToml } from 'js-toml'
 import { fail } from '@sveltejs/kit';
 import * as publicEnv from '$env/static/public'
 import * as privateEnv from '$env/static/private'
@@ -56,7 +56,7 @@ export const actions = {
 				const lines = text_contents.split('\n')
 				let parsedToml = {}
 				try {
-					parsedToml = await load(text_contents)
+					parsedToml = await loadToml(text_contents)
 				} catch {
 					return {
 						text_contents,
