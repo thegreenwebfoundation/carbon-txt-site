@@ -12,7 +12,6 @@
 
 	/** @type {{ data: import('./$types').PageData, form: import('./$types').ActionData }} */
 	let { data, form } = $props()
-
 	let url = ''
 	let domain = ''
 	let searchParams = new URLSearchParams(data.url.search)

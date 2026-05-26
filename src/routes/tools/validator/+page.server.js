@@ -1,12 +1,24 @@
-import { load } from 'js-toml'
+import { load as loadToml } from 'js-toml'
+import { fail } from '@sveltejs/kit';
 import * as publicEnv from '$env/static/public'
+import * as privateEnv from '$env/static/private'
 
 const apiBase = publicEnv['PUBLIC_API_BASE_URL'] || 'https://carbon-txt-api.greenweb.org'
+const apiKey = privateEnv["GWF_API_KEY"];
+
+export function load({ cookies }) {
+  const token = crypto.randomUUID();
+  cookies.set('csrf', token, { httpOnly: false, sameSite: 'strict', path: "/" });
+  return { csrfToken: token };
+}
 
 /** @satisfies {import('./$types').Actions} */
 export const actions = {
-	validate: async ({ request }) => {
+	validate: async ({ request, cookies }) => {
 		const data = await request.formData()
+    if (data.get('csrf_token') !== cookies.get('csrf')) {
+      return fail(403, { response: { error: 'Invalid CSRF token' }});
+    }
 		const text_contents = data.get('carbon-txt-validator')
 		const url = data.get('url')
 		let domain = data.get('domain')
@@ -31,6 +43,9 @@ export const actions = {
 
 		const response = await fetch(apiRoute, {
 			method: 'POST',
+      headers: {
+        "X-Api-Key": apiKey,
+      },
 			body: bodyData
 		})
 
@@ -41,7 +56,7 @@ export const actions = {
 				const lines = text_contents.split('\n')
 				let parsedToml = {}
 				try {
-					parsedToml = await load(text_contents)
+					parsedToml = await loadToml(text_contents)
 				} catch {
 					return {
 						text_contents,
