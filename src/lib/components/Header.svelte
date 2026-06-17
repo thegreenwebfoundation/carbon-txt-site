@@ -8,7 +8,7 @@
 	<div class="annoucement-banner bg-green-200 border-b-2">
 		<div class="container mx-auto px-2 sm-px-4 bg-green-200">
 			<p class="py-6 text-center">
-				🌱 We're happy to announce that the carbon.txt validator is now available as an HTTP API! Read more about how to use it in <a href="https://developers.thegreenwebfoundation.org/carbon-txt/overview/" target="_blank">the developer documentation</a>. 🌱
+				🌱 The carbon.txt validator is now available as an HTTP API! <a href="https://www.thegreenwebfoundation.org/news/announcing-api-access-to-carbon-txt/" target="_blank">Learn more at our blog</a>. 🌱
 			</p>
 		</div>
 	</div>
