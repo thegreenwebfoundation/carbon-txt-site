@@ -129,9 +129,19 @@
 	<Faq id="developer-tools">
 		<span slot="question">I'm a developer, how can I use carbon.txt in my own applications?</span>
 		<div class="prose" slot="answer">
-      <p>Our <a href="https://pypi.org/project/carbon-txt/" target="_blank">carbon.txt python package</a> is the reference implementation of the carbon.txt syntax, and powers the validator on this site as well as carbon.support in the <a href="https://www.thegreenwebfoundation.org/green-web-check/" target="_blank">Green Web Check tool</a> - it also allows you to build and validate carbon.txt files programatically within your own applications.</p>
-      <p>There is <a href="https://carbon-txt-validator.readthedocs.io/en/latest/" target="_blank">documentation on the python package available at ReadTheDocs</a>, and <a href="https://github.com/thegreenwebfoundation/carbon-txt-validator" target="_blank">source code on GitHub</a>.</p>
-      <p>More <a href="https://developers.thegreenwebfoundation.org/carbon-txt/overview/" target="_blank">general technical documentation on the carbon.txt project</a> is available on our developer documentation site.</p>
+      <p>We offer two ways of extending and using carbon.txt in your own software - a python package, and an HTTP API.</p>
+      <details class="mb-4 ml-4">
+        <summary class="text-xl">The carbon.txt python package</summary>
+        <p>Our <a href="https://pypi.org/project/carbon-txt/" target="_blank">carbon.txt python package</a> is the reference implementation of the carbon.txt syntax, and powers the validator on this site as well as carbon.support in the <a href="https://www.thegreenwebfoundation.org/green-web-check/" target="_blank">Green Web Check tool</a> - it also allows you to build and validate carbon.txt files programatically within your own applications.</p>
+        <p>There is <a href="https://carbon-txt-validator.readthedocs.io/en/latest/" target="_blank">documentation on the python package available at ReadTheDocs</a>, and <a href="https://github.com/thegreenwebfoundation/carbon-txt-validator" target="_blank">source code on GitHub</a>.</p>
+        <p>More <a href="https://developers.thegreenwebfoundation.org/carbon-txt/overview/" target="_blank">general technical documentation on the carbon.txt project</a> is available on our developer documentation site.</p>
+      </details>
+      <details class="mb-4 ml-4">
+        <summary class="text-xl">The carbon.txt validation API</summary>
+        <p>If you're not working with python, or if you prefer not to rely on our package for some other reason, we offer an HTTP API for performing carbon.txt lookups and validating carbon.txt files. This API allows you to check the syntax and contents of a carbon.txt file, provided as a URL or directly as text, as well as look up the carbon.txt file for any domain.</p>
+        <p>API documentation is available at <a href="https://carbon-txt-api.greenweb.org/api/docs" target="_blank">carbon-txt-api.greenweb.org/api/docs</a>, and further information and usage examples on our <a href="https://developers.thegreenwebfoundation.org/api/carbon-txt/overview/" target="_blank">developer documentation site</a>. To access this API you will need to register for an API key on the <a href="https://admin.thegreenwebfoundation.org" target="_blank">Green Web portal</a>, and pass it in the <code>X-API-Key</code> header of your API requests. By default, requests are rate-limited to 2 per second per key - if you need a higher limit, please <a href="mailto:support@greenweb.org?subject=Raise%20API%20key%20request%20limit">get in touch</a> to discuss your use case!</p>
+        <p>If you're working in Javascript, our <a href="https://www.npmjs.com/package/@tgwf/co2" target="_blank">CO2.js</a> library provides a useful wrapper client for this API - full details are available in the <a href="https://developers.thegreenwebfoundation.org/co2js/overview/" target="_blank">developer documentation</a>.
+      </details>
 		</div>
 	</Faq>
 </article>

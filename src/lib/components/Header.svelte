@@ -8,7 +8,7 @@
 	<div class="annoucement-banner bg-green-200 border-b-2">
 		<div class="container mx-auto px-2 sm-px-4 bg-green-200">
 			<p class="py-6 text-center">
-				🌱 We've just released <strong>version 0.5 of the carbon.txt syntax</strong>, with support for <strong>AI model cards</strong>! Learn more in <a target="_blank" href="https://www.thegreenwebfoundation.org/news/ai-model-cards-in-carbon-txt/">our blog post</a>. 🌱
+				🌱 The carbon.txt validator is now available as an HTTP API! <a href="https://www.thegreenwebfoundation.org/news/announcing-api-access-to-carbon-txt/" target="_blank">Learn more at our blog</a>. 🌱
 			</p>
 		</div>
 	</div>

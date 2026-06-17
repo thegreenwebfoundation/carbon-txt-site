@@ -39,3 +39,11 @@
 		</li>
 	</ul>
 </section>
+
+<section>
+	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 mb-[4rem]">
+		<div class="prose max-w-full">
+      <p>We also offer API access to carbon.txt - please see <a href="https://developers.thegreenwebfoundation.org/api/carbon-txt/overview/" target="_blank">our developer documentation</a> for more information.</p>
+		</div>
+	</div>
+</section>
