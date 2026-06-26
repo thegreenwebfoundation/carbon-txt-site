@@ -1,14 +1,7 @@
 <script>
-	export let store
-	export let type = 'upstream'
-	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
-	import { onMount } from 'svelte'
 	import slugify from '@sindresorhus/slugify'
 
-	let evidenceTypes = []
-	onMount(async () => {
-		evidenceTypes = await fetchEvidenceTypes()
-	})
+	let { evidenceTypes, type = 'upstream', store } = $props()
 
 	let newObject = {
 		domain: '',

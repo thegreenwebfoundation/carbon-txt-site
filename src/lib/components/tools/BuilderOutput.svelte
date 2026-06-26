@@ -1,24 +1,12 @@
 <script>
-	import fetchEvidenceTypes from '$lib/utils/evidenceTypes'
-	import { evidenceTypes } from '$lib/store'
-	import { onMount } from 'svelte'
-
-	onMount(async () => {
-		if ($evidenceTypes.length === 0) {
-			$evidenceTypes = await fetchEvidenceTypes()
-		}
-	})
-
-	let { store } = $props()
-
-	console.log($store)
+	let { store, evidenceTypes } = $props()
 
 	const removeUpstream = (provider) => {
 		store.update((upstream) => upstream.filter((item) => item !== provider))
 	}
 
 	const evidenceName = (evidence) => {
-		return $evidenceTypes.find((item) => item.slug === evidence).name
+		return evidenceTypes.find((item) => item.slug === evidence).name
 	}
 </script>
 
@@ -80,7 +68,7 @@
 					{#each $store as provider (provider)}
 						<tr class="odd:bg-green-50 even:bg-green-100">
 							<td class="p-2">{evidenceName(provider.doctype)}</td>
-							<td class="p-2 break-all"><a href="{provider.url}" target="_blank">{provider.url}</a></td>
+							<td class="p-2 break-all"><a href={provider.url} target="_blank">{provider.url}</a></td>
 							<td class="p-2">{provider.validUntil || '-'}</td>
 							<td class="p-2">{provider.title || '-'}</td>
 							<td class="p-2">

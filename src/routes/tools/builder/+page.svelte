@@ -9,11 +9,16 @@
 
 	import { builderUpstream, builderOrg } from '$lib/store'
 
+	/** @type {import('./$types').PageProps} */
+	let { data } = $props()
+
+	const evidenceTypes = data?.evidenceTypes || []
+
 	let copyText = 'Copy output'
 
-  let escapeQuotes = (str) => {
-    return str.replace(/(?<!\\)"/g, '\\"');
-  }
+	let escapeQuotes = (str) => {
+		return str.replace(/(?<!\\)"/g, '\\"')
+	}
 
 	const mapUpstream = () => $builderUpstream.map((provider) => `{ domain="${provider.domain}", service_type="${provider.service}" }`).join(',\n    ')
 	const mapOrg = () =>
@@ -40,7 +45,8 @@
 	const carbonTxtSyntaxVersion = '0.5'
 	const todaysDate = new Date().toISOString().split('T')[0]
 
-	$: outputCode = `version="${carbonTxtSyntaxVersion}"
+	let outputCode = $derived.by(
+		() => `version="${carbonTxtSyntaxVersion}"
 last_updated=${todaysDate}
 
 [org]
@@ -48,6 +54,7 @@ disclosures = [${$builderOrg.length > 0 ? '\n    ' + mapOrg() + '\n' : ' '}]
 
 [upstream]
 services = [${$builderUpstream.length > 0 ? '\n    ' + mapUpstream() + '\n' : ' '}]`
+	)
 
 	const resetBuilder = () => {
 		builderUpstream.set([])
@@ -110,16 +117,16 @@ services = [${$builderUpstream.length > 0 ? '\n    ' + mapUpstream() + '\n' : ' 
 						<Heading level={2}>Required</Heading>
 						<Heading level={3}>Organisational disclosures</Heading>
 						<p class="mb-10">List the documents that show evidence of your green claims, such as CSRD, EED, ESG and/or other sustainability reporting.</p>
-						<BuilderInput store={builderOrg} type="org" />
-						<BuilderOutput store={builderOrg} />
+						<BuilderInput store={builderOrg} type="org" {evidenceTypes} />
+						<BuilderOutput store={builderOrg} {evidenceTypes} />
 					</div>
 					<hr />
 					<div class="mb-[3rem]">
 						<Heading level={2}>Optional</Heading>
 						<Heading level={3}>Upstream services</Heading>
 						<p class="mb-10">List the services providers you use to deliver your service.</p>
-						<BuilderInput store={builderUpstream} />
-						<BuilderOutput store={builderUpstream} />
+						<BuilderInput store={builderUpstream} {evidenceTypes} />
+						<BuilderOutput store={builderUpstream} {evidenceTypes} />
 					</div>
 				</div>
 			</div>
