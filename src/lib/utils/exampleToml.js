@@ -1,4 +1,4 @@
-const carbonTxtSyntaxVersion = '0.3'
+const carbonTxtSyntaxVersion = '0.6'
 const todaysDate = new Date().toISOString().split('T')[0]
 
 export const digitalServiceToml = `version="${carbonTxtSyntaxVersion}"
