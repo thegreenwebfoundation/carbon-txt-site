@@ -21,6 +21,31 @@
 	}
 
 	const pluginData = pluginResponse() || []
+
+  const allCertificationSchemeColumns = [
+    { key: "id",  label: "Scheme ID", className: "whistepace-nowrap",  always: true },
+    { key: "url",    label: "Scheme URL", className: "break-all",   always: true },
+    { key: "title", label: "Title" },
+    { key: "description", label: "Description" },
+  ];
+
+  const allDisclosureColumns = [
+    { key: "doc_type",  label: "Document type", className: "whistepace-nowrap",  always: true },
+    { key: "url",    label: "Document URL", className: "break-all",   always: true },
+    { key: "title", label: "Title" },
+    { key: "description", label: "Description" },
+    { key: "domain", label: "Domain", className: "whitespace-nowrap"},
+    { key: "valid_until", label: "Valid until", className: "whitespace-nowrap"},
+    { key: "certification_schemes", label: "Certification scheme(s)" },
+  ];
+
+  let certificationSchemeColumns = $derived(allCertificationSchemeColumns.filter(
+    c => c.always || form?.response.data.org.certification_schemes?.some(r => r[c.key])
+  ));
+
+  let disclosureColumns = $derived(allDisclosureColumns.filter(
+    c => c.always || form?.response.data.org.disclosures?.some(r => r[c.key])
+  ));
 </script>
 
 <section class="w-100" id="result">
@@ -61,29 +86,59 @@
 				</table>
 			</div>
 
-			{#if form?.response.data.org && form?.response.data.org.disclosures.length > 0}
+			{#if form?.response.data.org && form?.response.data.org.certification_schemes?.length > 0}
 				<div class="relative overflow-x-auto">
 					<table class="w-full">
 						<thead>
 							<tr>
-								<td colspan="5">Organisation disclosures</td>
+								<td colspan="{certificationSchemeColumns.length}">Organisation certification schemes</td>
 							</tr>
 							<tr>
-								<th>Document Type</th>
-								<th>Document URL</th>
-								<th>Domain</th>
-								<th>Valid until</th>
-								<th>Title</th>
+                {#each certificationSchemeColumns as col }<th>{col.label}</th>{/each}
+							</tr>
+						</thead>
+						<tbody>
+							{#each form?.response.data.org.certification_schemes as scheme (scheme)}
+								<tr>
+                  {#each certificationSchemeColumns as col }
+                    <td class="{col.className}">
+                      {#if col.key == "url" && scheme[col.key] }
+                        <a href="{scheme[col.key]}" target="_blank">{scheme[col.key]}</a>
+                      {:else}
+                        {scheme[col.key] || "-"}
+                      {/if}
+                    </td>
+                  {/each}
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
+      {/if}
+
+      {#if form?.response.data.org && form?.response.data.org.disclosures.length > 0}
+				<div class="relative overflow-x-auto">
+					<table class="w-full">
+						<thead>
+							<tr>
+								<td colspan="{disclosureColumns.length}">Organisation disclosures</td>
+							</tr>
+							<tr>
+                {#each disclosureColumns as col }<th>{col.label}</th>{/each}
 							</tr>
 						</thead>
 						<tbody>
 							{#each form?.response.data.org.disclosures as disclosure (disclosure)}
 								<tr>
-									<td class="whitespace-nowrap">{disclosure.doc_type}</td>
-									<td class="break-all"><a href={disclosure.url} target="_blank">{disclosure.url}</a></td>
-									<td class="whitespace-nowrap">{disclosure.domain || '-'}</td>
-									<td class="whitespace-nowrap">{disclosure.valid_until || '-'}</td>
-									<td>{disclosure.title || '-'}</td>
+                  {#each disclosureColumns as col }
+                    <td class="{col.className}">
+                      {#if col.key == "url" && disclosure[col.key] }
+                        <a href="{disclosure[col.key]}" target="_blank">{disclosure[col.key]}</a>
+                      {:else}
+                        {disclosure[col.key] || "-"}
+                      {/if}
+                    </td>
+                  {/each}
 								</tr>
 							{/each}
 						</tbody>
