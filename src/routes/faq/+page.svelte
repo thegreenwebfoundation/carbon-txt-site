@@ -54,7 +54,7 @@
 
 			<p>
 				We believe that providing a simple way for organisations to implement the carbon.txt specification is key to broader adoption. It allows us, as a small not-for-profit driving this idea, to
-				have a much larger reach & impact when compared to the alternative of relying on individual action. Buulding this project around a plugin ecosystem also allows for other organisations to build
+				have a much larger reach &amp; impact when compared to the alternative of relying on individual action. Buulding this project around a plugin ecosystem also allows for other organisations to build
 				on top of the carbon.txt specification, and extend it in ways that we haven't thought of.
 			</p>
 
@@ -129,7 +129,7 @@
 	<Faq id="document-types">
 		<span slot="question">What types of document can I link to as evidence in my carbon.txt file?</span>
 		<div class="prose" slot="answer">
-      <p>We accept a wide variety of <i>document types</i> as evidence in the <strong>organisatioal disclosures</strong> section of your carbon.txt file. Currently, these include:</p>
+      <p>We accept a wide variety of document types as evidence in the <strong>organisatioal disclosures</strong> section of your carbon.txt file. Currently, these include:</p>
       <dl>
         <dt>
           Sustainability page
@@ -174,6 +174,16 @@
           Any other document which provides evidence of your carbon footprint, sustainability policy, or related commitments. If you want to recommend any new docuemnt types for inclusion in future versions of carbon.txt, you can <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues" target="_blank"> create an issue in our git repository</a>.
         </dd>
       </dl>
+		</div>
+	</Faq>
+	<Faq id="certification-schemes">
+		<span slot="question">What is a certification scheme, and how can I include one in my carbon.txt file?</span>
+		<div class="prose" slot="answer">
+      <p>In carbon.txt, we use the term <strong>certification schemes</strong> to refer to any independent third party which both <strong>sets out voluntary standards on sustainability, energy use, or emissions commitments</strong>, and also <strong>audits or verifies an organization's adherence to them</strong>. A good example is something like <a href="https://www.bcorporation.net" target="_blank">B-corp</a>, which both sets out the <a href="https://www.bcorporation.net/en-us/standards/performance-requirements/" target="_blank">B Lab Standards for social environmental and governance practices</a>, and <a href="https://www.bcorporation.net/en-us/certification/">certifies companies for compliance with them</a>.</p>
+      <p>Certification schemes are important in carbon.txt for two reasons: Firstly, by surfacing an organization's certifications, users of carbon.txt can have increased trust in their disclosures (as they have been indepently certified), and can better understand their specific sustainability commitments and policies, rather than just the actions that arise from them. In addition, certifying organizations themselves can use carbon.txt to more easily access the evidence they need to certify an organization.</p>
+      <p>
+        In carbon.txt, certification schemes are specified explicitly in a dedicated block of the file, and then referred to by disclosures that are relevant to them. This allows users to quickly identify which disclosures provide evidence for which particular certification schemes. For further details, please see our blog post.
+      </p>
 		</div>
 	</Faq>
 	<Faq id="developer-tools">

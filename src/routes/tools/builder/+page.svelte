@@ -147,7 +147,7 @@ services = [${$builderUpstream.length > 0 ? '\n    ' + mapUpstream() + '\n' : ' 
 					<div>
 						<strong class="uppercase text-sm">Optional</strong>
 						<Heading level={2}>Step 1: Certification schemes</Heading>
-						<p class="mb-5">If you are certified by any third party certification schemes, for instance Blauer Engel, B-Corp, or TCO Certified Cloud, list them here.</p>
+						<p class="mb-5">If you are certified by any <a href="/faq#certification-schemes" target="_blank">third party certification schemes</a>, for instance Blauer Engel, B-Corp, or TCO Certified Cloud, list them here.</p>
             <p class="mb-10">If you have no third party certifications, you can continue straight on to Step 2. </p>
 						<CertificationSchemeInput store={builderCertificationSchemes} />
 						<CertificationSchemeOutput store={builderCertificationSchemes} />
