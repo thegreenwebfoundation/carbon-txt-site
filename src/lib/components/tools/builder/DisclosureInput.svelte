@@ -107,7 +107,7 @@
   <FormField
 		name="doctype"
 		label="Document type"
-		hint="The type of document that is being linked to."
+		hint="The type of document that is being linked to - <a href='http://localhost:5173/faq#document-types' target=_'blank'>see our FAQ</a> for a more detailed explanation of each option."
 		error={error.field === 'doctype' ? error.message : ''}
 	>
 		<select name="doctype" bind:value={newObject.doctype}>
