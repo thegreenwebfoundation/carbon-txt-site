@@ -25,6 +25,10 @@
     return $certificationSchemes.map((s) => ({ "label": s.id, "value": s.id }))
   });
 
+  let hasCertificationSchemes = $derived.by(() => {
+    return $certificationSchemes.length > 0
+  });
+
 	const validate = () => {
 		if (newObject.doctype.length === 0) {
 			error.field = 'doctype'
@@ -89,7 +93,18 @@
 </script>
 
 <div class="disclosure-input">
+
 	<FormField
+		name="url"
+		label="URL"
+		hint="The publicly accessible URL for the document."
+		error={error.field === 'url' ? error.message : ''}
+    wide={!hasCertificationSchemes}
+	>
+		<input type="text" name="url" bind:value={newObject.url} placeholder="https://example.com/our-sustainability-page" />
+	</FormField>
+
+  <FormField
 		name="doctype"
 		label="Document type"
 		hint="The type of document that is being linked to."
@@ -103,15 +118,6 @@
 	</FormField>
 
 	<FormField
-		name="url"
-		label="URL"
-		hint="The publicly accessible URL for the document."
-		error={error.field === 'url' ? error.message : ''}
-	>
-		<input type="text" name="url" bind:value={newObject.url} placeholder="https://example.com/our-sustainability-page" />
-	</FormField>
-
-	<FormField
 		name="valid_until"
 		label="Valid until (Optional)"
 		hint="The last date that this disclosure is valid for, if it is time-limited."
@@ -120,23 +126,25 @@
 		<input type="date" name="valid_until" bind:value={newObject.validUntil} />
 	</FormField>
 
-	<FormField
-		name="certification_schemes"
-		label="Certification schemes (Optional)"
-		hint="If you have listed any certification schemes, indicate here which schemes this disclosure relates to (if any)."
-	>
-		<MultiSelect
-			name="certification_schemes"
-			bind:selected={newObject.certificationSchemes}
-			options={certificationSchemesOptions}
-			keepSelectedInDropdown="checkboxes"
-			outerDivClass="w-full bg-green-50 border-0 border-b-2 border-black line-height-[1.5] rounded-none px-[0.75rem] py-[0.25rem] min-h-[2.6rem]"
-			inputClass="bg-transparent"
-			ulOptionsClass="border-black rounded-none border-0 border-b-2 bg-green-50"
-      liSelectedClass="text-sm py-[0.30rem]"
-      allowEmpty={true}
-		/>
-	</FormField>
+  {#if hasCertificationSchemes}
+    <FormField
+      name="certification_schemes"
+      label="Certification schemes (Optional)"
+      hint="If you have listed any certification schemes, indicate here which schemes this disclosure relates to (if any)."
+    >
+      <MultiSelect
+        name="certification_schemes"
+        bind:selected={newObject.certificationSchemes}
+        options={certificationSchemesOptions}
+        keepSelectedInDropdown="checkboxes"
+        outerDivClass="w-full bg-green-50 border-0 border-b-2 border-black line-height-[1.5] rounded-none px-[0.75rem] py-[0.25rem] min-h-[2.6rem]"
+        inputClass="bg-transparent"
+        ulOptionsClass="border-black rounded-none border-0 border-b-2 bg-green-50"
+        liSelectedClass="text-sm py-[0.30rem]"
+        allowEmpty={true}
+      />
+    </FormField>
+  {/if}
 
 	<FormField
 		name="disclosure_title"
@@ -150,7 +158,7 @@
 	<FormField
 		name="disclosure_description"
 		label="Description (Optional)"
-		hint="A meaningful description of the disclosure."
+		hint="Optionally, a brief description or summary of the disclosure - the key claims it makes about your organisation's sustainability policy or climate impact."
 		wide
 	>
 		<input type="text" name="disclosure_description" bind:value={newObject.description} placeholder="" />
@@ -168,9 +176,9 @@
 	}
 
 	.disclosure-input :global(.form-group) {
-		flex: 1 1 auto;
+		flex: 1 1 49%;
+    justify-content: space-between;
 		margin: 0;
-		width: 49%;
 	}
 
 	.disclosure-input :global(.form-group.wide) {

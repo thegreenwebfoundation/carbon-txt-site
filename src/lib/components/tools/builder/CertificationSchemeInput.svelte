@@ -17,6 +17,7 @@
 		message: ''
 	})
 
+  let certificationSchemesEnabled = $state(false);
 
 	const validate = () => {
 		if (newObject.id.length === 0) {
@@ -73,42 +74,55 @@
 </script>
 
 <div class="certification-scheme-input">
-	<FormField
-		name="id"
-		label="ID"
-		hint="A short, unique identifier (without spaces) for this certification scheme, so we can refer to it elsewhere in the file."
-		error={error.field === 'id' ? error.message : ''}
-	>
-		<input type="text" name="id" bind:value={newObject.id} placeholder="a-certification-scheme" />
-	</FormField>
+    <FormField
+      name="certificationSchemesEnabled"
+      label="Do you have third party certifications you’d like to include in your carbon.txt file?"
+      hint="E.g.: ecolabels, or membership of organizations like B-corp"
+      wide
+    >
+      <select name="certificationSchemesEnabled" bind:value={certificationSchemesEnabled}>
+          <option value={false}>No</option>
+          <option value={true}>Yes</option>
+      </select>
+    </FormField>
+  {#if certificationSchemesEnabled }
+    <FormField
+      name="url"
+      label="URL"
+      hint="The publicly accessible URL for the certifying organization."
+      error={error.field === 'url' ? error.message : ''}
+    >
+      <input type="text" name="url" bind:value={newObject.url} placeholder="https://example.com/" />
+    </FormField>
 
-	<FormField
-		name="url"
-		label="URL"
-		hint="The publicly accessible URL for the certifying organization."
-		error={error.field === 'url' ? error.message : ''}
-	>
-		<input type="text" name="url" bind:value={newObject.url} placeholder="https://example.com/" />
-	</FormField>
+    <FormField
+      name="id"
+      label="ID"
+      hint="A short, unique identifier (without spaces) for this certification scheme, so we can refer to it elsewhere in the file, <br />e.g. :'blauer-engel' or 'b-corp'."
+      error={error.field === 'id' ? error.message : ''}
+    >
+      <input type="text" name="id" bind:value={newObject.id} placeholder="a-certification-scheme" />
+    </FormField>
 
-	<FormField
-		name="title"
-		label="Title (Optional)"
-		hint="A meaningful title describing the certification scheme."
-		wide
-	>
-		<input type="text" name="title" bind:value={newObject.title} placeholder="" />
-	</FormField>
+    <FormField
+      name="title"
+      label="Title (Optional)"
+      hint="A meaningful title describing the certification scheme."
+      wide
+    >
+      <input type="text" name="title" bind:value={newObject.title} placeholder="" />
+    </FormField>
 
-	<FormField
-		name="description"
-		label="Description (Optional)"
-		hint="A meaningful description of the certification scheme."
-		wide
-	>
-		<input type="text" name="description" bind:value={newObject.description} placeholder="" />
-	</FormField>
-  <button onclick={add} class="btn mx-auto w-max min-w-[20ch] rounded-full">Add</button>
+    <FormField
+      name="description"
+      label="Description (Optional)"
+      hint="Optionally, a brief summary of what this certification scheme means in practice: what particular carbon reduction measures you are committed to, and how they are verified."
+      wide
+    >
+      <input type="text" name="description" bind:value={newObject.description} placeholder="" />
+    </FormField>
+    <button onclick={add} class="btn mx-auto w-max min-w-[20ch] rounded-full">Add</button>
+  {/if}
 </div>
 
 <style>
@@ -120,9 +134,14 @@
 	}
 
 	.certification-scheme-input :global(.form-group) {
-		flex: 1 1 auto;
+		flex: 1 1 49%;
+    justify-content: space-between;
 		margin: 0;
 	}
+
+  .certification-scheme-input :global(.form-group.wide) {
+		flex: 1 0 auto;
+  }
 
 	.certification-scheme-input button {
 		flex: 1 0 auto;

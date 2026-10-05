@@ -91,7 +91,7 @@
 	}
 
 	.upstream-input :global(.form-group) {
-		flex: 1 1 auto;
+		flex: 1 1 49%;
 		margin: 0;
 	}
 

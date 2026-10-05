@@ -112,20 +112,21 @@ services = [${$builderUpstream.length > 0 ? '\n    ' + mapUpstream() + '\n' : ' 
 <section class="w-100" id="intro">
 	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 pb-[5rem] lg:grid lg:grid-cols-1 lg:items-start">
 		<div>
-			<div class="">
-				<div class="prose mb-8">
-					<Heading level={1}>Builder</Heading>
-					<p>Use this builder to create a carbon.txt file for your organisation.</p>
-					<p>
-						The builder uses <b>the latest version (v{carbonTxtSyntaxVersion})</b> of the carbon.txt syntax.
+			<div class="mb-16">
+				<div class="prose">
+					<Heading level={1} class="mb-4">Builder</Heading>
+					<p>Use this builder to create a carbon.txt file for your organisation.
+						<br />The builder uses <b>the latest version (v{carbonTxtSyntaxVersion})</b> of the carbon.txt syntax.
 						<a href="/syntax">Learn more</a>.
 					</p>
 				</div>
 			</div>
 
 			<div class="max-w-100" id="output">
+        <Heading level={2} class="">Your carbon.txt file</Heading>
+        <p>Use the form below to enter your data, and the code here will update automatically. When you're done you can download or copy the completed carbon.txt file.</p>
 				<Code lang="toml" code={outputCode} />
-				<div class="mx-auto flex justify-center items-center flex-wrap">
+				<div class="mx-auto flex justify-center items-center flex-wrap mb-16">
 					<button class="btn mx-auto min-w-[20ch] block mx-auto" on:click={downloadFile}>Download file</button>
 					<button
 						class="btn mx-auto min-w-[20ch] block mx-auto btn-white"
@@ -146,9 +147,9 @@ services = [${$builderUpstream.length > 0 ? '\n    ' + mapUpstream() + '\n' : ' 
 					<div>
 						<strong class="uppercase text-sm">Optional</strong>
 						<Heading level={2}>Step 1: Certification schemes</Heading>
-						<p class="mb-5">If you are certified by any third party certification schemes, for instance Blau Angel, B-Corp, or TCO Certified Cloud, list them here.</p>
+						<p class="mb-5">If you are certified by any third party certification schemes, for instance Blauer Engel, B-Corp, or TCO Certified Cloud, list them here.</p>
             <p class="mb-10">If you have no third party certifications, you can continue straight on to Step 2. </p>
-						<CertificationSchemeInput store={builderCertificationSchemes}  />
+						<CertificationSchemeInput store={builderCertificationSchemes} />
 						<CertificationSchemeOutput store={builderCertificationSchemes} />
 					</div>
 					<hr />

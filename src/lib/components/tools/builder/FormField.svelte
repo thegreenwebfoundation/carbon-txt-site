@@ -6,7 +6,7 @@
 	<span>
 		<label for={name}>{label}</label>
 		{#if hint}
-			<small>{hint}</small>
+			<small>{@html hint}</small>
 		{/if}
 	</span>
 
