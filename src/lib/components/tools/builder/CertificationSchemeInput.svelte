@@ -86,7 +86,7 @@
 
     <FormField
       name="title"
-      label="Title (Optional)"
+      label="Title"
       hint="A meaningful title describing the certification scheme."
     >
       <input type="text" name="title" bind:value={newObject.title} placeholder="" />
