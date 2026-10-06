@@ -148,7 +148,7 @@ services = [${upstreamsContent}]`
 					<button class="btn mx-auto min-w-[20ch] block mx-auto btn-black" on:click={resetBuilder}>Clear</button>
 				</div>
 				<div class="py-8">
-					<div>
+					<div class="mb-[4.5rem]">
 						<strong class="uppercase text-sm">Optional</strong>
 						<Heading level={2}>Step 1: Certification schemes</Heading>
 						<p class="mb-5">If you are certified by any <a href="/faq#certification-schemes" target="_blank">third party certification schemes</a>, for instance Blauer Engel, B-Corp, or TCO Certified Cloud, list them here.</p>
@@ -156,16 +156,14 @@ services = [${upstreamsContent}]`
 						<CertificationSchemeInput store={builderCertificationSchemes} />
 						<CertificationSchemeOutput store={builderCertificationSchemes} />
 					</div>
-					<hr />
-					<div>
+					<div class="mb-[4.5rem]">
 						<strong class="uppercase text-sm">Required</strong>
 						<Heading level={2}>Step 2: Organisational disclosures</Heading>
 						<p class="mb-10">List the documents that show evidence of your green claims, such as CSRD, EED, ESG and/or other sustainability reporting.</p>
 						<DisclosureInput store={builderDisclosures} certificationSchemes={builderCertificationSchemes} {evidenceTypes} />
 						<DisclosureOutput store={builderDisclosures} {evidenceTypes} certificationSchemes={builderCertificationSchemes} />
 					</div>
-					<hr />
-					<div class="mb-[3rem]">
+					<div class="mb-[4.5rem]">
 						<strong class="uppercase text-sm">Optional</strong>
 						<Heading level={2}>Step 3: Upstream services</Heading>
 						<p class="mb-10">List the services providers you use to deliver your service.</p>

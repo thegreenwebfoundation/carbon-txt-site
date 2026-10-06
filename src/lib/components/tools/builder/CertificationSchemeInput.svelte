@@ -65,7 +65,7 @@
 <div class="certification-scheme-input">
     <FormField
       name="certificationSchemesEnabled"
-      label="Do you have third party certifications you’d like to include in your carbon.txt file?"
+      label="Do you have certifications you’d like to include?"
       hint="E.g.: ecolabels, or membership of organizations like B-corp"
       wide
     >
