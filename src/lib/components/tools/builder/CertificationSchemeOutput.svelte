@@ -10,7 +10,7 @@
 </script>
 
 {#if $store.length > 0}
-	<table class="w-full border-collapse">
+	<table class="w-full border-collapse mt-8">
 		<thead>
 			<tr class="bg-green-600 text-white">
 				<th class="p-2 text-left">URL</th>
