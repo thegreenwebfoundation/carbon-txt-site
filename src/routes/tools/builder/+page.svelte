@@ -74,17 +74,21 @@
 	const todaysDate = new Date().toISOString().split('T')[0]
 
 	let outputCode = $derived.by(
-		() => `version="${carbonTxtSyntaxVersion}"
+		() => {
+      let certificationSchemesContent = $builderCertificationSchemes.length > 0 ? `\n    ${mapCertificationSchemes()}\n` : ' ';
+      let disclosuresContent = $builderDisclosures.length > 0 ? `\n    ${mapDisclosures()}\n` : ' ';
+      let upstreamsContent = $builderUpstream.length > 0 ? `\n    ${mapUpstream()}\n` : ' ';
+      return `version="${carbonTxtSyntaxVersion}"
 last_updated=${todaysDate}
 
 [org]
-certification_schemes = [${$builderCertificationSchemes.length > 0 ? '\n    ' + mapCertificationSchemes() + '\n' : ' '}]
+certification_schemes = [${certificationSchemesContent}]
 
-disclosures = [${$builderDisclosures.length > 0 ? '\n    ' + mapDisclosures() + '\n' : ' '}]
+disclosures = [${disclosuresContent}]
 
 [upstream]
-services = [${$builderUpstream.length > 0 ? '\n    ' + mapUpstream() + '\n' : ' '}]`
-	)
+services = [${upstreamsContent}]`
+    })
 
 	const resetBuilder = () => {
 		builderUpstream.set([])

@@ -23,14 +23,14 @@
 	const pluginData = pluginResponse() || []
 
   const allCertificationSchemeColumns = [
-    { key: "id",  label: "Scheme ID", className: "whistepace-nowrap",  always: true },
+    { key: "id",  label: "Scheme ID", className: "whitespace-nowrap",  always: true },
     { key: "url",    label: "Scheme URL", className: "break-all",   always: true },
     { key: "title", label: "Title" },
     { key: "description", label: "Description" },
   ];
 
   const allDisclosureColumns = [
-    { key: "doc_type",  label: "Document type", className: "whistepace-nowrap",  always: true },
+    { key: "doc_type",  label: "Document type", className: "whitespace-nowrap",  always: true },
     { key: "url",    label: "Document URL", className: "break-all",   always: true },
     { key: "title", label: "Title" },
     { key: "description", label: "Description" },

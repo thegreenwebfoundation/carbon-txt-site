@@ -54,7 +54,7 @@
 
 			<p>
 				We believe that providing a simple way for organisations to implement the carbon.txt specification is key to broader adoption. It allows us, as a small not-for-profit driving this idea, to
-				have a much larger reach &amp; impact when compared to the alternative of relying on individual action. Buulding this project around a plugin ecosystem also allows for other organisations to build
+				have a much larger reach &amp; impact when compared to the alternative of relying on individual action. Building this project around a plugin ecosystem also allows for other organisations to build
 				on top of the carbon.txt specification, and extend it in ways that we haven't thought of.
 			</p>
 
@@ -171,7 +171,7 @@
           Other
         </dt>
         <dd>
-          Any other document which provides evidence of your carbon footprint, sustainability policy, or related commitments. If you want to recommend any new docuemnt types for inclusion in future versions of carbon.txt, you can <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues" target="_blank"> create an issue in our git repository</a>.
+          Any other document which provides evidence of your carbon footprint, sustainability policy, or related commitments. If you want to recommend any new document types for inclusion in future versions of carbon.txt, you can <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues" target="_blank"> create an issue in our git repository</a>.
         </dd>
       </dl>
 		</div>

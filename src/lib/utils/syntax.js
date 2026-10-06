@@ -86,7 +86,7 @@ providers = [
 								required: false,
 								parent: 'credentials',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://".',
 								type: 'url'
 							}
 						]
@@ -130,7 +130,6 @@ credentials = [
 				name: 'org',
 				required: true,
 				longTitle: 'Organisation disclosures',
-				// description: 'Links to documents that show your organisations sustainability disclosures.',
 				type: '[table]',
 				properties: [
 					{
@@ -155,7 +154,7 @@ credentials = [
 								required: true,
 								parent: 'disclosures',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://".',
 								type: 'url'
 							},
 							{
@@ -181,7 +180,6 @@ disclosures = [
 				required: true,
 				type: '[table]',
 				longTitle: 'Upstream services',
-				// description: 'Information linking your organisation to upstream providers used to deliver your services.',
 				properties: [
 					{
 						name: 'services',
@@ -257,7 +255,6 @@ services = [
 				name: 'org',
 				required: true,
 				longTitle: 'Organisation disclosures',
-				// description: 'Links to documents that show your organisations sustainability disclosures.',
 				type: '[table]',
 				properties: [
 					{
@@ -282,7 +279,7 @@ services = [
 								required: true,
 								parent: 'disclosures',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://".',
 								type: 'url'
 							},
 							{
@@ -316,7 +313,6 @@ disclosures = [
 				required: false,
 				type: '[table]',
 				longTitle: 'Upstream services',
-				// description: 'Information linking your organisation to upstream providers used to deliver your services.',
 				properties: [
 					{
 						name: 'services',
@@ -395,7 +391,6 @@ services = [
 				name: 'org',
 				required: true,
 				longTitle: 'Organisation disclosures',
-				// description: 'Links to documents that show your organisations sustainability disclosures.',
 				type: '[table]',
 				properties: [
 					{
@@ -420,7 +415,7 @@ services = [
 								required: true,
 								parent: 'disclosures',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://".',
 								type: 'url'
 							},
 							{
@@ -462,7 +457,6 @@ disclosures = [
 				required: false,
 				type: '[table]',
 				longTitle: 'Upstream services',
-				// description: 'Information linking your organisation to upstream providers used to deliver your services.',
 				properties: [
 					{
 						name: 'services',
@@ -541,7 +535,6 @@ services = [
 				name: 'org',
 				required: true,
 				longTitle: 'Organisation disclosures',
-				// description: 'Links to documents that show your organisations sustainability disclosures.',
 				type: '[table]',
 				properties: [
 					{
@@ -566,7 +559,7 @@ services = [
 								required: true,
 								parent: 'disclosures',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://".',
 								type: 'url'
 							},
 							{
@@ -609,7 +602,6 @@ disclosures = [
 				required: false,
 				type: '[table]',
 				longTitle: 'Upstream services',
-				// description: 'Information linking your organisation to upstream providers used to deliver your services.',
 				properties: [
 					{
 						name: 'services',
@@ -689,7 +681,6 @@ services = [
 				name: 'org',
 				required: true,
 				longTitle: 'Organisation disclosures',
-				// description: 'Links to documents that show your organisations sustainability disclosures.',
 				type: '[table]',
 				properties: [
 					{
@@ -714,7 +705,7 @@ services = [
 								required: true,
 								parent: 'certification_schemes',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://".',
 								type: 'url'
 							},
 							{
@@ -750,7 +741,6 @@ certification_schemes = [
 				name: 'org',
 				required: true,
 				longTitle: 'Organisation disclosures',
-				// description: 'Links to documents that show your organisations sustainability disclosures.',
 				type: '[table]',
 				properties: [
 					{
@@ -775,7 +765,7 @@ certification_schemes = [
 								required: true,
 								parent: 'disclosures',
 								longTitle: 'URL',
-								description: 'The URL of the document you are linking to beginning with "http://" or "https://.',
+								description: 'The URL of the document you are linking to beginning with "http://" or "https://".',
 								type: 'url'
 							},
 							{
@@ -828,7 +818,7 @@ certification_schemes = [
 disclosures = [
 	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com", certification_schemes=["blauer-engel"], description="This company's sustainability policy." },
 	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = 2025-12-31, title = "Emissions Report 2025" },
-	{ doc_type = "measurement-data", url = "https://mycompany.com/dist.json", title = "Quarterly emissions figures", descriptions = "Estimated carbon impact data for this company's digital operations, in DIST format" }
+	{ doc_type = "measurement-data", url = "https://mycompany.com/dist.json", title = "Quarterly emissions figures", description = "Estimated carbon impact data for this company's digital operations, in DIST format" }
 ]`
 			},
 			{
@@ -836,7 +826,6 @@ disclosures = [
 				required: false,
 				type: '[table]',
 				longTitle: 'Upstream services',
-				// description: 'Information linking your organisation to upstream providers used to deliver your services.',
 				properties: [
 					{
 						name: 'services',
@@ -888,7 +877,7 @@ certification_schemes = [
 disclosures = [
 	{ doc_type = "web-page", url = "https://mycompany.com/sustainability", domain = "mycompany.com", certification_schemes=["blauer-engel"], description="This company's sustainability policy." },
 	{ doc_type = "annual-report", url = "https://mycompany.com/carbon-emissions-2025.pdf", valid_until = 2025-12-31, title = "Emissions Report 2025" },
-	{ doc_type = "measurement-data", url = "https://mycompany.com/dist.json", title = "Quarterly emissions figures", descriptions = "Estimated carbon impact data for this company's digital operations, in DIST format" }
+	{ doc_type = "measurement-data", url = "https://mycompany.com/dist.json", title = "Quarterly emissions figures", description = "Estimated carbon impact data for this company's digital operations, in DIST format" }
 ]
 
 [upstream]
