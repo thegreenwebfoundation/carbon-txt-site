@@ -2,15 +2,17 @@
   import { get } from 'svelte/store';
 	import FormField from './FormField.svelte';
   import { urlRegex, idRegex } from '$lib/utils/constants';
+	import {slugifyWithCounter} from '@sindresorhus/slugify';
 
 	let { store } = $props()
 
 	let newObject = $state({
-      "id": "",
       "url": "",
       "title": "",
       "description": ""
 	})
+
+  let slugify = slugifyWithCounter();
 
 	let error = $state({
 		field: '',
@@ -20,24 +22,12 @@
   let certificationSchemesEnabled = $state(false);
 
 	const validate = () => {
-		if (newObject.id.length === 0) {
-			error.field = 'id'
-			error.message = 'Please give this certification scheme a unique ID'
+
+		if (newObject.title.length === 0) {
+			error.field = 'title'
+			error.message = 'Please give this certification scheme a title'
 			return false
 		}
-
-    if (!idRegex.test(newObject.id)) {
-			error.field = 'id'
-			error.message = 'Please only use letters, numbers, hyphens and underscores in your ID'
-			return false
-		}
-
-    const isDuplicate = get(store).some((scheme) => scheme.id === newObject.id)
-    if (isDuplicate) {
-      error.field = 'id'
-      error.message = 'This ID is already in use. Please choose a unique ID.'
-      return false
-    }
 
     if (newObject.url.length === 0) {
 			error.field = 'url'
@@ -60,12 +50,11 @@
 		if (!validate()) return
 
 		store.update((schemes) => {
-			schemes.push(newObject)
+			schemes.push({...{"id": slugify(newObject.title)}, ...newObject})
 			return schemes
 		})
 
 		newObject = {
-      "id": "",
       "url": "",
       "title": "",
       "description": ""
@@ -96,19 +85,9 @@
     </FormField>
 
     <FormField
-      name="id"
-      label="ID"
-      hint="A short, unique identifier (without spaces) for this certification scheme, so we can refer to it elsewhere in the file, <br />e.g. :'blauer-engel' or 'b-corp'."
-      error={error.field === 'id' ? error.message : ''}
-    >
-      <input type="text" name="id" bind:value={newObject.id} placeholder="a-certification-scheme" />
-    </FormField>
-
-    <FormField
       name="title"
       label="Title (Optional)"
       hint="A meaningful title describing the certification scheme."
-      wide
     >
       <input type="text" name="title" bind:value={newObject.title} placeholder="" />
     </FormField>

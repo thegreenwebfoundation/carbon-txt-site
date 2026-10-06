@@ -162,7 +162,7 @@ services = [${upstreamsContent}]`
 						<Heading level={2}>Step 2: Organisational disclosures</Heading>
 						<p class="mb-10">List the documents that show evidence of your green claims, such as CSRD, EED, ESG and/or other sustainability reporting.</p>
 						<DisclosureInput store={builderDisclosures} certificationSchemes={builderCertificationSchemes} {evidenceTypes} />
-						<DisclosureOutput store={builderDisclosures} {evidenceTypes} />
+						<DisclosureOutput store={builderDisclosures} {evidenceTypes} certificationSchemes={builderCertificationSchemes} />
 					</div>
 					<hr />
 					<div class="mb-[3rem]">

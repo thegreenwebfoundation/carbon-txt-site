@@ -22,7 +22,7 @@
 	})
 
 	let certificationSchemesOptions = $derived.by(() => {
-    return $certificationSchemes.map((s) => ({ "label": s.id, "value": s.id }))
+    return $certificationSchemes.map((s) => ({ "label": s.title, "value": s.id }))
   });
 
   let hasCertificationSchemes = $derived.by(() => {

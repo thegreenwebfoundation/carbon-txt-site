@@ -1,7 +1,7 @@
 <script>
 	import RemoveButton from './RemoveButton.svelte';
 
-	let { store, evidenceTypes } = $props()
+	let { store, evidenceTypes, certificationSchemes } = $props()
 
 	const remove = (disclosure) => {
 		store.update((disclosures) => disclosures.filter((item) => item !== disclosure))
@@ -10,6 +10,10 @@
 	const evidenceName = (evidence) => {
 		return evidenceTypes.find((item) => item.slug === evidence).name
 	}
+
+  const getCertificationSchemeTitle = (id) => {
+    return $certificationSchemes.find((cs) => (cs.id == id))?.title
+  }
 </script>
 
 {#if $store.length > 0}
@@ -33,7 +37,7 @@
 					<td class="p-2">{disclosure.title || '-'}</td>
 					<td class="p-2">{disclosure.description || '-'}</td>
 					<td class="p-2">{disclosure.validUntil || '-'}</td>
-					<td class="p-2">{disclosure.certificationSchemes?.join(", ") || '-'}</td>
+					<td class="p-2">{disclosure.certificationSchemes?.map(getCertificationSchemeTitle)?.join(", ") || '-'}</td>
 					<td class="p-2"><RemoveButton onRemove={() => remove(disclosure)} /></td>
 				</tr>
 			{/each}
