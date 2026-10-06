@@ -67,7 +67,7 @@
       }
 
       return `{ ${content} },`
-    }).join("\n  ")
+    }).join("\n    ")
   }
 
 	const carbonTxtSyntaxVersion = '0.6'
