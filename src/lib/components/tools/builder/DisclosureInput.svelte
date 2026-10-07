@@ -4,6 +4,8 @@
   import {urlRegex, domainRegex, dateRegex} from "$lib/utils/constants";
 
 
+  let deprecatedEvidenceTypes = ["web-page"]
+
 	let { evidenceTypes, store, certificationSchemes } = $props()
 
 	let newObject = $state({
@@ -20,6 +22,10 @@
 		field: '',
 		message: ''
 	})
+
+  let visibleEvidenceTypes = $derived.by(() => {
+    return evidenceTypes.filter((t) => (!deprecatedEvidenceTypes.includes(t.slug)))
+  });
 
 	let certificationSchemesOptions = $derived.by(() => {
     return $certificationSchemes.map((s) => ({ "label": s.title, "value": s.id }))
@@ -111,7 +117,7 @@
 		error={error.field === 'doctype' ? error.message : ''}
 	>
 		<select name="doctype" bind:value={newObject.doctype}>
-			{#each evidenceTypes as doctype (doctype.slug)}
+			{#each visibleEvidenceTypes as doctype (doctype.slug)}
 				<option value={doctype.slug}>{doctype.name}</option>
 			{/each}
 		</select>
