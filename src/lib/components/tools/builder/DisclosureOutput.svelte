@@ -19,7 +19,7 @@
 {#if $store.length > 0}
 	<table class="w-full border-collapse mt-8">
 		<thead>
-			<tr class="bg-green-600 text-white">
+			<tr class="bg-white text-black border-b">
 				<th class="p-2 text-left">Document type</th>
 				<th class="p-2 text-left">URL</th>
 				<th class="p-2 text-left">Title</th>
