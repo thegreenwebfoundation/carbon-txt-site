@@ -54,7 +54,7 @@
 
 			<p>
 				We believe that providing a simple way for organisations to implement the carbon.txt specification is key to broader adoption. It allows us, as a small not-for-profit driving this idea, to
-				have a much larger reach & impact when compared to the alternative of relying on individual action. Buulding this project around a plugin ecosystem also allows for other organisations to build
+				have a much larger reach &amp; impact when compared to the alternative of relying on individual action. Building this project around a plugin ecosystem also allows for other organisations to build
 				on top of the carbon.txt specification, and extend it in ways that we haven't thought of.
 			</p>
 
@@ -126,6 +126,66 @@
 			</details>
 		</div>
 	</Faq>
+	<Faq id="document-types">
+		<span slot="question">What types of document can I link to as evidence in my carbon.txt file?</span>
+		<div class="prose" slot="answer">
+      <p>We accept a wide variety of document types as evidence in the <strong>organisatioal disclosures</strong> section of your carbon.txt file. Currently, these include:</p>
+      <dl>
+        <dt>
+          Sustainability page
+        </dt>
+        <dd>
+          A link to the sustainability policy page of your website, or any other page which sets out your organisation's environmental or sustainability policies and commitments.
+        </dd>
+        <dt>
+          Annual Report
+        </dt>
+        <dd>
+          Official annual report for your company, including information on sustainability or CSR comitments, carbon reduction activity, or progress towards sustainability goals.
+        </dd>
+        <dt>
+          Certificate
+        </dt>
+        <dd>
+          A certificate provided by an external entity to your organization - these could be Guarantees of Origin or RECS (Renweable Energy Certificates) for your electricity usage, or certificates of compliance to an external <a href="#certification-schemes">certification scheme</a> such as <a href="https://www.bcorporation.net/en-us/certification/" target="_blank">B-corp</a> or <a href="https://tcocertified.com/" target="_blank">TCO Certified</a>.
+        </dd>
+        <dt>
+          CSRD Report
+        </dt>
+        <dd>
+          A report produced for compliance with the EU <a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en" target="_blank">Corporate Sustainability Reporting Directive</a>.
+        </dd>
+        <dt>
+          AI Model Card
+        </dt>
+        <dd>
+          If you use AI models as part of your operations, a link to an <a href="https://huggingface.co/docs/hub/model-cards" target="_blank">AI model card</a> in markdown format, containing carbon footprint information.
+        </dd>
+        <dt>
+          Measurement data
+        </dt>
+        <dd>
+          Any quantitative information, measured or estimated, about your organization's carbon emissions or other environmental impacts, in a structured, machine-readable format such as the <a href="https://dist.greenweb.org/schema" target="_blank">DIST schema</a>.
+        </dd>
+        <dt>
+          Other
+        </dt>
+        <dd>
+          Any other document which provides evidence of your carbon footprint, sustainability policy, or related commitments. If you want to recommend any new document types for inclusion in future versions of carbon.txt, you can <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues" target="_blank"> create an issue in our git repository</a>.
+        </dd>
+      </dl>
+		</div>
+	</Faq>
+	<Faq id="certification-schemes">
+		<span slot="question">What is a certification scheme, and how can I include one in my carbon.txt file?</span>
+		<div class="prose" slot="answer">
+      <p>In carbon.txt, we use the term <strong>certification schemes</strong> to refer to any independent third party which both <strong>sets out voluntary standards on sustainability, energy use, or emissions commitments</strong>, and also <strong>audits or verifies an organization's adherence to them</strong>. A good example is something like <a href="https://www.bcorporation.net" target="_blank">B-corp</a>, which both sets out the <a href="https://www.bcorporation.net/en-us/standards/performance-requirements/" target="_blank">B Lab Standards for social environmental and governance practices</a>, and <a href="https://www.bcorporation.net/en-us/certification/">certifies companies for compliance with them</a>.</p>
+      <p>Certification schemes are important in carbon.txt for two reasons: Firstly, by surfacing an organization's certifications, users of carbon.txt can have increased trust in their disclosures (as they have been indepently certified), and can better understand their specific sustainability commitments and policies, rather than just the actions that arise from them. In addition, certifying organizations themselves can use carbon.txt to more easily access the evidence they need to certify an organization.</p>
+      <p>
+        In carbon.txt, certification schemes are specified explicitly in a dedicated block of the file, and then referred to by disclosures that are relevant to them. This allows users to quickly identify which disclosures provide evidence for which particular certification schemes. For further details, please see our blog post.
+      </p>
+		</div>
+	</Faq>
 	<Faq id="developer-tools">
 		<span slot="question">I'm a developer, how can I use carbon.txt in my own applications?</span>
 		<div class="prose" slot="answer">
@@ -140,7 +200,7 @@
         <summary class="text-xl">The carbon.txt validation API</summary>
         <p>If you're not working with python, or if you prefer not to rely on our package for some other reason, we offer an HTTP API for performing carbon.txt lookups and validating carbon.txt files. This API allows you to check the syntax and contents of a carbon.txt file, provided as a URL or directly as text, as well as look up the carbon.txt file for any domain.</p>
         <p>API documentation is available at <a href="https://carbon-txt-api.greenweb.org/api/docs" target="_blank">carbon-txt-api.greenweb.org/api/docs</a>, and further information and usage examples on our <a href="https://developers.thegreenwebfoundation.org/api/carbon-txt/overview/" target="_blank">developer documentation site</a>. To access this API you will need to register for an API key on the <a href="https://admin.thegreenwebfoundation.org" target="_blank">Green Web portal</a>, and pass it in the <code>X-API-Key</code> header of your API requests. By default, requests are rate-limited to 2 per second per key - if you need a higher limit, please <a href="mailto:support@greenweb.org?subject=Raise%20API%20key%20request%20limit">get in touch</a> to discuss your use case!</p>
-        <p>If you're working in Javascript, our <a href="https://www.npmjs.com/package/@tgwf/co2" target="_blank">CO2.js</a> library provides a useful wrapper client for this API - full details are available in the <a href="https://developers.thegreenwebfoundation.org/co2js/overview/" target="_blank">developer documentation</a>.
+        <p>If you're working in Javascript, our <a href="https://www.npmjs.com/package/@tgwf/co2" target="_blank">CO2.js</a> library provides a useful wrapper client for this API - full details are available in the <a href="https://developers.thegreenwebfoundation.org/co2js/overview/" target="_blank">developer documentation</a>.</p>
       </details>
 		</div>
 	</Faq>
