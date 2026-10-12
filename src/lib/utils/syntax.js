@@ -688,7 +688,7 @@ services = [
 						parent: 'org',
 						required: false,
 						longTitle: 'Certification schemes',
-						description: 'Links to certification schemes (such as voluntary standards or ecolabels) which your organization adheres to',
+						description: 'Links to certification schemes (such as voluntary standards or ecolabels) which your organization adheres to. <a href="/faq#certification-schemes" target="_blank">Our FAQ has more information on certification schemes</a>.',
 						type: '[[array]]',
 						properties: [
 							{
@@ -757,7 +757,7 @@ certification_schemes = [
 								parent: 'disclosures',
 								longTitle: 'Document type',
 								description:
-									'A slugified string representing the type of document you are linking to. Accepted values are: "web-page", "annual-report", "sustainability-page", "certificate", "csrd-report", "ai-model-card", "measurement-data", "other"',
+									'A slugified string representing the type of document you are linking to. Accepted values are: "annual-report", "sustainability-page", "certificate", "csrd-report", "ai-model-card", "measurement-data", "other", or "web-page" (to be deprecated in the next release). <a href=\'/faq#document-types\' target=_\'blank\'>See our FAQ</a> for details on each document type.',
 								type: 'string'
 							},
 							{

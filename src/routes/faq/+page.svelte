@@ -173,6 +173,12 @@
         <dd>
           Any other document which provides evidence of your carbon footprint, sustainability policy, or related commitments. If you want to recommend any new document types for inclusion in future versions of carbon.txt, you can <a href="https://github.com/thegreenwebfoundation/carbon.txt/issues" target="_blank"> create an issue in our git repository</a>.
         </dd>
+        <dt>
+          Web page (deprecated)
+        </dt>
+        <dd>
+          Currently, carbon.txt will also accept the value of "web-page" as a document type for any pertinent web-page. However, use of this is discouraged (in favour of "Sustainabilty page" or "Other") and this document type will be formally deprecated in a future release.
+        </dd>
       </dl>
 		</div>
 	</Faq>
@@ -182,7 +188,7 @@
       <p>In carbon.txt, we use the term <strong>certification schemes</strong> to refer to any independent third party which both <strong>sets out voluntary standards on sustainability, energy use, or emissions commitments</strong>, and also <strong>audits or verifies an organization's adherence to them</strong>. A good example is something like <a href="https://www.bcorporation.net" target="_blank">B-corp</a>, which both sets out the <a href="https://www.bcorporation.net/en-us/standards/performance-requirements/" target="_blank">B Lab Standards for social environmental and governance practices</a>, and <a href="https://www.bcorporation.net/en-us/certification/">certifies companies for compliance with them</a>.</p>
       <p>Certification schemes are important in carbon.txt for two reasons: Firstly, by surfacing an organization's certifications, users of carbon.txt can have increased trust in their disclosures (as they have been indepently certified), and can better understand their specific sustainability commitments and policies, rather than just the actions that arise from them. In addition, certifying organizations themselves can use carbon.txt to more easily access the evidence they need to certify an organization.</p>
       <p>
-        In carbon.txt, certification schemes are specified explicitly in a dedicated block of the file, and then referred to by disclosures that are relevant to them. This allows users to quickly identify which disclosures provide evidence for which particular certification schemes. For further details, please see our blog post.
+        In carbon.txt, certification schemes are specified explicitly in a dedicated block of the file, and then referred to by disclosures that are relevant to them. This allows users to quickly identify which disclosures provide evidence for which particular certification schemes. For further details, <a href="https://www.thegreenwebfoundation.org/news/carbon-txt-v0-6-certification-schemes-measurement-data-and-more/" target="_blank">please see our blog post</a>.
       </p>
 		</div>
 	</Faq>

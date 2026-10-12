@@ -76,7 +76,7 @@
 							<td></td>
 							<td>{block.type}</td>
 							<td>{block.required}</td>
-							<td colspan="4" class="prose text-wrap max-w-prose">{block.description}</td>
+							<td colspan="4" class="prose text-wrap max-w-prose">{@html block.description}</td>
 						</tr>
 						{#if block.properties}
 							{#each block.properties as property (property)}
@@ -85,7 +85,7 @@
 									<td>{property.parent}</td>
 									<td>{property.type}</td>
 									<td>{property.required}</td>
-									<td colspan="4" class="prose text-wrap max-w-prose">{property.description}</td>
+									<td colspan="4" class="prose text-wrap max-w-prose">{@html property.description}</td>
 								</tr>
 								{#if property.properties}
 									{#each property.properties as subProperty (subProperty)}
@@ -94,7 +94,7 @@
 											<td>{subProperty.parent}</td>
 											<td>{subProperty.type}</td>
 											<td>{subProperty.required}</td>
-											<td colspan="4" class="prose text-wrap max-w-prose">{subProperty.description}</td>
+											<td colspan="4" class="prose text-wrap max-w-prose">{@html subProperty.description}</td>
 										</tr>
 									{/each}
 								{/if}
