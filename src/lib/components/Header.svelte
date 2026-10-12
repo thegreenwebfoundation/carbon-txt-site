@@ -8,7 +8,7 @@
 	<div class="annoucement-banner bg-green-200 border-b-2">
 		<div class="container mx-auto px-2 sm-px-4 bg-green-200">
 			<p class="py-6 text-center">
-				🌱 The carbon.txt validator is now available as an HTTP API! <a href="https://www.thegreenwebfoundation.org/news/announcing-api-access-to-carbon-txt/" target="_blank">Learn more at our blog</a>. 🌱
+				🌱 Just released! carbon.txt v0.6, with support for certification schemes! <a href="https://www.thegreenwebfoundation.org/news/carbon-txt-v0-6-certification-schemes-measurement-data-and-more/" target="_blank">Learn more at our blog</a>. 🌱
 			</p>
 		</div>
 	</div>
@@ -25,6 +25,7 @@
 
 			<div class="flex gap-3 w-full sm:w-auto min-[400px]:gap-6 sm:gap-6 flex-wrap items-center justify-end">
 				<a href="/tools" class={currentPage('/tools')}>Tools</a>
+				<a href="/syntax" class={currentPage('/syntax')}>Syntax</a>
 				<a href="/use-cases" class={currentPage('/about')}>Use cases</a>
         <a href="/news" class={currentPage("/news")}>News</a>
 				<a href="/faq" class={currentPage('/faq')}>FAQ</a>

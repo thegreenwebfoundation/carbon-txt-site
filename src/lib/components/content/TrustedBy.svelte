@@ -21,5 +21,6 @@
 		<a href="/tools/validator?auto=true&url=https://worldoflouis.com/carbon.txt"><img class="m-3" width="50px" height="40px" src="/users/wol-logo.png" alt="World of Louis logo" /></a>
 		<a href="/tools/validator?auto=true&url=https://www.buddyworks.co.jp/carbon.txt"><img class="m-3" width="250px" height="40px" src="/users/buddyworks_logo.svg" alt="World of Louis logo" /></a>
 		<a href="/tools/validator?auto=true&url=https://wagtail.org/carbon.txt"><img class="m-3" width="109px" height="40px" src="/users/wagtail.svg" alt="Wagtail CMS logo" /></a>
+		<a href="/tools/validator?auto=true&url=https://oxfam.org.uk/carbon.txt"><img class="m-3" width="103px" height="40px" src="/users/oxfam.png" alt="Oxfam logo" /></a>
 	</div>
 </div>

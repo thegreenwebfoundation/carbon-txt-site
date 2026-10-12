@@ -21,7 +21,7 @@ const apiLookup = async (carbontxt = '') => {
 }
 
 const generateCarbonTxt = async (model = '') => {
-	return `version="0.5"
+	return `version="0.6"
 
  [org]
  disclosures = [
