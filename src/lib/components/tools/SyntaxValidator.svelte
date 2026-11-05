@@ -1,9 +1,10 @@
 <script>
 	import { enhance } from '$app/forms'
+	import { replaceState } from '$app/navigation'
 	import { onMount } from 'svelte'
 	let validating = $state(false)
 
-	let { textInput, url, data, domain } = $props()
+	let { textInput, url, data, domain, submitted = false } = $props()
 
 	let fieldsEntered = $derived(() => {
 		let fields = 0
@@ -15,20 +16,36 @@
 
 	// This code is used to trigger a verification lookup automatically if a url is provided when the page loads.
 	onMount(() => {
-		// Set the URL input value if it exists
-		let searchParams = new URLSearchParams(data.url.search)
-		const autoTrigger = searchParams.get('auto') || null
-
-		if (url && autoTrigger === 'true') {
-			document.getElementById('input-url').value = url
-			document.getElementById('validator-form').submit()
-			validating = true
-		} else if (domain && autoTrigger === 'true') {
-			document.getElementById('input-domain').value = domain
-			document.getElementById('validator-form').submit()
-			validating = true
-		}
+    if (submitted) return
+    if (url) {
+      document.getElementById('input-url').value = url
+      document.getElementById('validator-form').submit()
+      validating = true
+    } else if (domain) {
+      document.getElementById('input-domain').value = domain
+      document.getElementById('validator-form').submit()
+      validating = true
+    }
 	})
+
+  // Ensure the querystring is cleared if the url or domain is cleared in the form
+  $effect(() => {
+      const params = new URLSearchParams(window.location.search)
+      let changed = false
+
+      if (!url && params.has('url')) {
+        params.delete('url')
+        changed = true
+      }
+      if (!domain && params.has('domain')) {
+        params.delete('domain')
+        changed = true
+      }
+      if (!changed) return
+
+      const qs = params.toString()
+      replaceState(`${window.location.pathname}${qs ? `?${qs}` : ''}`, {})
+    })
 </script>
 
 <form
