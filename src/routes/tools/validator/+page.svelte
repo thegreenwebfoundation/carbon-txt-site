@@ -1,5 +1,5 @@
 <script>
-	// NOTE: There is currently no waay to test this validator locally as it relies on Cloudflare Workers KV.
+  import { replaceState } from '$app/navigation'
 
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
@@ -24,6 +24,15 @@
 		if (form?.response) {
 			// Scroll to the result section
 			document.getElementById('result').scrollIntoView({ behavior: 'smooth' })
+
+      // ensure the query string is set so that the result URL is shareable.
+      const params = new URLSearchParams()
+		  if (form.url) params.set('url', form.url)
+		  else if (form.domain) params.set('domain', form.domain)
+		  const qs = params.toString()
+      window.setTimeout(() => {
+		    replaceState(`${window.location.pathname}${qs ? `?${qs}` : ''}`, {})
+      }, 0)
 		}
 	})
 </script>
@@ -45,7 +54,12 @@
 				<a href="/syntax">Learn more about the syntax</a>.
 			</p>
 		</div>
-		<SyntaxValidator textInput={form?.text_contents || ''} url={form?.url || url || ''} domain={form?.domain || domain || ''} {data} />
+		<SyntaxValidator
+      textInput={form?.text_contents || ''}
+      url={form?.url || url || ''}
+      domain={form?.domain || domain || ''}
+      submitted={!!form?.response}
+      {data} />
 	</div>
 </section>
 
