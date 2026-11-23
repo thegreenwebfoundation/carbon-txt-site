@@ -1,6 +1,7 @@
 <script>
 	import Heading from '$lib/components/Heading.svelte'
 	import services from '$lib/utils/upstreamServices.js'
+  import SEO from '$lib/components/SEO.svelte'
 
 	const servicesByCategory = services.reduce((acc, service) => {
 		if (!acc[service.category]) {
@@ -16,7 +17,7 @@
 		return category.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
 	}
 </script>
-
+<SEO title="Upstream provider services" />
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<Heading level={1}>Upstream provider services</Heading>
 	<article class="prose">

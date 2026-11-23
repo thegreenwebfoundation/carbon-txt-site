@@ -3,8 +3,9 @@
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
 	import Button from '$lib/components/Button.svelte'
+  import SEO from '$lib/components/SEO.svelte'
 </script>
-
+<SEO title="Implementing carbon.txt for your organisation" />
 <article id="digital-services" class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[3rem] prose">
 		<Heading level={1}>Implementing carbon.txt for your organisation</Heading>

@@ -2,12 +2,13 @@
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
 	import Button from '$lib/components/Button.svelte'
+  import SEO from '$lib/components/SEO.svelte'
 	import What from '$lib/components/content/What.svelte'
 	import WhatData from '$lib/components/content/WhatData.svelte'
 	import TrustedBy from '$lib/components/content/TrustedBy.svelte'
 	import Features from '$lib/components/content/Features.svelte'
 </script>
-
+<SEO />
 <section class="w-100" id="intro">
 	<div class="relative block">
 		<div class="absolute -z-50 right-0 w-1/2 -top-24 bg-no-repeat bg-right bg-[length:100%_100%] bg-gradient-to-l from-green-500 hidden md:block" style="height: calc(100% + 100px);" />

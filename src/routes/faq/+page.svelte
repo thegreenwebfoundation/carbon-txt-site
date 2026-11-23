@@ -1,10 +1,10 @@
 <script>
 	import Heading from '$lib/components/Heading.svelte'
 	import Faq from '$lib/components/Faq.svelte'
-
+  import SEO from '$lib/components/SEO.svelte'
 	import DomainLookup from '$lib/svg/mermaid_domain-lookup.svelte'
 </script>
-
+<SEO title="Frequently asked questions" />
 <article class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="prose mb-[3rem]">
 		<Heading level={1}>Frequently asked questions</Heading>

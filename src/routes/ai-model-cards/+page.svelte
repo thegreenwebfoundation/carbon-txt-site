@@ -1,7 +1,7 @@
 <script>
 	import Heading from '$lib/components/Heading.svelte'
 	import Button from '$lib/components/Button.svelte'
-
+  import SEO from '$lib/components/SEO.svelte'
 	import Grid from 'gridjs-svelte'
 	import { html } from 'gridjs'
 	import MultiSelect from 'svelte-multiselect'
@@ -103,7 +103,7 @@
 		}
 	}
 </script>
-
+<SEO title="AI model sustainability directory" />
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[3rem]">
 		<Heading level={1}>AI Model Sustainability Directory</Heading>
