@@ -1,6 +1,7 @@
 <script>
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
+  import SEO from '$lib/components/SEO.svelte'
 
 	const WP_BLOG_HOST = 'www.thegreenwebfoundation.org'
 
@@ -9,7 +10,7 @@
 
 	let posts = data?.posts || []
 </script>
-
+<SEO title="News" />
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
 	<div class="w-100 mb-[5rem] pt-[2.5rem]">
 		<Heading level={1}>News</Heading>

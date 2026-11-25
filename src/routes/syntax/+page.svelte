@@ -2,13 +2,13 @@
 	// Components
 	import Code from '$lib/components/Code.svelte'
 	import Heading from '$lib/components/Heading.svelte'
-
+  import SEO from '$lib/components/SEO.svelte'
 	import { syntaxVersions } from '$lib/utils/syntax.js'
 
 	let currentSyntax = syntaxVersions.filter((version) => version.current)[0] || syntaxVersions[0]
 	let selectedSyntax = currentSyntax.name
 </script>
-
+<SEO title="Syntax" />
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[1rem] pt-[2.5rem]">
 		<Heading level={1}>Carbon.txt syntax</Heading>

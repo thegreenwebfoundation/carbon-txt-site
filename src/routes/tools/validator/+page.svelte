@@ -3,6 +3,7 @@
 
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
+  import SEO from '$lib/components/SEO.svelte'
 	import SyntaxValidator from '$lib/components/tools/SyntaxValidator.svelte'
 	import SyntaxValidatorSuccess from '$lib/components/tools/SyntaxValidatorSuccess.svelte'
 	import SyntaxValidatorError from '$lib/components/tools/SyntaxValidatorError.svelte'
@@ -36,7 +37,7 @@
 		}
 	})
 </script>
-
+<SEO title="Validator" />
 <ToolsNav currentView="validator" />
 
 <section class="w-100" id="intro">

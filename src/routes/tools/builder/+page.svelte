@@ -6,6 +6,7 @@
 	import CertificationSchemeOutput from '$lib/components/tools/builder/CertificationSchemeOutput.svelte'
 	import DisclosureInput from '$lib/components/tools/builder/DisclosureInput.svelte'
 	import DisclosureOutput from '$lib/components/tools/builder/DisclosureOutput.svelte'
+  import SEO from '$lib/components/SEO.svelte'
 	import UpstreamInput from '$lib/components/tools/builder/UpstreamInput.svelte'
 	import UpstreamOutput from '$lib/components/tools/builder/UpstreamOutput.svelte'
 	import copy from 'clipboard-copy'
@@ -110,7 +111,7 @@ services = [${upstreamsContent}]`
 		}, 0)
 	}
 </script>
-
+<SEO title="Builder" />
 <ToolsNav currentView="builder" />
 
 <section class="w-100" id="intro">

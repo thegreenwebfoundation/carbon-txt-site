@@ -1,9 +1,10 @@
 <script>
 	// Components
 	import Heading from '$lib/components/Heading.svelte'
+  import SEO from '$lib/components/SEO.svelte'
 	import What from '$lib/components/content/What.svelte'
 </script>
-
+<SEO title="Use cases" />
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 border-b-2 last:border-0 border-neutral-200">
 	<div class="w-100 mb-[5rem] pt-[2.5rem]">
 		<Heading level={1}>Use cases</Heading>

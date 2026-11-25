@@ -1,9 +1,10 @@
 <script>
 	import Heading from '$lib/components/Heading.svelte'
+  import SEO from '$lib/components/SEO.svelte'
 	import TGWF_Question from '$lib/svg/tgwf_logo_question.svelte'
 	import TGWF_Tree from '$lib/svg/tgwf_logo_tree.svelte'
 </script>
-
+<SEO title="Tools" />
 <section>
 	<div class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4 mb-[2rem]">
 		<div class="prose md:w-[80%]">

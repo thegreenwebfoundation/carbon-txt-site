@@ -4,6 +4,7 @@
 	import Faq from '$lib/components/Faq.svelte'
 	import 'gridjs/dist/theme/mermaid.css'
 	import Code from '$lib/components/Code.svelte'
+	import SEO from '$lib/components/SEO.svelte'
 	import copy from 'clipboard-copy'
 	let copyText = 'Copy output'
 
@@ -83,6 +84,7 @@ services = [
 	}
 </script>
 
+<SEO title="AI model sustainability directory: {data.model.name}" />
 <section class="container mx-auto pt-6 md:pt-8 px-2 sm:px-4">
 	<div class="w-100 mb-[3rem]">
 		<p class="prose mb-[3rem]"><a href="/ai-model-cards"> &larr; Back to model cards</a></p>
