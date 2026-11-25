@@ -3,6 +3,9 @@
 
 	export let title = "Digital sustainability matters"
 	export let description = 'A single, discoverable location on any web domain for public, machine-readable sustainability data about that company.'
+  export let image = "/carbon_txt_opengraph.png"
+  export let imageWidth = "1200"
+  export let imageHeight = "627"
 
 	const siteName = 'carbon.txt'
 
@@ -18,4 +21,6 @@
 	<meta property="og:title" content={fullTitle} />
 	<meta property="og:description" content={description} />
 	<meta property="og:url" content={url} />
+	<meta property="og:image:width" content={imageWidth} />
+	<meta property="og:image:height" content={imageHeight} />
 </svelte:head>
